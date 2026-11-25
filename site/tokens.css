@@ -1,0 +1,23 @@
+/* Finance product roles on the unchanged dot. foundation. */
+:root, [data-dot-theme="light"] {
+  --dot-accent: #31573f;
+  --dot-onAccent: #ffffff;
+  --product-soft: #ecefe8;
+  --product-rule: #c8cec3;
+  --product-panel: #263e30;
+  --product-panel-text: #f7f8f3;
+  --product-panel-secondary: #c3cfbf;
+  --product-panel-rule: #536954;
+  color-scheme: light;
+}
+[data-dot-theme="dark"] {
+  --dot-accent: #b9d3b9;
+  --dot-onAccent: #151815;
+  --product-soft: #252e24;
+  --product-rule: #52604c;
+  --product-panel: #243a2c;
+  --product-panel-text: #f7f8f3;
+  --product-panel-secondary: #c3cfbf;
+  --product-panel-rule: #536954;
+  color-scheme: dark;
+}

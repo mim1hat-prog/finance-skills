@@ -1,0 +1,2 @@
+# Optional local workbook audit. No packages needed for the core skills/CSV tools.
+openpyxl==3.1.5

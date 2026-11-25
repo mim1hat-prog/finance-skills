@@ -1,0 +1,690 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-25",
+  "purpose": "Reviewed source provenance for 24 original finance skills and optional source acquisition. A pin records review, not host compatibility or runtime installation.",
+  "policy": {
+    "autoBump": false,
+    "executeUpstreamCode": false,
+    "githubActions": false,
+    "workPcDaemons": false,
+    "hostImportsRequireReplacementOrRefresh": true
+  },
+  "discovery": {
+    "url": "https://www.agenorit.com.au/insights/top-github-repositories",
+    "pageReviewedOn": "2026-11-11",
+    "scope": "Screened Top 100 and 45 Editor's Picks for finance relevance; inspected selected primary sources. No claim that every listed repository was audited."
+  },
+  "sources": [
+    {
+      "id": "hallmark",
+      "repository": "Nutlope/hallmark",
+      "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "2.0.0",
+      "engineVersion": null,
+      "requestedSource": true,
+      "archiveSha256": "1d41fe4c866c2ce18a86ae6f07c45c9ecd8274949a35307cf6527832226a1435",
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/hallmark/SKILL.md"
+      ],
+      "appliedSkills": [
+        "design-review",
+        "corporate-style"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Keep pinned source for repository design; optionally install into an approved coding host. Preserve project DESIGN.md priority.",
+      "requirements": [
+        "Coding agent with skill support",
+        "Node >=18 for installer/static checks",
+        "Chrome and puppeteer-core for rendered checks"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": true,
+        "sourceArchiveChecksumVerified": true,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false,
+        "archiveMatchesReviewedGitFiles": true,
+        "archiveFilesVerified": 860
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks.",
+      "hostNotes": "Supports GitHub Copilot as a coding harness; does not establish Microsoft 365 Copilot or Gemini Apps runtime support.",
+      "archiveBytes": 61468446
+    },
+    {
+      "id": "anthropic-skills",
+      "repository": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": true,
+      "archiveSha256": "28cc73b0b22d9129002f027bc2420d2a0faef0313e8806d4624adb80f0c2ea08",
+      "license": {
+        "spdx": "Apache-2.0",
+        "observation": "Apache-2.0 for inspected xlsx/docx/pdf/pptx folders; check individual folder notices for other skills",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/xlsx/SKILL.md"
+      ],
+      "appliedSkills": [
+        "excel-data-coverage",
+        "spreadsheet-modeling",
+        "management-presentation",
+        "business-document",
+        "cash-working-capital",
+        "scenario-planning"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Use pinned xlsx resources as optional local reference and retain formulas, source traceability and recalculation checks in native edition.",
+      "requirements": [
+        "Python",
+        "openpyxl",
+        "pandas as needed",
+        "LibreOffice for provided formula recalculation script"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": true,
+        "sourceArchiveChecksumVerified": true,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false,
+        "archiveMatchesReviewedGitFiles": true,
+        "archiveFilesVerified": 448
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks.",
+      "hostNotes": "Python code can be run locally when packages are approved; provided recalc route still needs LibreOffice. openpyxl alone does not calculate formulas.",
+      "archiveBytes": 4412021
+    },
+    {
+      "id": "claude-mem",
+      "repository": "thedotmack/claude-mem",
+      "commit": "4dc8e48cddee663edc3e401109f836d11f926a45",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "16.1.3",
+      "engineVersion": null,
+      "requestedSource": true,
+      "archiveSha256": "ede6b5beda76bc426ac2280692e796968c3f3b6a059a92e84dcf338aded02832",
+      "license": {
+        "spdx": "Apache-2.0",
+        "observation": "Apache-2.0",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [],
+      "appliedSkills": [
+        "project-context"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Keep project-context portable; prepare a separate opt-in runtime recipe only for approved coding host/provider. Source checkout is not a runtime install.",
+      "requirements": [
+        "Node ^20.19.0 || >=22.12.0",
+        "Bun >=1.1.31",
+        "Local worker and SQLite",
+        "Observer/model provider; uv for vector search"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": true,
+        "sourceArchiveChecksumVerified": true,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false,
+        "archiveMatchesReviewedGitFiles": true,
+        "archiveFilesVerified": 4004
+      },
+      "archiveNotes": "Reviewed repository contains symlinks. Use --archive-only; strict Windows extraction rejects all symlinks.",
+      "hostNotes": "Windows setup is documented. Supported coding hosts vary; Copilot CLI gets search only and does not record sessions.",
+      "privacyNotes": "Usage analytics on by default; cloud sync opt-in. Installer can install dependencies/start runtime and offer provider signup; do not execute silently as part of a skill import.",
+      "archiveBytes": 30264643
+    },
+    {
+      "id": "hyperframes",
+      "repository": "heygen-com/hyperframes",
+      "commit": "c890cb38f0d0786831c99ab515587f5750185cb8",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "0.9.91 (packages/cli/package.json)",
+      "engineVersion": null,
+      "requestedSource": true,
+      "archiveSha256": "a487e3202c4fc8d0cc83ef66757072c7c2425076c0ba740ee99caeb003a0dbac",
+      "license": {
+        "spdx": "Apache-2.0",
+        "observation": "Apache-2.0",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/hyperframes/SKILL.md"
+      ],
+      "appliedSkills": [
+        "video-storyboard"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Pin new commit c890cb38; use CLI-matching released skills when installing. Keep render helpers optional; useful for finance explainers but lower priority than data controls.",
+      "requirements": [
+        "Node >=22",
+        "FFmpeg",
+        "Headless Chrome/browser rendering"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": true,
+        "sourceArchiveChecksumVerified": true,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false,
+        "archiveMatchesReviewedGitFiles": true,
+        "archiveFilesVerified": 10853
+      },
+      "archiveNotes": "Reviewed repository contains symlinks. Use --archive-only; strict Windows extraction rejects all symlinks.",
+      "hostNotes": "Windows Studio app is available; coding-host path is documented separately. Existing M365/Gemini subscriptions do not provide this runtime.",
+      "privacyNotes": "Original skill asks to send a usage note. HYPERFRAMES_NO_TELEMETRY=1 / DO_NOT_TRACK=1 and telemetry disable are supported; adaptation should not add unsolicited usage beacons.",
+      "archiveBytes": 148406292
+    },
+    {
+      "id": "duckdb-skills",
+      "repository": "duckdb/duckdb-skills",
+      "commit": "44dfbbb414e54187964a2212eae28495f6ae21d9",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "0.2.5 (latest commit message; not independently read manifest)",
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/query/SKILL.md",
+        "skills/read-file/SKILL.md"
+      ],
+      "appliedSkills": [
+        "analytical-sql",
+        "account-mapping",
+        "power-query-etl"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Implement a Windows Python analytical-SQL workflow with local CSV/Parquet, explicit schemas, Decimal-safe finance types, source counts, and resource limits; no implied 1GB–100GB capacity guarantee.",
+      "requirements": [
+        "DuckDB CLI in original; Python duckdb for Windows adapter"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks.",
+      "hostNotes": "Upstream README explicitly says not yet fully supported. Official DuckDB Python 2.0 client supports a separate Python route and requires Python >=3.11."
+    },
+    {
+      "id": "valyu",
+      "repository": "valyuAI/skills",
+      "commit": "be57c51696fa74a0fce129e3dc165c93c599a0c9",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": null,
+        "observation": "MIT declared in skill frontmatter/README; no root license file observed",
+        "reviewRequiredBeforeRedistribution": true
+      },
+      "skillPaths": [
+        "valyu-search/valyu-best-practices/SKILL.md"
+      ],
+      "appliedSkills": [
+        "evidence-research",
+        "sharepoint-evidence"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Keep provider-independent evidence ledger. Put API-backed Valyu access in a separate optional profile only when a key/service is approved.",
+      "requirements": [
+        "Valid Valyu API key",
+        "Network",
+        "Official valyu Python or valyu-js SDK"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "d3-viz",
+      "repository": "chrisvoncsefalvay/claude-d3js-skill",
+      "commit": "e198c87d03f1c9811acbff681886fac24baee53d",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": null,
+        "observation": "No licence file or licence frontmatter observed at inspected commit",
+        "reviewRequiredBeforeRedistribution": true
+      },
+      "skillPaths": [
+        "SKILL.md"
+      ],
+      "appliedSkills": [
+        "interactive-visualization"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Do not vendor upstream text/code absent permission. Keep independently authored interactive-visualization; use official D3 documentation/license separately if runtime D3 is needed.",
+      "requirements": [
+        "JavaScript DOM/SVG",
+        "D3 library",
+        "Browser preview"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "scientific-skills",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "commit": "c21d13b3cc2894680229ba9959a53281acb9200e",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT root and inspected modules; individual dependencies can differ",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/statistical-analysis/SKILL.md",
+        "skills/exploratory-data-analysis/SKILL.md",
+        "skills/scientific-critical-thinking/SKILL.md",
+        "skills/database-lookup/SKILL.md"
+      ],
+      "appliedSkills": [
+        "reproducible-analysis",
+        "scenario-planning",
+        "workforce-reconciliation",
+        "forecast-variance"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Adapt EDA, time-series validation, sensitivity and evidence-quality methods to financial control. Do not install all 177 domain skills.",
+      "requirements": [
+        "Varies by module",
+        "Python scientific libraries for numerical work",
+        "Some optional features need external APIs"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "markitdown",
+      "repository": "microsoft/markitdown",
+      "commit": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "0.1.9 (source __about__.py)",
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [],
+      "appliedSkills": [
+        "document-extraction"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Add document-extraction audit with local convert_local/convert_stream, source links/page/table coverage, spot checks and explicit OCR limits. No cloud OCR unless separately approved.",
+      "requirements": [
+        "Python >=3.10,<3.15",
+        "Format-specific optional packages"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "diagram-design",
+      "repository": "cathrynlavery/diagram-design",
+      "commit": "1acb8776bab34f5055399fbac96a693c8d5cf7b3",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/diagram-design/SKILL.md"
+      ],
+      "appliedSkills": [
+        "process-diagram"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Make close and reporting lineage diagrams from explicitly provided processes; static SVG and self-contained HTML, employer style in work output.",
+      "requirements": [
+        "HTML/SVG",
+        "Python validation; Node/browser only for optional visual tooling"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "superpowers",
+      "repository": "obra/superpowers",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT (previous pinned inspection, unchanged commit)",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/verification-before-completion/SKILL.md"
+      ],
+      "appliedSkills": [
+        "work-tool-routing",
+        "close-controls",
+        "excel-data-coverage"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Carry forward fresh reconciliation/control evidence before sign-off; do not import coding harness wholesale.",
+      "requirements": [],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "addy-agent-skills",
+      "repository": "addyosmani/agent-skills",
+      "commit": "e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT (previous pinned inspection, unchanged commit)",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/documentation-and-adrs/SKILL.md"
+      ],
+      "appliedSkills": [
+        "business-document",
+        "project-context",
+        "account-mapping"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Add finance decision log and source-change notes to account mappings and recurring-report handoffs.",
+      "requirements": [],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "mattpocock-skills",
+      "repository": "mattpocock/skills",
+      "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT (previous pinned inspection, unchanged commit)",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/productivity/handoff/SKILL.md"
+      ],
+      "appliedSkills": [
+        "project-context"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Use concise owner/date/next-step handoffs within approved workplace files. Portable project-context already covers much of this.",
+      "requirements": [],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "ecc",
+      "repository": "affaan-m/ECC",
+      "commit": "4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": null,
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT (previous pinned inspection, unchanged commit)",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skills/market-research/SKILL.md"
+      ],
+      "appliedSkills": [
+        "evidence-research"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Borrow source-attribution method for market-driver briefing, avoiding mandatory Firecrawl/Exa dependencies when absent.",
+      "requirements": [],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": false,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "impeccable",
+      "repository": "pbakaus/impeccable",
+      "commit": "b49177d32788f2dc585c42831d845dacf1ebed2c",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "4.10.0",
+      "engineVersion": "0.1.27",
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "Apache-2.0",
+        "observation": "Apache-2.0",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [
+        "skill/SKILL.src.md",
+        ".github/skills/impeccable/SKILL.md",
+        ".agents/skills/impeccable/SKILL.md"
+      ],
+      "appliedSkills": [
+        "design-review"
+      ],
+      "adaptation": "Original finance instructions informed by the reviewed methods; upstream code and wording are not bundled into native packages.",
+      "selectionReason": "Optional design QA for repository, not core finance analysis. Existing project DESIGN.md remains authoritative.",
+      "requirements": [
+        "Node >=18.19 for npx",
+        "Self-contained engine binary; Windows x64 artifact supported"
+      ],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": true,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Strict archive extraction is available if the downloaded ZIP passes all checks."
+    },
+    {
+      "id": "dot-brand-kit",
+      "repository": "Somamill/dot-brand-kit",
+      "commit": "1bd44c0909747258cddd8f4110ff70684f6bb3e7",
+      "reviewedOn": "2026-11-25",
+      "sourceVersion": "2.1.0 (foundation/tokens.json)",
+      "engineVersion": null,
+      "requestedSource": false,
+      "archiveSha256": null,
+      "license": {
+        "spdx": "MIT",
+        "observation": "MIT licence retained with the vendored foundation",
+        "reviewRequiredBeforeRedistribution": false
+      },
+      "skillPaths": [],
+      "appliedSkills": [],
+      "adaptation": "Exact foundation tokens/components plus original catalogue styles. Employer output still uses the approved employer template.",
+      "selectionReason": "Track the real dot. design kit used by this repository. A changed kit is a review candidate, not automatic product adoption.",
+      "requirements": [],
+      "status": {
+        "sourcePinVerified": true,
+        "sourceCheckoutPrepared": true,
+        "sourceArchiveChecksumVerified": false,
+        "runtimeInstalledOnWorkPc": false,
+        "nativeHostImported": false
+      },
+      "archiveNotes": "Needed foundation files are already vendored with exact hashes in branding/dot/source.json.",
+      "hostNotes": "Repository presentation only; does not grant registered dot. product membership."
+    }
+  ],
+  "documents": [
+    {
+      "id": "m365-chat-authoring",
+      "url": "https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "m365-chat-import",
+      "url": "https://support.microsoft.com/en-gb/microsoft-365-copilot/create-edit-skills-copilot",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "copilot-excel-skills",
+      "url": "https://support.microsoft.com/en-gb/excel/copilot/copilot-in-excel-skills",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "copilot-powerpoint-skills",
+      "url": "https://support.microsoft.com/en-us/powerpoint/copilot/copilot-in-powerpoint-skills",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "copilot-agent-builder",
+      "url": "https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "gemini-skills",
+      "url": "https://support.google.com/gemini/answer/17094296",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "gemini-skill-transfer",
+      "url": "https://support.google.com/gemini/answer/18977944",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "gemini-workspace-transition",
+      "url": "https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/about-the-transition-to-skills",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "vscode-skills",
+      "url": "https://code.visualstudio.com/docs/agent-customization/agent-skills",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "duckdb-python",
+      "url": "https://duckdb.org/docs/2.0/clients/python/overview",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "sharepoint-folder",
+      "url": "https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "discovery-index",
+      "url": "https://www.agenorit.com.au/insights/top-github-repositories",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null
+    },
+    {
+      "id": "power-bi-star-schema",
+      "url": "https://learn.microsoft.com/en-us/power-bi/guidance/star-schema",
+      "reviewedOn": "2026-11-25",
+      "contentSha256": null,
+      "appliedSkills": [
+        "power-bi-analysis",
+        "power-query-etl"
+      ]
+    }
+  ]
+}

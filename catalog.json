@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "reviewedOn": "2026-11-25",
+  "repoUrl": "https://github.com/mim1hat-prog/finance-skills",
+  "sourcePack": {
+    "repository": "Somamill/dot-agent-toolsuite",
+    "commit": "2a6b4c05b09f094d226e018abb5d81fbdb09f0c8",
+    "path": "skills/work"
+  },
+  "skills": [
+    {
+      "name": "work-tool-routing",
+      "title": "Work tool routing",
+      "summary": "Choose the available tool and finish with evidence.",
+      "category": "Core",
+      "group": "core",
+      "prompt": "Use work-tool-routing to turn the attached monthly headcount workbook into a management update. Calculate in Excel where possible, explain the largest exceptions, and prepare a short presentation in the approved template. State which sources and checks you could actually access."
+    },
+    {
+      "name": "excel-data-coverage",
+      "title": "Excel data coverage",
+      "summary": "Check the complete workbook population before drawing conclusions.",
+      "category": "Controls",
+      "group": "core",
+      "prompt": "Use excel-data-coverage to check whether this month's personnel-cost total covers every relevant table in the accessible workbook. Let Excel calculate, inspect aggregate controls and exceptions, leave source data unchanged, and identify any coverage you cannot verify."
+    },
+    {
+      "name": "workforce-reconciliation",
+      "title": "Workforce reconciliation",
+      "summary": "Reconcile headcount, FTE, transfers and personnel costs.",
+      "category": "Planning",
+      "group": "core",
+      "prompt": "Use workforce-reconciliation to reconcile opening and closing headcount and FTE for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources."
+    },
+    {
+      "name": "forecast-variance",
+      "title": "Forecast variance",
+      "summary": "Explain budget and forecast differences with reconciled drivers.",
+      "category": "Planning",
+      "group": "core",
+      "prompt": "Use forecast-variance to compare the selected month's actual personnel cost with the approved forecast. Let Excel calculate, reconcile nonoverlapping staffing/rate/FX effects where the inputs support them, preserve the JPY display unit, and show any unexplained residual."
+    },
+    {
+      "name": "power-bi-analysis",
+      "title": "Power BI analysis",
+      "summary": "Review model grain, DAX, filter context and control totals.",
+      "category": "Analysis",
+      "group": "core",
+      "prompt": "Use power-bi-analysis to review this monthly FTE measure. The total across three months is triple the expected closing FTE. Here are the snapshot grain, date relationship, DAX, and an anonymized sample. Propose the corrected measure, explain the total behavior, and list the checks you actually ran."
+    },
+    {
+      "name": "management-presentation",
+      "title": "Management presentation",
+      "summary": "Build source-backed management slides with a clear decision.",
+      "category": "Reporting",
+      "group": "core",
+      "prompt": "Use management-presentation on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "business-document",
+      "title": "Business document",
+      "summary": "Prepare a concise memo, procedure or decision record.",
+      "category": "Reporting",
+      "group": "core",
+      "prompt": "Use business-document on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "corporate-style",
+      "title": "Corporate style",
+      "summary": "Apply the approved company template and visual standards.",
+      "category": "Design",
+      "group": "core",
+      "prompt": "Use corporate-style on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "spreadsheet-modeling",
+      "title": "Spreadsheet modeling",
+      "summary": "Create auditable models, formulas, pivots and sensitivity views.",
+      "category": "Analysis",
+      "group": "extended",
+      "prompt": "Use spreadsheet-modeling to turn the supplied monthly volumes and labor-rate assumptions into a reusable personnel-cost planning model with base and downside scenarios. Keep derived values as formulas, show units and editable inputs, and verify the outputs using whatever spreadsheet capabilities this session actually provides."
+    },
+    {
+      "name": "analytical-sql",
+      "title": "Analytical SQL",
+      "summary": "Query local data with explicit grain, joins and null handling.",
+      "category": "Analysis",
+      "group": "extended",
+      "prompt": "Use analytical-sql to draft a read-only query for monthly labor cost by cost center from this schema. Check mapping cardinality and unmatched keys, preserve the reporting cutoff, and give validation queries. If this session has no authorized SQL engine, mark the queries as not executed."
+    },
+    {
+      "name": "evidence-research",
+      "title": "Evidence research",
+      "summary": "Trace consequential claims to dated primary sources.",
+      "category": "Research",
+      "group": "extended",
+      "prompt": "Use evidence-research to investigate the most consequential developments in Japan's automotive suppliers during the last month. Prioritize company disclosures and original statistics, distinguish announcements from completed changes, and explain implications for workforce planning without inventing numerical effects."
+    },
+    {
+      "name": "reproducible-analysis",
+      "title": "Reproducible analysis",
+      "summary": "Keep transformations, assumptions and checks reproducible.",
+      "category": "Analysis",
+      "group": "extended",
+      "prompt": "Use reproducible-analysis to compare monthly overtime rates across the supplied sites. Define the denominator, inspect missingness and repeated monthly observations, report meaningful effect sizes and supported uncertainty, and provide a reproducible calculation record. If computation is unavailable, deliver the unexecuted analysis recipe."
+    },
+    {
+      "name": "design-review",
+      "title": "Design review",
+      "summary": "Review clarity, accessibility and layout against the real output.",
+      "category": "Design",
+      "group": "extended",
+      "prompt": "Use design-review on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "project-context",
+      "title": "Project context",
+      "summary": "Carry decisions and open issues between work sessions.",
+      "category": "Core",
+      "group": "extended",
+      "prompt": "Use project-context on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "video-storyboard",
+      "title": "Video storyboard",
+      "summary": "Plan a financial explainer with timed scenes and source notes.",
+      "category": "Reporting",
+      "group": "extended",
+      "prompt": "Use video-storyboard on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "interactive-visualization",
+      "title": "Interactive visualization",
+      "summary": "Specify and build interactive views with honest scales and labels.",
+      "category": "Reporting",
+      "group": "extended",
+      "prompt": "Use interactive-visualization on the supplied work files. State what you could actually check."
+    },
+    {
+      "name": "power-query-etl",
+      "title": "Power Query pipeline",
+      "summary": "Combine recurring exports with schema checks, explicit exclusions and totals that reconcile.",
+      "category": "Pipeline",
+      "group": "specialist",
+      "prompt": "Combine these monthly ledger exports for Power BI. Preserve account codes, flag schema changes and mapping errors, and reconcile totals by entity, period and currency."
+    },
+    {
+      "name": "sharepoint-evidence",
+      "title": "SharePoint evidence",
+      "summary": "Find approved sources, resolve versions and build a precise internal evidence register.",
+      "category": "Research",
+      "group": "specialist",
+      "prompt": "Find the approved forecast and headcount policy in this SharePoint scope. Compare the HC and FTE definitions, cite exact locations, and list inaccessible or conflicting evidence."
+    },
+    {
+      "name": "account-mapping",
+      "title": "Account mapping",
+      "summary": "Check dated mappings, duplicate rules and allocation weights before reporting classifications.",
+      "category": "Controls",
+      "group": "specialist",
+      "prompt": "Apply this dated reporting mapping to the ledger. Flag overlapping rules, invalid allocations and unmapped records, and reconcile source amounts to mapped and unresolved totals."
+    },
+    {
+      "name": "close-controls",
+      "title": "Period-close controls",
+      "summary": "Prepare reconciliations, accrual checks and a reviewer handoff with clear evidence and open items.",
+      "category": "Controls",
+      "group": "specialist",
+      "prompt": "Prepare the close pack from this trial balance, AP aging and accrual register. Reconcile balances, identify cutoff and reversal issues, and keep proposed adjustments as drafts."
+    },
+    {
+      "name": "cash-working-capital",
+      "title": "Cash and working capital",
+      "summary": "Reconcile cash and aging, calculate aligned DSO/DIO/DPO and separate scenarios from realized cash.",
+      "category": "Planning",
+      "group": "specialist",
+      "prompt": "Analyze working capital using these balances and period flows. Show the DSO, DIO and DPO formulas and averaging basis, reconcile aging, and estimate a five-day DSO sensitivity."
+    },
+    {
+      "name": "scenario-planning",
+      "title": "Scenario planning",
+      "summary": "Build traceable driver scenarios, sensitivities and break-even views with explicit assumptions.",
+      "category": "Planning",
+      "group": "specialist",
+      "prompt": "Model next quarter with volume down 10%, price up 2% and a one-month hiring delay. Compare the baseline and a volume-only sensitivity, then explain the profit bridge and cash timing."
+    },
+    {
+      "name": "document-extraction",
+      "title": "Document extraction",
+      "summary": "Turn report tables and statements into traceable data with OCR exceptions and source locators.",
+      "category": "Pipeline",
+      "group": "specialist",
+      "prompt": "Extract invoice number, supplier, due date, currency and gross amount from these statements. Preserve page locators, flag ambiguous values and reconcile each statement total."
+    },
+    {
+      "name": "process-diagram",
+      "title": "Finance process diagrams",
+      "summary": "Explain data flows, ownership, review gates and exception paths with compact diagrams.",
+      "category": "Reporting",
+      "group": "specialist",
+      "prompt": "Diagram the forecast process from SharePoint uploads through Power Query into Power BI. Show owners, review gates, exception handling and which steps are manual."
+    }
+  ]
+}

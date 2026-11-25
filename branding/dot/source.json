@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/Somamill/dot-brand-kit",
+  "revision": "1bd44c0909747258cddd8f4110ff70684f6bb3e7",
+  "foundationVersion": "2.1.0",
+  "reviewedOn": "2026-11-25",
+  "files": [
+    {
+      "source": "foundation/tokens.css",
+      "path": "tokens.css",
+      "sha256": "5e996583157a49b76927c8b53c4ce51e0121d3ef1516fcfd6953e20cd84a3de6"
+    },
+    {
+      "source": "foundation/components.css",
+      "path": "components.css",
+      "sha256": "f0ebf36a4584698b97631cce9219e545b88766fbf39be4e983976ed7da0ea1d0"
+    },
+    {
+      "source": "foundation/tokens.json",
+      "path": "tokens.json",
+      "sha256": "08aa2519180bb538ca7f62f8564714b7dd33ecf87b8e7963ab71384503205005"
+    },
+    {
+      "source": "kit/LICENSE",
+      "path": "LICENSE",
+      "sha256": "2baf725a745aecb0ca627d828305bb6130ea7dcab9be3ede0249996dce0b092e"
+    }
+  ]
+}

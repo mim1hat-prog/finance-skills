@@ -1,0 +1,72 @@
+# Power BI analysis
+
+## Gemini edition
+
+Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
+
+Use available file and calculation tools for complete accessible inputs. Skill scripts must not depend on internet access, authenticated APIs, or package installation. Keep SQL in Markdown code blocks. An optional Python workflow runs separately on the work PC unless an available Gemini calculation tool actually executes it. Treat all proposed scripts, queries and output files as unexecuted until there is observable evidence; request the resulting control totals or artifact for follow-up analysis.
+
+Do not promise that a skill can run with Canvas or Deep Research. If one of those separate tools is needed, provide an explicit task brief and source requirements for that workflow, then work from the result the user returns. Use primary citations only from sources actually accessed.
+
+Use native Skills if the work account exposes Customize > Skills. Google documentation currently differs on work-account rollout, so check the account rather than infer availability. If Skills is absent but Gems is available, place the workflow in the Gem's Instructions; a knowledge attachment alone does not make it an instruction. Otherwise paste the task instructions into an approved conversation. Imported skills and Gem instructions do not automatically track GitHub; replace the existing copy after an update.
+
+Produce an explainable model change or analysis from the actual model definition and business question. This skill can assist in Copilot or Gemini using supplied schema and measures. It does not enable Power BI access, refresh a dataset, or install a skill into Power BI itself.
+
+## Inputs
+
+Read the relevant tables, columns, data types, keys, relationships, existing measures, date/calendar definition, reporting period, refresh timestamp, and expected business result. Use supplied schema, model exports, examples, or an enabled capability. Ask for only the missing pieces needed for the specific measure; do not request a complete employee dataset when a schema and anonymized example suffice.
+
+Establish these definitions before calculating:
+
+- Population and grain: person, assignment, contract, position, transaction, or person-period snapshot.
+- Metric: distinct headcount, contractual FTE, paid hours, average FTE, or monetary cost.
+- Time basis: closing snapshot, average during a period, or sum of flows; fiscal calendar and effective-date boundaries.
+- Currency, conversion basis, unit scale, actual/plan scenario, and favorable/unfavorable convention.
+- Handling of blanks, unmapped keys, zero denominators, starters/leavers, transfers, and concurrent assignments.
+
+## Workflow
+
+1. Reproduce the issue at a named filter context: period, entity, cost center, scenario, and relevant slicers. Record the observed value and independent expected value if supplied. A screenshot alone cannot establish model relationships or full data coverage.
+2. Inspect the model grain and relationship cardinality/direction. Check dimension-key uniqueness, unmatched fact keys, inactive relationships, and many-to-many paths before changing DAX. Keep a stable fact/dimension model where appropriate. Do not recommend bidirectional relationships as an unexplained fix for a bad total.
+3. Select the correct calculation layer. Use Power Query for repeatable source shaping and type handling. Use a measure for context-dependent aggregations; use a calculated column only when row-level stored values are needed. Explain the choice briefly.
+4. Write DAX or M against observed table/column names. If names are missing, label the code as a template and list the mappings needed; do not present placeholders as runnable code. Preserve existing security filters and do not remove filters merely to force agreement with a desired answer.
+5. Make aggregation semantics explicit. Distinct people are not generally additive across cost centers or months. Snapshot FTE must not be summed across periods unless the metric is explicitly FTE-periods. Compute ratios from appropriate numerator/denominator aggregates, not a simple average of row ratios unless that is the requested definition.
+6. Handle blank or zero denominators deliberately. DAX `DIVIDE(numerator, denominator)` defaults to BLANK when division is undefined; provide a different constant result only when the business definition supports it. Do not relabel missing data as zero actuals.
+7. Explain filter context, any context transition, and which date relationship the measure uses. Where a calculation changes filters, name the exact filters retained and removed. Do not claim a grand total should equal displayed rows when the metric is non-additive.
+8. Validate with independently understandable cases: one period/entity, a known employee with multiple assignments, a transfer, a missing key, a zero/blank denominator, multiple periods, and the total. Use the cases relevant to this metric. Compare monetary/FTE totals to a separately calculated source control; use explicit rounding tolerance.
+9. Run queries or apply changes only if the session exposes the authorized capability. Otherwise return the code, insertion location, and validation steps with **not executed in the model** clearly stated. Do not infer refresh, publication, access, or row-level-security testing from a syntactically plausible formula.
+
+## Output
+
+Provide:
+
+1. The metric definition and the reason for the discrepancy or proposed change.
+2. DAX or Power Query code with exact model names, or a clearly labeled template.
+3. A short explanation of grain, aggregation, time basis, and relevant filters.
+4. A validation table: case, independent expected result, actual result if run, and status. Mark expected results as unknown when the source does not support a value.
+5. Material unresolved data quality, model access, refresh, or security checks.
+
+Keep the deliverable in the approved work environment. Use aggregated or synthetic examples in explanations that do not require personal records. Do not publish model schemas, connection strings, employee rows, or work measures into a public skill repository.
+
+## Quality checks
+
+- Confirm all identifiers and data types against the available schema.
+- Check headcount versus FTE and stock versus flow before checking arithmetic.
+- Reconcile at the same filters, currency, reporting date, and source revision.
+- Distinguish a formula review, an executed query, an independently reconciled result, and a published model. Report only the achieved level.
+- Preserve row-level-security assumptions; test access roles only through an available authorized testing capability.
+
+## Reference guidance
+
+Use the following official references when documentation access is available; the workflow above remains usable without fetching them:
+
+- [Microsoft: star schema guidance](https://learn.microsoft.com/en-us/power-bi/guidance/star-schema)
+- [Microsoft: DIVIDE](https://learn.microsoft.com/en-us/dax/divide-function-dax)
+
+## Example prompt
+
+“Use power-bi-analysis to review this monthly FTE measure. The total across three months is triple the expected closing FTE. Here are the snapshot grain, date relationship, DAX, and an anonymized sample. Propose the corrected measure, explain the total behavior, and list the checks you actually ran.”
+
+## Edition record
+
+Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

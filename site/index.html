@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-dot-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A practical finance skills library for Microsoft Copilot and Gemini, with Windows, Python and Power BI workflows.">
+  <title>Finance skills | Copilot and Gemini</title>
+  <link rel="icon" href="../assets/finance-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../branding/dot/components.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="catalog-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="dot-surface">
+  <a class="skip-link" href="#library">Skip to skills</a>
+  <header class="masthead wrap">
+    <a class="wordmark" href="#top" aria-label="Finance skills home"><span class="brand-mark" aria-hidden="true"></span>finance skills<span class="wordmark-period">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#library">Library</a>
+      <a href="#start">Set up</a>
+      <a href="../docs/UPDATES.md">Updates</a>
+      <a class="repository-link" href="../README.md">Repository</a>
+    </nav>
+    <label class="theme-control">Appearance
+      <select id="theme" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+    </label>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Clear numbers.<br>Sound decisions.</h1>
+        <p class="hero-description">Practical skills for reconciliations, forecasts and reporting. Choose your assistant, then import the tasks you use.</p>
+        <div class="hero-actions"><a class="button primary" href="#library">Find a skill</a><a class="text-link" href="#start">How to get started</a></div>
+        <p class="platform-note">For Microsoft Copilot and Gemini on Windows 11</p>
+      </div>
+      <aside class="workflow" aria-labelledby="workflow-title">
+        
+        <h2 id="workflow-title">From source<br>to decision.</h2>
+        <ol>
+          <li><span class="step-number" aria-hidden="true">01</span><div><strong>Read the evidence</strong><span>Check scope, periods and units.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">02</span><div><strong>Reconcile the numbers</strong><span>Make the differences explicit.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">03</span><div><strong>Explain the movement</strong><span>Separate facts from assumptions.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">04</span><div><strong>Record the decision</strong><span>Leave a clear trail for the next run.</span></div></li>
+        </ol>
+        <a href="../docs/WINDOWS.md">Add local Python and Power BI</a>
+      </aside>
+    </section>
+
+    <section class="library-section" id="library" aria-labelledby="library-title">
+      <div class="wrap">
+        <div class="section-heading"><div><h2 id="library-title">Choose the work.</h2></div><p class="library-meta" id="library-meta">Separate editions with versioned instructions.</p></div>
+        <div class="library-controls">
+          <fieldset class="edition-picker"><legend>Your assistant</legend><div class="edition-options"><label><input type="radio" name="edition" value="copilot" checked><span>Microsoft Copilot</span></label><label><input type="radio" name="edition" value="gemini"><span>Gemini</span></label></div></fieldset>
+          <label class="search-label" for="search">Find a task<input class="dot-search" id="search" type="search" placeholder="Try forecast, headcount or SQL" autocomplete="off"></label>
+          <label class="category-label" for="category">Focus<select id="category" class="dot-search"><option value="all">All skills</option></select></label>
+        </div>
+        <div class="library-status"><p id="results-count" role="status" aria-live="polite" aria-atomic="true">Loading skills…</p><a id="edition-guide" href="../docs/COPILOT.md">Read the Copilot setup guide</a></div>
+        <div id="skill-list" class="skill-list"></div>
+        <div id="empty-state" class="empty-state" hidden><h3>No matching skills</h3><p>Try a broader task or choose another focus.</p><button class="button secondary" id="clear-filters" type="button">Clear filters</button></div>
+        <div id="data-error" class="empty-state" hidden><h3>The catalogue could not load</h3><p>Open this page from a complete repository download, or browse the skill folders directly.</p><div class="fallback-links"><a href="../editions/copilot/">Open Copilot skills</a><a href="../editions/gemini/">Open Gemini skills</a></div></div>
+        <noscript><div class="empty-state"><h3>Browse the files directly</h3><p>The searchable catalogue uses JavaScript. The skills and setup guides work without it.</p><div class="fallback-links"><a href="../editions/copilot/">Copilot skills</a><a href="../editions/gemini/">Gemini skills</a><a href="../README.md">Repository guide</a></div></div></noscript>
+        <p class="import-note">Import one skill at a time. Your account determines which tools it can use; an imported copy needs refreshing when its source changes.</p>
+      </div>
+    </section>
+
+    <section class="getting-started wrap" id="start" aria-labelledby="start-title">
+      <div class="start-intro"><h2 id="start-title">A small setup.<br>A useful routine.</h2><p>Start with a task you already know. Use a small, approved sample and compare the result with your existing work.</p></div>
+      <div class="setup-list">
+        <article><div><h3>1. Choose an edition</h3><p>Download the ZIP for your assistant and follow its import steps.</p><div class="inline-links"><a href="../docs/COPILOT.md">Copilot setup</a><a href="../docs/GEMINI.md">Gemini setup</a></div></div></article>
+        <article><div><h3>2. Connect the work you have</h3><p>Use approved files and available tools. Local Python and Power BI workflows have a separate Windows guide.</p><a href="../docs/WINDOWS.md">Open the Windows guide</a></div></article>
+        <article><div><h3>3. Keep the method current</h3><p>Compare the package version, review changes and replace the imported copy when needed.</p><a href="../docs/UPDATES.md">Check the update process</a></div></article>
+      </div>
+    </section>
+    <section class="work-boundary wrap" aria-label="Work information"><p><strong>Your work stays in your work environment.</strong> This repository contains general methods and synthetic examples. Use your approved company templates and tenant for business data.</p><a href="../README.md">Read the project guide</a></section>
+  </main>
+
+  <footer class="footer wrap"><div><a class="wordmark" href="#top"><span class="brand-mark" aria-hidden="true"></span>finance skills<span class="wordmark-period">.</span></a><p>Designed with the <a href="https://github.com/Somamill/dot-brand-kit">dot. foundation</a>.</p></div><div class="footer-links"><a class="repository-link" href="../README.md">View source</a><a href="../docs/UPDATES.md">Update guide</a><a href="https://ko-fi.com/somamill">Support Max on Ko-fi</a></div></footer>
+  <div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
+</body>
+</html>

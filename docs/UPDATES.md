@@ -1,0 +1,70 @@
+# Keep the library and installed copies current
+
+Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini update are separate events. This workflow keeps that distinction visible.
+
+| Layer | Source of truth | Update mechanism | Evidence |
+| --- | --- | --- | --- |
+| Financial workflow | `skills/<name>/SKILL.md` | Review and edit canonical instructions | Focused task checks and a documented change |
+| Host behavior | `adapters/` and platform guides | Compare current official Microsoft/Google docs | Dated sources, account caveats and actual restrictions |
+| Upload packages | `editions/`, `packages/` | Deterministic `scripts/build.py` | Exact bytes and SHA-256 manifest |
+| Upstream ideas/tools | `upstream.lock.json` | Check commits, then review relevant diffs/licences | Pinned reviewed revision; new head is only a candidate |
+| Work account | The host's saved/imported copy | Replace/edit or OneDrive folder update plus Refresh | Local installed-version record and a representative task |
+
+## Check what changed
+
+Run the read-only checker from the repository root:
+
+```powershell
+py -3 scripts\check_updates.py --output .local\upstream-check.json
+```
+
+Read the command's `--help` for lock, output and timeout options. The checker uses public HTTPS endpoints and no credentials. A changed upstream commit is **not** a verified compatibility update. Network failures, rate limits and inaccessible documentation must remain visible; they must not be labeled current.
+
+The lock records reviewed repository commits and primary documentation URLs. Review official product pages directly for rollout, licensing, file import, script/network, OneDrive refresh and replacement changes. An HTTP response or changed page hash alone is not semantic review. Do not adopt a moving `main`, `latest` package or a third-party ranking as a quality guarantee.
+
+## Apply a reviewed change
+
+1. Compare the source diff and read the relevant primary documentation. Check the project's licence, resource dependencies, data transmission and supported host.
+2. Adapt only the useful procedure. Keep the work instructions executable within the selected host; move optional local setup into the Windows guide. Do not copy an unavailable service's capability into a Markdown promise.
+3. Edit the canonical skill once. Change the host overlay only if Copilot or Gemini behaves differently. Keep company-only logic/templates outside the public repository.
+4. Update the version and the actual review date in `catalog.json`, the affected source entry in `upstream.lock.json`, and `CHANGELOG.md`. Do not refresh dates simply because a checker ran.
+5. Generate and validate:
+
+   ```powershell
+   py -3 scripts\build.py
+   py -3 scripts\build.py --check
+   py -3 -m unittest discover -s tests -v
+   ```
+
+6. Run a representative synthetic task for changed financial logic. Run optional dependency tests when those helpers change. Review desktop/mobile output for catalogue changes when a browser is available. Record skipped or blocked checks honestly.
+7. Publish the reviewed files and exact generated packages together. Verify the remote paths/hashes. Preserve concurrent changes; do not force-push over somebody else's work.
+
+The default tests skip optional openpyxl/DuckDB checks when their packages are unavailable. A maintainer changing those helpers must run with the pinned dependencies and confirm those checks actually executed.
+
+## Ongoing maintenance
+
+Use the **ChatGPT GitHub plugin** connected as **mim1hat-prog** for GitHub
+access to and publication in **mim1hat-prog/finance-skills**. Do not use the
+cloud browser for GitHub authentication or as a fallback. If the plugin lacks
+a required GitHub operation, report that specific capability gap and keep the
+prepared work reviewable. Confirm the actual default branch and current head
+before writes, and preserve concurrent edits. Source links to Somamill
+repositories remain provenance; they do not select the maintenance destination.
+
+The owner requested ongoing updates. A separate maintenance task was enabled on **2026-11-25**, with a daily check around **08:00 Asia/Tokyo** and its first scheduled check on **2026-11-26**. It checks this repository's published location, official host docs and pinned upstreams, and reports material changes and imports that need replacement. It uses neither GitHub Actions nor a work-PC daemon.
+
+For compatible instruction/documentation changes, the maintainer can publish only after rebuilding, testing and reviewing the diff. Runtime upgrades, changed permissions/data transmission, new commercial services and changed finance definitions require a concrete reviewable proposal. If the execution environment cannot validate a change, leave it in a clearly described branch/PR and report the blocker. Do not call the library updated because a check was merely scheduled.
+
+This file does not create or prove a running automation. The actual task confirmation in the conversation is the record of whether scheduling succeeded. GitHub Actions remain disabled, and the repository installs no poller, webhook, background worker or persistent credentials.
+
+## Refresh your work account
+
+**Copilot Chat/Agent Builder:** update the existing skill through that host's supported editor/replacement flow and test it. **Excel/PowerPoint:** update the matching-name folder opened by the app, wait for OneDrive, and select Refresh. The optional local copier previews changes and preserves customized copies.
+
+**Gemini Skills:** open the existing skill and use More → Replace skill with the complete individual package, then Save and test. **Gem fallback:** replace the Instructions text and any associated knowledge resources manually. [Copilot steps](COPILOT.md) · [Gemini steps](GEMINI.md)
+
+Keep a private installed register containing: host/account class, skill name, version, package SHA-256, import date and a brief successful task check. The folder copier maintains `.finance-skills-install.json` for files it copied; it does not certify host activation. When a copy contains company additions, compare and preserve them before replacement. Never publish that private register if it contains internal account/source details.
+
+## Roll back
+
+Use GitHub history to retrieve the prior reviewed package, replace the host's existing skill, and repeat the relevant task check. Keep the previous package until the new one is verified. Source archives and generated packages remain distinct from private work data. An upstream runtime has its own rollback procedure; a skill-package rollback does not uninstall a service.

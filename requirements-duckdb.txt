@@ -1,0 +1,2 @@
+# Optional local CSV/Parquet profiling. Python 3.11+ required by DuckDB 2.0.
+duckdb==2.0.1
