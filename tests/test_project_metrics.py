@@ -77,6 +77,27 @@ class ProjectMetricsTests(unittest.TestCase):
         self.assertEqual(selected["selectedSnapshotId"], revised["id"])
         self.assertEqual(summary["observedSeries"], metrics.proportion(1, len(self.dataset["series"])))
 
+    def test_homepage_text_updates_from_counts_without_changing_surrounding_content(self):
+        before = "# Invented homepage\n\n<!-- project-coverage-summary:start -->\nstale counts\n<!-- project-coverage-summary:end -->\n\nKeep this link.\n"
+        summary = self.describe()
+        summary["skills"]["count"] = 2
+        summary["skills"]["declaredWorkflowTestLinks"] = metrics.proportion(1, 2)
+        summary["skills"]["nativeExecutionEvidence"] = metrics.proportion(0, 2)
+        summary["benchmarks"]["observedSeries"] = metrics.proportion(0, 3)
+        result = metrics.update_readme(before, summary).decode()
+        self.assertTrue(result.startswith("# Invented homepage\n\n"))
+        self.assertTrue(result.endswith("\n\nKeep this link.\n"))
+        self.assertIn("**2 skills**", result)
+        self.assertIn("**1/2** with workflow-test links", result)
+        self.assertIn("**0/2** with native execution evidence", result)
+        self.assertIn("**0/3** configured benchmark series", result)
+        self.assertNotIn("stale counts", result)
+        for malformed in (before.replace(":start", ":missing"),
+                          before + "<!-- project-coverage-summary:end -->",
+                          "<!-- project-coverage-summary:end --><!-- project-coverage-summary:start -->"):
+            with self.subTest(malformed=malformed), self.assertRaises(ValueError):
+                metrics.update_readme(malformed, summary)
+
     def test_empty_new_vintage_does_not_backfill_or_claim_complete_coverage(self):
         first = self.snapshot("2024-02-01T09:00:00Z")
         empty = self.snapshot("2024-03-01T09:00:00Z", empty=True)

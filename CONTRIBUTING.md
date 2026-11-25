@@ -35,7 +35,7 @@ py -3 scripts\release.py
 py -3 scripts\check_release.py --require-release
 ```
 
-Review the exact changed source and generated artifacts. Preserve every published version and its checksums. Publish through the authorized GitHub plugin with a current-head check, then verify the remote tree and release hashes. Do not enable GitHub Actions, deploy a public endpoint, activate an enterprise connector or install an upstream runtime as part of an ordinary documentation or skill update.
+Review the exact changed source and generated artifacts. Preserve every published version and its checksums. Publish through an authorized GitHub operation or authenticated Git transport that preserves the verified public commit identities, with a current-head check, then verify the remote tree and release hashes. A history repair needs an explicit expected-head lease and reviewed replacement history. Do not enable GitHub Actions, deploy a public endpoint, activate an enterprise connector or install an upstream runtime as part of an ordinary documentation or skill update.
 
 Use public issues only for non-sensitive reproducible questions. Give the affected version, a minimal invented example, observed behavior and expected contract. See `SECURITY.md` for private concerns. Cite the software through `CITATION.cff`; preserve upstream notices and data terms.
 

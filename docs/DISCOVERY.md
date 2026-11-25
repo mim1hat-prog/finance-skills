@@ -11,8 +11,15 @@ Reviewed **2026-11-25**. This project uses clear onboarding, useful finance exam
 | [Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills) | Present examples, version provenance, citations and validation limits. | Use the existing source registry and software citation; do not borrow another project's adoption or scientific-performance claims. |
 | [OpenBB](https://github.com/openbq-org/OpenBB) | Offer distinct bug, improvement and contribution routes. | [Support](../SUPPORT.md), issue templates and the contribution process. No OpenBB runtime is installed by these changes. |
 | [VoltAgent curation policy](https://github.com/VoltAgent/awesome-agent-skills/blob/main/CONTRIBUTING.md) | Prioritize working documentation and demonstrated use before seeking a curated listing. | No listing, endorsement or external submission is claimed. |
+| [uv](https://github.com/astral-sh/uv) | Introduce the purpose briefly, make an evidenced graphic prominent, and provide a short installation route. | The homepage uses its own descriptive coverage figure; no upstream benchmark numbers or performance claims are copied. |
+| [FastAPI](https://github.com/fastapi/fastapi) | Put clear documentation links and a small working example within easy reach. | The invented reconciliation example illustrates this project's output; it is not a FastAPI implementation or efficacy study. |
+| [Ollama](https://github.com/ollama/ollama) | Separate downloads by target platform and connect getting started to deeper documentation. | Copilot, Gemini and Markdown choices remain explicit; no Ollama runtime, compatibility or privacy claims are inherited. |
 
 The comparison records observed practices, not a study of what caused those projects' popularity. It copies no upstream prose or assets and does not advance reviewed runtime pins. GitHub's [README guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) and [community profile guidance](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories) support a clear purpose, [invented quick-start example](../examples/QUICKSTART.md), support route and contributor expectations. The [issue-template format](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) provides the public reporting entry points.
+
+## Homepage layout
+
+The [main README](../README.md) uses a compact original [dot-style hero](../assets/readme-hero.svg), followed by the generated coverage figure before the quick start. A short numerical fallback keeps the main results available if the image does not render. Download choices identify their platform and contents; detailed account setup, methods and validation remain one link away. This follows the observed presentation patterns above while keeping all figures specific to this repository. Neither the layout nor those projects' popularity establishes a future adoption result.
 
 ## Search visibility
 

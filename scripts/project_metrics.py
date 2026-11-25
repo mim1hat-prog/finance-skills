@@ -155,6 +155,27 @@ def ratio_text(value: dict) -> str:
     return f"{value['numerator']} / {value['denominator']} ({pct})"
 
 
+def update_readme(text: str, summary: dict) -> bytes:
+    """Keep the homepage's accessible text equivalent tied to the plotted counts."""
+    start = "<!-- project-coverage-summary:start -->"
+    end = "<!-- project-coverage-summary:end -->"
+    if text.count(start) != 1 or text.count(end) != 1 or text.index(start) >= text.index(end):
+        raise ValueError("Expected one ordered homepage coverage summary block")
+    skills, data = summary["skills"], summary["benchmarks"]
+    workflow = skills["declaredWorkflowTestLinks"]
+    native = skills["nativeExecutionEvidence"]
+    observed = data["observedSeries"]
+    sentence = (
+        f"**{skills['count']} skills** · "
+        f"**{workflow['numerator']}/{workflow['denominator']}** with workflow-test links · "
+        f"**{native['numerator']}/{native['denominator']}** with native execution evidence · "
+        f"**{observed['numerator']}/{observed['denominator']}** configured benchmark series with observations."
+    )
+    before, rest = text.split(start, 1)
+    _, after = rest.split(end, 1)
+    return (before + start + "\n" + sentence + "\n" + end + after).encode("utf-8")
+
+
 def markdown(summary: dict) -> bytes:
     skills, research, data = summary["skills"], summary["research"], summary["benchmarks"]
     lines = ["# Repository coverage and public-data inventory", "",
@@ -294,7 +315,8 @@ def generate(root: Path, catalog: dict | None = None) -> dict[Path, bytes]:
     summary["inputs"] = [{"path": name, "sha256": hashlib.sha256((root / name).read_bytes()).hexdigest()}
                          for name in sorted(paths)]
     return {OUTPUTS[0]: (json.dumps(summary, ensure_ascii=False, indent=2) + "\n").encode("utf-8"),
-            OUTPUTS[1]: markdown(summary), OUTPUTS[2]: figure(summary)}
+            OUTPUTS[1]: markdown(summary), OUTPUTS[2]: figure(summary),
+            Path("README.md"): update_readme((root / "README.md").read_text(encoding="utf-8"), summary)}
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "measurementType": "descriptive-repository-inventory",
-  "projectVersion": "1.4.0",
+  "projectVersion": "1.4.1",
   "releaseDate": "2026-11-25",
   "sourceReviewDates": {
     "skills": "2026-11-25",
@@ -91,14 +91,14 @@
     ]
   },
   "research": {
-    "registered": 75,
-    "active": 74,
+    "registered": 78,
+    "active": 77,
     "candidates": 1,
     "reviewStatus": {
       "carried-forward": 16,
       "needs-review": 1,
       "reviewed": 30,
-      "reviewed-with-limitations": 28
+      "reviewed-with-limitations": 31
     },
     "activeSourceTypes": {
       "data-license": 5,
@@ -108,7 +108,7 @@
       "normative-standard": 9,
       "project-design": 2,
       "provider-documentation": 30,
-      "software-reference": 21
+      "software-reference": 24
     },
     "candidateIds": [
       "m4-competition"
@@ -484,11 +484,11 @@
     },
     {
       "path": "catalog.json",
-      "sha256": "6c9c6f592b5cc0c3affe0e123b27d6e9d93e98791c1823c8befe06408403a0bb"
+      "sha256": "dbdb0e7aa7696297cf73558f27d435635c45a6d7d0a1cf1abb474d3e6cb10dc5"
     },
     {
       "path": "research/sources.json",
-      "sha256": "6072fc2406617069614568641968c616b517b34b85fdb62d773572f26c12ec9b"
+      "sha256": "d8dd60121d472c441667ccae419b35886d64e06d1e4b7bdc00f26098001c2528"
     },
     {
       "path": "tools/catalog.json",

@@ -3536,6 +3536,135 @@
         }
       ],
       "updates": []
+    },
+    {
+      "id": "uv-readme-presentation",
+      "type": "software-reference",
+      "title": "uv README: purpose, benchmark graphic and installation",
+      "publisher": "Astral and uv contributors",
+      "authors": [
+        "Astral and uv contributors"
+      ],
+      "year": null,
+      "url": "https://github.com/astral-sh/uv",
+      "doi": null,
+      "edition": "Current primary repository README reviewed on 2026-11-25; design reference, not a runtime pin",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Repository documentation maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "The README introduces the project briefly, places a benchmark graphic near the opening, and follows with highlights and installation routes. Only presentation and onboarding were reviewed; observed popularity does not establish causation or expected adoption.",
+      "license": {
+        "name": "Publisher terms; links and original summaries only",
+        "termsUrl": "https://github.com/astral-sh/uv",
+        "attribution": "Astral and uv contributors",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code, logo, graphic or other asset is redistributed; upstream rights remain separate from the project license."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "README.md",
+            "assets/readme-hero.svg",
+            "docs/DISCOVERY.md"
+          ],
+          "section": "README opening; Highlights; Installation",
+          "purpose": "Use a concise introduction and place the project's own generated descriptive coverage figure before the quick start.",
+          "limits": "The source is a repository-presentation example, not empirical finance evidence. Its performance benchmarks, numerical claims, adoption and runtime installation commands are not transferred to this project.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "fastapi-readme-onboarding",
+      "type": "software-reference",
+      "title": "FastAPI README: purpose, documentation and working example",
+      "publisher": "FastAPI contributors",
+      "authors": [
+        "FastAPI contributors"
+      ],
+      "year": null,
+      "url": "https://github.com/fastapi/fastapi",
+      "doi": null,
+      "edition": "Current primary repository README reviewed on 2026-11-25; design reference, not a runtime pin",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Repository documentation maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "The README states the project purpose, provides direct documentation and source links, and demonstrates a small working example. Only presentation and onboarding were reviewed; observed popularity does not establish causation or expected adoption.",
+      "license": {
+        "name": "Publisher terms; links and original summaries only",
+        "termsUrl": "https://github.com/fastapi/fastapi",
+        "attribution": "FastAPI contributors",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code, logo, graphic or other asset is redistributed; upstream rights remain separate from the project license."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "README.md",
+            "assets/readme-hero.svg",
+            "docs/DISCOVERY.md"
+          ],
+          "section": "README opening; Installation; Example",
+          "purpose": "Keep the homepage purpose, setup links and independently invented reconciliation example easy to find; move detailed procedures into linked documentation.",
+          "limits": "The source supports an onboarding design choice only. No FastAPI code, branding, testimonials, sponsorship content or performance claims are copied, and no finance or native-agent efficacy is established.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "ollama-readme-downloads",
+      "type": "software-reference",
+      "title": "Ollama README: platform downloads and getting started",
+      "publisher": "Ollama contributors",
+      "authors": [
+        "Ollama contributors"
+      ],
+      "year": null,
+      "url": "https://github.com/ollama/ollama",
+      "doi": null,
+      "edition": "Current primary repository README reviewed on 2026-11-25; design reference, not a runtime pin",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Repository documentation maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "The README separates download instructions by platform and links a concise starting path to deeper documentation. Only presentation and onboarding were reviewed; observed popularity does not establish causation or expected adoption.",
+      "license": {
+        "name": "Publisher terms; links and original summaries only",
+        "termsUrl": "https://github.com/ollama/ollama",
+        "attribution": "Ollama contributors",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code, logo, graphic or other asset is redistributed; upstream rights remain separate from the project license."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "README.md",
+            "assets/readme-hero.svg",
+            "docs/DISCOVERY.md"
+          ],
+          "section": "README Download; Get started; Documentation",
+          "purpose": "Offer explicit Copilot, Gemini, Markdown and full-release download choices with separate setup routes and clear import limitations.",
+          "limits": "This is a repository-design reference only. Ollama installation, models, privacy claims, usage statistics and compatibility are not inherited; no Ollama runtime is introduced.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
     }
   ]
 }

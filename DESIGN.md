@@ -35,3 +35,9 @@ represent model effectiveness. Keep the full numerical report accessible as
 Markdown and JSON. Edit the catalogue template, not generated HTML. Include
 the actual skill text and links before JavaScript enhancement; do not invent
 ratings, users, deployment URLs or academic claims for search metadata.
+
+The root README is the GitHub homepage: use the compact dot. header, a short
+purpose statement, direct downloads and the coverage figure before setup.
+Keep the generated numerical fallback beside the figure. The static site's
+coverage section also precedes the long skill list. Current presentation has
+no donation links; historical release snapshots remain unchanged.

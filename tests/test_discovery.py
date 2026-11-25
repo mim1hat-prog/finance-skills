@@ -47,6 +47,8 @@ class DiscoveryTests(unittest.TestCase):
             self.assertIn(f"../editions/copilot/{row['name']}/SKILL.md", links)
         self.assertIn("../packages/markdown/finance-skills-markdown.zip", links)
         self.assertNotIn("{{", text)
+        self.assertLess(text.index('id="coverage"'), text.index('id="library"'))
+        self.assertNotRegex(text.lower(), r"ko[-_ ]?fi|buymeacoffee")
         structured = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', text, re.S)[1])
         self.assertEqual(structured["@type"], "SoftwareSourceCode")
         self.assertEqual(structured["codeRepository"], catalog["repoUrl"])

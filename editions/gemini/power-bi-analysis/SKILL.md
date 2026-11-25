@@ -96,4 +96,4 @@ Use the following official references when documentation access is available; th
 
 ## Edition record
 
-Finance skills 1.4.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.4.1; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

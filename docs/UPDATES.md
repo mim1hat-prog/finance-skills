@@ -57,13 +57,17 @@ The offline gate checks generated sources and packages, research references, too
 
 ## Ongoing maintenance
 
-Use the **ChatGPT GitHub plugin** connected as **mim1hat-prog** for GitHub
-access to and publication in **mim1hat-prog/finance-skills**. Do not use the
-cloud browser for GitHub authentication or as a fallback. If the plugin lacks
-a required GitHub operation, report that specific capability gap and keep the
-prepared work reviewable. Confirm the actual default branch and current head
-before writes, and preserve concurrent edits. Source links to Somamill
-repositories remain provenance; they do not select the maintenance destination.
+Maintain **mim1hat-prog/finance-skills** through the authorized account. Prefer
+the connected **ChatGPT GitHub plugin** for supported operations. An
+authenticated Git transport may publish reviewed commits when the connector
+cannot preserve verified public no-reply author and committer identities. Do
+not use the cloud browser for GitHub authentication or put credentials in the
+project. Confirm the authenticated account, actual default branch and current
+head before writes, and preserve concurrent edits. For an authorized history
+repair, use the exact reviewed replacement and an explicit expected-head
+lease. If no authenticated route is available, retain the prepared work and
+report that access gap. Source links to Somamill repositories remain
+provenance; they do not select the maintenance destination.
 
 The owner requested ongoing updates. A separate maintenance task was enabled on **2026-11-25**, with a daily check around **08:00 Asia/Tokyo** and its first scheduled check on **2026-11-26**. It checks this repository's published location, official host docs and pinned upstreams, and reports material changes and imports that need replacement. It uses neither GitHub Actions nor a work-PC daemon.
 

@@ -98,4 +98,4 @@ Use work-environment file, sheet, table, cell, or query references that can actu
 
 ## Edition record
 
-Finance skills 1.4.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.4.1; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

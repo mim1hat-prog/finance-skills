@@ -35,6 +35,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`estat-api`](#estat-api) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`estat-terms`](#estat-terms) | data-license | reviewed | Implementation / registry |
 | [`fair-principles`](#fair-principles) | empirical-research | reviewed | `benchmark-lookup`, `reproducible-analysis` |
+| [`fastapi-readme-onboarding`](#fastapi-readme-onboarding) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`fpp-tscv`](#fpp-tscv) | method-guide | reviewed | `forecast-variance`, `reproducible-analysis`, `scenario-planning` |
 | [`gemini-deep-research`](#gemini-deep-research) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
 | [`gemini-skills`](#gemini-skills) | provider-documentation | reviewed | Implementation / registry |
@@ -56,6 +57,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`meti-terms`](#meti-terms) | data-license | reviewed-with-limitations | Implementation / registry |
 | [`mhlw-monthly-labour`](#mhlw-monthly-labour) | provider-documentation | reviewed-with-limitations | `benchmark-lookup`, `workforce-reconciliation` |
 | [`microsoft-skills-acceptance`](#microsoft-skills-acceptance) | software-reference | reviewed-with-limitations | Implementation / registry |
+| [`ollama-readme-downloads`](#ollama-readme-downloads) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`openapi-3.1`](#openapi-31) | normative-standard | reviewed | Implementation / registry |
 | [`openbb-community-entrypoints`](#openbb-community-entrypoints) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`project-finance-design`](#project-finance-design) | project-design | reviewed | `close-controls`, `connected-reporting`, `evidence-research`, `excel-agent-core`, `fx-allocation-preflight`, `provision-reconciliation`, `workforce-reconciliation` |
@@ -88,6 +90,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`upstream-scientific-skills`](#upstream-scientific-skills) | software-reference | carried-forward | `forecast-variance`, `reproducible-analysis`, `scenario-planning`, `workforce-reconciliation` |
 | [`upstream-superpowers`](#upstream-superpowers) | software-reference | carried-forward | `close-controls`, `excel-data-coverage`, `work-tool-routing` |
 | [`upstream-valyu`](#upstream-valyu) | software-reference | carried-forward | `evidence-research`, `sharepoint-evidence` |
+| [`uv-readme-presentation`](#uv-readme-presentation) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`voltagent-curation-policy`](#voltagent-curation-policy) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`w3c-dcat3`](#w3c-dcat3) | normative-standard | reviewed | `benchmark-lookup` |
 | [`w3c-dwbp`](#w3c-dwbp) | normative-standard | reviewed | `benchmark-lookup`, `reproducible-analysis` |
@@ -478,6 +481,27 @@ Only links, bibliographic metadata and original summaries are included; no sourc
   **Paths:** [`skills/reproducible-analysis/SKILL.md`](../skills/reproducible-analysis/SKILL.md), [`skills/benchmark-lookup/SKILL.md`](../skills/benchmark-lookup/SKILL.md), [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`benchmarks/catalog.json`](../benchmarks/catalog.json), [`research/sources.json`](../research/sources.json), [`scripts/research_registry.py`](../scripts/research_registry.py)
 
 **Recorded addendum:** [https://www.nature.com/articles/s41597-019-0009-6](https://www.nature.com/articles/s41597-019-0009-6); reviewed 2026-11-25. Publisher addendum dated 19 March 2019 changes the maintained-principles URL. No change to the metadata and provenance principles used here; canonical publication and addendum links retained. Disposition: `reviewed-no-method-change`.
+
+## fastapi-readme-onboarding
+
+**[FastAPI README: purpose, documentation and working example](https://github.com/fastapi/fastapi)**
+
+FastAPI contributors; FastAPI contributors. Year: living documentation. Edition: Current primary repository README reviewed on 2026-11-25; design reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The README states the project purpose, provides direct documentation and source links, and demonstrates a small working example. Only presentation and onboarding were reviewed; observed popularity does not establish causation or expected adoption.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/fastapi/fastapi); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: FastAPI contributors
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code, logo, graphic or other asset is redistributed; upstream rights remain separate from the project license.
+
+- **Use:** Keep the homepage purpose, setup links and independently invented reconciliation example easy to find; move detailed procedures into linked documentation.
+  **Supporting section:** README opening; Installation; Example
+  **Limits:** The source supports an onboarding design choice only. No FastAPI code, branding, testimonials, sponsorship content or performance claims are copied, and no finance or native-agent efficacy is established.
+  **Paths:** [`README.md`](../README.md), [`assets/readme-hero.svg`](../assets/readme-hero.svg), [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
 
 ## fpp-tscv
 
@@ -933,6 +957,27 @@ Only bibliographic metadata, a public link and an original limited summary are i
   **Supporting section:** Selective loading and Contributing: Adding New Skills
   **Limits:** This source describes coding agents and Azure SDK skills. It provides no native Copilot/Gemini efficacy evidence for this project.
   **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`docs/EVALUATION.md`](../docs/EVALUATION.md)
+
+## ollama-readme-downloads
+
+**[Ollama README: platform downloads and getting started](https://github.com/ollama/ollama)**
+
+Ollama contributors; Ollama contributors. Year: living documentation. Edition: Current primary repository README reviewed on 2026-11-25; design reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The README separates download instructions by platform and links a concise starting path to deeper documentation. Only presentation and onboarding were reviewed; observed popularity does not establish causation or expected adoption.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/ollama/ollama); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Ollama contributors
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code, logo, graphic or other asset is redistributed; upstream rights remain separate from the project license.
+
+- **Use:** Offer explicit Copilot, Gemini, Markdown and full-release download choices with separate setup routes and clear import limitations.
+  **Supporting section:** README Download; Get started; Documentation
+  **Limits:** This is a repository-design reference only. Ollama installation, models, privacy claims, usage statistics and compatibility are not inherited; no Ollama runtime is introduced.
+  **Paths:** [`README.md`](../README.md), [`assets/readme-hero.svg`](../assets/readme-hero.svg), [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
 
 ## openapi-3.1
 
@@ -1624,6 +1669,27 @@ Existing pinned-source licence observation: MIT declared in skill frontmatter/RE
   **Supporting section:** valyu-search/valyu-best-practices/SKILL.md
   **Limits:** Independent instructions do not call the Valyu service or redistribute its skill text; source licence permission remains unresolved.
   **Paths:** [`skills/evidence-research/SKILL.md`](../skills/evidence-research/SKILL.md), [`skills/sharepoint-evidence/SKILL.md`](../skills/sharepoint-evidence/SKILL.md), [`upstream.lock.json`](../upstream.lock.json)
+
+## uv-readme-presentation
+
+**[uv README: purpose, benchmark graphic and installation](https://github.com/astral-sh/uv)**
+
+Astral and uv contributors; Astral and uv contributors. Year: living documentation. Edition: Current primary repository README reviewed on 2026-11-25; design reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The README introduces the project briefly, places a benchmark graphic near the opening, and follows with highlights and installation routes. Only presentation and onboarding were reviewed; observed popularity does not establish causation or expected adoption.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/astral-sh/uv); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Astral and uv contributors
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code, logo, graphic or other asset is redistributed; upstream rights remain separate from the project license.
+
+- **Use:** Use a concise introduction and place the project's own generated descriptive coverage figure before the quick start.
+  **Supporting section:** README opening; Highlights; Installation
+  **Limits:** The source is a repository-presentation example, not empirical finance evidence. Its performance benchmarks, numerical claims, adoption and runtime installation commands are not transferred to this project.
+  **Paths:** [`README.md`](../README.md), [`assets/readme-hero.svg`](../assets/readme-hero.svg), [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
 
 ## voltagent-curation-policy
 

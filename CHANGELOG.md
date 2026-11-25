@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.1 — 2026-11-25
+
+- Put the generated coverage graphic at the top of the GitHub README and before the static catalogue's skill list.
+- Add a compact dot. header, clearer navigation and prominent platform/package downloads, informed by uv, FastAPI and Ollama.
+- Generate the README's numerical fallback from the same measured inventory as the chart so future updates cannot silently leave stale counts.
+- Remove the donation footer from the current catalogue template and generated page; keep frozen historical releases unchanged.
+- Document authenticated Git publication with verified public identities and an explicit expected-head lease for an authorized history repair.
+- Preserve canonical finance instructions, public benchmark observations and prior frozen packages.
+
 ## 1.4.0 — 2026-11-25
 
 - Add a task-first quick start and independently invented reconciliation example, with an exact expected result.

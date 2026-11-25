@@ -2,6 +2,16 @@
 
 Checked **2026-11-25**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
 
+## v1.4.1 homepage validation
+
+The offline artifact gate passed **149 Python tests with zero skips** and reproduced **166 generated artifacts**. Earlier frozen v1.1.0–v1.4.0 release bytes remain unchanged. Canonical finance instructions and benchmark observations were not changed.
+
+- **Homepage:** the generated coverage figure appears before the README quick start and before the static catalogue's skill list. The compact original dot. hero was rendered with Inkscape and visually inspected. README relative links resolve. The marked numerical fallback matches the generated inventory and is checked against changed-count and malformed-marker regressions.
+- **Catalogue behavior:** independent DOM checks passed for 29 skills, both editions, search/category/reset, prompt copy success and failure, themes, unique IDs, metadata and malformed-data fallback. The current README, template and generated page contain no donation link. The catalogue regression also checks coverage order and the absence of donation destinations.
+- **Evidence:** the registry has 78 records, including three new software-project references used only for presentation decisions. It records 77 active sources and one candidate. The five existing source-rights/correction warnings remain visible. No native execution, model accuracy, adoption or ranking claim was added.
+- **Rendering limitation:** a local Chromium launch with alternate process/shared-memory flags failed before page navigation because the environment denied a socket operation. No desktop/mobile browser layout validation is claimed. SVG inspection and DOM execution are separate checks.
+- **Publication:** source/package checks and safe Git author/committer checks remain separate. Authenticated Git transport is supported for the owner's authorized history repair with an explicit expected-head lease. No successful authentication, remote push, settings change or deployment is implied by this validation record.
+
 ## v1.4.0 artifact validation
 
 The artifact gate passed **148 Python tests with zero skips** and verified **165 deterministic generated files**. Existing v1.1.0, v1.2.0 and v1.3.0 snapshots passed integrity checks and remain unchanged. Canonical finance skill bodies and public benchmark observations were not changed. These are package-validation results; remote publication is verified separately.

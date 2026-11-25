@@ -1,6 +1,6 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.4.0.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.4.1.md)
 
 ## Choose a package
 
@@ -25,7 +25,7 @@ These downloads are hosted as versioned repository files. The available ChatGPT 
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.4.0-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.4.1-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.
@@ -67,7 +67,7 @@ Any change to the published package contents receives a new version. Preserve ex
    py -3 scripts\check_release.py --require-release
    ```
 
-5. Review the release inventory, download links, notes and checksums. Verify the publication identity and relevant Git history separately, following [SECURITY.md](../SECURITY.md#commit-identity-is-a-separate-publication-check). If the connector cannot choose or verify a public no-reply identity, retain the prepared change and report the capability gap. Once those checks pass, publish source and release files together through the ChatGPT GitHub plugin, preserving concurrent edits, then verify remote hashes.
+5. Review the release inventory, download links, notes and checksums. Verify the publication identity and relevant Git history separately, following [SECURITY.md](../SECURITY.md#commit-identity-is-a-separate-publication-check). Use an authorized operation that preserves public no-reply author and committer identities; an authenticated Git transport is supported when the connector cannot do so. If no such authenticated route is available, retain the prepared change and report the access gap. Once those checks pass, publish source and release files together, preserving concurrent edits, then verify remote hashes. An authorized history repair must use the exact reviewed replacement history and an explicit expected-head lease.
 
 The release tool is local and uses Python's standard library. It does not contact GitHub, create tags, publish a GitHub Release or activate a host skill. Its checks include the current generated build, exact release bytes, older snapshot integrity and the release index. Changing a frozen input requires a new version; a successful earlier check does not excuse later changes.
 
