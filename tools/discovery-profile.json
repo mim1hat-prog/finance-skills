@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "title": "Finance Agent Skills for Microsoft 365 Copilot and Gemini",
+  "description": "Finance agent skills for Microsoft 365 Copilot and Gemini: Excel reconciliation, FP&A, forecasting, Power BI and public benchmarks.",
+  "topics": [
+    "agent-skills",
+    "finance",
+    "financial-analysis",
+    "fp-and-a",
+    "microsoft-365-copilot",
+    "gemini",
+    "excel",
+    "power-bi",
+    "forecasting",
+    "reconciliation",
+    "python",
+    "public-data"
+  ]
+}

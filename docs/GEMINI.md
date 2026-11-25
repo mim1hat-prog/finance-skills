@@ -4,7 +4,7 @@ Verified against official documentation on **2026-11-25**. This guide targets **
 
 [Browse the Gemini edition](../editions/gemini) · [Download individual Gemini packages](../packages/gemini) · [Copilot guide](COPILOT.md)
 
-**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-markdown.zip), extract it and open a file in `gemini/`. Copy the entire file into your available Gem Instructions field or an approved conversation. These files already omit YAML headers.
+**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-markdown.zip), extract it and open a file in `gemini/`. Copy the entire file into your available Gem Instructions field or an approved conversation. These files already omit YAML headers.
 
 ## Check which interface your work account has
 
@@ -16,7 +16,7 @@ Gemini App, skills in Google Workspace apps, Gemini Enterprise and Gemini CLI ar
 
 ## 1. Download one skill
 
-For one download, choose the [Gemini release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-gemini.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-full.zip), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
+For one download, choose the [Gemini release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-gemini.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-full.zip), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
 
 Open [packages/gemini](../packages/gemini), choose an individual ZIP and use GitHub's download control. Each ZIP contains `SKILL.md` at its root. Start with `excel-data-coverage`, `forecast-variance`, `account-mapping`, `evidence-research` and `business-document`, then add specialist workflows as needed.
 

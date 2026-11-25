@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.0 — 2026-11-25
+
+- Add a task-first quick start and independently invented reconciliation example, with an exact expected result.
+- Generate descriptive skill/data coverage statistics, explicit denominators and gaps, source hashes, Markdown/JSON reports and a dot-styled SVG figure.
+- Generate a complete static skill catalogue, accurate title/description and SoftwareSourceCode metadata; prepare relevant GitHub topics without claiming settings or a deployed website.
+- Add support and conduct guidance, synthetic-only issue templates, a PR checklist and a proposed native evaluation protocol informed by reviewed public repositories.
+- Add a read-only public commit-identity guard, separate from source/release content scanning. Unresolved identity findings block publication through tools that cannot control commit identity.
+- Preserve canonical finance methods, benchmark observations and every earlier release archive. Native efficacy, adoption and search ranking remain unmeasured.
+
 ## 1.3.0 — 2026-11-25
 
 - Add a Markdown-only download containing all 29 Copilot and 29 Gemini instruction bodies, the Excel agent profile and a short start guide: 60 `.md` files ready to copy and paste.

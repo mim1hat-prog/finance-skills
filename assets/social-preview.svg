@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="social-title social-desc">
+  <title id="social-title">Finance agent skills for Microsoft 365 Copilot and Gemini</title>
+  <desc id="social-desc">Open source finance workflows for Excel, FP&amp;A, forecasting and Power BI. Markdown downloads and public benchmarks. GitHub repository: mim1hat-prog/finance-skills.</desc>
+  <rect width="1280" height="640" fill="#FAF8F4"/>
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <circle cx="84" cy="82" r="12" fill="#31573F"/>
+    <text x="112" y="89" fill="#242622" font-size="22" font-weight="650" letter-spacing="-0.5">finance skills.</text>
+    <text x="1208" y="88" fill="#60645C" font-size="16" font-weight="550" letter-spacing="1.4" text-anchor="end">OPEN SOURCE WORKFLOWS</text>
+    <text x="72" y="231" fill="#242622" font-size="72" font-weight="650" letter-spacing="-2.2">Finance agent skills</text>
+    <text x="72" y="291" fill="#31573F" font-size="30" font-weight="500">Microsoft 365 Copilot and Gemini</text>
+    <path d="M72 344H1208" stroke="#DADDD5" stroke-width="2"/>
+    <text x="72" y="414" fill="#242622" font-size="31" font-weight="500">Excel · FP&amp;A · Forecasting · Power BI</text>
+    <text x="72" y="465" fill="#60645C" font-size="25">Markdown downloads · Public benchmarks</text>
+    <rect x="0" y="536" width="1280" height="104" fill="#31573F"/>
+    <text x="72" y="598" fill="#FFFFFF" font-size="25" font-weight="550">github.com/mim1hat-prog/finance-skills</text>
+    <circle cx="1196" cy="588" r="12" fill="#FAF8F4"/>
+  </g>
+</svg>

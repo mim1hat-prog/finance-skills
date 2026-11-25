@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 1,
+  "measurementType": "descriptive-repository-inventory",
+  "projectVersion": "1.4.0",
+  "releaseDate": "2026-11-25",
+  "sourceReviewDates": {
+    "skills": "2026-11-25",
+    "tools": "2026-11-25",
+    "research": "2026-11-25"
+  },
+  "skills": {
+    "count": 29,
+    "categories": {
+      "Agent setup": 1,
+      "Analysis": 4,
+      "Controls": 5,
+      "Core": 2,
+      "Design": 2,
+      "Pipeline": 2,
+      "Planning": 5,
+      "Reporting": 5,
+      "Research": 3
+    },
+    "groups": {
+      "agent defaults": 1,
+      "core": 8,
+      "extended": 8,
+      "specialist": 8,
+      "workflow pilots": 4
+    },
+    "declaredContracts": {
+      "numerator": 29,
+      "denominator": 29,
+      "percent": 100.0
+    },
+    "activeSourceMappings": {
+      "numerator": 29,
+      "denominator": 29,
+      "percent": 100.0
+    },
+    "declaredPackageTestLinks": {
+      "numerator": 29,
+      "denominator": 29,
+      "percent": 100.0
+    },
+    "declaredWorkflowTestLinks": {
+      "numerator": 8,
+      "denominator": 29,
+      "percent": 27.6
+    },
+    "nativeExecutionEvidence": {
+      "numerator": 0,
+      "denominator": 29,
+      "percent": 0.0
+    },
+    "nativeStatus": {
+      "not-validated": 29
+    },
+    "withDeclaredWorkflowTests": [
+      "account-mapping",
+      "benchmark-lookup",
+      "connected-reporting",
+      "excel-agent-core",
+      "fx-allocation-preflight",
+      "power-query-etl",
+      "provision-reconciliation",
+      "workforce-reconciliation"
+    ],
+    "withoutDeclaredWorkflowTests": [
+      "analytical-sql",
+      "business-document",
+      "cash-working-capital",
+      "close-controls",
+      "corporate-style",
+      "design-review",
+      "document-extraction",
+      "evidence-research",
+      "excel-data-coverage",
+      "forecast-variance",
+      "interactive-visualization",
+      "management-presentation",
+      "power-bi-analysis",
+      "process-diagram",
+      "project-context",
+      "reproducible-analysis",
+      "scenario-planning",
+      "sharepoint-evidence",
+      "spreadsheet-modeling",
+      "video-storyboard",
+      "work-tool-routing"
+    ]
+  },
+  "research": {
+    "registered": 75,
+    "active": 74,
+    "candidates": 1,
+    "reviewStatus": {
+      "carried-forward": 16,
+      "needs-review": 1,
+      "reviewed": 30,
+      "reviewed-with-limitations": 28
+    },
+    "activeSourceTypes": {
+      "data-license": 5,
+      "empirical-research": 1,
+      "metadata-guidance": 4,
+      "method-guide": 2,
+      "normative-standard": 9,
+      "project-design": 2,
+      "provider-documentation": 30,
+      "software-reference": 21
+    },
+    "candidateIds": [
+      "m4-competition"
+    ],
+    "limit": "A source mapping records a stated use; it is not independent empirical validation of a skill."
+  },
+  "tools": {
+    "registered": 29,
+    "availability": {
+      "capability-only": 7,
+      "confirm-at-work": 9,
+      "local-implementation": 1,
+      "optional-evaluation": 5,
+      "partial-user-reported": 2,
+      "user-reported": 5
+    },
+    "limit": "Inventory entries do not establish installation, permission or native integration."
+  },
+  "benchmarks": {
+    "datasetId": "finance-public-benchmarks",
+    "datasetVersion": "1.0.0",
+    "configuredSeries": 17,
+    "observedSeries": {
+      "numerator": 11,
+      "denominator": 17,
+      "percent": 64.7
+    },
+    "retainedPublicSnapshots": 2,
+    "originalObservationRows": 116,
+    "derivedObservationRows": 51,
+    "selectedObservationRows": 167,
+    "adapterStatus": {
+      "live-validated": 8,
+      "needs-source-validation": 2,
+      "parser-validated": 3,
+      "requires-configuration": 2,
+      "rights-gated": 2
+    },
+    "observedAdapters": [
+      "ecb",
+      "worldbank"
+    ],
+    "series": [
+      {
+        "id": "boj-domestic-producer-price",
+        "sourceId": "boj-cgpi",
+        "adapter": "boj",
+        "adapterStatus": "rights-gated",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "index",
+        "redistribution": "permission-required",
+        "observations": 0,
+        "firstPeriod": null,
+        "lastPeriod": null,
+        "selectedSnapshotId": null,
+        "retrievedAt": null,
+        "status": "no-retained-public-observations"
+      },
+      {
+        "id": "boj-import-price-jpy",
+        "sourceId": "boj-cgpi",
+        "adapter": "boj",
+        "adapterStatus": "rights-gated",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "index",
+        "redistribution": "permission-required",
+        "observations": 0,
+        "firstPeriod": null,
+        "lastPeriod": null,
+        "selectedSnapshotId": null,
+        "retrievedAt": null,
+        "status": "no-retained-public-observations"
+      },
+      {
+        "id": "ecb-cny-per-eur",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "daily",
+        "unit": "CNY per EUR",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "ecb-jpy-per-eur",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "daily",
+        "unit": "JPY per EUR",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "ecb-thb-per-eur",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "daily",
+        "unit": "THB per EUR",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "ecb-usd-per-eur",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "daily",
+        "unit": "USD per EUR",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "meti-transport-production-original",
+        "sourceId": "meti-iip",
+        "adapter": "meti",
+        "adapterStatus": "needs-source-validation",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "index",
+        "redistribution": "permitted",
+        "observations": 0,
+        "firstPeriod": null,
+        "lastPeriod": null,
+        "selectedSnapshotId": null,
+        "retrievedAt": null,
+        "status": "no-retained-public-observations"
+      },
+      {
+        "id": "meti-transport-production-sa",
+        "sourceId": "meti-iip",
+        "adapter": "meti",
+        "adapterStatus": "needs-source-validation",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "index",
+        "redistribution": "permitted",
+        "observations": 0,
+        "firstPeriod": null,
+        "lastPeriod": null,
+        "selectedSnapshotId": null,
+        "retrievedAt": null,
+        "status": "no-retained-public-observations"
+      },
+      {
+        "id": "mhlw-hours-candidate",
+        "sourceId": "mhlw-monthly-labour",
+        "adapter": "estat",
+        "adapterStatus": "requires-configuration",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "unconfigured",
+        "redistribution": "unverified",
+        "observations": 0,
+        "firstPeriod": null,
+        "lastPeriod": null,
+        "selectedSnapshotId": null,
+        "retrievedAt": null,
+        "status": "no-retained-public-observations"
+      },
+      {
+        "id": "mhlw-wages-candidate",
+        "sourceId": "mhlw-monthly-labour",
+        "adapter": "estat",
+        "adapterStatus": "requires-configuration",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "unconfigured",
+        "redistribution": "unverified",
+        "observations": 0,
+        "firstPeriod": null,
+        "lastPeriod": null,
+        "selectedSnapshotId": null,
+        "retrievedAt": null,
+        "status": "no-retained-public-observations"
+      },
+      {
+        "id": "project-jpy-per-cny",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "parser-validated",
+        "kind": "derived",
+        "frequency": "daily",
+        "unit": "JPY per CNY",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "project-jpy-per-thb",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "parser-validated",
+        "kind": "derived",
+        "frequency": "daily",
+        "unit": "JPY per THB",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "project-jpy-per-usd",
+        "sourceId": "ecb-exr-api",
+        "adapter": "ecb",
+        "adapterStatus": "parser-validated",
+        "kind": "derived",
+        "frequency": "daily",
+        "unit": "JPY per USD",
+        "redistribution": "permitted",
+        "observations": 17,
+        "firstPeriod": "2026-11-02",
+        "lastPeriod": "2026-11-24",
+        "selectedSnapshotId": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "worldbank-aluminum",
+        "sourceId": "worldbank-pink-sheet",
+        "adapter": "worldbank",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "USD per metric tonne",
+        "redistribution": "permitted",
+        "observations": 12,
+        "firstPeriod": "2025-11",
+        "lastPeriod": "2026-10",
+        "selectedSnapshotId": "20261125t030750z-e3debcf7d3272b67",
+        "retrievedAt": "2026-11-25T03:07:50.858358+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "worldbank-brent",
+        "sourceId": "worldbank-pink-sheet",
+        "adapter": "worldbank",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "USD per barrel",
+        "redistribution": "permitted",
+        "observations": 12,
+        "firstPeriod": "2025-11",
+        "lastPeriod": "2026-10",
+        "selectedSnapshotId": "20261125t030750z-e3debcf7d3272b67",
+        "retrievedAt": "2026-11-25T03:07:50.858358+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "worldbank-copper",
+        "sourceId": "worldbank-pink-sheet",
+        "adapter": "worldbank",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "USD per metric tonne",
+        "redistribution": "permitted",
+        "observations": 12,
+        "firstPeriod": "2025-11",
+        "lastPeriod": "2026-10",
+        "selectedSnapshotId": "20261125t030750z-e3debcf7d3272b67",
+        "retrievedAt": "2026-11-25T03:07:50.858358+00:00",
+        "status": "observed"
+      },
+      {
+        "id": "worldbank-japan-lng",
+        "sourceId": "worldbank-pink-sheet",
+        "adapter": "worldbank",
+        "adapterStatus": "live-validated",
+        "kind": "original",
+        "frequency": "monthly",
+        "unit": "USD per million Btu",
+        "redistribution": "permitted",
+        "observations": 12,
+        "firstPeriod": "2025-11",
+        "lastPeriod": "2026-10",
+        "selectedSnapshotId": "20261125t030750z-e3debcf7d3272b67",
+        "retrievedAt": "2026-11-25T03:07:50.858358+00:00",
+        "status": "observed"
+      }
+    ],
+    "publicSnapshots": [
+      {
+        "id": "20261125t030750z-e3debcf7d3272b67",
+        "retrievedAt": "2026-11-25T03:07:50.858358+00:00",
+        "rowsAcrossAllSeriesInThisVintage": 48
+      },
+      {
+        "id": "20261125t030756z-642357aa97b8b3af",
+        "retrievedAt": "2026-11-25T03:07:56.456028+00:00",
+        "rowsAcrossAllSeriesInThisVintage": 119
+      }
+    ],
+    "excludedSyntheticSnapshotsInPublicStore": 0,
+    "selectionRule": "For each currently configured series, use its latest retained public snapshot by retrieval timestamp, then snapshot ID. Count that snapshot's rows once. A later empty snapshot is not backfilled from an older one.",
+    "exclusions": "Synthetic fixtures, retired series outside the current catalogue, and earlier vintages of a selected series are excluded from observation totals. Public snapshot retention counts still include older public vintages."
+  },
+  "limits": [
+    "These are descriptive counts, not model accuracy, task success, statistical confidence or native account validation.",
+    "A linked local test is a declared test reference, not a full-workflow pass or an execution receipt; this generator does not run tests.",
+    "Repository skill categories are editorial classifications, not a representative sample of all finance tasks.",
+    "Observed-series coverage is availability within this project's configured catalogue, not coverage of all public finance data or of a company's inputs.",
+    "Daily and monthly observations count retained rows; they are not comparable sample sizes. Financial values with different units are never pooled.",
+    "Stored retrieval timestamps and observation periods are not a live refresh, freshness guarantee or evidence of what was known before those snapshots were captured."
+  ],
+  "inputs": [
+    {
+      "path": "benchmarks/catalog.json",
+      "sha256": "36cf7d3285c540ec829da590f0439994ffe6361bb83cfe0c51597d5c40196a14"
+    },
+    {
+      "path": "benchmarks/manifest.json",
+      "sha256": "1732f793d7fea0fd67fe80f2caac221ad1c06487acc025883b92ad611127e263"
+    },
+    {
+      "path": "benchmarks/snapshots/20261125t030750z-e3debcf7d3272b67/manifest.json",
+      "sha256": "a7b8257a010049c7d0051c14f582541f82a79973dbd1cad1f6ec0e26c2e6c7f0"
+    },
+    {
+      "path": "benchmarks/snapshots/20261125t030750z-e3debcf7d3272b67/observations.csv",
+      "sha256": "42ad9a1297b8d61dd369e96c7bdf9af1924ab8ff03dcc7ed724435db2f271b8b"
+    },
+    {
+      "path": "benchmarks/snapshots/20261125t030750z-e3debcf7d3272b67/snapshot.json",
+      "sha256": "20f8eb87974eac9286a6b0f845a9fafc844428f12128a43b41fdc893fc3816a9"
+    },
+    {
+      "path": "benchmarks/snapshots/20261125t030756z-642357aa97b8b3af/manifest.json",
+      "sha256": "4fa674e02d39ab3ab7e673f01ec0c6794683e195235395a08327004474db7a16"
+    },
+    {
+      "path": "benchmarks/snapshots/20261125t030756z-642357aa97b8b3af/observations.csv",
+      "sha256": "b8327b50041f9ff1df02885df8f94ac24c7c1e4f729edd4152200ef4ada67868"
+    },
+    {
+      "path": "benchmarks/snapshots/20261125t030756z-642357aa97b8b3af/snapshot.json",
+      "sha256": "70679a44354989856d4446f1be4b176f4e5bb5763c107fbd2463c62fc25a86fe"
+    },
+    {
+      "path": "catalog.json",
+      "sha256": "6c9c6f592b5cc0c3affe0e123b27d6e9d93e98791c1823c8befe06408403a0bb"
+    },
+    {
+      "path": "research/sources.json",
+      "sha256": "6072fc2406617069614568641968c616b517b34b85fdb62d773572f26c12ec9b"
+    },
+    {
+      "path": "tools/catalog.json",
+      "sha256": "b7c4d984fefa51b1b13c21cf7611042d11bbe47f58598a0c7c77a8f7bcab889e"
+    }
+  ]
+}

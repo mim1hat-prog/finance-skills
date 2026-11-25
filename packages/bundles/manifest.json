@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "transport-bundle-index",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "reviewedOn": "2026-11-25",
   "import": "Extract the outer archive; native imports remain individual skills.",
   "bundles": [
@@ -14,8 +14,8 @@
       "skillCount": 29,
       "packageCount": 29,
       "fileCount": 62,
-      "sha256": "a05957c978d22bb19ae0c7eead08be3c45eee74e51742ebaf2d50ae857487f2c",
-      "bytes": 330845
+      "sha256": "b2adf4c2bc749a84fbe601ad833e537d853d958763f4182aa82d589950a62873",
+      "bytes": 330836
     },
     {
       "name": "finance-skills-gemini",
@@ -26,8 +26,8 @@
       "skillCount": 29,
       "packageCount": 29,
       "fileCount": 91,
-      "sha256": "69ab7cbd4e70d8b44dbe951b5a5fe011b76cfb9b7fc0a6a1c2d0190ce453e89e",
-      "bytes": 488226
+      "sha256": "f12bc1a77533417e30bd9958a6a76d1a7f8eecbcab7f43a39a6bd6a557d51db8",
+      "bytes": 488256
     },
     {
       "name": "finance-skills-all",
@@ -39,8 +39,8 @@
       "skillCount": 29,
       "packageCount": 58,
       "fileCount": 150,
-      "sha256": "f8fd999ae5b59d658fff5b880e7829754431f2b0f6e03207541e8e8a3bad0b04",
-      "bytes": 814415
+      "sha256": "cea4a6677f6271766ff74f461ff34cc0f5e6caae1a6e9d658b10495efff7df65",
+      "bytes": 814448
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "1.3.0",
+  "version": "1.4.0",
+  "projectPresentationVersion": 1,
   "markdownBundleVersion": 1,
   "reviewedOn": "2026-11-25",
   "repoUrl": "https://github.com/mim1hat-prog/finance-skills",

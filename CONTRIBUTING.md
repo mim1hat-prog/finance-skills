@@ -38,3 +38,7 @@ py -3 scripts\check_release.py --require-release
 Review the exact changed source and generated artifacts. Preserve every published version and its checksums. Publish through the authorized GitHub plugin with a current-head check, then verify the remote tree and release hashes. Do not enable GitHub Actions, deploy a public endpoint, activate an enterprise connector or install an upstream runtime as part of an ordinary documentation or skill update.
 
 Use public issues only for non-sensitive reproducible questions. Give the affected version, a minimal invented example, observed behavior and expected contract. See `SECURITY.md` for private concerns. Cite the software through `CITATION.cff`; preserve upstream notices and data terms.
+
+For onboarding and presentation changes, use `site/index.template.html` and `tools/discovery-profile.json`, then rebuild the generated catalogue, metadata and coverage report. Follow [the code of conduct](CODE_OF_CONDUCT.md); [support](SUPPORT.md) and the issue templates describe useful public reports. The [evaluation protocol](docs/EVALUATION.md) defines a future native comparison; do not present it as completed evidence.
+
+Before creating public commits, verify author and committer identity separately from source-file checks. Use a public no-reply address and follow the [metadata publication boundary](SECURITY.md#commit-identity-is-a-separate-publication-check). Do not commit raw history exports or private addresses used for a review.

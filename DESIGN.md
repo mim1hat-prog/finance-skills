@@ -28,3 +28,10 @@ not establish that a skill was imported into a workplace tenant.
 The original vector artwork in `assets/` is for repository presentation. Use
 the employer's approved templates for work output; this repository's brand is
 not an employer template.
+
+The coverage figure is a generated descriptive research graphic. Show actual
+numerators, denominators, units, missing coverage and limits; its bars do not
+represent model effectiveness. Keep the full numerical report accessible as
+Markdown and JSON. Edit the catalogue template, not generated HTML. Include
+the actual skill text and links before JavaScript enhancement; do not invent
+ratings, users, deployment URLs or academic claims for search metadata.

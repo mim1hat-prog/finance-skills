@@ -2,7 +2,19 @@
 
 Checked **2026-11-25**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
 
-## Current release: v1.3.0
+## v1.4.0 artifact validation
+
+The artifact gate passed **148 Python tests with zero skips** and verified **165 deterministic generated files**. Existing v1.1.0, v1.2.0 and v1.3.0 snapshots passed integrity checks and remain unchanged. Canonical finance skill bodies and public benchmark observations were not changed. These are package-validation results; remote publication is verified separately.
+
+- **Coverage:** six focused tests passed for deterministic measurements, source hashes, exact reference use, missing evidence, latest-vintage selection, synthetic exclusion, empty denominators and metadata mismatch rejection. The generated inventory reports 29 skills, declared workflow-test links for 8/29, no recorded native execution evidence, 75 source records (74 active, one candidate), 11/17 configured public series with observations, 116 original rows and 51 derived rows. These are descriptive counts, not model-performance measures.
+- **Discovery and community:** six focused tests passed for complete static HTML, text/JSON-LD escaping, accurate metadata, invalid profile/template rejection, safe output handling and exact community-file inclusion. Independent DOM checks on the actual v1.4.0 files passed for all 29 rows, Gemini routing, search/filter/reset, deep links, copy success/failure feedback, theme state, unique IDs, version links and malformed-data fallback. All 29 skills and prompts remain readable without JavaScript. Arbitrary `.github` files and workflows are excluded from release collection; linked parents are rejected.
+- **Examples and sources:** the existing invented CSVs reconciled exactly from 350.30 to 365.35 with a 15.05 difference and zero residual, retaining both unmatched keys. Nineteen new primary source records document repository practices, discovery, proposed evaluation and metadata privacy. No new native efficacy or public-feed refresh is claimed.
+- **Presentation:** the coverage SVG and original 1280 × 640 social-preview SVG were rendered and visually inspected. The prepared social PNG is 73,337 bytes. System Chromium exited before opening the local catalogue, so desktop/mobile browser layout remains unverified. DOM and SVG inspection do not substitute for that check.
+- **Privacy boundaries:** the current source/package scan covered 4,367 expanded entries and 1,031 archive inspections with no findings under the separate private marker policy. A separate historical review examined all six published main commits and 812 distinct file blobs; source and release contents passed. Git author/committer metadata had an identity finding. The read-only identity guard's six tests passed, and the release CLI can now fail explicitly on an external commit export. A successful artifact gate does not establish a clean Git identity or authorize publication.
+
+No repository settings, search ranking, user-base growth, GitHub Pages deployment or third-party listing is claimed. The prepared metadata describes settings to apply separately. Identity remediation requires a separate authorized route because the available connector cannot select author and committer fields. Raw review exports and remediation evidence stay outside the public project.
+
+## Previous validation: v1.3.0
 
 The Markdown-only download contains **60 `.md` files**: 29 complete Copilot instruction bodies, 29 complete Gemini bodies, the canonical Excel agent profile and a start guide. The 310,404-byte archive has no YAML frontmatter, scripts, datasets, JSON members or nested ZIPs. Every skill body matched its generated edition after removing only the YAML header and normalizing the final newline. The external inventory matched all file sizes and SHA-256 hashes; repeated builds produced identical bytes.
 

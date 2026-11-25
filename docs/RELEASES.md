@@ -1,6 +1,6 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.3.0.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.4.0.md)
 
 ## Choose a package
 
@@ -11,6 +11,8 @@ From v1.3.0, each published version has five ZIP downloads under `releases/v<ver
 - **Gemini:** every Gemini skill as an individual native-import ZIP and matching folder, Gem-ready text and the Excel agent Instructions text.
 - **All skills:** both editions in one transport download.
 - **Full:** the complete useful project, including both editions, individual packages, transport bundles, the profile, canonical source, offline guides, catalogue, local Python helpers, workflow schemas, benchmark dataset/API contract, research registry, citation metadata, examples and tests.
+
+The full project also includes generated coverage statistics, static discovery metadata and the explicit community contribution templates. The Markdown-only ZIP remains instructions only.
 
 Extract the outer ZIP in Windows File Explorer. For a native import, choose one of the individual ZIPs under `packages/copilot/` or `packages/gemini/`. For Excel's supported folder workflow, choose matching-name folders under `editions/copilot/` and follow the [Copilot guide](COPILOT.md). Full and transport ZIPs contain multiple skills and are not themselves native skill imports.
 
@@ -23,7 +25,7 @@ These downloads are hosted as versioned repository files. The available ChatGPT 
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.3.0-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.4.0-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.
@@ -65,11 +67,13 @@ Any change to the published package contents receives a new version. Preserve ex
    py -3 scripts\check_release.py --require-release
    ```
 
-5. Review the release inventory, download links, notes and checksums. Publish source changes and generated release files together through the ChatGPT GitHub plugin, preserving concurrent edits. Verify the remote file hashes after publication.
+5. Review the release inventory, download links, notes and checksums. Verify the publication identity and relevant Git history separately, following [SECURITY.md](../SECURITY.md#commit-identity-is-a-separate-publication-check). If the connector cannot choose or verify a public no-reply identity, retain the prepared change and report the capability gap. Once those checks pass, publish source and release files together through the ChatGPT GitHub plugin, preserving concurrent edits, then verify remote hashes.
 
 The release tool is local and uses Python's standard library. It does not contact GitHub, create tags, publish a GitHub Release or activate a host skill. Its checks include the current generated build, exact release bytes, older snapshot integrity and the release index. Changing a frozen input requires a new version; a successful earlier check does not excuse later changes.
 
 The offline gate also checks research IDs and exact supported uses, tool/workflow contracts, benchmark snapshots, API responses, tests and the public inventory including nested ZIP contents. It is suitable for an approved CI runner; no GitHub Actions workflow or server-enforced branch rule is claimed. Provider refresh and external source-update review are explicit separate commands, never side effects of the build or release gate. See [standards and scope](STANDARDS.md).
+
+Supply `--commit-export C:\PrivateReview\commits.json` to `scripts/check_release.py` when checking identities from a GitHub export. The evidence must remain outside the project. Without this option the result explicitly reports that commit identity was not checked. Export scope and complete branch/tag history still need separate review; no successful artifact check authorizes a known identity leak.
 
 ## Update or roll back your agent
 

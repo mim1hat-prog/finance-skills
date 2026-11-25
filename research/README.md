@@ -21,6 +21,8 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`agent-skills-spec`](#agent-skills-spec) | normative-standard | reviewed | Implementation / registry |
 | [`alfred-realtime`](#alfred-realtime) | provider-documentation | reviewed | `benchmark-lookup`, `forecast-variance` |
 | [`alfred-vintages`](#alfred-vintages) | provider-documentation | reviewed | `benchmark-lookup` |
+| [`anthropic-finance-repository-design`](#anthropic-finance-repository-design) | software-reference | reviewed-with-limitations | Implementation / registry |
+| [`anthropic-skill-evaluation-protocol`](#anthropic-skill-evaluation-protocol) | method-guide | reviewed-with-limitations | Implementation / registry |
 | [`boj-cgpi`](#boj-cgpi) | provider-documentation | reviewed-with-limitations | `benchmark-lookup` |
 | [`boj-terms`](#boj-terms) | data-license | reviewed-with-limitations | Implementation / registry |
 | [`citation-file-format-1.2`](#citation-file-format-12) | normative-standard | reviewed | Implementation / registry |
@@ -36,14 +38,30 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`fpp-tscv`](#fpp-tscv) | method-guide | reviewed | `forecast-variance`, `reproducible-analysis`, `scenario-planning` |
 | [`gemini-deep-research`](#gemini-deep-research) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
 | [`gemini-skills`](#gemini-skills) | provider-documentation | reviewed | Implementation / registry |
+| [`git-offline-object-inspection`](#git-offline-object-inspection) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-commit-identity`](#github-commit-identity) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-community-health`](#github-community-health) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-conduct-reporting`](#github-conduct-reporting) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-git-commit-api`](#github-git-commit-api) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-issue-templates`](#github-issue-templates) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-readme-guidance`](#github-readme-guidance) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-repository-topics`](#github-repository-topics) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-sensitive-data-removal`](#github-sensitive-data-removal) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`github-social-preview`](#github-social-preview) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`google-search-starter`](#google-search-starter) | provider-documentation | reviewed-with-limitations | Implementation / registry |
+| [`google-structured-data-policy`](#google-structured-data-policy) | metadata-guidance | reviewed-with-limitations | Implementation / registry |
 | [`json-schema-2020-12`](#json-schema-2020-12) | normative-standard | reviewed | Implementation / registry |
 | [`m4-competition`](#m4-competition) | empirical-research | needs-review | Candidate; no active use |
 | [`meti-iip`](#meti-iip) | provider-documentation | reviewed-with-limitations | `benchmark-lookup`, `forecast-variance` |
 | [`meti-terms`](#meti-terms) | data-license | reviewed-with-limitations | Implementation / registry |
 | [`mhlw-monthly-labour`](#mhlw-monthly-labour) | provider-documentation | reviewed-with-limitations | `benchmark-lookup`, `workforce-reconciliation` |
+| [`microsoft-skills-acceptance`](#microsoft-skills-acceptance) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`openapi-3.1`](#openapi-31) | normative-standard | reviewed | Implementation / registry |
+| [`openbb-community-entrypoints`](#openbb-community-entrypoints) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`project-finance-design`](#project-finance-design) | project-design | reviewed | `close-controls`, `connected-reporting`, `evidence-research`, `excel-agent-core`, `fx-allocation-preflight`, `provision-reconciliation`, `workforce-reconciliation` |
 | [`rfc9457`](#rfc9457) | normative-standard | reviewed | Implementation / registry |
+| [`schema-software-source-code`](#schema-software-source-code) | metadata-guidance | reviewed-with-limitations | Implementation / registry |
+| [`scientific-skills-repository-practice`](#scientific-skills-repository-practice) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`semantic-versioning-2.0.0`](#semantic-versioning-200) | normative-standard | reviewed | Implementation / registry |
 | [`spdx-license-identifiers`](#spdx-license-identifiers) | normative-standard | reviewed | Implementation / registry |
 | [`synthetic-fixtures`](#synthetic-fixtures) | project-design | reviewed | Implementation / registry |
@@ -70,6 +88,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`upstream-scientific-skills`](#upstream-scientific-skills) | software-reference | carried-forward | `forecast-variance`, `reproducible-analysis`, `scenario-planning`, `workforce-reconciliation` |
 | [`upstream-superpowers`](#upstream-superpowers) | software-reference | carried-forward | `close-controls`, `excel-data-coverage`, `work-tool-routing` |
 | [`upstream-valyu`](#upstream-valyu) | software-reference | carried-forward | `evidence-research`, `sharepoint-evidence` |
+| [`voltagent-curation-policy`](#voltagent-curation-policy) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`w3c-dcat3`](#w3c-dcat3) | normative-standard | reviewed | `benchmark-lookup` |
 | [`w3c-dwbp`](#w3c-dwbp) | normative-standard | reviewed | `benchmark-lookup`, `reproducible-analysis` |
 | [`worldbank-data-terms`](#worldbank-data-terms) | data-license | reviewed | Implementation / registry |
@@ -140,6 +159,48 @@ Only links, bibliographic metadata and original summaries are included; no sourc
   **Limits:** A vintage date records a new or revised observation; no-change releases may be absent. Local snapshots do not create evidence for dates before collection.
   **Paths:** [`skills/benchmark-lookup/SKILL.md`](../skills/benchmark-lookup/SKILL.md), [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`benchmarks/catalog.json`](../benchmarks/catalog.json), [`scripts/benchmark_api.py`](../scripts/benchmark_api.py)
   **Tests:** `tests/test_benchmarks.py::BenchmarkDatasetTests.test_after_cutoff_revision_never_uses_latest`, `tests/test_benchmarks.py::BenchmarkDatasetTests.test_outage_preserves_last_good_and_redacts_credentials`
+
+## anthropic-finance-repository-design
+
+**[Financial services repository](https://github.com/anthropics/financial-services)**
+
+Anthropic; Anthropic. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/anthropics/financial-services); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Anthropic
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Use workflow-oriented discovery and explain reuse of canonical skill instructions across packages.
+  **Supporting section:** Repository Layout and How It Fits Together
+  **Limits:** Only repository organization is compared. Claude plugins, connectors and managed-agent deployment do not establish compatibility with Microsoft 365 Copilot or Gemini Apps.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
+
+## anthropic-skill-evaluation-protocol
+
+**[Skill Creator: running and evaluating test cases](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)**
+
+Anthropic; Anthropic. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `method-guide`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Anthropic
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Inform a proposed matched baseline/with-skill evaluation using concrete task outcomes and explicit variability.
+  **Supporting section:** Running and evaluating test cases; baseline comparison; grading and aggregation
+  **Limits:** Vendor-authored development guidance, not an executed study or proof of benefit. The local protocol is adapted for manual Copilot/Gemini evaluation; host efficacy remains unmeasured.
+  **Paths:** [`docs/EVALUATION.md`](../docs/EVALUATION.md)
 
 ## boj-cgpi
 
@@ -485,6 +546,261 @@ Only source links, factual metadata and original implementation summaries are in
   **Limits:** A bulk download is not a bulk import. Skills do not yet work inside Canvas or Deep Research, and skill scripts cannot make external requests. Personal-account rollout does not establish work-account availability.
   **Paths:** [`docs/GEMINI.md`](../docs/GEMINI.md), [`scripts/build.py`](../scripts/build.py), [`docs/STANDARDS.md`](../docs/STANDARDS.md), [`docs/RESEARCH-POLICY.md`](../docs/RESEARCH-POLICY.md)
 
+## git-offline-object-inspection
+
+**[Git command reference: object-inspection options](https://git-scm.com/docs/git)**
+
+Git project; Git project. Year: living documentation. Edition: Current official documentation reviewed on 2026-11-25; scope limited to the named sections.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary documentation was read for the specific identity-check or privacy procedure below. No private identifiers, raw commit exports or historical case details are recorded.
+
+Rights: [Publisher terms; links and original summaries only](https://git-scm.com/docs/git); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Git project
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Inspect original local commit objects without replacement refs and prevent missing objects from causing an on-demand promisor fetch.
+  **Supporting section:** OPTIONS: --no-replace-objects and --no-lazy-fetch
+  **Limits:** The installed Git version must support these options; command failures block inspection. Local ancestry checks do not establish complete remote history or identify copies in other repositories.
+  **Paths:** [`scripts/check_git_identity.py`](../scripts/check_git_identity.py), [`tests/test_git_identity.py`](../tests/test_git_identity.py)
+  **Tests:** `tests/test_git_identity.py::IdentityGuardTests.test_real_local_history_and_missing_parent_fail_closed`, `tests/test_git_identity.py::IdentityGuardTests.test_local_git_errors_never_emit_stderr`
+
+## github-commit-identity
+
+**[Setting your commit email address](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current official documentation reviewed on 2026-11-25; scope limited to the named sections.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary documentation was read for the specific identity-check or privacy procedure below. No private identifiers, raw commit exports or historical case details are recorded.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Separate future commit identity configuration from historical metadata review, and prefer an account-owned public no-reply identity before publication.
+  **Supporting section:** Setting your commit email address on GitHub; setting it in Git; repository-local settings
+  **Limits:** Settings changes do not replace old commit metadata. The guard checks address form, not ownership, and local Git configuration does not establish a connector's identity behavior.
+  **Paths:** [`SECURITY.md`](../SECURITY.md), [`AGENTS.md`](../AGENTS.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md), [`scripts/check_git_identity.py`](../scripts/check_git_identity.py), [`tests/test_git_identity.py`](../tests/test_git_identity.py)
+  **Tests:** `tests/test_git_identity.py::IdentityGuardTests.test_private_invalid_or_lookalike_identities_fail_without_echoing_values`
+
+## github-community-health
+
+**[About community profiles for public repositories](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Provide contributor expectations, a code of conduct and clear support routes.
+  **Supporting section:** Community profile checklist
+  **Limits:** File presence does not prove a complete GitHub community profile, active moderation or a support service.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`CODE_OF_CONDUCT.md`](../CODE_OF_CONDUCT.md), [`SUPPORT.md`](../SUPPORT.md), [`.github/PULL_REQUEST_TEMPLATE.md`](../.github/PULL_REQUEST_TEMPLATE.md)
+
+## github-conduct-reporting
+
+**[Reporting abuse or spam](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Point sensitive conduct reports to the GitHub reporting options actually available to the reporter.
+  **Supporting section:** Reporting an issue, pull request or comment
+  **Limits:** Direct reporting to repository administrators depends on platform settings and permissions; no private project channel or response deadline is assumed.
+  **Paths:** [`CODE_OF_CONDUCT.md`](../CODE_OF_CONDUCT.md)
+
+## github-git-commit-api
+
+**[REST API endpoints for Git commits](https://docs.github.com/en/rest/git/commits)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current official documentation reviewed on 2026-11-25; scope limited to the named sections.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary documentation was read for the specific identity-check or privacy procedure below. No private identifiers, raw commit exports or historical case details are recorded.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/rest/git/commits); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Review author and committer separately and distinguish GitHub API identity controls from the fields exposed by an available publication connector.
+  **Supporting section:** Create a commit: author and committer body parameters and defaults
+  **Limits:** The GitHub API supports explicit identities. Whether a connector exposes them is an observed capability question; this source does not prove the connector's configuration or any historical identity repair.
+  **Paths:** [`SECURITY.md`](../SECURITY.md), [`AGENTS.md`](../AGENTS.md), [`scripts/check_git_identity.py`](../scripts/check_git_identity.py), [`tests/test_git_identity.py`](../tests/test_git_identity.py)
+  **Tests:** `tests/test_git_identity.py::IdentityGuardTests.test_both_github_response_shapes_and_public_bot_identity`
+
+## github-issue-templates
+
+**[Configuring issue templates for your repository](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Use recognized Markdown issue templates for invented reproductions and generic workflow requests.
+  **Supporting section:** Creating issue templates
+  **Limits:** The template is a reporting aid; it cannot prevent a contributor from posting private content or establish triage availability.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`.github/ISSUE_TEMPLATE/bug_report.md`](../.github/ISSUE_TEMPLATE/bug_report.md), [`.github/ISSUE_TEMPLATE/skill_request.md`](../.github/ISSUE_TEMPLATE/skill_request.md)
+
+## github-readme-guidance
+
+**[About the repository README file](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Keep project purpose, onboarding, support and contribution routes easy to find.
+  **Supporting section:** About READMEs and relative links
+  **Limits:** This is repository documentation guidance, not a measured adoption effect or a search-ranking guarantee.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`SUPPORT.md`](../SUPPORT.md)
+
+## github-repository-topics
+
+**[Classifying your repository with topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Prepare a canonical public topic set and validate format/count limits while keeping suggested metadata separate from applied GitHub settings.
+  **Supporting section:** About topics and adding topics
+  **Limits:** Suggested topics are not applied settings, user counts or a promise of discovery.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`tools/discovery-profile.json`](../tools/discovery-profile.json), [`scripts/project_discovery.py`](../scripts/project_discovery.py)
+
+## github-sensitive-data-removal
+
+**[Removing sensitive data from a repository](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current official documentation reviewed on 2026-11-25; scope limited to the named sections.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary documentation was read for the specific identity-check or privacy procedure below. No private identifiers, raw commit exports or historical case details are recorded.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Require a reviewed remediation that accounts for affected refs, concurrent work, existing clones and possible copies outside the rewritten repository.
+  **Supporting section:** Side effects of rewriting history; about sensitive data exposure; fully removing the data from GitHub
+  **Limits:** This supports a review procedure only. No rewrite, deletion, credential rotation, fork cleanup or cache removal is established by the documentation or local scan.
+  **Paths:** [`SECURITY.md`](../SECURITY.md), [`AGENTS.md`](../AGENTS.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md)
+
+## github-social-preview
+
+**[Customizing your repository's social media preview](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)**
+
+GitHub; GitHub. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: GitHub
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Document image format, size guidance and the separate repository settings step.
+  **Supporting section:** Adding an image to customize the social media preview
+  **Limits:** Committing an image does not configure the repository social preview or establish its appearance on every sharing platform.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
+
+## google-search-starter
+
+**[SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)**
+
+Google Search Central; Google Search Central. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://developers.google.com/search/docs/fundamentals/seo-starter-guide); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Google Search Central
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Generate accurate discovery metadata and use original useful content, descriptive headings and meaningful navigation.
+  **Supporting section:** Make your site interesting and useful; title links; snippets; relevant links
+  **Limits:** These are discovery practices, not proof of indexing, rank, traffic or adoption. A local HTML file is not a deployed website.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`tools/discovery-profile.json`](../tools/discovery-profile.json), [`scripts/project_discovery.py`](../scripts/project_discovery.py), [`site/index.html`](../site/index.html)
+
+## google-structured-data-policy
+
+**[General structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)**
+
+Google Search Central; Google Search Central. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `metadata-guidance`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://developers.google.com/search/docs/appearance/structured-data/sd-policies); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Google Search Central
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Keep generated structured metadata aligned with visible project content and avoid unsupported ratings or adoption claims.
+  **Supporting section:** Content, relevance and rich-result limitations
+  **Limits:** Correct structured data does not guarantee a rich result or ranking. SoftwareSourceCode metadata does not itself establish eligibility for a supported Google search feature.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`scripts/project_discovery.py`](../scripts/project_discovery.py), [`site/index.html`](../site/index.html)
+
 ## json-schema-2020-12
 
 **[JSON Schema Draft 2020-12: Core and Validation](https://json-schema.org/draft/2020-12)**
@@ -597,6 +913,27 @@ Source attribution and edited-content labels required; third-party and API servi
   **Limits:** Table IDs, employment coverage, industry, establishment-size classes and units must be verified before support. A public wage index cannot reconstruct internal job-grade costs.
   **Paths:** [`skills/benchmark-lookup/SKILL.md`](../skills/benchmark-lookup/SKILL.md), [`skills/workforce-reconciliation/SKILL.md`](../skills/workforce-reconciliation/SKILL.md), [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`benchmarks/catalog.json`](../benchmarks/catalog.json), [`scripts/benchmark_collect.py`](../scripts/benchmark_collect.py)
 
+## microsoft-skills-acceptance
+
+**[Agent Skills repository: authoring and acceptance criteria](https://github.com/microsoft/skills/blob/main/README.md)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/microsoft/skills/blob/main/README.md); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Use focused skill selection and explicit acceptance criteria for routine and failure scenarios.
+  **Supporting section:** Selective loading and Contributing: Adding New Skills
+  **Limits:** This source describes coding agents and Azure SDK skills. It provides no native Copilot/Gemini efficacy evidence for this project.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`docs/EVALUATION.md`](../docs/EVALUATION.md)
+
 ## openapi-3.1
 
 **[OpenAPI Specification](https://spec.openapis.org/oas/v3.1.2.html)**
@@ -618,6 +955,27 @@ Only links, bibliographic metadata and original summaries are included; no sourc
   **Limits:** Targets the requested 3.1 family; does not claim that 3.1.2 is the latest OpenAPI family or that the local service is publicly deployed.
   **Paths:** [`api/openapi.yaml`](../api/openapi.yaml), [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`scripts/benchmark_api.py`](../scripts/benchmark_api.py)
   **Tests:** `tests/test_benchmarks.py::BenchmarkDatasetTests.test_all_registered_openapi_routes_match_schema`, `tests/test_benchmarks.py::BenchmarkDatasetTests.test_api_contract_pagination_errors_and_no_provider_calls`
+
+## openbb-community-entrypoints
+
+**[OpenBB: installation and contributing](https://github.com/openbq-org/OpenBB)**
+
+OpenBQ / OpenBB contributors; OpenBQ / OpenBB contributors. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/openbq-org/OpenBB); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: OpenBQ / OpenBB contributors
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Offer distinct help, bug report, improvement request and contribution entry points.
+  **Supporting section:** Installation and Contributing
+  **Limits:** Only onboarding and community routes are compared. No OpenBB runtime, service availability or financial-data accuracy is asserted.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`SUPPORT.md`](../SUPPORT.md)
 
 ## project-finance-design
 
@@ -674,6 +1032,48 @@ Only links, bibliographic metadata and original summaries are included; no sourc
   **Limits:** Problem details communicate failures; they do not establish upstream availability or authorization.
   **Paths:** [`api/openapi.yaml`](../api/openapi.yaml), [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`scripts/benchmark_api.py`](../scripts/benchmark_api.py)
   **Tests:** `tests/test_benchmarks.py::BenchmarkDatasetTests.test_api_contract_pagination_errors_and_no_provider_calls`
+
+## schema-software-source-code
+
+**[SoftwareSourceCode](https://schema.org/SoftwareSourceCode)**
+
+Schema.org; Schema.org. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `metadata-guidance`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://schema.org/SoftwareSourceCode); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Schema.org
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Describe the actual software repository, version, license link and source languages in generated JSON-LD.
+  **Supporting section:** SoftwareSourceCode and inherited CreativeWork properties
+  **Limits:** A lightweight source-code description is not full schema conformance, a Google rich-result feature, an academic affiliation or a deployed website.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`scripts/project_discovery.py`](../scripts/project_discovery.py), [`site/index.html`](../site/index.html)
+
+## scientific-skills-repository-practice
+
+**[Scientific Agent Skills: onboarding, validation and citation practice](https://github.com/K-Dense-AI/scientific-agent-skills)**
+
+K-Dense; K-Dense. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/K-Dense-AI/scientific-agent-skills); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: K-Dense
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Present task examples, version provenance, source attribution and explicit validation scope.
+  **Supporting section:** Getting Started; Maintained and Supported; Citation
+  **Limits:** This is a documentation-design comparison, separate from the pinned upstream skill record. No adoption, scientific accuracy, certification or performance claim is transferred.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
 
 ## semantic-versioning-2.0.0
 
@@ -1224,6 +1624,27 @@ Existing pinned-source licence observation: MIT declared in skill frontmatter/RE
   **Supporting section:** valyu-search/valyu-best-practices/SKILL.md
   **Limits:** Independent instructions do not call the Valyu service or redistribute its skill text; source licence permission remains unresolved.
   **Paths:** [`skills/evidence-research/SKILL.md`](../skills/evidence-research/SKILL.md), [`skills/sharepoint-evidence/SKILL.md`](../skills/sharepoint-evidence/SKILL.md), [`upstream.lock.json`](../upstream.lock.json)
+
+## voltagent-curation-policy
+
+**[Contributing to Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills/blob/main/CONTRIBUTING.md)**
+
+VoltAgent; VoltAgent. Year: living documentation. Edition: Current primary page reviewed on 2026-11-25; documentation reference, not a runtime pin.
+
+Type: `software-reference`. Review: `reviewed-with-limitations`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Repository documentation maintainer.
+
+The primary page was read for the stated repository or evaluation-design use. No source code, assets or source document are copied; no popularity causation or native host result is inferred.
+
+Rights: [Publisher terms; links and original summaries only](https://github.com/VoltAgent/awesome-agent-skills/blob/main/CONTRIBUTING.md); checked 2026-11-25. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: VoltAgent
+
+Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
+
+- **Use:** Defer curated-list submissions until working documentation and demonstrated community use satisfy the destination policy.
+  **Supporting section:** Adding a Skill: Requirements
+  **Limits:** No submission, acceptance, endorsement or broad adoption is established by following the policy.
+  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
 
 ## w3c-dcat3
 

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "kind": "prepared-discovery-metadata",
+  "version": "1.4.0",
+  "repository": "https://github.com/mim1hat-prog/finance-skills",
+  "title": "Finance Agent Skills for Microsoft 365 Copilot and Gemini",
+  "description": "Finance agent skills for Microsoft 365 Copilot and Gemini: Excel reconciliation, FP&A, forecasting, Power BI and public benchmarks.",
+  "topics": [
+    "agent-skills",
+    "finance",
+    "financial-analysis",
+    "fp-and-a",
+    "microsoft-365-copilot",
+    "gemini",
+    "excel",
+    "power-bi",
+    "forecasting",
+    "reconciliation",
+    "python",
+    "public-data"
+  ],
+  "settingsApplied": false,
+  "publicSiteUrl": null,
+  "scope": "Prepared repository settings and local static catalogue. No deployment, search indexing, rankings or adoption measurement is implied.",
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Finance Agent Skills for Microsoft 365 Copilot and Gemini",
+    "description": "Finance agent skills for Microsoft 365 Copilot and Gemini: Excel reconciliation, FP&A, forecasting, Power BI and public benchmarks.",
+    "url": "https://github.com/mim1hat-prog/finance-skills",
+    "codeRepository": "https://github.com/mim1hat-prog/finance-skills",
+    "version": "1.4.0",
+    "license": "https://github.com/mim1hat-prog/finance-skills/blob/main/LICENSE",
+    "programmingLanguage": [
+      "Markdown",
+      "Python"
+    ],
+    "keywords": [
+      "agent-skills",
+      "finance",
+      "financial-analysis",
+      "fp-and-a",
+      "microsoft-365-copilot",
+      "gemini",
+      "excel",
+      "power-bi",
+      "forecasting",
+      "reconciliation",
+      "python",
+      "public-data"
+    ]
+  }
+}

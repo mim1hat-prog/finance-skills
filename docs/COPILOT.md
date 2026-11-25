@@ -4,7 +4,7 @@ Verified against official documentation on **2026-11-25**. This guide targets **
 
 [Browse the Copilot edition](../editions/copilot) · [Download individual Copilot packages](../packages/copilot) · [Gemini guide](GEMINI.md)
 
-**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-markdown.zip), extract it and open a file in `copilot/`. Copy the entire file into an available Instructions field or approved conversation. For your shared Excel defaults, use `EXCEL-AGENT-INSTRUCTIONS.md`. These files already omit YAML headers.
+**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-markdown.zip), extract it and open a file in `copilot/`. Copy the entire file into an available Instructions field or approved conversation. For your shared Excel defaults, use `EXCEL-AGENT-INSTRUCTIONS.md`. These files already omit YAML headers.
 
 ## Choose the Copilot surface
 
@@ -20,7 +20,7 @@ Microsoft currently limits personal Copilot Chat skills to the experience labele
 
 ## 1. Get an individual skill
 
-For one download, choose the [Copilot release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-copilot.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-full.zip), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. [Versions and checksums](RELEASES.md)
+For one download, choose the [Copilot release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-copilot.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-full.zip), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. [Versions and checksums](RELEASES.md)
 
 Open [packages/copilot](../packages/copilot), choose a skill ZIP and use GitHub's file download control. Each ZIP contains `SKILL.md` at its root. Download a few useful skills first; do not upload the entire repository ZIP as one skill.
 

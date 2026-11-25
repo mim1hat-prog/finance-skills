@@ -8,6 +8,7 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | Host behavior | `adapters/` and platform guides | Compare current official Microsoft/Google docs | Dated sources, account caveats and actual restrictions |
 | Upload packages | `editions/`, `packages/` | Deterministic `scripts/build.py` | Exact bytes and SHA-256 manifest |
 | Copy-and-paste Markdown | Generated edition bodies and Excel profile | Generate `packages/markdown/` with `scripts/build.py` | Markdown-only ZIP with external file inventory; replace pasted copies manually |
+| Coverage and discovery | Canonical catalogues, research, public snapshots, `tools/discovery-profile.json` | Generate metrics and static catalogue in the main build | Exact generated counts, denominators, source hashes and no implied adoption/performance score |
 | Excel agent defaults | `skills/excel-agent-core/SKILL.md` | Generate `profiles/excel-agent-instructions.txt` with the editions | Body-only text from one canonical source |
 | Release downloads | `releases/v<version>/` | Freeze with `scripts/release.py` after validation | Versioned ZIPs, release notes, SHA-256 checksums and no-overwrite check |
 | Upstream ideas/tools | `upstream.lock.json` | Check commits, then review relevant diffs/licences | Pinned reviewed revision; new head is only a candidate |
@@ -48,7 +49,7 @@ Public benchmark refresh is separate from repository maintenance and offline def
 
 6. Run a representative synthetic task for changed financial logic. Run optional dependency tests when those helpers change. Review desktop/mobile output for catalogue changes when a browser is available. Record skipped or blocked checks honestly.
 7. Finalize the validation record, then freeze and verify with `py -3 scripts\release.py` and `py -3 scripts\check_release.py --require-release`. Keep every previous version directory. A changed frozen input requires a new version.
-8. Publish the reviewed files, exact generated packages and versioned releases together. Verify the remote paths/hashes. Preserve concurrent changes; do not force-push over somebody else's work.
+8. Verify public no-reply author/committer identities and relevant history separately from source contents. A local Git identity does not establish a connector identity. If a private identity is unresolved and the connector cannot select a safe identity, retain prepared work. Once publication checks pass, publish reviewed files and exact versioned packages together, verify remote paths/hashes and preserve concurrent changes.
 
 The default tests skip optional openpyxl/DuckDB checks when their packages are unavailable. A maintainer changing those helpers must run with the pinned dependencies and confirm those checks actually executed.
 
@@ -69,6 +70,8 @@ The owner requested ongoing updates. A separate maintenance task was enabled on 
 For compatible instruction/documentation changes, the maintainer can publish only after rebuilding, testing and reviewing the diff. Runtime upgrades, changed permissions/data transmission, new commercial services and changed finance definitions require a concrete reviewable proposal. If the execution environment cannot validate a change, leave it in a clearly described branch/PR and report the blocker. Do not call the library updated because a check was merely scheduled.
 
 This file does not create or prove a running automation. The actual task confirmation in the conversation is the record of whether scheduling succeeded. The repository includes no GitHub Actions workflows and installs no poller, webhook, background worker or persistent credentials.
+
+A publication identity hold leaves read-only review enabled. It blocks commit-creating writes until the owner resolves the identity finding and an available authorized route can preserve that correction. It does not silently disable the maintenance schedule or authorize a history rewrite. [Identity check and remediation boundary](../SECURITY.md#commit-identity-is-a-separate-publication-check)
 
 ## Refresh your work account
 

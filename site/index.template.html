@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-dot-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {{PROJECT_METADATA}}
+  <link rel="icon" href="../assets/finance-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../branding/dot/components.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="catalog-data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="dot-surface">
+  <a class="skip-link" href="#library">Skip to skills</a>
+  <header class="masthead wrap">
+    <a class="wordmark" href="#top" aria-label="Finance skills home"><span class="brand-mark" aria-hidden="true"></span>finance skills<span class="wordmark-period">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#library">Library</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#start">Set up</a>
+      <a href="https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md">Releases</a>
+      <a href="../docs/UPDATES.md">Updates</a>
+      <a class="repository-link" href="../README.md">Repository</a>
+    </nav>
+    <label class="theme-control">Appearance
+      <select id="theme" aria-label="Appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select>
+    </label>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Finance agent skills.<br>Clear decisions.</h1>
+        <p class="hero-description">Excel reconciliation, FP&amp;A, forecasting and reporting for Microsoft 365 Copilot and Gemini. Choose a workflow and use the complete instructions.</p>
+        <div class="hero-actions"><a class="button primary" id="download-markdown" href="../packages/markdown/finance-skills-markdown.zip" download="finance-skills-markdown.zip">Download copy-and-paste skills</a><a class="text-link" href="#library">Find a skill</a></div>
+        <p class="platform-note">Windows 11 · Markdown instructions · Optional Python and Power BI</p>
+      </div>
+      <aside class="workflow" aria-labelledby="workflow-title">
+
+        <h2 id="workflow-title">From source<br>to decision.</h2>
+        <ol>
+          <li><span class="step-number" aria-hidden="true">01</span><div><strong>Read the evidence</strong><span>Check scope, periods and units.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">02</span><div><strong>Reconcile the numbers</strong><span>Make the differences explicit.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">03</span><div><strong>Explain the movement</strong><span>Separate facts from assumptions.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">04</span><div><strong>Return the result</strong><span>Keep the outcome clear and concise.</span></div></li>
+        </ol>
+        <a id="full-release-download" href="https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md">Download the full versioned release</a>
+        <a href="../docs/WINDOWS.md">Add local Python and Power BI</a>
+      </aside>
+    </section>
+
+    <section class="library-section" id="library" aria-labelledby="library-title">
+      <div class="wrap">
+        <div class="section-heading"><div><h2 id="library-title">Choose the work.</h2></div><p class="library-meta" id="library-meta">Separate editions with versioned instructions.</p></div>
+        <div class="library-controls">
+          <fieldset class="edition-picker"><legend>Your assistant</legend><div class="edition-options"><label><input type="radio" name="edition" value="copilot" checked><span>Microsoft Copilot</span></label><label><input type="radio" name="edition" value="gemini"><span>Gemini</span></label></div></fieldset>
+          <label class="search-label" for="search">Find a task<input class="dot-search" id="search" type="search" placeholder="Try forecast, headcount or SQL" autocomplete="off"></label>
+          <label class="category-label" for="category">Focus<select id="category" class="dot-search"><option value="all">All skills</option></select></label>
+        </div>
+        <div class="library-downloads">
+          <a class="text-link" id="download-all" href="../packages/bundles/finance-skills-all.zip" download="finance-skills-all.zip" aria-describedby="bundle-note">Download both native editions</a>
+          <div class="download-actions"><a class="button secondary" id="edition-download" href="../packages/bundles/finance-skills-copilot.zip" download="finance-skills-copilot.zip" aria-describedby="bundle-note">Download Copilot skills</a><a class="text-link" id="excel-agent-instructions" href="../profiles/excel-agent-instructions.txt">Open Excel agent Instructions</a></div>
+          <p id="bundle-note">Extract the outer ZIP first, then import individual native skills separately. Copy the Excel agent profile text into your agent’s Instructions field.</p>
+        </div>
+        <div class="library-status"><p id="results-count" role="status" aria-live="polite" aria-atomic="true">{{SKILL_COUNT}} skills / Copilot edition</p><a id="edition-guide" href="../docs/COPILOT.md">Read the Copilot setup guide</a></div>
+        <div id="skill-list" class="skill-list">{{SKILL_ROWS}}</div>
+        <div id="empty-state" class="empty-state" hidden><h3>No matching skills</h3><p>Try a broader task or choose another focus.</p><button class="button secondary" id="clear-filters" type="button">Clear filters</button></div>
+        <div id="data-error" class="empty-state" hidden><h3>The catalogue could not load</h3><p>Open this page from a complete repository download, or use a bundle below. Extract it before importing individual skills.</p><div class="fallback-links"><a href="../packages/bundles/finance-skills-copilot.zip" download="finance-skills-copilot.zip">Download Copilot skills</a><a href="../packages/bundles/finance-skills-gemini.zip" download="finance-skills-gemini.zip">Download Gemini skills</a></div></div>
+        <noscript><div class="empty-state"><h3>Read and download without JavaScript</h3><p>All Copilot skills and prompts are listed above. Filters and edition switching use JavaScript; both editions are available in the downloads below.</p><div class="fallback-links"><a href="../packages/markdown/finance-skills-markdown.zip" download="finance-skills-markdown.zip">Copy-and-paste Markdown</a><a href="../packages/bundles/finance-skills-copilot.zip" download="finance-skills-copilot.zip">Download Copilot skills</a><a href="../packages/bundles/finance-skills-gemini.zip" download="finance-skills-gemini.zip">Download Gemini skills</a><a href="../README.md">Repository guide</a></div></div></noscript>
+        <p class="import-note">Import one skill at a time. Your account determines which tools it can use; an imported copy needs refreshing when its source changes.</p>
+      </div>
+    </section>
+
+    <section class="coverage-section wrap" id="coverage" aria-labelledby="coverage-title">
+      <div class="section-heading"><div><h2 id="coverage-title">Coverage with context.</h2></div></div>
+      <p>Reproducible counts of the skill library and retained public data. These measure documented scope and evidence availability; they do not measure model accuracy or user adoption.</p>
+      <figure><img src="../assets/coverage.svg" alt="Coverage of canonical skills, linked checks and retained public benchmark series. Full numeric results and denominators are in the linked coverage report." width="1200" height="690" loading="lazy"><figcaption><a href="../metrics/README.md">Read the measurements and limitations</a> · <a href="../metrics/summary.json">Download the machine-readable statistics</a></figcaption></figure>
+      <div class="inline-links"><a href="../examples/QUICKSTART.md">Try the invented reconciliation example</a><a href="../docs/EVALUATION.md">How future agent evaluations should work</a></div>
+    </section>
+
+    <section class="getting-started wrap" id="start" aria-labelledby="start-title">
+      <div class="start-intro"><h2 id="start-title">A small setup.<br>A useful routine.</h2><p>Start with a task you already know. Use a small, approved sample and compare the result with your existing work.</p></div>
+      <div class="setup-list">
+        <article><div><h3>1. Choose one workflow</h3><p>Extract the Markdown-only ZIP, open a Copilot or Gemini file and paste its full contents into an available Instructions field or approved conversation. Use the host guide for native imports.</p><div class="inline-links"><a href="../docs/COPILOT.md">Copilot setup</a><a href="../docs/GEMINI.md">Gemini setup</a></div></div></article>
+        <article><div><h3>2. Connect the work you have</h3><p>Use approved files and available tools. Local Python and Power BI workflows have a separate Windows guide.</p><a href="../docs/WINDOWS.md">Open the Windows guide</a></div></article>
+        <article><div><h3>3. Keep the method current</h3><p>Compare the package version, review changes and replace the imported copy when needed.</p><a href="../docs/UPDATES.md">Check the update process</a></div></article>
+      </div>
+    </section>
+    <section class="work-boundary wrap" aria-label="Work information"><p><strong>Keep work data in your approved environment.</strong> This repository supplies general methods, documented public benchmark extracts and invented examples. Use approved company templates and accounts for business data.</p><a href="../SECURITY.md">Read the data boundaries</a></section>
+  </main>
+
+  <footer class="footer wrap"><div><a class="wordmark" href="#top"><span class="brand-mark" aria-hidden="true"></span>finance skills<span class="wordmark-period">.</span></a><p>Designed with the <a href="https://github.com/Somamill/dot-brand-kit">dot. foundation</a>.</p></div><div class="footer-links"><a class="repository-link" href="../README.md">View source</a><a href="../SUPPORT.md">Get help</a><a href="../CONTRIBUTING.md">Contribute</a><a href="https://ko-fi.com/somamill">Support Max on Ko-fi</a></div></footer>
+  <div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
+</body>
+</html>

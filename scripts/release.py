@@ -25,12 +25,16 @@ ROOT_FILES = {
     ".gitattributes", ".gitignore", "AGENTS.md", "CHANGELOG.md", "DESIGN.md",
     "LICENSE", "NOTICE", "PRODUCT.md", "README.md", "SKILLS.md", "TOOLS.md", "catalog.json",
     "CITATION.cff", "CONTRIBUTING.md", "SECURITY.md",
+    "SUPPORT.md", "CODE_OF_CONDUCT.md",
+    ".github/ISSUE_TEMPLATE/bug_report.md", ".github/ISSUE_TEMPLATE/skill_request.md",
+    ".github/PULL_REQUEST_TEMPLATE.md",
     "upstream.lock.json", "requirements.txt", "requirements-duckdb.txt", "requirements-xlsx.txt",
 }
 DIRECTORIES = {
     "api": {".yaml", ".yml", ".json", ".md"},
     "benchmarks": {".json", ".csv", ".md", ".txt"},
     "research": {".json", ".yaml", ".yml", ".md", ".txt"},
+    "metrics": {".json", ".md"},
     "schemas": {".json"}, "tools": {".json", ".md"},
     "adapters": {".md"}, "assets": {".svg", ".png", ".jpg", ".jpeg", ".webp", ".txt", ".md"},
     "branding": {".css", ".json", ".svg", ".png", ".md", ".txt", ""},
@@ -94,8 +98,10 @@ def read_regular(path: Path) -> bytes:
 
 def public_path(name: str) -> bool:
     parts = safe_path(name).split("/")
+    if name in ROOT_FILES:
+        return True
     if len(parts) == 1:
-        return name in ROOT_FILES
+        return False
     return (parts[0] in DIRECTORIES and Path(parts[-1]).suffix.lower() in DIRECTORIES[parts[0]]
             and all(not p.startswith(".") and p.casefold() not in EXCLUDED_PARTS for p in parts[1:]))
 
@@ -108,6 +114,8 @@ def collect_project(root: Path) -> dict[str, bytes]:
     seen: set[str] = set()
 
     def add(path: Path) -> None:
+        if any(parent.is_symlink() for parent in path.parents if parent != root.parent):
+            raise ReleaseError("Linked parent in explicit public files")
         name = safe_path(path.relative_to(root).as_posix())
         if name.casefold() in seen:
             raise ReleaseError(f"Windows case collision: {name}")
