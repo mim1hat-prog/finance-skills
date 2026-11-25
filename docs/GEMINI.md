@@ -14,6 +14,8 @@ Gemini App, skills in Google Workspace apps, Gemini Enterprise and Gemini CLI ar
 
 ## 1. Download one skill
 
+For one download, choose the [Gemini release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-gemini.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
+
 Open [packages/gemini](../packages/gemini), choose an individual ZIP and use GitHub's download control. Each ZIP contains `SKILL.md` at its root. Start with `excel-data-coverage`, `forecast-variance`, `account-mapping`, `evidence-research` and `business-document`, then add specialist workflows as needed.
 
 If you download the full repository, extract it and locate a single folder under `editions/gemini`. Do not upload the entire repository or a folder containing several skills. Google permits **one skill per import**. [Transfer guide](https://support.google.com/gemini/answer/18977944)
@@ -64,6 +66,8 @@ GitHub updates do not automatically replace an imported personal Gemini skill. T
 Google says file updates require uploading the skill with its reference files again. Preserve any company-specific additions in your approved work notes and compare them with the incoming version before replacement. Keep a record of the package hash or repository commit, skill name and imported date. [Replacement instructions](https://support.google.com/gemini/answer/17094296)
 
 ## Fallback: use a Gem or a manual chat instruction
+
+For the general Excel agent behavior, [profiles/excel-agent-instructions.txt](../profiles/excel-agent-instructions.txt?raw=1) is ready to paste into an existing agent's Instructions field. It comes from `excel-agent-core` and omits native YAML and host metadata. Review it with the existing task instructions; use available authorized company sources only. The corresponding [Gem-ready core skill](../editions/gemini-gems/excel-agent-core.txt) includes the Gemini host notes. Saving instructions and importing a native skill are different operations; neither grants access to internal systems.
 
 If Skills is unavailable but your approved work account offers Gems:
 

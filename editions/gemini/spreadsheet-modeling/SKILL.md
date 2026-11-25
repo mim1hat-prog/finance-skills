@@ -7,6 +7,8 @@ description: "Build or extend a transparent spreadsheet model from supplied requ
 
 ## Gemini edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
 
 Use available file and calculation tools for complete accessible inputs. Skill scripts must not depend on internet access, authenticated APIs, or package installation. Keep SQL in Markdown code blocks. An optional Python workflow runs separately on the work PC unless an available Gemini calculation tool actually executes it. Treat all proposed scripts, queries and output files as unexecuted until there is observable evidence; request the resulting control totals or artifact for follow-up analysis.
@@ -30,7 +32,7 @@ Create a model that another person can understand, update, and check. Preserve f
 ### 1. Design the minimum useful structure
 
 1. Inspect an existing workbook's relevant sheets, tables, named ranges, formulas, formatting, and required macros or external links before modifying it. Preserve its working structure where possible. Do not create extra worksheets simply to follow a preferred layout.
-2. Separate source inputs, adjustable assumptions, calculations, and user-facing results logically. Use distinct ranges or existing sheets if they provide sufficient clarity. Create new sheets only when the requested model needs them.
+2. Separate source inputs, adjustable assumptions, calculations, and user-facing results logically. Use distinct ranges in existing sheets. Create a new worksheet only when the user specifically requests one or requests a new workbook; do not add a worksheet merely to impose a preferred model or audit layout.
 3. State the grain of every input and output table, such as one row per product and month. Define keys and join relationships before linking tables. Preserve text identifiers and leading zeros.
 4. Record units alongside labels: currency, thousands/millions, hours, people, FTE, percentages, and period basis. Do not mix monthly flows with closing balances or combine currencies without a stated conversion rule.
 5. Identify editable assumptions and their source, effective date, and reasonable domain. Distinguish a user-provided assumption from an observed value and a proposed default. Use a clearly labeled assumption when the task permits one; do not fabricate a missing actual.
@@ -65,16 +67,7 @@ Create a model that another person can understand, update, and check. Preserve f
 
 ## Output
 
-Return the completed workbook if one was actually produced, or the implementable model specification if editing was unavailable. Include a short handover:
-
-| Item | Required detail |
-| --- | --- |
-| Purpose | Decision, outputs, scope, units, and scenarios |
-| Editable inputs | Exact available sheet/table/range references and assumptions |
-| Calculations | Key formulas and dependency logic |
-| Verification | Checks performed, observed results, and reconciliation differences |
-| Recalculation | Evaluated, cached-only, or not executed |
-| Remaining gap | Specific missing input, unsupported feature, or validation step |
+Return the completed workbook if one was actually produced, or the implementable model specification if editing was unavailable. Briefly identify the relevant editable inputs, necessary formulas/source references, recalculation status, and material unresolved issue. Keep routine verification internal. Do not add a handover table, audit text, new worksheet, or separate validation report unless requested.
 
 Keep company details inside the approved work environment. Do not include unrelated raw records in the explanation or claim an attachment exists when it does not.
 
@@ -92,4 +85,4 @@ Keep company details inside the approved work environment. Do not include unrela
 
 ## Edition record
 
-Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

@@ -4,7 +4,9 @@ This repository supports two independent paths: import a portable skill into you
 
 ## Get the files
 
-Download the repository with GitHub's **Code → Download ZIP**, extract it into an approved work folder and open that folder in VS Code. Git is optional. If Git is installed and you cloned the repository, use `git pull --ff-only` from a clean checkout to obtain reviewed updates.
+Download the [full versioned release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip), extract it into an approved work folder and open that folder in VS Code. It includes all skills, packages, guides, the catalogue and local tools. Use the [release checksums](RELEASES.md) to verify the download. Git is optional. You can also use GitHub's **Code → Download ZIP** for the current repository tree. If Git is installed and you cloned the repository, use `git pull --ff-only` from a clean checkout to obtain reviewed updates.
+
+If you only want skill instructions, choose a smaller [Copilot, Gemini or combined bundle](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md). Extract it before choosing individual native imports or matching-name skill folders. These smaller bundles do not contain the Python tools below. The included `profiles/excel-agent-instructions.txt` can be pasted into the existing Excel agent Instructions field.
 
 Keep business inputs and outputs outside the public checkout. Example paths below such as `C:\Work\FinanceData` are illustrative; use the location your company approves. The bundled `examples/` files are synthetic.
 

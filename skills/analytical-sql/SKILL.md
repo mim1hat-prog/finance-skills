@@ -60,7 +60,7 @@ Return:
 1. The business question, input grain, filters, metric definition, and known SQL dialect.
 2. One runnable read-only query when the schema and engine are known; otherwise a clearly labeled draft with only the genuinely missing substitutions called out.
 3. The executed result or a **not executed** statement. Separate observed row counts/timings from estimates or expectations.
-4. A compact validation table covering source controls, join cardinality, missing keys, boundary cases, and any remaining discrepancy relevant to the task.
+4. Only material discrepancies or failed/unperformed checks that affect use of the query, stated concisely with source references. Keep routine validation internal; provide a validation table or log only when requested.
 5. A short explanation of the calculation and any material limitation. Keep internal source references inside the approved work environment.
 
 Do not return a fabricated CSV, database export, execution log, or benchmark. Optional code or local commands are proposals only unless the current session actually supports and executes them.

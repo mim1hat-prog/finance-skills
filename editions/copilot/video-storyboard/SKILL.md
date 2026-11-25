@@ -7,6 +7,8 @@ description: "Plan a clear, timed work video or animated presentation from suppl
 
 ## Microsoft 365 Copilot edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the approved work account and the current Microsoft 365 host. Prefer the open Excel workbook or PowerPoint presentation when native editing is available. A connection to SharePoint, a Power BI model, or a local computer exists only if this session exposes and authorizes it. A Microsoft 365 Copilot subscription does not imply GitHub Copilot or a VS Code agent.
 
 For uploaded files, use available sandbox tools and preinstalled libraries only. Do not run installers or authenticated HTTP requests inside a cloud skill script. Use enabled work connectors for authorized SharePoint retrieval. Preserve source locators, the reporting cutoff and the actual permission scope. Never treat a search result or file preview as the complete source population.
@@ -80,4 +82,4 @@ Keep source material and business outputs within approved work locations. Treat 
 
 ## Edition record
 
-Finance skills 1.0.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

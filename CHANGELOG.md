@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0 — 2026-11-25
+
+- Add the Excel agent's enterprise-first, concise-output instructions as `excel-agent-core` and generated plain text for an existing agent's Instructions field.
+- Apply its default output rules to both editions and remove conflicting mandatory audit tables, registers and extra-sheet instructions while retaining internal validation and material findings.
+- Generate 25 skills in both editions, 50 individual native-import ZIPs, and Copilot, Gemini and combined transport bundles with exact manifests.
+- Add prominent download-all and Instructions links to the dot catalogue, including edition switching and no-JavaScript fallbacks.
+- Add versioned Copilot, Gemini, all-skills and full-project release ZIPs, release notes, SHA-256 checksums and a release index.
+- Add deterministic release generation and a guard against overwriting an existing version with changed content.
+
 ## 1.0.0 — 2026-11-25
 
 - Publish the reviewed library in `mim1hat-prog/finance-skills` with its own history and plugin-only GitHub maintenance.

@@ -5,7 +5,7 @@ description: "Validate and apply finance account, cost-centre, entity or reporti
 
 # Account and reporting mapping
 
-Create an auditable bridge from source records to reporting categories. Treat the supplied approved mapping as business logic, not a suggestion to guess missing classifications. Use available spreadsheet, SQL or Python tools for actual calculation. If execution is unavailable, return the exact validation procedure and proposed mapping table; distinguish that proposal from applied or approved changes.
+Validate or apply the requested mapping from source records to reporting categories. Treat the supplied approved mapping as business logic, not a suggestion to guess missing classifications. Use available spreadsheet, SQL or Python tools for actual calculation. If execution is unavailable, return the exact necessary formulas or query and mark them unexecuted; include a proposed mapping table only when a mapping change or table is requested. Do not create a separate audit artifact.
 
 ## Define the mapping contract
 
@@ -23,7 +23,7 @@ Distinguish these relationships:
 ## Validate before applying
 
 1. **Inspect keys and targets.** Report blank keys, unknown target codes, invalid hierarchy parents, cycles and orphan categories. Check reserved/unmapped buckets separately from actual accounts. Do not manufacture a target because its label looks similar.
-2. **Find duplicate rules.** Count exact duplicate rows and conflicting rules sharing the same key and active interval. Even identical duplicate rules can multiply values after a join. Propose removal or normalization with a count and audit trail; do not silently discard them.
+2. **Find duplicate rules.** Count exact duplicate rows and conflicting rules sharing the same key and active interval. Even identical duplicate rules can multiply values after a join. Propose removal or normalization with the affected count and source references; do not silently discard them or create an unsolicited audit trail.
 3. **Check time and scope overlaps.** For each relevant key, detect overlapping effective intervals and wildcard/range rules that can match the same record. An overlap requires both date and scope evaluation. A general rule and an entity-specific rule can coexist only with documented precedence. Do not choose the first row or newest file arbitrarily.
 4. **Validate ranges.** Treat code ranges as numeric only when the source identifiers are defined as numeric. Lexical order and numeric order can differ. Test boundary accounts and dates, including an effective-date change and a missing date.
 5. **Validate allocations.** Require numeric, finite, non-negative weights unless an explicitly approved method permits signed weights. Confirm whether weights are fractions or percentages. For each source key and active allocation set, the weights must sum to one within a stated tolerance. Check for missing targets, duplicate destination lines and incomplete sets. Do not normalize 0.95 to 1.00 automatically; expose the missing 5%.
@@ -45,10 +45,6 @@ For a mapping change, apply old and proposed rules to the same source population
 
 ## Deliver
 
-- Mapping contract and version used.
-- Rule-quality register: duplicates, conflicts, overlaps, gaps, weights and hierarchy defects.
-- Record-level match exceptions with source IDs and candidate rule IDs.
-- Mapped result or reproducible query/formulas, with execution status.
-- Reconciliation and proposed changes requiring owner review.
+Return the requested mapped result, correction, or reproducible query/formulas with execution status. Include concise mapping/version references, the reconciliation difference, and material unresolved rules or records needed to act. Keep routine rule-quality and match-cardinality checks internal; create a rule register, full exception table, audit trail, or separate report only when specifically requested. Preserve every unresolved amount in the calculation even when the answer describes exceptions concisely.
 
 Example request: “Map these ledger lines to the reporting hierarchy using the dated mapping table. Check overlapping rules and 60/40 allocations, show every unresolved account, and prove that totals reconcile before and after mapping.”

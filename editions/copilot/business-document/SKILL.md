@@ -7,6 +7,8 @@ description: "Draft, edit, or review evidence-based business documents using the
 
 ## Microsoft 365 Copilot edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the approved work account and the current Microsoft 365 host. Prefer the open Excel workbook or PowerPoint presentation when native editing is available. A connection to SharePoint, a Power BI model, or a local computer exists only if this session exposes and authorizes it. A Microsoft 365 Copilot subscription does not imply GitHub Copilot or a VS Code agent.
 
 For uploaded files, use available sandbox tools and preinstalled libraries only. Do not run installers or authenticated HTTP requests inside a cloud skill script. Use enabled work connectors for authorized SharePoint retrieval. Preserve source locators, the reporting cutoff and the actual permission scope. Never treat a search result or file preview as the complete source population.
@@ -60,7 +62,7 @@ Make recommendations proportional to the evidence. For procedures, distinguish d
 - Check that unresolved placeholders are visible and that assumptions or recommendations cannot be mistaken for facts or approved commitments. Do not fill an unknown merely to make the document look complete.
 - If an in-app or rendered view is available, inspect the pages for clipping, orphaned headings, broken tables, page breaks, header/footer issues, and unreadable labels. State the actual inspection scope. A text check or successful file save is not a visual inspection.
 - Deliver the created or edited document when the result exists. Otherwise provide a complete draft, ready to paste, with the needed headings and tables. For a review, return prioritized findings with exact locations and suggested changes, without altering the source.
-- End with a concise handover: what changed or was produced, important sources, material gaps, and checks not performed. Avoid repeating the full document in the handover.
+- Return the requested document or findings directly with necessary source references and material gaps. Keep routine verification internal; do not append a separate audit narrative, repetitive handover, or unrequested report.
 
 ## Work boundaries
 
@@ -72,4 +74,4 @@ Work only with files and enabled tools the user can access in the authorized wor
 
 ## Edition record
 
-Finance skills 1.0.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

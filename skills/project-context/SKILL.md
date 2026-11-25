@@ -5,7 +5,7 @@ description: "Create or update a concise project handoff, decision log, or worki
 
 # Project context
 
-Preserve the project facts needed to continue accurately in an explicit, reviewable work note. This skill is a document workflow, not an automatic memory system. It requires no local service, database, hooks, or software installation.
+Use the project facts needed to continue accurately. Create or update a work note only when the user requests a handoff, saved context or note; a request to resume work does not require a new summary or log. This skill is a document workflow, not an automatic memory system. It requires no local service, database, hooks, or software installation.
 
 ## Inputs
 
@@ -24,7 +24,7 @@ Use only the conversation and files actually accessible in the current session. 
 
 ## Write a compact handoff
 
-Use this structure, omitting empty sections. Aim for roughly 300-600 words for an ordinary handoff, expanding only for essential detail.
+For a requested handoff, use only the relevant sections below and keep it as short as the next action allows. These are content choices, not a requirement to create a table or audit report. Follow the user's requested length.
 
 | Section | Include |
 | --- | --- |
@@ -38,7 +38,7 @@ Use this structure, omitting empty sections. Aim for roughly 300-600 words for a
 
 Use compact statements with enough context for another session to understand them. Preserve names, identifiers, numbers, units, dates, and status labels when necessary for correctness. Prefer document references and aggregate findings to employee-level or sensitive details. If a source is inaccessible, stale, partial, or only user-described, label that limitation.
 
-Keep a small decision log when the task needs it:
+Create or update a decision log only when the user specifically requests one:
 
 | Decision | Status | Reason and evidence | Date or source |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ Do not fill the example row as if it were a real decision. Keep the current-stat
 
 ## Output
 
-Provide the completed handoff or the actual saved document, followed by a short status: what was updated, which sources were used, and any unresolved gap that matters for continuing. If the user also requested the next project action, continue from the verified context rather than stopping after the summary.
+For a requested handoff or saved note, provide that deliverable directly with concise source references and material unresolved gaps. Do not append a separate audit narrative or status report. For a request to resume or perform the next project action, use the verified context and complete that action without first generating an unsolicited handoff, decision log, or summary.
 
 ## Example request
 

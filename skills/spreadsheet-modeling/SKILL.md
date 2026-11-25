@@ -20,7 +20,7 @@ Create a model that another person can understand, update, and check. Preserve f
 ### 1. Design the minimum useful structure
 
 1. Inspect an existing workbook's relevant sheets, tables, named ranges, formulas, formatting, and required macros or external links before modifying it. Preserve its working structure where possible. Do not create extra worksheets simply to follow a preferred layout.
-2. Separate source inputs, adjustable assumptions, calculations, and user-facing results logically. Use distinct ranges or existing sheets if they provide sufficient clarity. Create new sheets only when the requested model needs them.
+2. Separate source inputs, adjustable assumptions, calculations, and user-facing results logically. Use distinct ranges in existing sheets. Create a new worksheet only when the user specifically requests one or requests a new workbook; do not add a worksheet merely to impose a preferred model or audit layout.
 3. State the grain of every input and output table, such as one row per product and month. Define keys and join relationships before linking tables. Preserve text identifiers and leading zeros.
 4. Record units alongside labels: currency, thousands/millions, hours, people, FTE, percentages, and period basis. Do not mix monthly flows with closing balances or combine currencies without a stated conversion rule.
 5. Identify editable assumptions and their source, effective date, and reasonable domain. Distinguish a user-provided assumption from an observed value and a proposed default. Use a clearly labeled assumption when the task permits one; do not fabricate a missing actual.
@@ -55,16 +55,7 @@ Create a model that another person can understand, update, and check. Preserve f
 
 ## Output
 
-Return the completed workbook if one was actually produced, or the implementable model specification if editing was unavailable. Include a short handover:
-
-| Item | Required detail |
-| --- | --- |
-| Purpose | Decision, outputs, scope, units, and scenarios |
-| Editable inputs | Exact available sheet/table/range references and assumptions |
-| Calculations | Key formulas and dependency logic |
-| Verification | Checks performed, observed results, and reconciliation differences |
-| Recalculation | Evaluated, cached-only, or not executed |
-| Remaining gap | Specific missing input, unsupported feature, or validation step |
+Return the completed workbook if one was actually produced, or the implementable model specification if editing was unavailable. Briefly identify the relevant editable inputs, necessary formulas/source references, recalculation status, and material unresolved issue. Keep routine verification internal. Do not add a handover table, audit text, new worksheet, or separate validation report unless requested.
 
 Keep company details inside the approved work environment. Do not include unrelated raw records in the explanation or claim an attachment exists when it does not.
 

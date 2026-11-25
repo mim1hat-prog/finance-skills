@@ -52,7 +52,7 @@ For review-only requests, return findings without changing the source. For edit 
 
 ## Output
 
-Lead with the main usability finding or improved artifact. Include a concise table of the most useful findings or changes, their locations and reasons, and any unresolved item that affects use. Give the real scope of visual and functional checks. Avoid a long style lecture when a few precise changes solve the problem.
+Lead with the main usability finding or improved artifact. Give only the most useful located findings or changes and material unresolved items, using concise prose or bullets. Keep routine checks internal and state inspection limits that affect use. Add a findings table, audit text, or separate review report only when requested. Avoid a long style lecture when a few precise changes solve the problem.
 
 ## Work boundaries
 

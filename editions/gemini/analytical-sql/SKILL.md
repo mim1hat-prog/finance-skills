@@ -7,6 +7,8 @@ description: "Prepare, explain, optimize, or validate read-only SQL for business
 
 ## Gemini edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
 
 Use available file and calculation tools for complete accessible inputs. Skill scripts must not depend on internet access, authenticated APIs, or package installation. Keep SQL in Markdown code blocks. An optional Python workflow runs separately on the work PC unless an available Gemini calculation tool actually executes it. Treat all proposed scripts, queries and output files as unexecuted until there is observable evidence; request the resulting control totals or artifact for follow-up analysis.
@@ -70,7 +72,7 @@ Return:
 1. The business question, input grain, filters, metric definition, and known SQL dialect.
 2. One runnable read-only query when the schema and engine are known; otherwise a clearly labeled draft with only the genuinely missing substitutions called out.
 3. The executed result or a **not executed** statement. Separate observed row counts/timings from estimates or expectations.
-4. A compact validation table covering source controls, join cardinality, missing keys, boundary cases, and any remaining discrepancy relevant to the task.
+4. Only material discrepancies or failed/unperformed checks that affect use of the query, stated concisely with source references. Keep routine validation internal; provide a validation table or log only when requested.
 5. A short explanation of the calculation and any material limitation. Keep internal source references inside the approved work environment.
 
 Do not return a fabricated CSV, database export, execution log, or benchmark. Optional code or local commands are proposals only unless the current session actually supports and executes them.
@@ -89,4 +91,4 @@ Do not return a fabricated CSV, database export, execution log, or benchmark. Op
 
 ## Edition record
 
-Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

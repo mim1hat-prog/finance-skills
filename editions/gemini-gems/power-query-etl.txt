@@ -2,6 +2,8 @@
 
 ## Gemini edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
 
 Use available file and calculation tools for complete accessible inputs. Skill scripts must not depend on internet access, authenticated APIs, or package installation. Keep SQL in Markdown code blocks. An optional Python workflow runs separately on the work PC unless an available Gemini calculation tool actually executes it. Treat all proposed scripts, queries and output files as unexecuted until there is observable evidence; request the resulting control totals or artifact for follow-up analysis.
@@ -22,17 +24,17 @@ For each input, capture its filename or approved tenant locator, sheet/table, ve
 
 1. **Inventory before combining.** List candidate files. Apply explicit folder, extension, naming and period filters before opening binaries. Exclude temporary lock files, archived versions, generated outputs and unrelated subfolders using visible rules. Report exclusions and counts. Select a representative sample with all required columns; the first file is not automatically the right sample.
 2. **Separate stages.** Keep source discovery, per-file parsing, standardization, mapping, validation and final output distinguishable. Preserve source filename and source row/key through the transformations. Add descriptive step names and parameters for dates and approved locations; avoid personal hard-coded paths.
-3. **Check schema for every file.** Compare required and optional columns with the contract. Reject or quarantine missing required columns, duplicate headers and ambiguous renamed columns. Add absent optional fields as null only when allowed. Report new columns rather than silently dropping information that may change the grain. Keep an error table for files that fail parsing; do not use skip-errors to hide missing populations.
+3. **Check schema for every file.** Compare required and optional columns with the contract. Reject or quarantine missing required columns, duplicate headers and ambiguous renamed columns. Add absent optional fields as null only when allowed. Report new columns rather than silently dropping information that may change the grain. Retain failed-file identifiers and errors in the working query/context so they can be investigated; do not use skip-errors to hide missing populations or create/load a separate error table unless requested.
 4. **Parse deliberately.** Specify delimiter, encoding, date format and culture for numeric/date conversion. Retain account and cost-centre identifiers as text, including leading zeros. Distinguish blank, null, zero, dash and parse error. Keep the raw value alongside a rejected conversion. Do not replace conversion failures with zero. Use a fixed decimal/currency type only when its scale fits the source and calculation; document rounding.
 5. **Reshape to the defined grain.** Remove title rows and repeated headers by evidence-based rules. Separate subtotals from detail. Unpivot period columns without combining units or scenarios. Treat duplicate records according to a documented business key and version rule; never remove equal-looking transactions merely because their amounts match.
 6. **Join with cardinality checks.** Establish the intended one-to-one, many-to-one or allocation relationship. Count mapping matches per input row before expansion. Zero matches and unexpected multiple matches go to exceptions. Preserve unmapped values for reconciliation. If a split mapping is intended, validate weights and reconcile allocated values to their source rows.
-7. **Load and refresh.** Load the intended table/query, then perform a complete refresh if tools allow. Identify whether a preview or the loaded result was checked. Report source refresh time, failures, excluded files and stale caches. Do not claim the Power BI service will refresh merely because Desktop succeeded.
+7. **Load and refresh.** Apply the requested load/refresh to the intended existing table/query if tools allow; a review request alone does not authorize changing the load destination or creating a worksheet. Identify whether a preview or the loaded result was checked. Disclose material refresh failures, exclusions and stale caches. Do not claim the Power BI service will refresh merely because Desktop succeeded.
 
 ## Prove completeness
 
 Power Query profiles the first 1,000 rows by default; select entire-dataset profiling or run explicit full-table checks before claiming full coverage. Native preview limits are not evidence of a small dataset. [Microsoft profiling guidance](https://learn.microsoft.com/en-us/power-query/data-profiling-tools)
 
-Create a stage reconciliation with input rows, accepted rows, rejected rows, distinct business keys and amount totals by entity, period and currency. For an append, input detail rows must equal accepted plus rejected rows after separately identified non-data rows. A deliberate aggregation changes row count; document the grain and preserve the amount bridge. For a join, investigate row multiplication before trusting totals. Keep debit, credit and net totals when netting could hide errors.
+Reconcile stages internally using input rows, accepted rows, rejected rows, distinct business keys and amount totals by entity, period and currency. Do not create a reconciliation worksheet or audit table unless requested. For an append, input detail rows must equal accepted plus rejected rows after separately identified non-data rows. A deliberate aggregation changes row count; establish the grain and preserve the amount bridge. For a join, investigate row multiplication before trusting totals. Check debit, credit and net totals when netting could hide errors.
 
 Use explicit tolerances in the source currency and unit. Show rounding residuals separately and never add a balancing adjustment to force agreement. Test a second period or changed input file when available to expose assumptions tied to the sample. If only a sample can be processed, label the output provisional and list unchecked files or rows.
 
@@ -40,11 +42,7 @@ For refresh errors, report the failing step, exact observed error, affected popu
 
 ## Deliver
 
-- A short explanation of the resulting grain and inclusion rules.
-- The working query or paste-ready M/editor steps, with execution status.
-- Source inventory, excluded-file list and schema/conversion/mapping exceptions.
-- Stage reconciliation and refresh evidence, including unresolved residuals.
-- Parameters and owner actions needed for the next period.
+Return the requested working query/result or paste-ready M/editor steps with execution status. Briefly state the resulting grain, necessary source references/parameters, and material exclusions, errors, stale data or residuals. Keep the source inventory and stage checks internal; deliver a full inventory, exception table, audit log or validation report only when requested. Include next-period instructions only when needed to use the requested workflow.
 
 Example request: “Combine these monthly ledger CSVs into an Actual table for Power BI. Preserve account codes, exclude archive and temporary files, flag schema changes, and reconcile totals for each entity and currency.”
 
@@ -52,4 +50,4 @@ Use the official [combine-files guide](https://learn.microsoft.com/en-us/power-q
 
 ## Edition record
 
-Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

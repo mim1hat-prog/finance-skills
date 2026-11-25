@@ -50,7 +50,7 @@ Make recommendations proportional to the evidence. For procedures, distinguish d
 - Check that unresolved placeholders are visible and that assumptions or recommendations cannot be mistaken for facts or approved commitments. Do not fill an unknown merely to make the document look complete.
 - If an in-app or rendered view is available, inspect the pages for clipping, orphaned headings, broken tables, page breaks, header/footer issues, and unreadable labels. State the actual inspection scope. A text check or successful file save is not a visual inspection.
 - Deliver the created or edited document when the result exists. Otherwise provide a complete draft, ready to paste, with the needed headings and tables. For a review, return prioritized findings with exact locations and suggested changes, without altering the source.
-- End with a concise handover: what changed or was produced, important sources, material gaps, and checks not performed. Avoid repeating the full document in the handover.
+- Return the requested document or findings directly with necessary source references and material gaps. Keep routine verification internal; do not append a separate audit narrative, repetitive handover, or unrequested report.
 
 ## Work boundaries
 

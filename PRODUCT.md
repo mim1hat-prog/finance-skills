@@ -19,7 +19,8 @@ instructions and obtain the right assistant's package. Keep source review,
 package validation and installation in a workplace account distinct.
 
 ## Primary action
-Choose an assistant, find a task and download its individual skill package.
+Choose an assistant and download a versioned edition, the complete release or
+an individual skill. Make the Excel agent Instructions text easy to obtain.
 
 ## Content and publication
 Show general methods, public source references and synthetic examples. Keep

@@ -7,6 +7,8 @@ description: "Research a work question and produce a traceable evidence-based an
 
 ## Gemini edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
 
 Use available file and calculation tools for complete accessible inputs. Skill scripts must not depend on internet access, authenticated APIs, or package installation. Keep SQL in Markdown code blocks. An optional Python workflow runs separately on the work PC unless an available Gemini calculation tool actually executes it. Treat all proposed scripts, queries and output files as unexecuted until there is observable evidence; request the resulting control totals or artifact for follow-up analysis.
@@ -15,7 +17,7 @@ Do not promise that a skill can run with Canvas or Deep Research. If one of thos
 
 Use native Skills if the work account exposes Customize > Skills. Google documentation currently differs on work-account rollout, so check the account rather than infer availability. If Skills is absent but Gems is available, place the workflow in the Gem's Instructions; a knowledge attachment alone does not make it an instruction. Otherwise paste the task instructions into an approved conversation. Imported skills and Gem instructions do not automatically track GitHub; replace the existing copy after an update.
 
-Answer the question with evidence that the user can inspect. Build a concise claim-to-source record and distinguish confirmed findings, supported interpretations, and unresolved questions. Use the search and document capabilities actually enabled in the current session.
+Answer the question with evidence that the user can inspect. Keep claim-to-source traceability in working context and distinguish confirmed findings, supported interpretations, and unresolved questions. Use the search and document capabilities actually enabled in the current session.
 
 ## Inputs and capability
 
@@ -52,13 +54,9 @@ Answer the question with evidence that the user can inspect. Build a concise cla
 5. Make causal claims only when the evidence supports them. An association, company explanation, or sequence of events is not automatically a demonstrated causal effect.
 6. Treat absence of a result cautiously. Say "not found in the sources checked" when that is what happened; do not claim that a feature, event, study, or rule does not exist merely because search missed it.
 
-### 4. Build a compact evidence record
+### 4. Keep claims traceable
 
-Use a table for material claims rather than a long undifferentiated link list:
-
-| Claim or question | Evidence and source | Date/period | Assessment | Limitation |
-| --- | --- | --- | --- | --- |
-| The specific proposition | Traceable source and relevant finding | Publication/event/data dates that matter | Confirmed in source, inference, disputed, or unresolved | Access, definition, method, or coverage limit |
+Track each material claim's source, relevant dates/period, assessment, and limitation in the working context. Use this to check the answer, not to create an unsolicited evidence register or audit table. Provide a separate evidence table only when the user requests one.
 
 Include only sources that contribute to the answer. Cite them close to the claims they support using the host's citation mechanism or direct links to sources actually retrieved. For internal evidence, use traceable references within the approved company environment. Use short quotations only when the exact wording matters and otherwise paraphrase accurately.
 
@@ -72,7 +70,7 @@ Include only sources that contribute to the answer. Cite them close to the claim
 
 ## Output
 
-Return a direct answer, the relevant evidence table, decision implications, and any unresolved question that could change the conclusion. Keep a brief or a detailed report according to the user's request. If the task asks for a file and file creation is unavailable, provide the complete structured content and accurately state that no file was created.
+Return a direct answer with nearby source references, decision implications, and only unresolved questions that could change the conclusion. Match the requested depth and format; do not add an evidence table, audit text, or separate report unless requested. If the task asks for a file and file creation is unavailable, provide the complete structured content and accurately state that no file was created.
 
 When retrieval was unavailable, use a clear label such as **analysis of supplied sources only**. When current verification failed, identify the specific fact that remains unverified instead of presenting older knowledge as a current result.
 
@@ -90,4 +88,4 @@ When retrieval was unavailable, use a clear label such as **analysis of supplied
 
 ## Edition record
 
-Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

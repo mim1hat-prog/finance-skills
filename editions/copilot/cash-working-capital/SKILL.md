@@ -7,6 +7,8 @@ description: "Analyze operating cash, receivables, inventory and payables with r
 
 ## Microsoft 365 Copilot edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the approved work account and the current Microsoft 365 host. Prefer the open Excel workbook or PowerPoint presentation when native editing is available. A connection to SharePoint, a Power BI model, or a local computer exists only if this session exposes and authorizes it. A Microsoft 365 Copilot subscription does not imply GitHub Copilot or a VS Code agent.
 
 For uploaded files, use available sandbox tools and preinstalled libraries only. Do not run installers or authenticated HTTP requests inside a cloud skill script. Use enabled work connectors for authorized SharePoint retrieval. Preserve source locators, the reporting cutoff and the actual permission scope. Never treat a search result or file preview as the complete source population.
@@ -54,14 +56,10 @@ Translate a days improvement into a potential working-capital effect only with a
 
 ## Deliver
 
-- A cash and working-capital bridge with residuals, FX and non-cash movements visible.
-- A KPI table with formulas, numerator/denominator scope, balance-average method, day count and limitations.
-- Reconciled aging, major drivers and actionable exception populations.
-- If requested, a dated cash scenario with assumptions and headroom against a user-supplied minimum.
-- Source locators, calculation status and checks still needed.
+Return only the requested cash, working-capital, aging, KPI or scenario result. Include necessary formulas, units, source references and material residuals or limitations. Use a business-data table when requested or needed for the comparison; do not turn a single ratio question into a full bridge, KPI, aging and audit pack. Keep routine reconciliation checks internal and provide a separate check register or audit report only when specifically requested.
 
 Example request: “Compare October and November working capital using these balances and credit sales. Calculate DSO, DIO and DPO with the available average balances, reconcile the aging, and estimate a five-day DSO improvement without treating it as realized cash.”
 
 ## Edition record
 
-Finance skills 1.0.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

@@ -7,6 +7,8 @@ description: "Build transparent finance sensitivities and driver-based scenarios
 
 ## Microsoft 365 Copilot edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the approved work account and the current Microsoft 365 host. Prefer the open Excel workbook or PowerPoint presentation when native editing is available. A connection to SharePoint, a Power BI model, or a local computer exists only if this session exposes and authorizes it. A Microsoft 365 Copilot subscription does not imply GitHub Copilot or a VS Code agent.
 
 For uploaded files, use available sandbox tools and preinstalled libraries only. Do not run installers or authenticated HTTP requests inside a cloud skill script. Use enabled work connectors for authorized SharePoint retrieval. Preserve source locators, the reporting cutoff and the actual permission scope. Never treat a search result or file preview as the complete source population.
@@ -48,10 +50,10 @@ For cash, distinguish profit effects from collection/payment timing, inventory, 
 
 Test the unchanged-input case, boundary/zero cases, capacity thresholds, sign direction and scenario totals. Check that changing a driver affects only the intended periods and formulas. Summarize which checks ran and which require the user's application or source data. Identify sensitive assumptions and the information that would most improve the decision.
 
-Return a baseline reconciliation, assumption register, scenario output table, driver bridge, sensitivity view if useful and decision-relevant thresholds. State which outcome changes the proposed action and which assumption crosses that threshold. Keep recommendations conditional on the modeled facts; do not present a scenario as an approved budget or a committed operational action.
+Return the requested scenario/model or comparison with the assumptions, calculation references and decision thresholds needed to interpret it. Keep baseline reconciliation and routine validation internal; disclose material residuals or failed checks. Do not add an assumption register, audit text, full sensitivity package or new worksheet unless requested. State which outcome changes the proposed action and which assumption crosses that threshold. Keep recommendations conditional on modeled facts; do not present a scenario as an approved budget or a committed operational action.
 
 Example request: “Model next quarter with volume −10%, price +2% and a one-month hiring delay. Compare it with the unchanged baseline and a volume-only sensitivity. Show the profit bridge, cash timing assumptions and the capacity or margin thresholds that change the decision.”
 
 ## Edition record
 
-Finance skills 1.0.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

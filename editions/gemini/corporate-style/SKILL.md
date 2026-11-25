@@ -7,6 +7,8 @@ description: "Apply or review approved corporate design guidance across Excel wo
 
 ## Gemini edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
 
 Use available file and calculation tools for complete accessible inputs. Skill scripts must not depend on internet access, authenticated APIs, or package installation. Keep SQL in Markdown code blocks. An optional Python workflow runs separately on the work PC unless an available Gemini calculation tool actually executes it. Treat all proposed scripts, queries and output files as unexecuted until there is observable evidence; request the resulting control totals or artifact for follow-up analysis.
@@ -26,7 +28,7 @@ Apply verified corporate design rules to the requested deliverable. Keep this de
 ## Find the applicable rules
 
 1. Retrieve only the relevant chapters and format-specific official template through enabled work capabilities. Use the supplied authoritative source and its version, date, intended audience, and applicability. A generic web page, screenshot, search hit, or the toolkit's own design is not an approved corporate guide.
-2. Establish a compact rule record: rule; applicable format/context; source title and section/page; source version/date if available; affected elements. Cite the actual location, not an invented reference. Distinguish mandatory requirements from examples and recommendations.
+2. Keep applicable rules, source sections/versions and affected elements in working context for the design check. Do not create a rule register or audit document unless requested. Cite the actual source location and distinguish mandatory requirements from examples and recommendations.
 3. Apply relevant format-specific rules together with the applicable general rules. If official sources conflict, follow their stated precedence or current authoritative version. When precedence cannot be established, identify the conflict and leave the disputed element unchanged or use a clearly provisional treatment.
 4. Use official assets supplied or retrieved through approved work sources. Verify their intended use and any associated restrictions. Do not recreate a logo from memory, extract a font from an unrelated site, infer palette values from website chrome, or treat an unlabeled example as a mandatory layout rule.
 5. If the guide came from an export, use its inventory and missing/failed-item manifest when available. Report the coverage actually available. Do not claim a complete brand audit or complete site capture from a subset of chapters, links, or screenshots. This skill does not crawl a website or bypass an access restriction.
@@ -65,8 +67,8 @@ Apply verified corporate design rules to the requested deliverable. Keep this de
 
 1. Compare the affected elements with their cited source rules. Recheck that business values, formulas, scales, conditional meanings, and substantive text remain intact.
 2. Inspect the affected ranges, slides, or pages when available. State whether the check covered every relevant page or only a sample, and identify material areas not seen. A successful tool call or file save is not evidence of visual compliance.
-3. Return the edited deliverable if it exists. For a review or unavailable editing capability, return a concise findings table: location, observed issue, source rule, proposed change, and verification status.
-4. Summarize applied changes, cited guide sources, missing assets, unresolved rule conflicts, and unverified checks. Describe compliance only within the scope actually checked; never imply official brand approval.
+3. Return the edited deliverable if it exists. For a review or unavailable editing capability, give concise located findings with the relevant source rule and proposed change. Use an audit/findings table only when requested.
+4. Include source references and material missing assets, rule conflicts or unverified checks that affect the result. Avoid a separate audit narrative or repetitive change summary. Describe compliance only within the scope actually checked; never imply official brand approval.
 
 ## Work boundaries
 
@@ -78,4 +80,4 @@ Keep company guides, templates, logos, fonts, internal links, and business outpu
 
 ## Edition record
 
-Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

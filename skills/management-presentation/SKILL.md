@@ -17,9 +17,9 @@ Turn the available evidence into a concise presentation for a defined management
 
 1. Reuse verified totals, definitions, and exceptions from the supplied analysis. Let Excel or another available calculation capability compute new totals; do not estimate material figures from a chart or silently calculate over an unknown subset of rows. Record any computation's inputs and method.
 2. Keep actuals, budgets, forecasts, estimates, targets, and scenarios distinct. State dates, comparison baseline, currency, scale, and units. Distinguish headcount from FTE and monthly measures from year-to-date or full-year measures. Preserve the source's fiscal calendar and variance sign convention.
-3. Prepare a compact evidence ledger: proposed claim, value or observation, source location, reporting period, and unresolved qualification. Cite an accessible workbook sheet/table/range, report section/page, or slide number. Do not invent page references or supporting links.
+3. Track material claims, values, source locations, periods and qualifications in working context to verify the deck. Do not create an evidence ledger or audit artifact unless requested. Cite an accessible workbook sheet/table/range, report section/page, or slide number; do not invent references.
 4. Separate observed changes from proposed explanations. A variance is not proof of its cause. Present unsupported explanations as hypotheses with the evidence needed to confirm them. Reconcile the headline figures with supporting tables before building a chart.
-5. Organize the deck around the decision. A useful default is: executive takeaway and requested decision; performance versus baseline; material drivers and exceptions; outlook with assumptions and risks; actions and owners. Include only sections supported by the task. Put detailed reconciliations and definitions in an appendix when useful.
+5. Organize the deck around the decision. A useful default is: executive takeaway and requested decision; performance versus baseline; material drivers and exceptions; outlook with assumptions and risks; actions and owners. Include only sections supported by the task. Keep routine reconciliation checks internal; add an audit/reconciliation appendix only when requested. Include definitions needed to interpret the business result in the relevant slide or notes.
 
 ## Create or revise the slides
 
@@ -40,7 +40,7 @@ Turn the available evidence into a concise presentation for a defined management
 
 ## Return
 
-Lead with the main management message and the deliverable. Summarize the changes, evidence checked, material open questions, and any file or visual checks that could not be performed. Keep this handover short enough to review alongside the deck. Do not expose employee-level data in a management summary when aggregated evidence suffices.
+Lead with the main management message and requested deliverable. Include concise source references and only material open questions or inspection limits that affect its use; avoid a separate audit narrative or repetitive handover. Do not expose employee-level data when aggregated evidence suffices.
 
 ## Work boundaries
 

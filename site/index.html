@@ -19,6 +19,7 @@
     <nav aria-label="Main navigation">
       <a href="#library">Library</a>
       <a href="#start">Set up</a>
+      <a href="https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md">Releases</a>
       <a href="../docs/UPDATES.md">Updates</a>
       <a class="repository-link" href="../README.md">Repository</a>
     </nav>
@@ -32,7 +33,7 @@
       <div class="hero-copy">
         <h1 id="hero-title">Clear numbers.<br>Sound decisions.</h1>
         <p class="hero-description">Practical skills for reconciliations, forecasts and reporting. Choose your assistant, then import the tasks you use.</p>
-        <div class="hero-actions"><a class="button primary" href="#library">Find a skill</a><a class="text-link" href="#start">How to get started</a></div>
+        <div class="hero-actions"><a class="button primary" id="download-all" href="../packages/bundles/finance-skills-all.zip" download="finance-skills-all.zip" aria-describedby="bundle-note">Download all skills</a><a class="text-link" href="#library">Find a skill</a></div>
         <p class="platform-note">For Microsoft Copilot and Gemini on Windows 11</p>
       </div>
       <aside class="workflow" aria-labelledby="workflow-title">
@@ -42,8 +43,9 @@
           <li><span class="step-number" aria-hidden="true">01</span><div><strong>Read the evidence</strong><span>Check scope, periods and units.</span></div></li>
           <li><span class="step-number" aria-hidden="true">02</span><div><strong>Reconcile the numbers</strong><span>Make the differences explicit.</span></div></li>
           <li><span class="step-number" aria-hidden="true">03</span><div><strong>Explain the movement</strong><span>Separate facts from assumptions.</span></div></li>
-          <li><span class="step-number" aria-hidden="true">04</span><div><strong>Record the decision</strong><span>Leave a clear trail for the next run.</span></div></li>
+          <li><span class="step-number" aria-hidden="true">04</span><div><strong>Return the result</strong><span>Keep the outcome clear and concise.</span></div></li>
         </ol>
+        <a id="full-release-download" href="https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md">Download the full versioned release</a>
         <a href="../docs/WINDOWS.md">Add local Python and Power BI</a>
       </aside>
     </section>
@@ -56,11 +58,15 @@
           <label class="search-label" for="search">Find a task<input class="dot-search" id="search" type="search" placeholder="Try forecast, headcount or SQL" autocomplete="off"></label>
           <label class="category-label" for="category">Focus<select id="category" class="dot-search"><option value="all">All skills</option></select></label>
         </div>
+        <div class="library-downloads">
+          <div class="download-actions"><a class="button secondary" id="edition-download" href="../packages/bundles/finance-skills-copilot.zip" download="finance-skills-copilot.zip" aria-describedby="bundle-note">Download Copilot skills</a><a class="text-link" id="excel-agent-instructions" href="../profiles/excel-agent-instructions.txt">Open Excel agent Instructions</a></div>
+          <p id="bundle-note">Extract the outer ZIP first, then import individual native skills separately. Copy the Excel agent profile text into your agent’s Instructions field.</p>
+        </div>
         <div class="library-status"><p id="results-count" role="status" aria-live="polite" aria-atomic="true">Loading skills…</p><a id="edition-guide" href="../docs/COPILOT.md">Read the Copilot setup guide</a></div>
         <div id="skill-list" class="skill-list"></div>
         <div id="empty-state" class="empty-state" hidden><h3>No matching skills</h3><p>Try a broader task or choose another focus.</p><button class="button secondary" id="clear-filters" type="button">Clear filters</button></div>
-        <div id="data-error" class="empty-state" hidden><h3>The catalogue could not load</h3><p>Open this page from a complete repository download, or browse the skill folders directly.</p><div class="fallback-links"><a href="../editions/copilot/">Open Copilot skills</a><a href="../editions/gemini/">Open Gemini skills</a></div></div>
-        <noscript><div class="empty-state"><h3>Browse the files directly</h3><p>The searchable catalogue uses JavaScript. The skills and setup guides work without it.</p><div class="fallback-links"><a href="../editions/copilot/">Copilot skills</a><a href="../editions/gemini/">Gemini skills</a><a href="../README.md">Repository guide</a></div></div></noscript>
+        <div id="data-error" class="empty-state" hidden><h3>The catalogue could not load</h3><p>Open this page from a complete repository download, or use a bundle below. Extract it before importing individual skills.</p><div class="fallback-links"><a href="../packages/bundles/finance-skills-copilot.zip" download="finance-skills-copilot.zip">Download Copilot skills</a><a href="../packages/bundles/finance-skills-gemini.zip" download="finance-skills-gemini.zip">Download Gemini skills</a></div></div>
+        <noscript><div class="empty-state"><h3>Download the files directly</h3><p>The catalogue filters use JavaScript. Download a bundle below, extract it, then import individual skills separately.</p><div class="fallback-links"><a href="../packages/bundles/finance-skills-copilot.zip" download="finance-skills-copilot.zip">Download Copilot skills</a><a href="../packages/bundles/finance-skills-gemini.zip" download="finance-skills-gemini.zip">Download Gemini skills</a><a href="../README.md">Repository guide</a></div></div></noscript>
         <p class="import-note">Import one skill at a time. Your account determines which tools it can use; an imported copy needs refreshing when its source changes.</p>
       </div>
     </section>
@@ -68,7 +74,7 @@
     <section class="getting-started wrap" id="start" aria-labelledby="start-title">
       <div class="start-intro"><h2 id="start-title">A small setup.<br>A useful routine.</h2><p>Start with a task you already know. Use a small, approved sample and compare the result with your existing work.</p></div>
       <div class="setup-list">
-        <article><div><h3>1. Choose an edition</h3><p>Download the ZIP for your assistant and follow its import steps.</p><div class="inline-links"><a href="../docs/COPILOT.md">Copilot setup</a><a href="../docs/GEMINI.md">Gemini setup</a></div></div></article>
+        <article><div><h3>1. Choose an edition</h3><p>Download your assistant’s bundle, extract the outer ZIP and follow the guide to import individual skills.</p><div class="inline-links"><a href="../docs/COPILOT.md">Copilot setup</a><a href="../docs/GEMINI.md">Gemini setup</a></div></div></article>
         <article><div><h3>2. Connect the work you have</h3><p>Use approved files and available tools. Local Python and Power BI workflows have a separate Windows guide.</p><a href="../docs/WINDOWS.md">Open the Windows guide</a></div></article>
         <article><div><h3>3. Keep the method current</h3><p>Compare the package version, review changes and replace the imported copy when needed.</p><a href="../docs/UPDATES.md">Check the update process</a></div></article>
       </div>

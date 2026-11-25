@@ -7,6 +7,8 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | Financial workflow | `skills/<name>/SKILL.md` | Review and edit canonical instructions | Focused task checks and a documented change |
 | Host behavior | `adapters/` and platform guides | Compare current official Microsoft/Google docs | Dated sources, account caveats and actual restrictions |
 | Upload packages | `editions/`, `packages/` | Deterministic `scripts/build.py` | Exact bytes and SHA-256 manifest |
+| Excel agent defaults | `skills/excel-agent-core/SKILL.md` | Generate `profiles/excel-agent-instructions.txt` with the editions | Body-only text from one canonical source |
+| Release downloads | `releases/v<version>/` | Freeze with `scripts/release.py` after validation | Versioned ZIPs, release notes, SHA-256 checksums and no-overwrite check |
 | Upstream ideas/tools | `upstream.lock.json` | Check commits, then review relevant diffs/licences | Pinned reviewed revision; new head is only a candidate |
 | Work account | The host's saved/imported copy | Replace/edit or OneDrive folder update plus Refresh | Local installed-version record and a representative task |
 
@@ -27,7 +29,7 @@ The lock records reviewed repository commits and primary documentation URLs. Rev
 1. Compare the source diff and read the relevant primary documentation. Check the project's licence, resource dependencies, data transmission and supported host.
 2. Adapt only the useful procedure. Keep the work instructions executable within the selected host; move optional local setup into the Windows guide. Do not copy an unavailable service's capability into a Markdown promise.
 3. Edit the canonical skill once. Change the host overlay only if Copilot or Gemini behaves differently. Keep company-only logic/templates outside the public repository.
-4. Update the version and the actual review date in `catalog.json`, the affected source entry in `upstream.lock.json`, and `CHANGELOG.md`. Do not refresh dates simply because a checker ran.
+4. Bump the version in `catalog.json` according to the [release policy](RELEASES.md), add `release-notes/v<version>.md` and update `CHANGELOG.md`. Change the actual review date and the affected `upstream.lock.json` entry only when that review occurred. Do not refresh dates simply because a checker ran.
 5. Generate and validate:
 
    ```powershell
@@ -37,7 +39,8 @@ The lock records reviewed repository commits and primary documentation URLs. Rev
    ```
 
 6. Run a representative synthetic task for changed financial logic. Run optional dependency tests when those helpers change. Review desktop/mobile output for catalogue changes when a browser is available. Record skipped or blocked checks honestly.
-7. Publish the reviewed files and exact generated packages together. Verify the remote paths/hashes. Preserve concurrent changes; do not force-push over somebody else's work.
+7. Finalize the validation record, then freeze and verify with `py -3 scripts\release.py` and `py -3 scripts\release.py --check`. Keep every previous version directory. A changed frozen input requires a new version.
+8. Publish the reviewed files, exact generated packages and versioned releases together. Verify the remote paths/hashes. Preserve concurrent changes; do not force-push over somebody else's work.
 
 The default tests skip optional openpyxl/DuckDB checks when their packages are unavailable. A maintainer changing those helpers must run with the pinned dependencies and confirm those checks actually executed.
 
@@ -58,6 +61,8 @@ For compatible instruction/documentation changes, the maintainer can publish onl
 This file does not create or prove a running automation. The actual task confirmation in the conversation is the record of whether scheduling succeeded. The repository includes no GitHub Actions workflows and installs no poller, webhook, background worker or persistent credentials.
 
 ## Refresh your work account
+
+The download-all bundles and versioned releases simplify acquisition; they do not synchronize installed copies. Extract the downloaded outer ZIP, choose individual native packages and perform the host steps below. If you use the plain-text Excel agent profile, update the saved Instructions field separately after comparing company-specific additions. Both the profile and native editions derive from the same canonical skill; do not edit generated copies in this repository.
 
 **Copilot Chat/Agent Builder:** update the existing skill through that host's supported editor/replacement flow and test it. **Excel/PowerPoint:** update the matching-name folder opened by the app, wait for OneDrive, and select Refresh. The optional local copier previews changes and preserves customized copies.
 

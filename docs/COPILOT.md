@@ -18,6 +18,8 @@ Microsoft currently limits personal Copilot Chat skills to the experience labele
 
 ## 1. Get an individual skill
 
+For one download, choose the [Copilot release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-copilot.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. [Versions and checksums](RELEASES.md)
+
 Open [packages/copilot](../packages/copilot), choose a skill ZIP and use GitHub's file download control. Each ZIP contains `SKILL.md` at its root. Download a few useful skills first; do not upload the entire repository ZIP as one skill.
 
 Start with `excel-data-coverage`, `workforce-reconciliation`, `forecast-variance`, `account-mapping` and `power-query-etl`. Add `close-controls` and `cash-working-capital` for close and cash work. Use `corporate-style` with the approved company template supplied inside your work environment; the dot repository design is not your employer's brand.
@@ -52,6 +54,10 @@ In the Copilot pane, select **+ → Choose skills → Manage skills → Add skil
 PowerPoint's ZIP upload currently rejects PNG, PDF and nested ZIP content. These standalone text packages avoid that issue; supply your approved presentation template as task context through a supported work flow rather than adding arbitrary files to the skill ZIP. A saved skill is personal to the account, and its presence in one host should not be assumed in every other host. [PowerPoint guide](https://support.microsoft.com/en-us/powerpoint/copilot/copilot-in-powerpoint-skills)
 
 ## 5. Agent Builder
+
+To reuse your Excel agent's operating rules, copy [the ready-to-paste Instructions text](../profiles/excel-agent-instructions.txt?raw=1) into the Instructions field you already use and save. It prioritizes relevant available enterprise evidence, preserves existing workbook logic and keeps output concise without unsolicited audit tables, new sheets or audit text. Internal checks and material unresolved issues remain required. Review it alongside company-specific instructions.
+
+The same content is available as the individual `excel-agent-core` skill. Importing it consumes one skill slot and does not guarantee that it is invoked on every request. Use saved agent Instructions for the default behavior and verify it on a representative task. A selected task skill still supplies the detailed finance method.
 
 Open or create the agent, go to **Configure → Skills → Add**, and upload the complete ZIP for each selected skill. Review the content, then try a representative request in **Try it**.
 

@@ -32,6 +32,12 @@
   }
   const date = /^\d{4}-\d{2}-\d{2}$/.test(data.reviewedOn || '') ? data.reviewedOn : null;
   const version = /^[0-9]+\.[0-9]+\.[0-9]+(?:[-.][A-Za-z0-9.-]+)?$/.test(data.version || '') ? data.version : null;
+  const fullRelease = $('full-release-download');
+  if (fullRelease && version && /^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/.test(version) && typeof data.repoUrl === 'string' && /^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/.test(data.repoUrl)) {
+    const filename = `finance-skills-v${version}-full.zip`;
+    fullRelease.href = `${data.repoUrl.replace(/\/$/, '')}/raw/refs/heads/main/releases/v${version}/${filename}`;
+    fullRelease.textContent = `Download full release v${version}`;
+  }
   $('library-meta').textContent = [version ? `Version ${version}` : null, date ? `Reviewed ${date}` : null].filter(Boolean).join(' / ') || 'Versioned instructions. Separate editions.';
   const categories = [...new Set(skills.map((skill) => skill.category))].sort((a, b) => a.localeCompare(b));
   categories.forEach((value) => { const option = document.createElement('option'); option.value = value; option.textContent = value; category.append(option); });
@@ -117,7 +123,10 @@
     const guide = $('edition-guide');
     guide.href = `../docs/${edition.toUpperCase()}.md`;
     guide.replaceChildren(document.createTextNode(`Read the ${assistant} setup guide `));
-    
+    const bundle = $('edition-download');
+    bundle.href = `../packages/bundles/finance-skills-${edition}.zip`;
+    bundle.download = `finance-skills-${edition}.zip`;
+    bundle.textContent = `Download ${assistant} skills`;
     updateURL();
   }
   search.addEventListener('input', render);

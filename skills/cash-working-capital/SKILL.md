@@ -44,10 +44,6 @@ Translate a days improvement into a potential working-capital effect only with a
 
 ## Deliver
 
-- A cash and working-capital bridge with residuals, FX and non-cash movements visible.
-- A KPI table with formulas, numerator/denominator scope, balance-average method, day count and limitations.
-- Reconciled aging, major drivers and actionable exception populations.
-- If requested, a dated cash scenario with assumptions and headroom against a user-supplied minimum.
-- Source locators, calculation status and checks still needed.
+Return only the requested cash, working-capital, aging, KPI or scenario result. Include necessary formulas, units, source references and material residuals or limitations. Use a business-data table when requested or needed for the comparison; do not turn a single ratio question into a full bridge, KPI, aging and audit pack. Keep routine reconciliation checks internal and provide a separate check register or audit report only when specifically requested.
 
 Example request: “Compare October and November working capital using these balances and credit sales. Calculate DSO, DIO and DPO with the available average balances, reconcile the aging, and estimate a five-day DSO improvement without treating it as realized cash.”

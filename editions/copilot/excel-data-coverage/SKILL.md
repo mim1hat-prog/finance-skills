@@ -7,6 +7,8 @@ description: "Check the completeness and reliability of an Excel analysis before
 
 ## Microsoft 365 Copilot edition
 
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
+
 Use this skill in the approved work account and the current Microsoft 365 host. Prefer the open Excel workbook or PowerPoint presentation when native editing is available. A connection to SharePoint, a Power BI model, or a local computer exists only if this session exposes and authorizes it. A Microsoft 365 Copilot subscription does not imply GitHub Copilot or a VS Code agent.
 
 For uploaded files, use available sandbox tools and preinstalled libraries only. Do not run installers or authenticated HTTP requests inside a cloud skill script. Use enabled work connectors for authorized SharePoint retrieval. Preserve source locators, the reporting cutoff and the actual permission scope. Never treat a search result or file preview as the complete source population.
@@ -61,15 +63,7 @@ Establish what the available data can support, calculate the requested result, a
 
 ## Return
 
-Lead with the requested result and its unit, period, and scenario. Then give a compact coverage statement:
-
-| Check | Observed result | Evidence or gap |
-| --- | --- | --- |
-| Population | Available rows/entities/periods actually checked | Accessible table or range |
-| Calculation | Formula, pivot, or query executed; otherwise not executed | Exact in-workbook reference |
-| Reconciliation | Control, calculated total, and difference | Independent control or its absence |
-| Exceptions | Counts and material impact | Necessary examples only |
-| Limitation | Missing source, refresh status, or unverified coverage | Effect on the conclusion |
+Lead with the requested result and its unit, period, and scenario. Keep coverage and reconciliation checks internal. Give concise source references and disclose material exceptions, residuals, or unavailable data that affect the answer; distinguish executed calculations from proposed formulas. Do not create a coverage table, audit text, or separate validation artifact unless requested.
 
 Use work-environment file, sheet, table, cell, or query references that can actually be traced. Do not fabricate links. Avoid dumping raw records into the response. State only unresolved issues that could affect the answer and the next action needed to resolve them.
 
@@ -86,4 +80,4 @@ Use work-environment file, sheet, table, cell, or query references that can actu
 
 ## Edition record
 
-Finance skills 1.0.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

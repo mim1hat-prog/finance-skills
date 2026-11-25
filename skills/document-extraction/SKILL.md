@@ -44,6 +44,6 @@ Use a record locator such as file ID + physical page index + printed page label 
 
 ## Deliver
 
-Return the requested structured table plus a provenance table containing record ID, source ID, locator, method, transformations and review status. Include an exception queue with the ambiguous raw value, affected field, why it matters and the next check. Provide a short coverage statement and reconciliation results. If no file-creation tool is available, return copyable tables or code and clearly state that no file was created.
+Return the requested extracted fields or structured table. Preserve source locators needed to use the result, and disclose material ambiguous/missing values or reconciliation differences concisely. Keep method, transformation and review checks in working context; do not append a separate provenance table, audit text, or exception queue unless requested. If no file-creation tool is available, return the requested data in copyable form or exact extraction steps and state that no file was created.
 
 Example request: “Extract invoice number, supplier, due date, currency and gross amount from these statements. Preserve page locators, flag OCR ambiguity, reconcile each statement total and give me a clean table plus an exception list.”

@@ -1,11 +1,13 @@
 ---
 name: process-diagram
-description: "Explain a finance process, data lineage or control handoff with a compact diagram and ownership table. Use for month-end close, forecast collection, SharePoint-to-Power-BI pipelines, approval flows, exception handling and documenting the difference between current and proposed processes."
+description: "Explain a finance process, data lineage or control handoff with a compact diagram and only the supporting detail requested. Use for month-end close, forecast collection, SharePoint-to-Power-BI pipelines, approval flows, exception handling and documenting the difference between current and proposed processes."
 ---
 
 # Finance process and data-flow diagrams
 
 ## Gemini edition
+
+Default output: Give the requested result directly with concise source references, necessary calculations, recommendations, and material unresolved exceptions. Keep routine verification internal. Do not create audit tables, audit logs, audit text, new worksheets, or unrelated reports unless specifically requested; a requested data table, model, or report remains allowed. Preserve existing business logic and avoid filler, AI/process commentary, and unnecessary summaries or tables.
 
 Use this skill in the employer-approved Gemini account. Work with the attached files and capabilities actually exposed in this conversation. Do not assume a SharePoint connector, a live Power BI model, direct Office editing, Gemini CLI, or access to the user's Windows filesystem. Keep company content in approved accounts and locations.
 
@@ -15,7 +17,7 @@ Do not promise that a skill can run with Canvas or Deep Research. If one of thos
 
 Use native Skills if the work account exposes Customize > Skills. Google documentation currently differs on work-account rollout, so check the account rather than infer availability. If Skills is absent but Gems is available, place the workflow in the Gem's Instructions; a knowledge attachment alone does not make it an instruction. Otherwise paste the task instructions into an approved conversation. Imported skills and Gem instructions do not automatically track GitHub; replace the existing copy after an update.
 
-Turn supplied process evidence into a clear view of inputs, actions, decisions, outputs, owners and exceptions. Use a diagram only when branching, handoffs, lineage or sequence adds understanding. For a simple list or one-step relationship, use prose or a table. Keep this skill self-contained; Mermaid source and an ownership table are valid outputs even when rendering is unavailable.
+Turn supplied process evidence into a clear view of inputs, actions, decisions, outputs, owners and exceptions. Use a diagram only when branching, handoffs, lineage or sequence adds understanding. For a simple list or one-step relationship, use concise prose. Mermaid source is a valid diagram deliverable when rendering is unavailable; an additional ownership/control table is optional and requires a request.
 
 ## Establish what the diagram represents
 
@@ -27,7 +29,7 @@ Do not assume a named system is integrated, refreshed automatically or accessibl
 
 1. **Inventory objects.** Separate source data, transformations, controls, decisions and output artifacts. Name the data exchanged at important handoffs, such as “approved mapping”, “exception table” or “published forecast”. An arrow should express a clear movement or dependency.
 2. **Map ownership.** Give each activity an accountable owner role and identify a separate reviewer where the process provides one. Mark unspecified roles as unassigned rather than inventing approval authority. A diagrammed approval does not prove that approval occurred.
-3. **Identify checks.** Show where scope/completeness, mapping, reconciliation or review must pass. Put the decision rule in the accompanying table when it would make a node too long. Show what happens on failure: return for correction, hold, escalate or stop, based on the actual process.
+3. **Identify checks.** Show where scope/completeness, mapping, reconciliation or review must pass. Put a necessary long decision rule in a concise note beside the diagram. Show what happens on failure: return for correction, hold, escalate or stop, based on the actual process. Do not create a separate control table by default.
 4. **Distinguish data and control.** A report can read a file without granting write access. A handoff can be manual even when both applications are cloud services. Identify manual uploads, local Python steps and approved connector calls accurately. Do not imply bidirectional synchronization from a one-way import.
 5. **Check the path.** Trace a normal case and at least one exception from start to finish. Look for missing owners, impossible ordering, dead ends, duplicate control steps and loops with no exit rule. Make open questions visible outside the diagram.
 
@@ -53,7 +55,7 @@ flowchart TD
 
 ## Add the operating detail
 
-Provide a table with step ID, activity, input, output/evidence, owner role, reviewer/control, timing and failure action. Keep labels consistent with the diagram. For data lineage, add source grain, transformation, destination grain and refresh responsibility where known. Separate public skill/code maintenance from confidential business-data processing.
+Include only the operating detail needed to understand the requested diagram, with labels consistent across the diagram and concise notes. If the user requests an ownership/control table, include step ID, activity, input, output/evidence, owner role, reviewer/control, timing and failure action. For a requested data-lineage description, identify source/destination grain and refresh responsibility where known. Do not add an audit table or full operating report merely because a diagram was requested.
 
 For a current/proposed comparison, use two compact diagrams or one clearly labeled change table. Distinguish observed steps from assumptions and recommendations. Describe what each change improves and which access, dependency or ownership decision is still needed. Do not assign savings, cycle-time reduction or error-rate improvement without measurements or an explicit estimate basis.
 
@@ -61,10 +63,10 @@ For a current/proposed comparison, use two compact diagrams or one clearly label
 
 Check that every diagram node has a defined purpose, every decision has labeled outcomes, every exception path reaches an owner/action, and each important output has a destination. Verify the model against the supplied process evidence. If a renderer is available, inspect clipping, legibility and edge labels at the intended size. If it is not, state that the source was checked but not rendered; do not invent visual QA.
 
-Return a brief purpose statement, the diagram/source, the ownership/control table, source references and unresolved questions. Include a plain-text explanation of the meaningful path so the output remains understandable without a Mermaid renderer. Use the user's approved company template for a presentation export; repository branding does not establish the employer's brand.
+Return the requested diagram/source with concise source references and material unresolved questions. Add a brief explanation only where needed to understand the path or an unrendered diagram. Include an ownership/control table or separate report only when requested. Use the user's approved company template for a requested presentation export; repository branding does not establish the employer's brand.
 
 Example request: “Diagram the monthly forecast process from SharePoint uploads through Power Query validation into Power BI. Show who resolves schema and reconciliation errors, where review happens, and which steps are currently manual.”
 
 ## Edition record
 
-Finance skills 1.0.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

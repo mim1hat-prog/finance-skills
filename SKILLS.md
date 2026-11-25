@@ -1,11 +1,22 @@
 # Skills
 
-Version 1.0.0 · reviewed 2026-11-25
+25 skills · version 1.1.0 · reviewed 2026-11-25
 
-Choose one edition. Import each skill separately. The three suggested groups each fit the eight-skill Agent Builder limit; they are optional selections, not dependencies.
+Choose one edition. Import each skill separately. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
+
+## Download a complete edition
+
+[Copilot bundle](packages/bundles/finance-skills-copilot.zip?raw=1) · [Gemini bundle](packages/bundles/finance-skills-gemini.zip?raw=1) · [Both editions](packages/bundles/finance-skills-all.zip?raw=1)
+
+Extract a bundle first, then use its individual skill ZIPs or follow its folder-copy guide. The bundle does not provide a bulk native import or automatic activation.
+
+[Excel agent instructions](profiles/excel-agent-instructions.txt) · [Bundle checksums](packages/bundles/manifest.json)
+
+## Individual skills
 
 | Skill | Purpose | Copilot | Gemini |
 | --- | --- | --- | --- |
+| [Excel agent instructions](skills/excel-agent-core/SKILL.md) | Search internal evidence first, preserve workbook logic and return concise results without unsolicited audit tables or new sheets. | [ZIP](packages/copilot/excel-agent-core.zip) | [ZIP](packages/gemini/excel-agent-core.zip) |
 | [Work tool routing](skills/work-tool-routing/SKILL.md) | Choose the available tool and finish with evidence. | [ZIP](packages/copilot/work-tool-routing.zip) | [ZIP](packages/gemini/work-tool-routing.zip) |
 | [Excel data coverage](skills/excel-data-coverage/SKILL.md) | Check the complete workbook population before drawing conclusions. | [ZIP](packages/copilot/excel-data-coverage.zip) | [ZIP](packages/gemini/excel-data-coverage.zip) |
 | [Workforce reconciliation](skills/workforce-reconciliation/SKILL.md) | Reconcile headcount, FTE, transfers and personnel costs. | [ZIP](packages/copilot/workforce-reconciliation.zip) | [ZIP](packages/gemini/workforce-reconciliation.zip) |
@@ -32,6 +43,10 @@ Choose one edition. Import each skill separately. The three suggested groups eac
 | [Finance process diagrams](skills/process-diagram/SKILL.md) | Explain data flows, ownership, review gates and exception paths with compact diagrams. | [ZIP](packages/copilot/process-diagram.zip) | [ZIP](packages/gemini/process-diagram.zip) |
 
 ## Suggested Agent Builder groups
+
+### Agent Defaults
+
+`excel-agent-core`.
 
 ### Core
 

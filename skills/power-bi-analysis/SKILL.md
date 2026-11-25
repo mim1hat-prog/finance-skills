@@ -38,7 +38,7 @@ Provide:
 1. The metric definition and the reason for the discrepancy or proposed change.
 2. DAX or Power Query code with exact model names, or a clearly labeled template.
 3. A short explanation of grain, aggregation, time basis, and relevant filters.
-4. A validation table: case, independent expected result, actual result if run, and status. Mark expected results as unknown when the source does not support a value.
+4. Concise material exceptions or failed/unperformed checks that affect the measure. Keep case-by-case validation internal unless the user requests it; do not add a validation table or log by default. Mark unsupported expected results as unknown.
 5. Material unresolved data quality, model access, refresh, or security checks.
 
 Keep the deliverable in the approved work environment. Use aggregated or synthetic examples in explanations that do not require personal records. Do not publish model schemas, connection strings, employee rows, or work measures into a public skill repository.

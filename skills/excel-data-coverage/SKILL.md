@@ -51,15 +51,7 @@ Establish what the available data can support, calculate the requested result, a
 
 ## Return
 
-Lead with the requested result and its unit, period, and scenario. Then give a compact coverage statement:
-
-| Check | Observed result | Evidence or gap |
-| --- | --- | --- |
-| Population | Available rows/entities/periods actually checked | Accessible table or range |
-| Calculation | Formula, pivot, or query executed; otherwise not executed | Exact in-workbook reference |
-| Reconciliation | Control, calculated total, and difference | Independent control or its absence |
-| Exceptions | Counts and material impact | Necessary examples only |
-| Limitation | Missing source, refresh status, or unverified coverage | Effect on the conclusion |
+Lead with the requested result and its unit, period, and scenario. Keep coverage and reconciliation checks internal. Give concise source references and disclose material exceptions, residuals, or unavailable data that affect the answer; distinguish executed calculations from proposed formulas. Do not create a coverage table, audit text, or separate validation artifact unless requested.
 
 Use work-environment file, sheet, table, cell, or query references that can actually be traced. Do not fabricate links. Avoid dumping raw records into the response. State only unresolved issues that could affect the answer and the next action needed to resolve them.
 

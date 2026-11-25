@@ -2,13 +2,36 @@
 
 [![Copilot edition](https://img.shields.io/badge/Copilot-edition-245844?style=flat)](docs/COPILOT.md) [![Gemini edition](https://img.shields.io/badge/Gemini-edition-245844?style=flat)](docs/GEMINI.md) [![License MIT](https://img.shields.io/badge/license-MIT-4C5054?style=flat)](LICENSE)
 
-[Copilot setup](docs/COPILOT.md) | [Gemini setup](docs/GEMINI.md) | [All skills](SKILLS.md) | [Windows tools](docs/WINDOWS.md) | [Updates](docs/UPDATES.md) | [Support Max on Ko-fi](https://ko-fi.com/somamill)
+[Downloads & releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) | [Copilot setup](docs/COPILOT.md) | [Gemini setup](docs/GEMINI.md) | [All skills](SKILLS.md) | [Windows tools](docs/WINDOWS.md) | [Updates](docs/UPDATES.md) | [Support Max on Ko-fi](https://ko-fi.com/somamill)
 
 ![Finance skills: from source to decision, with Copilot and Gemini editions](assets/readme-banner.svg)
 
-**24 practical workflows for financial controlling, planning and reporting.** One maintained source library, separate Microsoft 365 Copilot and Gemini editions, and optional Python tools for your Windows work PC.
+**25 skills for financial controlling, planning and reporting: 24 task workflows and your Excel agent instructions.** One maintained source library, separate Microsoft 365 Copilot and Gemini editions, and optional Python tools for your Windows work PC.
 
-Start with an individual skill, supply the relevant work files in your approved account, and ask for a result with source coverage and reconciliation checks. The instructions work without a local coding agent or an API subscription. Python, Power BI, VS Code and SharePoint provide additional routes when those capabilities are available.
+Supply the relevant work files in your approved account and ask for the result you need. The instructions prioritize relevant internal evidence, preserve existing business logic and verify calculations without adding unsolicited audit tables, worksheets or process commentary. They work without a local coding agent or an API subscription. Python, Power BI, VS Code and SharePoint provide additional routes when those capabilities are available.
+
+## Ready to download · v1.1.0
+
+**[Download the full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip)** — both editions, every individual skill package, Excel agent instructions, setup guides, source files, local Python tools, tests and the dot catalogue.
+
+| Package | Contents | Download |
+| --- | --- | --- |
+| Copilot | 25 individual skill ZIPs, matching skill folders and Excel agent instructions | [Copilot v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-copilot.zip) |
+| Gemini | 25 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-gemini.zip) |
+| All skills | Both editions: 50 individual ZIPs, skill folders, Gem-ready text and Excel agent instructions | [All skills v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-all.zip) |
+| Full release | All skills plus the complete useful project, guides and optional local tools | [Full v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip) |
+
+**Extract the outer ZIP first.** Then import the individual skill ZIPs you need, or follow the Office folder-copy instructions. A complete download does not bulk-install or activate skills in your account. Edition/all-skills bundles contain instructions and packages; choose the full release for local Python tools and offline guides.
+
+[Release notes and checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.1.0/README.md) · [All releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+
+## Your Excel agent instructions
+
+**[Download ready-to-paste instructions](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/profiles/excel-agent-instructions.txt)** and paste the text into the **Instructions** field you already use for your Excel agent. Review it alongside any company-specific instructions before saving.
+
+The profile searches relevant available internal sources first, retries incomplete retrieval, preserves workbook logic, checks the result and keeps the response concise. It requests no audit tables, extra worksheets or audit text unless you ask for them. It does not claim access to sources your account cannot reach.
+
+You can also import the individual `excel-agent-core` skill: [Copilot ZIP](packages/copilot/excel-agent-core.zip?raw=1) · [Gemini ZIP](packages/gemini/excel-agent-core.zip?raw=1). Importing a skill alone does not make it a guaranteed default for every request. Use the agent's Instructions field for your saved default behavior and verify a representative task. All three forms are generated from [one canonical skill](skills/excel-agent-core/SKILL.md).
 
 ## Choose your edition
 
@@ -21,7 +44,7 @@ Start with an individual skill, supply the relevant work files in your approved 
 | Fallback | Paste one workflow into an approved conversation | [Gem-ready instruction text](editions/gemini-gems) or a manual conversation |
 | Update installed copy | Replace/edit, or update the app-created OneDrive folder and Refresh | Replace the existing skill; update Gem instructions separately |
 
-Each ZIP contains **one root `SKILL.md`**. Upload one skill at a time. The whole repository ZIP is a transport download, not a single skill package. Package checks establish integrity; work-account import and task behavior still need verification in that account.
+Each **individual skill ZIP** contains one root `SKILL.md`. Upload one skill at a time. Package checks establish integrity; work-account import and task behavior still need verification in that account.
 
 ## Start with the work you do
 
@@ -29,12 +52,12 @@ Each ZIP contains **one root `SKILL.md`**. Upload one skill at a time. The whole
 | --- | --- | --- |
 | Monthly personnel reporting | Excel data coverage, workforce reconciliation, forecast variance | Reconciled headcount/FTE and a driver explanation with exceptions |
 | Actuals ingestion and mappings | Power Query ETL, account mapping, SharePoint evidence | Repeatable refresh, traceable source files and unresolved mappings retained |
-| Month-end close | Close controls, spreadsheet modeling, business document | Opening-to-closing checks, an evidence register and proposed adjustments |
+| Month-end close | Close controls, spreadsheet modeling, business document | Opening-to-closing checks, material exceptions and proposed adjustments |
 | Cash and planning | Cash and working capital, scenario planning | Comparable KPIs and explicit assumption-based scenarios |
 | Management reporting | Power BI analysis, management presentation, corporate style | Measures and slides tied to source totals and the approved company template |
 | Research and communication | Evidence research, document extraction, process diagram | Primary-source findings, extraction checks and a readable process map |
 
-[Browse all 24 skills and their download links](SKILLS.md). The core, extended and specialist groups each contain eight skills; a custom Agent Builder agent can use a focused selection instead of the entire library.
+[Browse all 25 skills and their download links](SKILLS.md). The core, extended and specialist groups each contain eight task skills; the Excel agent instructions form a separate defaults group. A custom Agent Builder agent can use a focused selection. Importing `excel-agent-core` as a skill consumes one of that agent's available skill slots.
 
 ### An example request
 
@@ -62,7 +85,7 @@ The library draws on reviewed methods from Anthropic's document skills, DuckDB s
 
 ## Keep it current
 
-Canonical instructions live in `skills/`. A deterministic build produces both editions, 48 individual upload packages, Gem-ready text and the catalogue. Every package is tied to its source with SHA-256 hashes. Upstream changes are checked against pinned commits and reviewed before adoption. [Update workflow](docs/UPDATES.md)
+Canonical instructions live in `skills/`. A deterministic build produces both editions, 50 individual upload packages, Gem-ready text, the Excel agent profile, three download-all bundles and the catalogue. A separate release step freezes versioned downloads and SHA-256 checksums. Published version directories are preserved; fixes receive a new version. Upstream changes are checked against pinned commits and reviewed before adoption. [Update workflow](docs/UPDATES.md)
 
 ```powershell
 py -3 scripts\build.py

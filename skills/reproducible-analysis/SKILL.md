@@ -55,18 +55,7 @@ Make the analytical question, data transformations, method, and uncertainty insp
 
 ## Output
 
-Lead with the finding or the method that can be completed from the available evidence. Include a concise reproducibility record:
-
-| Field | Required detail |
-| --- | --- |
-| Question | Quantity, comparison, population, and observation unit |
-| Data | Accessible sources/version, scope, counts, units, and missingness |
-| Preparation | Ordered filters, joins, exclusions, and transformations |
-| Method | Formula/query/algorithm, assumptions, settings, and seed if used |
-| Results | Executed statistics, sample sizes, effect units, and supported uncertainty |
-| Validation | Reconciliations, diagnostics, and material sensitivity checks |
-| Limits | Missing evidence, bias/dependence concerns, and scope of inference |
-| Reproduction | Exact available formulas/steps or optional code; execution status |
+Lead with the requested finding or method. Include only the source references, calculation basis, supported uncertainty, and material limitations needed to understand it. Keep the data scope, transformations, method/settings, execution status, and verification details in working context for internal checking. Deliver a separate reproducibility record, validation table, audit text, or report only when requested. A requested analysis recipe should contain the steps needed to reproduce the result without an additional audit artifact.
 
 Use traceable internal source references for data and identify the source of a specialized method when available. Return plots or files only when actually generated. If no execution was possible, provide the complete analysis recipe and the inputs or capability needed to run it; do not fill the results section with plausible numbers.
 
