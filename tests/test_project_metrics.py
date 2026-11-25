@@ -108,6 +108,61 @@ class ProjectMetricsTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             metrics.proportion(1, 0)
 
+    def test_homepage_restores_graph_and_rejects_late_generated_block(self):
+        start, end = "<!-- project-coverage-summary:start -->", "<!-- project-coverage-summary:end -->"
+        summary = self.describe()
+        for body in ("No image here.", "![Wrong graph](releases/v0.0.0/old.svg)"):
+            original = f"# Invented homepage\n\n{start}\n{body}\n{end}\n\n## Quick start\nKeep this text.\n"
+            updated = metrics.update_readme(original, summary).decode()
+            self.assertEqual(updated.count("](assets/coverage.svg)"), 1)
+            self.assertLess(updated.index("](assets/coverage.svg)"), updated.index("## Quick start"))
+            self.assertNotIn("releases/v0.0.0/old.svg", updated)
+            self.assertTrue(updated.endswith("## Quick start\nKeep this text.\n"))
+            with tempfile.TemporaryDirectory() as temp:
+                root = Path(temp)
+                (root / "README.md").write_text(original)
+                outputs = {Path("README.md"): updated.encode()}
+                with patch.object(metrics, "ROOT", root), patch.object(metrics, "generate", return_value=outputs), \
+                     redirect_stderr(io.StringIO()), redirect_stdout(io.StringIO()):
+                    self.assertEqual(metrics.main(["--check"]), 1)
+                self.assertEqual((root / "README.md").read_text(), original)
+        moved = f"# Invented homepage\n\n## Quick start\n\n{start}\nOld chart.\n{end}\n"
+        with self.assertRaisesRegex(ValueError, "precede Quick start"):
+            metrics.update_readme(moved, summary)
+
+    def test_retained_date_ranges_do_not_mask_older_series_or_follow_release_dates(self):
+        summary = self.describe()
+        base = {"sourceId": "invented-provider", "adapter": "invented", "frequency": "daily", "observations": 1}
+        summary["benchmarks"]["series"] = [
+            dict(base, lastPeriod="2024-01-03", retrievedAt="2024-02-01T09:00:00+09:00"),
+            dict(base, lastPeriod="2024-01-01", retrievedAt="2024-01-30T03:00:00Z"),
+            dict(base, frequency="monthly", lastPeriod="2023-12", retrievedAt="2024-01-15T00:00:00Z"),
+            dict(base, observations=0, lastPeriod="2099-01-01", retrievedAt="2099-02-01T00:00:00Z"),
+        ]
+        context = metrics.retained_context(summary)
+        self.assertEqual(len(context), 2)
+        self.assertEqual(context[0]["latestPeriods"], "2024-01-01 to 2024-01-03 (varies by series)")
+        self.assertEqual(context[0]["retrievedAt"], "2024-01-30T03:00:00Z to 2024-02-01T00:00:00Z")
+        self.assertEqual(context[1]["latestPeriods"], "2023-12")
+        changed = copy.deepcopy(summary)
+        changed.update(projectVersion="9.9.9", releaseDate="2035-12-31")
+        self.assertEqual(metrics.retained_context(changed), context)
+        text = "# Invented homepage\n\n<!-- project-coverage-summary:start -->\n<!-- project-coverage-summary:end -->\n"
+        readme = metrics.update_readme(text, changed).decode()
+        self.assertIn("release **2035-12-31**", readme)
+        self.assertIn("release date is not a provider retrieval date", readme)
+        self.assertIn("2024-01-01 to 2024-01-03 (varies by series)", readme)
+        self.assertIn("2024-01-30T03:00:00Z to 2024-02-01T00:00:00Z", readme)
+        self.assertNotIn("2099", readme)
+        figure = ET.fromstring(metrics.figure(changed))
+        labels = [node.text for node in figure.iter("{http://www.w3.org/2000/svg}text")]
+        self.assertTrue(any("2024-01-01 to 2024-01-03" in label for label in labels))
+        self.assertTrue(any("2023-12" in label for label in labels))
+        self.assertFalse(any("2099" in label for label in labels))
+        self.assertGreater(int(figure.get("height")), 690)
+        self.assertTrue(all(float(node.get("y")) < int(figure.get("height"))
+                            for node in figure.iter("{http://www.w3.org/2000/svg}text")))
+
     def test_missing_inactive_and_unmapped_sources_do_not_count_as_support(self):
         for case in ("missing", "candidate", "no-use"):
             with self.subTest(case=case):

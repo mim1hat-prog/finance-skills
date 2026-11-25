@@ -57,6 +57,21 @@ The offline gate checks generated sources and packages, research references, too
 
 ## Ongoing maintenance
 
+Check the GitHub homepage on `main` as an output: the root README must embed
+the generated coverage figure before quick start, and its image and numerical
+block must agree with the current canonical inputs. Regenerate these outputs
+for every reviewed skill, evidence or dataset change and publish them in the
+same commit. A mismatch is actionable even if no new skill is being added.
+Verify the remote README and image hashes after publication. Keep the existing
+daily check as a backstop; a schedule is not a guarantee of continuous updates.
+
+The README does not execute the collector or plotting code in a visitor's
+browser. Its graph reflects the latest successfully published repository
+state. Display actual retained observation periods and retrieval timestamps;
+do not change those dates merely because a build or maintenance check ran.
+Provider acquisition is a separate explicit operation with the existing
+rights, failure and immutable-vintage controls.
+
 Maintain **mim1hat-prog/finance-skills** through the authorized account. Prefer
 the connected **ChatGPT GitHub plugin** for supported operations. An
 authenticated Git transport may publish reviewed commits when the connector

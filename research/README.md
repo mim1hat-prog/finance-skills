@@ -715,10 +715,10 @@ Attribution: GitHub
 
 Only bibliographic metadata, a public link and an original limited summary are included. No upstream document, code or asset is redistributed, and no upstream license is replaced by the project license.
 
-- **Use:** Keep project purpose, onboarding, support and contribution routes easy to find.
+- **Use:** Keep project purpose, onboarding, support and contribution routes easy to find; embed the generated chart in the root README with a repository-relative image path that follows the viewed branch.
   **Supporting section:** About READMEs and relative links
-  **Limits:** This is repository documentation guidance, not a measured adoption effect or a search-ranking guarantee.
-  **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`SUPPORT.md`](../SUPPORT.md)
+  **Limits:** This is README placement and relative-link behavior guidance, not a measured adoption effect, a search-ranking guarantee, automatic provider execution or a guarantee of immediate cache updates.
+  **Paths:** [`README.md`](../README.md), [`SUPPORT.md`](../SUPPORT.md), [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`scripts/project_metrics.py`](../scripts/project_metrics.py)
 
 ## github-repository-topics
 

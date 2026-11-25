@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.2 — 2026-11-25
+
+- Generate the GitHub README chart and numerical summary together so the main-page graph cannot silently disappear or point to a frozen release.
+- Reject moving the generated coverage block below the quick start, and keep the linked chart relative to the current repository branch.
+- Show actual retained observation periods and retrieval timestamps beside the repository version, separating data acquisition from package publication.
+- Require maintenance to check the live main-page graph against current source hashes and publish coherent source, graph and README updates together.
+- Preserve finance methods, benchmark values, historical releases and the absence of donation links in current presentation.
+
 ## 1.4.1 — 2026-11-25
 
 - Put the generated coverage graphic at the top of the GitHub README and before the static catalogue's skill list.

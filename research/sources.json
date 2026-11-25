@@ -2754,12 +2754,14 @@
         {
           "skills": [],
           "paths": [
+            "README.md",
+            "SUPPORT.md",
             "docs/DISCOVERY.md",
-            "SUPPORT.md"
+            "scripts/project_metrics.py"
           ],
           "section": "About READMEs and relative links",
-          "purpose": "Keep project purpose, onboarding, support and contribution routes easy to find.",
-          "limits": "This is repository documentation guidance, not a measured adoption effect or a search-ranking guarantee.",
+          "purpose": "Keep project purpose, onboarding, support and contribution routes easy to find; embed the generated chart in the root README with a repository-relative image path that follows the viewed branch.",
+          "limits": "This is README placement and relative-link behavior guidance, not a measured adoption effect, a search-ranking guarantee, automatic provider execution or a guarantee of immediate cache updates.",
           "tests": [],
           "distribution": "metadata-only"
         }

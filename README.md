@@ -6,25 +6,32 @@
 
 **Repeatable finance workflows for Excel reconciliation, FP&A, forecasting, financial controlling and management reporting.** One maintained library generates 29 skills for each assistant, with optional Python and Power BI tools for Windows.
 
-[**Download Markdown — copy and paste**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-markdown.zip) · [**Download the full release**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-full.zip)
+[**Download Markdown — copy and paste**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-markdown.zip) · [**Download the full release**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-full.zip)
 
 [Quick start](#quick-start) · [Coverage](#coverage-at-a-glance) · [All skills](SKILLS.md) · [Downloads](#downloads) · [Copilot setup](docs/COPILOT.md) · [Gemini setup](docs/GEMINI.md) · [Help](SUPPORT.md)
 
 ## Coverage at a glance
 
-[![Descriptive coverage of skill evidence and public benchmark data, showing numerators, denominators and missing validation](assets/coverage.svg)](metrics/README.md)
-
 <!-- project-coverage-summary:start -->
+[![Descriptive coverage of skill evidence and public benchmark data, showing numerators, denominators and retained observation dates](assets/coverage.svg)](metrics/README.md)
+
 **29 skills** · **8/29** with workflow-test links · **0/29** with native execution evidence · **11/17** configured benchmark series with observations.
+
+Repository measurements: **v1.4.2**, release **2026-11-25**. The release date is not a provider retrieval date.
+
+- **`ecb-exr-api` (daily):** latest retained observation period per series **2026-11-24**; retrieval timestamp (UTC) **2026-11-25T03:07:56.456028Z**.
+- **`worldbank-pink-sheet` (monthly):** latest retained observation period per series **2026-10**; retrieval timestamp (UTC) **2026-11-25T03:07:50.858358Z**.
+
+Dates describe retained snapshots. Rebuilding these graphs does not fetch providers or establish current market-data freshness.
 <!-- project-coverage-summary:end -->
 
-Generated from the canonical catalogue, research mappings, declared test links and retained public snapshots. **These measurements describe scope and gaps; they do not measure model accuracy or native task success.** A package-test link is not proof of execution in a work account.
+Generated from this branch’s canonical catalogue, research mappings, declared test links and retained public snapshots. **These measurements describe scope and gaps; they do not measure model accuracy or native task success.**
 
 [Methods and full results](metrics/README.md) · [Machine-readable measurements](metrics/summary.json) · [Validation record](docs/VALIDATION.md) · [Proposed evaluation protocol](docs/EVALUATION.md)
 
 ## Quick start
 
-1. **Download and extract the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-markdown.zip).** Choose the `copilot/` or `gemini/` folder.
+1. **Download and extract the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-markdown.zip).** Choose the `copilot/` or `gemini/` folder.
 2. **Open one relevant `.md` file and copy its complete text** into your available Instructions field or approved conversation. Start with `forecast-variance`, `excel-data-coverage` or `account-mapping`.
 3. **Try the [invented reconciliation example](examples/QUICKSTART.md).** The two small CSVs reconcile from 350.30 to 365.35: a 15.05 difference with two unmatched records. Compare the assistant's answer with the expected result before using a work task.
 
@@ -34,21 +41,21 @@ The instructions use relevant internal evidence first, preserve existing workboo
 
 ## Downloads
 
-**Current package: v1.4.1.** Choose Markdown for pasting instructions, an edition for individual native imports, or the full release for local tools and documentation.
+**Current package: v1.4.2.** Choose Markdown for pasting instructions, an edition for individual native imports, or the full release for local tools and documentation.
 
 | Package | What you receive | Download |
 | --- | --- | --- |
-| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-markdown.zip) |
-| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-copilot.zip) |
-| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-gemini.zip) |
-| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-all.zip) |
-| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.1/finance-skills-v1.4.1-full.zip) |
+| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-markdown.zip) |
+| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-copilot.zip) |
+| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-gemini.zip) |
+| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-all.zip) |
+| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.2/finance-skills-v1.4.2-full.zip) |
 
 For Markdown, open the relevant file in VS Code or Notepad and copy all its contents. Each file contains its complete edition-specific instructions without YAML headers; the archive contains no scripts, datasets or nested ZIPs.
 
 For native packages, **extract the outer ZIP first**, then import the individual skill ZIPs you need. Each individual ZIP contains one root `SKILL.md`. A complete download does not bulk-install or activate skills in your account.
 
-[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.4.1/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.4.2/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
 
 ## Find a workflow
 

@@ -3,12 +3,14 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
-from datetime import date
+from datetime import date, timezone
 import hashlib
 from html import escape
 import json
 from pathlib import Path
+import re
 import sys
+from textwrap import wrap
 
 import benchmark_data
 import catalog_contracts
@@ -155,12 +157,35 @@ def ratio_text(value: dict) -> str:
     return f"{value['numerator']} / {value['denominator']} ({pct})"
 
 
+def retained_context(summary: dict) -> list[dict]:
+    """Describe stored date evidence without treating a build as a provider fetch."""
+    grouped: dict[tuple[str, str, str], list[dict]] = {}
+    for row in summary["benchmarks"]["series"]:
+        if row["observations"]:
+            grouped.setdefault((row["sourceId"], row["adapter"], row["frequency"]), []).append(row)
+    context = []
+    for (source, adapter, frequency), rows in sorted(grouped.items()):
+        ends = sorted(row["lastPeriod"] for row in rows)
+        retrieved = sorted(benchmark_data.timestamp(row["retrievedAt"]).astimezone(timezone.utc)
+                           for row in rows)
+        stamps = [value.isoformat().replace("+00:00", "Z") for value in (retrieved[0], retrieved[-1])]
+        context.append({
+            "sourceId": source, "adapter": adapter, "frequency": frequency,
+            "latestPeriods": ends[0] if ends[0] == ends[-1] else f"{ends[0]} to {ends[-1]} (varies by series)",
+            "retrievedAt": stamps[0] if stamps[0] == stamps[-1] else f"{stamps[0]} to {stamps[-1]}",
+        })
+    return context
+
+
 def update_readme(text: str, summary: dict) -> bytes:
-    """Keep the homepage's accessible text equivalent tied to the plotted counts."""
+    """Regenerate the homepage graph, text equivalent and actual retained-data dates."""
     start = "<!-- project-coverage-summary:start -->"
     end = "<!-- project-coverage-summary:end -->"
     if text.count(start) != 1 or text.count(end) != 1 or text.index(start) >= text.index(end):
         raise ValueError("Expected one ordered homepage coverage summary block")
+    quick_start = re.search(r"^##\s+Quick start\s*$", text, re.MULTILINE)
+    if quick_start and text.index(end) > quick_start.start():
+        raise ValueError("Homepage coverage block must precede Quick start")
     skills, data = summary["skills"], summary["benchmarks"]
     workflow = skills["declaredWorkflowTestLinks"]
     native = skills["nativeExecutionEvidence"]
@@ -171,9 +196,24 @@ def update_readme(text: str, summary: dict) -> bytes:
         f"**{native['numerator']}/{native['denominator']}** with native execution evidence · "
         f"**{observed['numerator']}/{observed['denominator']}** configured benchmark series with observations."
     )
+    content = [
+        "[![Descriptive coverage of skill evidence and public benchmark data, showing numerators, denominators and retained observation dates](assets/coverage.svg)](metrics/README.md)",
+        "", sentence, "",
+        f"Repository measurements: **v{summary['projectVersion']}**, release **{summary['releaseDate']}**. "
+        "The release date is not a provider retrieval date.", "",
+    ]
+    context = retained_context(summary)
+    for source in context:
+        content.append(
+            f"- **`{source['sourceId']}` ({source['frequency']}):** latest retained observation period per series "
+            f"**{source['latestPeriods']}**; retrieval timestamp (UTC) **{source['retrievedAt']}**."
+        )
+    if not context:
+        content.append("No public observations are retained; no provider retrieval date is inferred.")
+    content += ["", "Dates describe retained snapshots. Rebuilding these graphs does not fetch providers or establish current market-data freshness."]
     before, rest = text.split(start, 1)
     _, after = rest.split(end, 1)
-    return (before + start + "\n" + sentence + "\n" + end + after).encode("utf-8")
+    return (before + start + "\n" + "\n".join(content) + "\n" + end + after).encode("utf-8")
 
 
 def markdown(summary: dict) -> bytes:
@@ -247,14 +287,35 @@ def markdown(summary: dict) -> bytes:
 def figure(summary: dict) -> bytes:
     skills, data = summary["skills"], summary["benchmarks"]
     scale = 358
-    a = ['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">',
+    footer: list[tuple[int, str, int, str]] = []
+    y = 614
+    def footer_text(value: str, size: int = 15, weight: str = "400") -> None:
+        nonlocal y
+        for line in wrap(value, width=112 if size <= 15 else 100):
+            footer.append((y, line, size, weight))
+            y += 23
+    footer_text("C. Retained data context", 19, "650")
+    footer_text("Latest endpoints across selected series; the release date above is not a provider retrieval date.")
+    y += 7
+    context = retained_context(summary)
+    for source in context:
+        footer_text(f"{source['sourceId']} ({source['frequency']}): latest per-series period {source['latestPeriods']}", 15, "600")
+        footer_text(f"Retrieved (UTC): {source['retrievedAt']}", 14)
+        y += 7
+    if not context:
+        footer_text("No retained public observations; no provider retrieval date is inferred.")
+        y += 7
+    footer_text("Counts show scope and gaps, not model accuracy, native task success or a live provider refresh.", 16, "650")
+    footer_text("Methods, denominators and source hashes: metrics/README.md · Reproduce: python scripts/project_metrics.py", 14)
+    height = y + 22
+    a = [f'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="{height}" viewBox="0 0 1200 {height}" role="img" aria-labelledby="title desc">',
          '<title id="title">Finance skills: repository coverage and retained public data</title>',
          '<desc id="desc">' + escape(
              f"Descriptive inventory for version {summary['projectVersion']}. "
              f"Workflow test links {ratio_text(skills['declaredWorkflowTestLinks'])}; native execution evidence {ratio_text(skills['nativeExecutionEvidence'])}. "
              f"Observed benchmark series {ratio_text(data['observedSeries'])}; {data['originalObservationRows']} original and {data['derivedObservationRows']} derived rows. "
              "Counts describe repository evidence, not model accuracy or production readiness.") + '</desc>',
-         '<rect width="1200" height="690" fill="#FAF8F4"/>',
+         f'<rect width="1200" height="{height}" fill="#FAF8F4"/>',
          '<g font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="#242622">',
          '<text x="48" y="55" font-size="30" font-weight="650">Repository coverage</text>',
          '<circle cx="1140" cy="45" r="12" fill="#31573f"/>',
@@ -285,10 +346,10 @@ def figure(summary: dict) -> bytes:
           f'<text x="660" y="436" font-size="15" fill="#60645C">{observed["denominator"]-observed["numerator"]} configured series have no retained public observations.</text>',
           '<text x="660" y="466" font-size="15" fill="#60645C">Latest retained snapshot per series; vintages are not added.</text>',
           '<text x="660" y="496" font-size="15" fill="#60645C">Synthetic fixtures are excluded from public-data counts.</text>',
-          '<text x="660" y="526" font-size="15" fill="#60645C">Daily and monthly row counts are not sample-size claims.</text>',
-          '<text x="48" y="614" font-size="16" font-weight="650">Counts show scope and gaps. They do not measure model accuracy or native task success.</text>',
-          '<text x="48" y="644" font-size="15" fill="#60645C">Methods, denominators, source hashes and limitations: metrics/README.md · Reproduce: python scripts/project_metrics.py</text>',
-          '</g>', '</svg>', '']
+          '<text x="660" y="526" font-size="15" fill="#60645C">Daily and monthly row counts are not sample-size claims.</text>']
+    a += [f'<text x="48" y="{baseline}" font-size="{size}" font-weight="{weight}" fill="#60645C">{escape(line)}</text>'
+          for baseline, line, size, weight in footer]
+    a += ['</g>', '</svg>', '']
     return "\n".join(a).encode("utf-8")
 
 
