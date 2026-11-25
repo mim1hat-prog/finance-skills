@@ -55,7 +55,7 @@ The owner requested ongoing updates. A separate maintenance task was enabled on 
 
 For compatible instruction/documentation changes, the maintainer can publish only after rebuilding, testing and reviewing the diff. Runtime upgrades, changed permissions/data transmission, new commercial services and changed finance definitions require a concrete reviewable proposal. If the execution environment cannot validate a change, leave it in a clearly described branch/PR and report the blocker. Do not call the library updated because a check was merely scheduled.
 
-This file does not create or prove a running automation. The actual task confirmation in the conversation is the record of whether scheduling succeeded. GitHub Actions remain disabled, and the repository installs no poller, webhook, background worker or persistent credentials.
+This file does not create or prove a running automation. The actual task confirmation in the conversation is the record of whether scheduling succeeded. The repository includes no GitHub Actions workflows and installs no poller, webhook, background worker or persistent credentials.
 
 ## Refresh your work account
 

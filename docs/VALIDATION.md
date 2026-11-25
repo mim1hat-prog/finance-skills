@@ -20,6 +20,7 @@ Checked **2026-11-25**. This record describes the evidence obtained in the build
 | Archive boundaries | Traversal, Windows names, case collisions, symlinks, size limits, checksums, existing files and non-execution behavior checked |
 | Update checker | Rate limits and blocked document redirects were recorded as unavailable; pins stayed unchanged |
 | Original GitHub publication | All 193 files published on the Somamill toolsuite finance branch matched their local Git blob hashes |
+| Work-account publication | Initial import `23277e2768d8267cb5b885be229d473cce802e64` on `mim1hat-prog/finance-skills` main matched all 193 local file hashes, including 48 ZIP packages |
 
 The test count includes 16 upstream-helper cases. Package validation does not prove that a model will follow every instruction. Optional tests intentionally skip when their dependencies are absent; inspect the run output before describing them as passed.
 
@@ -56,8 +57,15 @@ No original Claude-mem worker, HyperFrames renderer or paid Valyu integration wa
 
 ## Work-account migration
 
-Prepared on **2026-11-25** for `mim1hat-prog/finance-skills`. The import uses
-only the current tracked tree and starts its own history. Original source-pack
-and dot design-kit provenance, licences and package content are preserved.
-Destination publication and browser inspection remain pending until the
-repository is created or made accessible through the work-account connection.
+Published on **2026-11-25** to `mim1hat-prog/finance-skills`, branch `main`,
+through the ChatGPT GitHub plugin connected as `mim1hat-prog`. The import uses
+only the reviewed tracked tree and follows the destination's starter README
+commit. Original source-pack and dot design-kit provenance, licences and
+package content are preserved; the older toolsuite history was not imported.
+
+All 193 destination files and their modes matched the staged Git hashes after
+the initial import, including all 48 individual skill packages. The destination
+README was read through the plugin. No cloud-browser authentication or visual
+inspection was performed for this destination; the earlier visual check covers
+the original publication described above. Native work-account imports remain
+checks for the actual approved Copilot/Gemini account.

@@ -70,7 +70,7 @@ py -3 scripts\build.py --check
 py -3 -m unittest discover -s tests -v
 ```
 
-GitHub Actions are not enabled. A separately configured daily maintenance task checks relevant platform and upstream changes around 08:00 Asia/Tokyo; it was enabled on 2026-11-25. Compatible updates are reviewed and validated before publication. Updating GitHub does not update an existing native Copilot or Gemini import. The folder copier preserves local edits and records the package version it copied.
+This repository includes no GitHub Actions workflows. A separately configured daily maintenance task checks relevant platform and upstream changes around 08:00 Asia/Tokyo; it was enabled on 2026-11-25. Compatible updates are reviewed and validated before publication. Updating GitHub does not update an existing native Copilot or Gemini import. The folder copier preserves local edits and records the package version it copied.
 
 ## Browse the catalogue
 

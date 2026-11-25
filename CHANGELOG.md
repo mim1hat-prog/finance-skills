@@ -2,6 +2,7 @@
 
 ## 1.0.0 — 2026-11-25
 
+- Publish the reviewed library in `mim1hat-prog/finance-skills` with its own history and plugin-only GitHub maintenance.
 - Establish a dedicated finance library from the 16 portable work skills published in dot-agent-toolsuite.
 - Add eight specialist skills for ingestion, evidence, mappings, close, cash, scenarios, extraction and diagrams.
 - Generate separate Copilot and Gemini editions, 48 individual ZIPs, Gem-ready text and exact package manifests.
