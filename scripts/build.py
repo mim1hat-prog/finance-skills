@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date
 import hashlib
 import io
 import json
@@ -9,6 +10,8 @@ from pathlib import Path
 import re
 import sys
 import zipfile
+
+import catalog_contracts
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -209,6 +212,35 @@ def generate(root: Path) -> dict[Path, bytes]:
     if any(n > 8 for n in groups.values()):
         raise ValueError("Each suggested Agent Builder group must contain at most eight skills")
     outputs: dict[Path, bytes] = {}
+    shared = ""
+    if catalog.get("workflowContractsVersion") is not None:
+        if catalog["workflowContractsVersion"] != 1:
+            raise ValueError("Unsupported workflow contract version")
+        shared_path = root / "adapters/workflow-controls.md"
+        if shared_path.is_symlink() or not shared_path.is_file():
+            raise ValueError("Missing regular shared workflow-controls procedure")
+        shared = shared_path.read_text(encoding="utf-8").strip()
+        if not shared.startswith("## "):
+            raise ValueError("Shared workflow controls need a Markdown section")
+        outputs.update(catalog_contracts.generate(root, catalog))
+        released = catalog.get("releasedOn")
+        if not isinstance(released, str) or date.fromisoformat(released).isoformat() != released:
+            raise ValueError("releasedOn must be the explicit ISO release date")
+        citation = [
+            'cff-version: "1.2.0"',
+            'message: "If you use this software, cite this version and repository."',
+            'type: software',
+            'title: "Finance skills"',
+            'authors:',
+            '  - name: "Finance Skills contributors"',
+            f'version: {json.dumps(catalog["version"])}',
+            f'date-released: {json.dumps(released)}',
+            f'repository-code: {json.dumps(catalog["repoUrl"])}',
+            'license: MIT',
+            'abstract: "Portable finance workflows for Microsoft 365 Copilot and Gemini, with local validation tools and a public benchmark dataset."',
+            'keywords:', '  - finance', '  - agent-skills', '  - reproducibility', '',
+        ]
+        outputs[Path("CITATION.cff")] = "\n".join(citation).encode("utf-8")
     entries = []
     for row in catalog["skills"]:
         name = row["name"]
@@ -225,6 +257,8 @@ def generate(root: Path) -> dict[Path, bytes]:
         title, rest = body.split("\n", 1)
         for edition in EDITIONS:
             adapter = (root / "adapters" / f"{edition}.md").read_text(encoding="utf-8").strip()
+            if shared:
+                adapter += "\n\n" + shared
             rendered_body = f"{title}\n\n{adapter}\n\n{rest.strip()}\n\n## Edition record\n\nFinance skills {catalog['version']}; {edition} edition; source review {catalog['reviewedOn']}. This date records the package review, not the freshness of a user's business data.\n"
             rendered = (front + "\n" + rendered_body).encode("utf-8")
             parse_skill(rendered, name)
@@ -232,7 +266,7 @@ def generate(root: Path) -> dict[Path, bytes]:
             outputs[Path("editions") / edition / name / "SKILL.md"] = rendered
             outputs[Path("packages") / edition / f"{name}.zip"] = packed
             entries.append({"name": name, "edition": edition, "group": row["group"],
-                            "sourceSha256": sha(source), "skillSha256": sha(rendered),
+                            "sourceSha256": sha(source), "sharedControlsSha256": sha(shared.encode()), "skillSha256": sha(rendered),
                             "packageSha256": sha(packed), "skillBytes": len(rendered),
                             "packageBytes": len(packed), "path": f"packages/{edition}/{name}.zip"})
             if edition == "gemini":
@@ -256,6 +290,7 @@ def generate(root: Path) -> dict[Path, bytes]:
              "The bundle does not provide a bulk native import or automatic activation.", "",
              "[Excel agent instructions](profiles/excel-agent-instructions.txt) · "
              "[Bundle checksums](packages/bundles/manifest.json)", "",
+             "[Tool inventory](TOOLS.md) · [Workflow contracts](docs/SKILL-CONTRACTS.md) · [Research registry](research/README.md)", "",
              "## Individual skills", "",
              "| Skill | Purpose | Copilot | Gemini |", "| --- | --- | --- | --- |"]
     for row in catalog["skills"]:

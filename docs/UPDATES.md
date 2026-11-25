@@ -10,6 +10,9 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | Excel agent defaults | `skills/excel-agent-core/SKILL.md` | Generate `profiles/excel-agent-instructions.txt` with the editions | Body-only text from one canonical source |
 | Release downloads | `releases/v<version>/` | Freeze with `scripts/release.py` after validation | Versioned ZIPs, release notes, SHA-256 checksums and no-overwrite check |
 | Upstream ideas/tools | `upstream.lock.json` | Check commits, then review relevant diffs/licences | Pinned reviewed revision; new head is only a candidate |
+| Tool routing | `tools/catalog.json` and `catalog.json` | Review availability/evidence requirements and regenerate lists/contracts | Every route resolves to an existing skill; a listing does not claim installation |
+| Research and standards | `research/sources.json` | Review publisher corrections, superseding editions and exact implementation uses | Resolved source IDs, rights and review status; generated registry agrees |
+| Public benchmarks | `benchmarks/catalog.json` and immutable snapshots | Run an explicit reviewed collector/import command | Source, unit, period, rights, lineage, retrieval time and exact snapshot hashes |
 | Work account | The host's saved/imported copy | Replace/edit or OneDrive folder update plus Refresh | Local installed-version record and a representative task |
 
 ## Check what changed
@@ -24,25 +27,31 @@ Read the command's `--help` for lock, output and timeout options. The checker us
 
 The lock records reviewed repository commits and primary documentation URLs. Review official product pages directly for rollout, licensing, file import, script/network, OneDrive refresh and replacement changes. An HTTP response or changed page hash alone is not semantic review. Do not adopt a moving `main`, `latest` package or a third-party ranking as a quality guarantee.
 
+For research metadata, `py -3 scripts\research_registry.py --check-updates` performs an explicit public update check. Review publisher/Crossref results and the applicable notice before changing a method. Flag affected skills when a correction, retraction or superseding edition is unresolved; do not silently treat a candidate as active support. Regenerate the readable registry only after updating its canonical source records.
+
+Public benchmark refresh is separate from repository maintenance and offline defaults. Review exact series, units, rights and adapter status, then use the explicit commands in [the dataset guide](../benchmarks/README.md). Preserve prior vintages and failed-refresh evidence. Do not redate source reviews, silently replace a series, overwrite a last-good snapshot or reconstruct an internal blank with a public proxy.
+
 ## Apply a reviewed change
 
 1. Compare the source diff and read the relevant primary documentation. Check the project's licence, resource dependencies, data transmission and supported host.
 2. Adapt only the useful procedure. Keep the work instructions executable within the selected host; move optional local setup into the Windows guide. Do not copy an unavailable service's capability into a Markdown promise.
 3. Edit the canonical skill once. Change the host overlay only if Copilot or Gemini behaves differently. Keep company-only logic/templates outside the public repository.
-4. Bump the version in `catalog.json` according to the [release policy](RELEASES.md), add `release-notes/v<version>.md` and update `CHANGELOG.md`. Change the actual review date and the affected `upstream.lock.json` entry only when that review occurred. Do not refresh dates simply because a checker ran.
+4. Bump the version in `catalog.json` according to the [release policy](RELEASES.md), set the actual `releasedOn`, add `release-notes/v<version>.md` and update `CHANGELOG.md`. Change the actual review date and the affected `upstream.lock.json` entry only when that review occurred. Do not refresh dates simply because a checker ran.
 5. Generate and validate:
 
    ```powershell
+   py -3 scripts\research_registry.py
    py -3 scripts\build.py
-   py -3 scripts\build.py --check
-   py -3 -m unittest discover -s tests -v
+   py -3 scripts\check_release.py
    ```
 
 6. Run a representative synthetic task for changed financial logic. Run optional dependency tests when those helpers change. Review desktop/mobile output for catalogue changes when a browser is available. Record skipped or blocked checks honestly.
-7. Finalize the validation record, then freeze and verify with `py -3 scripts\release.py` and `py -3 scripts\release.py --check`. Keep every previous version directory. A changed frozen input requires a new version.
+7. Finalize the validation record, then freeze and verify with `py -3 scripts\release.py` and `py -3 scripts\check_release.py --require-release`. Keep every previous version directory. A changed frozen input requires a new version.
 8. Publish the reviewed files, exact generated packages and versioned releases together. Verify the remote paths/hashes. Preserve concurrent changes; do not force-push over somebody else's work.
 
 The default tests skip optional openpyxl/DuckDB checks when their packages are unavailable. A maintainer changing those helpers must run with the pinned dependencies and confirm those checks actually executed.
+
+The offline gate checks generated sources and packages, research references, tool/workflow contracts, data/API contracts, tests and nested publication artifacts. It does not search the internet, call public providers or prove native account execution. [Standards](STANDARDS.md) · [Contribution procedure](../CONTRIBUTING.md)
 
 ## Ongoing maintenance
 

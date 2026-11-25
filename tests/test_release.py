@@ -32,7 +32,7 @@ class ReleaseTests(unittest.TestCase):
         }
         for name in ("README.md", "AGENTS.md", "LICENSE", "docs/RELEASES.md", ".gitattributes"):
             self.write(name, b"Reviewed public project content.\n")
-        for script in ("build.py", "release.py"):
+        for script in ("build.py", "release.py", "catalog_contracts.py"):
             self.write("scripts/" + script, (ROOT / "scripts" / script).read_bytes())
         self.write("tests/test_fixture.py", b"# Synthetic regression fixture\n")
         self.write("examples/sample.csv", b"period,value\n2026-01,10\n")

@@ -17,6 +17,24 @@ Windows Python and VS Code are a separate, optional route. When the task needs l
 
 Use the requested skill explicitly when available. If the tenant cannot import skills, the user can paste this workflow into a conversation or an authorized agent's instructions. A file attachment alone does not register a reusable skill. Do not claim this imported copy automatically tracks GitHub; updates require replacement or the host's documented folder refresh.
 
+## Shared workflow controls
+
+Use all relevant available, authorized capabilities needed for the objective. For company questions, retrieve enterprise evidence first. Before treating a missing search result as missing data, inspect the source content and try a materially different query, period, linked reference or responsible-source route. Continue while another available step can resolve a material uncertainty; do not repeat unchanged searches or browse unrelated sources to inflate coverage. Use an available deeper research/reasoning mode when appropriate and supported; instructions cannot select a hidden mode, grant permissions or exceed platform limits.
+
+Independently recheck consequential results with a second calculation, source record or alternative method. Rereading the same answer is not an independent check. Investigate contradictions and failed checks, correct them, then rerun the affected checks. Finish when the requested scope is complete and material claims are supported, or report the specific unresolved gap after useful retrieval routes are exhausted. At a host limit, preserve the objective, source locators, versions, decisions and pending work in a compact continuation; never claim that unseen work was completed. Keep this diligence internal and the final response precise.
+
+Keep three streams distinct: approved internal figures; internal workflow status; public benchmarks. An internal blank stays unresolved until the authorized source supplies it. A benchmark can challenge an assumption but cannot become an actual, approved forecast, booked rate, mapping, case confirmation or close receipt.
+
+Before comparing numbers, align period and cutoff/timezone, scenario and version, entities, accounting/reporting basis, currency/unit, sign convention and source snapshot. Keep a requested frozen submission separate from newer working files. Record exact source locations and what each source establishes in working context; do not create an audit artifact merely to store these checks.
+
+Validate business keys, join cardinality, effective dates, gross movements and detailed coordinates as well as totals. Normalize units/signs only from explicit declarations. Calculate residuals at source precision and use an approved, versioned, effective tolerance. An unexplained residual is not rounding by default.
+
+Preserve the baseline workbook/query, protected records, ordered names/types, formulas, load targets, add-in regions and downstream consumers outside the requested change. Successful refresh alone does not establish population or interface parity. Return complete replacement code only for the affected existing scope when code is requested.
+
+Keep evidence state separate from action state: found, calculated, refreshed, uploaded, reconciled, approved and submitted require different evidence. Default to inspection/preparation. For an authorized write, reuse authorization that covers the exact target and payload, check preconditions and verify independently. If the outcome is uncertain or a write times out, read back before retrying; do not substitute locked or unapproved objects. Local validation helpers execute no enterprise writes.
+
+Return the useful answer concisely: approved result, verified internal driver, relevant public benchmark, then material residual/blocker and next source. State only the statuses supported by evidence. Keep diagnostic detail in working context; do not add unsolicited sheets, audit tables, comments, queries, logs or process narration.
+
 Calculate a comparable variance and reconcile its supported drivers. Use Excel for arithmetic across all accessible in-scope records; use the response to explain material results, evidence, and remaining uncertainty.
 
 ## Inputs and operating boundary
@@ -29,6 +47,8 @@ Calculate a comparable variance and reconcile its supported drivers. Use Excel f
 ## Workflow
 
 ### 1. Establish comparability
+
+Lock the approved actuals horizon and comparison version. Keep actuals, approved financial forecast, customer short-horizon forecast and orders distinct in a versioned product-level input contract. Do not blend their quantities or treat a late detailed cost feed as if it had been available at an earlier decision cutoff. Missing price, cost, inventory or ownership inputs remain explicit gaps until the approved source arrives.
 
 1. Confirm the compared versions are the intended actual/budget/forecast, distinguishing approved, draft, and superseded versions. Use source approval and applicability evidence; the newest file is not automatically the correct baseline.
 2. Align periods, accumulated versus single-period measures, currencies, exchange-rate versions, units, account mappings, and reporting perimeter. Preserve the source's fiscal calendar and JPY scale when relevant.
@@ -78,6 +98,8 @@ Calculate a comparable variance and reconcile its supported drivers. Use Excel f
 
 ### 4. Explain only what the evidence supports
 
+Carry forward only approved assumptions. Keep the base forecast separate from incremental opportunities and risks, and show perimeter/assumption-version changes separately from rate or market movement. Public production, commodity, wage or FX benchmarks may challenge an assumption; they do not prove an internal driver. Use an available information-vintage snapshot and cite provider, series, period, unit and snapshot ID. If a cutoff cannot be reconstructed, say so instead of substituting revised history. Compare any proposed indicator-driven forecast with a simple baseline at rolling forecast origins before relying on it.
+
 1. Rank material drivers by absolute impact while preserving their signs. Separate observed arithmetic, supported business explanations, and hypotheses requiring confirmation.
 2. Cite available work source references for each material conclusion. A bridge establishes an allocation of difference; it does not independently prove a causal business story.
 3. If the data supports the total but not a detailed decomposition, return the verified total and the specific inputs needed for the bridge. Do not fabricate a complete explanation.
@@ -102,4 +124,4 @@ For a forecast recommendation, state assumptions and scenarios separately from a
 
 ## Edition record
 
-Finance skills 1.1.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.2.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

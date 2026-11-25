@@ -1,0 +1,260 @@
+{
+  "openapi": "3.1.2",
+  "info": {
+    "title": "Finance public benchmark local API",
+    "version": "1.0.0",
+    "description": "Read-only, foreground loopback API over schema-validated immutable snapshots. No provider request is made per query. Public benchmarks are context only and never fill missing internal figures. No public deployment or native assistant connection is implied."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8765",
+      "description": "Manual local server only"
+    }
+  ],
+  "paths": {
+    "/v1/datasets": {
+      "get": {
+        "operationId": "listDatasets",
+        "summary": "List the registered dataset and validated snapshots",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Schema-validated stored data. No provider fetch occurs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Datasets"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "RFC9457 problem. Codes include as_of_unavailable, snapshot_not_found, source_not_ready, redistribution_not_permitted, invalid_range and dataset_integrity_failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/series/{id}": {
+      "get": {
+        "operationId": "getSeries",
+        "summary": "Get a series definition and available snapshots",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schema-validated stored data. No provider fetch occurs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeriesResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "RFC9457 problem. Codes include as_of_unavailable, snapshot_not_found, source_not_ready, redistribution_not_permitted, invalid_range and dataset_integrity_failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/series/{id}/observations": {
+      "get": {
+        "operationId": "getObservations",
+        "summary": "Read bounded, paginated observations from a reproducible vintage",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": true,
+            "description": "Inclusive observation-period start boundary. Complete monthly periods must fit inside the requested range.",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": true,
+            "description": "Inclusive observation-period end boundary; ordered range at most3660 days.",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Page size.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500,
+              "default": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "Zero-based row offset.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000,
+              "default": 0
+            }
+          },
+          {
+            "name": "snapshot_id",
+            "in": "query",
+            "required": false,
+            "description": "Immutable snapshot; mutually exclusive with as_of.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+            }
+          },
+          {
+            "name": "as_of",
+            "in": "query",
+            "required": false,
+            "description": "Latest retained snapshot actually retrieved no later than this timestamp. Earlier vintage is unavailable when not retained; latest revised history is never substituted.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "data_class",
+            "in": "query",
+            "required": false,
+            "description": "Synthetic demo data must be requested explicitly.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "public",
+                "synthetic"
+              ],
+              "default": "public"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schema-validated stored data. No provider fetch occurs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObservationsResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "RFC9457 problem. Codes include as_of_unavailable, snapshot_not_found, source_not_ready, redistribution_not_permitted, invalid_range and dataset_integrity_failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/snapshots/{id}": {
+      "get": {
+        "operationId": "getSnapshot",
+        "summary": "Read one immutable validated snapshot",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schema-validated stored data. No provider fetch occurs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "RFC9457 problem. Codes include as_of_unavailable, snapshot_not_found, source_not_ready, redistribution_not_permitted, invalid_range and dataset_integrity_failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Datasets": {
+        "$ref": "../schemas/benchmark-api.schema.json#/$defs/Datasets"
+      },
+      "SeriesResponse": {
+        "$ref": "../schemas/benchmark-api.schema.json#/$defs/SeriesResponse"
+      },
+      "ObservationsResponse": {
+        "$ref": "../schemas/benchmark-api.schema.json#/$defs/ObservationsResponse"
+      },
+      "SnapshotResponse": {
+        "$ref": "../schemas/benchmark-api.schema.json#/$defs/SnapshotResponse"
+      },
+      "Problem": {
+        "$ref": "../schemas/benchmark-api.schema.json#/$defs/Problem"
+      }
+    },
+    "parameters": {}
+  }
+}

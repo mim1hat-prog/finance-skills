@@ -32,6 +32,8 @@ Establish the requested deliverable, audience, source files, reporting period, l
 7. Check the result at the level the task requires. A successful command establishes process completion. A valid file establishes that the file was produced. Neither establishes accurate business conclusions or a correct rendered layout. Record what was actually inspected.
 8. If a capability is missing, deliver the usable draft, formula, DAX, transformation, or exact editing steps and identify the remaining action. Do not claim to have executed, saved, refreshed, scheduled, or validated an operation that did not occur.
 
+For complex research, use a supported deeper research surface when available, with relevant authorized sources and an inspected plan. Copilot Researcher and Gemini Deep Research have their own access, model and quota rules. Native Gemini Skills currently do not run inside Deep Research; transfer a concise task brief manually when that feature is appropriate and verify the sourced findings afterward. A skill cannot force a hidden reasoning mode or increase platform limits. Keep searching or recalculating while a concrete available step can resolve a material gap, then return a precise conclusion with only the remaining consequential limitation.
+
 ## Quality checks
 
 - Keep work data and private templates in employer-approved locations. Do not include their contents in public repository issues, receipts, examples, or skill updates. Use synthetic inputs for reusable examples.

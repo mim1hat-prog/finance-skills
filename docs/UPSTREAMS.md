@@ -1,6 +1,6 @@
 # Upstream sources and optional tools
 
-Reviewed **25 November 2026**. The 24 native finance skills are original,
+Reviewed **25 November 2026**. The native finance skills are original,
 company-neutral instructions. The repositories below informed selected methods;
 their applications, providers, hooks and runtimes are separate products.
 
@@ -51,6 +51,8 @@ last reviewed by its publisher on 11 November 2026. We screened its Top 100 and
 repositories. This is not a claim that every repository in the index was audited.
 Star counts and “Official”, “Verified” or “Community” labels do not establish
 compatibility with a particular workplace host.
+
+The index was checked again on **25 November 2026** for this release. The retained upstream pins remain the inspected versions; this recheck does not certify every new upstream commit. Version 1.2.0 adds shared finance workflow controls, a public benchmark dataset and a maintained research registry. Its source and standards mappings are in [research/README.md](../research/README.md); tool availability and workflow routing are in [TOOLS.md](../TOOLS.md).
 
 Anthropic's inspected xlsx, docx, pdf and pptx folders use Apache-2.0 at the pinned
 revision; check each folder's notices before redistribution. Other folders and

@@ -18,6 +18,8 @@ Calculate a comparable variance and reconcile its supported drivers. Use Excel f
 
 ### 1. Establish comparability
 
+Lock the approved actuals horizon and comparison version. Keep actuals, approved financial forecast, customer short-horizon forecast and orders distinct in a versioned product-level input contract. Do not blend their quantities or treat a late detailed cost feed as if it had been available at an earlier decision cutoff. Missing price, cost, inventory or ownership inputs remain explicit gaps until the approved source arrives.
+
 1. Confirm the compared versions are the intended actual/budget/forecast, distinguishing approved, draft, and superseded versions. Use source approval and applicability evidence; the newest file is not automatically the correct baseline.
 2. Align periods, accumulated versus single-period measures, currencies, exchange-rate versions, units, account mappings, and reporting perimeter. Preserve the source's fiscal calendar and JPY scale when relevant.
 3. Inspect row counts, filters, missing values, formula errors, unmapped accounts, duplicate keys, and refresh status. Validate join cardinality before summing. Treat inaccessible data and unverified upstream completeness as explicit limitations.
@@ -65,6 +67,8 @@ Calculate a comparable variance and reconcile its supported drivers. Use Excel f
    A residual is an unallocated difference, not evidence of a cause. Do not rename it productivity, timing, mix, or one-off without supporting data. Retain full precision in calculations and disclose display-rounding differences.
 
 ### 4. Explain only what the evidence supports
+
+Carry forward only approved assumptions. Keep the base forecast separate from incremental opportunities and risks, and show perimeter/assumption-version changes separately from rate or market movement. Public production, commodity, wage or FX benchmarks may challenge an assumption; they do not prove an internal driver. Use an available information-vintage snapshot and cite provider, series, period, unit and snapshot ID. If a cutoff cannot be reconstructed, say so instead of substituting revised history. Compare any proposed indicator-driven forecast with a simple baseline at rolling forecast origins before relying on it.
 
 1. Rank material drivers by absolute impact while preserving their signs. Separate observed arithmetic, supported business explanations, and hypotheses requiring confirmation.
 2. Cite available work source references for each material conclusion. A bridge establishes an allocation of difference; it does not independently prove a causal business story.

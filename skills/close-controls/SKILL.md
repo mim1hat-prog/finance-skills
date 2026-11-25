@@ -17,6 +17,8 @@ Confirm the approved control list and owners where supplied. For an unfamiliar p
 
 ## Run the relevant controls
 
+Resolve the authoritative close calendar, effective version, owner roles, dependencies and deadline timezone. Handle holidays and overnight workday rollover using that approved configuration. A public holiday calendar can suggest candidate workdays, but cannot establish the organization's deadline or close completion.
+
 1. **Completeness and cutoff.** Inventory files and periods, compare extract totals to the source system's control totals, and identify gaps, duplicate extracts and different extraction times. Compare accounting date, document date, service/delivery date and entry timestamp where relevant. A post-period entry can relate to the period, and an in-period invoice may concern another period; flag for policy review instead of deciding from one date alone.
 2. **Ledger balance.** Test debit and credit totals according to the ledger's sign conventions and scope. Reconcile opening balance plus signed movements to closing balance per account/entity/currency. Keep currency conversion, reclassification and consolidation adjustments explicit. A zero net grand total does not establish account-level correctness.
 3. **Subledger reconciliation.** Compare AP, AR, inventory, fixed assets, payroll or other applicable subledgers with the matching control accounts at the same cutoff. Separate timing differences, missing postings, mapping differences and genuine unmatched items. List source keys and aging for each residual. Do not net unrelated debit and credit differences merely to reach zero.
@@ -26,6 +28,10 @@ Confirm the approved control list and owners where supplied. For an unfamiliar p
 7. **Analytical review.** Compare current month, prior month, prior year and forecast using consistent scope. Identify threshold breaches in absolute and relative terms; a small denominator may make percentage changes misleading. Separate observed drivers from unsupported causal explanations. Document why each material exception is explained, carried forward or still open.
 
 ## Make status evidence-based
+
+For anomaly review, keep statistical thresholds, financial materiality and local comment requirements separate and effective-dated. A statistical flag is not a posting error. Classify the outcome as correction plus recheck, evidenced valid business explanation, or unresolved; identify the responsible role from approved context. Required unresolved items block readiness. A general variance explanation does not close a required control.
+
+Keep preparation, ready for transfer, transfer observed, review approval, ready for close and closed separate where the actual process defines them. Draft offsets or proposed tasks do not replace a released task list. Use source observations and receipts for each transition. Upload success never proves final submission, and a suppressed connector error never proves no anomalies.
 
 Use statuses such as not started, prepared, checked, exception open and reviewer approved when status is relevant or a control pack is requested. “Prepared” means the calculation or requested evidence exists; “checked” requires actual verification; “reviewer approved” requires actual reviewer evidence. Do not mark a control complete merely because a file exists or a checkbox is populated.
 

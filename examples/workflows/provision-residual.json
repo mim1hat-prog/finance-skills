@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "fixtureOrigin": "independently-invented",
+  "operation": "provision",
+  "requiredVersion": "scenario-f1",
+  "movementConvention": "signed-increases-positive",
+  "tolerance": {
+    "id": "synthetic-exact",
+    "version": "1",
+    "amount": "0",
+    "effectiveFrom": "2032-01-01",
+    "effectiveTo": "2032-12-31"
+  },
+  "stages": [
+    {
+      "name": "overview",
+      "context": {
+        "schemaVersion": 1,
+        "workflow": "provision-review",
+        "period": "2032-04",
+        "cutoff": "2032-04-30T18:00:00Z",
+        "scenario": "forecast",
+        "version": "scenario-f1",
+        "entities": [
+          "DEMO-UNIT-A"
+        ],
+        "basis": "synthetic-management-view",
+        "currency": "USD",
+        "unitScale": "1",
+        "signMultiplier": 1,
+        "stream": "approved_internal_figures",
+        "sourceSnapshot": {
+          "id": "overview",
+          "version": "overview-revision-1",
+          "asOf": "2032-04-29T10:00:00Z",
+          "kind": "submitted",
+          "locator": "urn:synthetic:overview"
+        },
+        "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+      },
+      "movements": {
+        "opening": "80",
+        "additions": "24",
+        "releases": "-3",
+        "utilization": "-12",
+        "other": "1",
+        "closing": "90"
+      }
+    },
+    {
+      "name": "detail",
+      "context": {
+        "schemaVersion": 1,
+        "workflow": "provision-review",
+        "period": "2032-04",
+        "cutoff": "2032-04-30T18:00:00Z",
+        "scenario": "forecast",
+        "version": "scenario-f1",
+        "entities": [
+          "DEMO-UNIT-A"
+        ],
+        "basis": "synthetic-management-view",
+        "currency": "USD",
+        "unitScale": "1",
+        "signMultiplier": 1,
+        "stream": "approved_internal_figures",
+        "sourceSnapshot": {
+          "id": "detail",
+          "version": "detail-revision-1",
+          "asOf": "2032-04-29T10:00:00Z",
+          "kind": "observed",
+          "locator": "urn:synthetic:detail"
+        },
+        "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+      },
+      "movements": {
+        "opening": "80",
+        "additions": "29",
+        "releases": "-3",
+        "utilization": "-15",
+        "other": "1",
+        "closing": "92"
+      }
+    },
+    {
+      "name": "upload",
+      "context": {
+        "schemaVersion": 1,
+        "workflow": "provision-review",
+        "period": "2032-04",
+        "cutoff": "2032-04-30T18:00:00Z",
+        "scenario": "forecast",
+        "version": "scenario-f1",
+        "entities": [
+          "DEMO-UNIT-A"
+        ],
+        "basis": "synthetic-management-view",
+        "currency": "USD",
+        "unitScale": "1",
+        "signMultiplier": 1,
+        "stream": "approved_internal_figures",
+        "sourceSnapshot": {
+          "id": "upload",
+          "version": "upload-revision-1",
+          "asOf": "2032-04-29T10:00:00Z",
+          "kind": "observed",
+          "locator": "urn:synthetic:upload"
+        },
+        "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+      },
+      "movements": {
+        "opening": "80",
+        "additions": "29",
+        "releases": "-3",
+        "utilization": "-15",
+        "other": "1",
+        "closing": "92"
+      }
+    },
+    {
+      "name": "readback",
+      "context": {
+        "schemaVersion": 1,
+        "workflow": "provision-review",
+        "period": "2032-04",
+        "cutoff": "2032-04-30T18:00:00Z",
+        "scenario": "forecast",
+        "version": "scenario-f1",
+        "entities": [
+          "DEMO-UNIT-A"
+        ],
+        "basis": "synthetic-management-view",
+        "currency": "USD",
+        "unitScale": "1",
+        "signMultiplier": 1,
+        "stream": "approved_internal_figures",
+        "sourceSnapshot": {
+          "id": "readback",
+          "version": "readback-revision-1",
+          "asOf": "2032-04-29T10:00:00Z",
+          "kind": "observed",
+          "locator": "urn:synthetic:readback"
+        },
+        "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+      },
+      "movements": {
+        "opening": "80",
+        "additions": "29",
+        "releases": "-3",
+        "utilization": "-15",
+        "other": "1",
+        "closing": "92"
+      }
+    }
+  ],
+  "explanations": [
+    {
+      "fromStage": "overview",
+      "toStage": "detail",
+      "movement": "additions",
+      "amount": "5",
+      "evidenceRef": "urn:synthetic:additions-explanation",
+      "componentId": "synthetic-additions-driver"
+    },
+    {
+      "fromStage": "overview",
+      "toStage": "detail",
+      "movement": "utilization",
+      "amount": "-2",
+      "evidenceRef": "urn:synthetic:incomplete-utilization-explanation",
+      "componentId": "synthetic-utilization-driver"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-25",
+  "reviewedSyntheticTests": [
+    {
+      "path": "tests/test_upstream_tools.py",
+      "sha256": "f05d0a8d67bbc5363a2e3e7853fc36b262dc84730c241eb214a9af84f690e7c7",
+      "code": "credential-in-url",
+      "reason": "Published v1.1.0 synthetic invalid-URL regression; exact reviewed file contains no actual credential. Only this category and byte-identical copies are exempt."
+    }
+  ]
+}

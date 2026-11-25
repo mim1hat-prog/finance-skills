@@ -1,6 +1,6 @@
 # Skills
 
-25 skills · version 1.1.0 · reviewed 2026-11-25
+29 skills · version 1.2.0 · reviewed 2026-11-25
 
 Choose one edition. Import each skill separately. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 
@@ -11,6 +11,8 @@ Choose one edition. Import each skill separately. Suggested Agent Builder groups
 Extract a bundle first, then use its individual skill ZIPs or follow its folder-copy guide. The bundle does not provide a bulk native import or automatic activation.
 
 [Excel agent instructions](profiles/excel-agent-instructions.txt) · [Bundle checksums](packages/bundles/manifest.json)
+
+[Tool inventory](TOOLS.md) · [Workflow contracts](docs/SKILL-CONTRACTS.md) · [Research registry](research/README.md)
 
 ## Individual skills
 
@@ -41,6 +43,10 @@ Extract a bundle first, then use its individual skill ZIPs or follow its folder-
 | [Scenario planning](skills/scenario-planning/SKILL.md) | Build traceable driver scenarios, sensitivities and break-even views with explicit assumptions. | [ZIP](packages/copilot/scenario-planning.zip) | [ZIP](packages/gemini/scenario-planning.zip) |
 | [Document extraction](skills/document-extraction/SKILL.md) | Turn report tables and statements into traceable data with OCR exceptions and source locators. | [ZIP](packages/copilot/document-extraction.zip) | [ZIP](packages/gemini/document-extraction.zip) |
 | [Finance process diagrams](skills/process-diagram/SKILL.md) | Explain data flows, ownership, review gates and exception paths with compact diagrams. | [ZIP](packages/copilot/process-diagram.zip) | [ZIP](packages/gemini/process-diagram.zip) |
+| [Connected reporting](skills/connected-reporting/SKILL.md) | Validate report context, ordered upload coordinates and independent readback. | [ZIP](packages/copilot/connected-reporting.zip) | [ZIP](packages/gemini/connected-reporting.zip) |
+| [Provision and warranty reconciliation](skills/provision-reconciliation/SKILL.md) | Reconcile movement components and frozen versions, retaining residuals and missing confirmations. | [ZIP](packages/copilot/provision-reconciliation.zip) | [ZIP](packages/gemini/provision-reconciliation.zip) |
+| [FX and allocation preflight](skills/fx-allocation-preflight/SKILL.md) | Separate FX sensitivity, accounting scope and allocation preconditions. | [ZIP](packages/copilot/fx-allocation-preflight.zip) | [ZIP](packages/gemini/fx-allocation-preflight.zip) |
+| [Public benchmark lookup](skills/benchmark-lookup/SKILL.md) | Query rights-cleared public snapshots with explicit units, freshness and information vintage. | [ZIP](packages/copilot/benchmark-lookup.zip) | [ZIP](packages/gemini/benchmark-lookup.zip) |
 
 ## Suggested Agent Builder groups
 
@@ -59,4 +65,8 @@ Extract a bundle first, then use its individual skill ZIPs or follow its folder-
 ### Specialist
 
 `power-query-etl`, `sharepoint-evidence`, `account-mapping`, `close-controls`, `cash-working-capital`, `scenario-planning`, `document-extraction`, `process-diagram`.
+
+### Workflow Pilots
+
+`connected-reporting`, `provision-reconciliation`, `fx-allocation-preflight`, `benchmark-lookup`.
 

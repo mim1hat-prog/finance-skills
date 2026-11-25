@@ -18,7 +18,7 @@ Microsoft currently limits personal Copilot Chat skills to the experience labele
 
 ## 1. Get an individual skill
 
-For one download, choose the [Copilot release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-copilot.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. [Versions and checksums](RELEASES.md)
+For one download, choose the [Copilot release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-copilot.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. [Versions and checksums](RELEASES.md)
 
 Open [packages/copilot](../packages/copilot), choose a skill ZIP and use GitHub's file download control. Each ZIP contains `SKILL.md` at its root. Download a few useful skills first; do not upload the entire repository ZIP as one skill.
 
@@ -67,11 +67,19 @@ A practical operations agent can use: `work-tool-routing`, `excel-data-coverage`
 
 ## Python, Power BI and SharePoint
 
-The Copilot edition directs the model to use the tools available in the current host. Microsoft 365 Chat/agent skill scripts run in a cloud sandbox: they cannot install packages or make authenticated network calls. Existing enabled connectors operate separately through the orchestrator. A Python installation on your Windows PC is not available automatically to that cloud sandbox. [Runtime boundary and inventory](https://learn.microsoft.com/en-us/plugins/declarative-agent-skills)
+The Copilot edition directs the model to use the tools available in the current host. The documented declarative-agent skill runtime uses a cloud sandbox with package-installation and network restrictions; those rules describe that runtime, not every product named Copilot. Existing enabled connectors operate separately through the orchestrator. A Python installation on your Windows PC is not available automatically to a cloud skill sandbox. Check the actual surface and capabilities before choosing a route. [Runtime boundary and inventory](https://learn.microsoft.com/en-us/plugins/declarative-agent-skills)
 
 Use local Python in VS Code for larger approved exports or calculations that need a local package. Run the code locally, inspect its reconciliation/exception output, then supply the appropriate result to your approved Copilot work session. Copilot should distinguish code it proposed from code that actually ran. For SharePoint ingestion, use the approved native Power Query connector where available and preserve source file, version and period evidence. [SharePoint connector](https://learn.microsoft.com/en-us/power-query/connectors/sharepoint-folder)
 
 VS Code's GitHub Copilot uses project `.github/skills/` or personal `~/.copilot/skills/` directories. Those locations do not install Microsoft 365 skills. Use this route only if your organization already provides or permits that separate product. [VS Code skills](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+
+The full release also includes a manual public-benchmark collector and local read-only API. A cloud Copilot session cannot be assumed to reach `127.0.0.1` on your work PC. Supply the permitted snapshot through an approved supported route, or use an approved local client; no connector is installed by this repository. [Dataset guide](../benchmarks/README.md) · [Tool availability and workflow routing](../TOOLS.md)
+
+## Deeper research and independent checks
+
+For complex analysis, use an available reasoning mode appropriate to the task. For a broader source-backed question, **Researcher** is a separate Copilot feature with eligible-plan and administrator requirements. Check that it is available in the approved account, select relevant accessible sources and inspect the resulting evidence. A skill does not enable Researcher or override its limits. [Researcher requirements and use](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-researcher-in-microsoft-365-copilot)
+
+The shared policy asks Copilot to search relevant enterprise evidence first, adapt incomplete searches, resolve contradictions and independently recheck material results. It continues while another available step can resolve a consequential gap, then returns a precise answer or the exact remaining blocker. Keep checkpoints when a host limit interrupts the task; do not claim unseen work was completed. [Research policy](RESEARCH-POLICY.md) · [Workflow pilots](WORKFLOWS.md)
 
 ## Check the first task
 

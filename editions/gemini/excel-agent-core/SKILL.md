@@ -17,6 +17,24 @@ Do not promise that a skill can run with Canvas or Deep Research. If one of thos
 
 Use native Skills if the work account exposes Customize > Skills. Google documentation currently differs on work-account rollout, so check the account rather than infer availability. If Skills is absent but Gems is available, place the workflow in the Gem's Instructions; a knowledge attachment alone does not make it an instruction. Otherwise paste the task instructions into an approved conversation. Imported skills and Gem instructions do not automatically track GitHub; replace the existing copy after an update.
 
+## Shared workflow controls
+
+Use all relevant available, authorized capabilities needed for the objective. For company questions, retrieve enterprise evidence first. Before treating a missing search result as missing data, inspect the source content and try a materially different query, period, linked reference or responsible-source route. Continue while another available step can resolve a material uncertainty; do not repeat unchanged searches or browse unrelated sources to inflate coverage. Use an available deeper research/reasoning mode when appropriate and supported; instructions cannot select a hidden mode, grant permissions or exceed platform limits.
+
+Independently recheck consequential results with a second calculation, source record or alternative method. Rereading the same answer is not an independent check. Investigate contradictions and failed checks, correct them, then rerun the affected checks. Finish when the requested scope is complete and material claims are supported, or report the specific unresolved gap after useful retrieval routes are exhausted. At a host limit, preserve the objective, source locators, versions, decisions and pending work in a compact continuation; never claim that unseen work was completed. Keep this diligence internal and the final response precise.
+
+Keep three streams distinct: approved internal figures; internal workflow status; public benchmarks. An internal blank stays unresolved until the authorized source supplies it. A benchmark can challenge an assumption but cannot become an actual, approved forecast, booked rate, mapping, case confirmation or close receipt.
+
+Before comparing numbers, align period and cutoff/timezone, scenario and version, entities, accounting/reporting basis, currency/unit, sign convention and source snapshot. Keep a requested frozen submission separate from newer working files. Record exact source locations and what each source establishes in working context; do not create an audit artifact merely to store these checks.
+
+Validate business keys, join cardinality, effective dates, gross movements and detailed coordinates as well as totals. Normalize units/signs only from explicit declarations. Calculate residuals at source precision and use an approved, versioned, effective tolerance. An unexplained residual is not rounding by default.
+
+Preserve the baseline workbook/query, protected records, ordered names/types, formulas, load targets, add-in regions and downstream consumers outside the requested change. Successful refresh alone does not establish population or interface parity. Return complete replacement code only for the affected existing scope when code is requested.
+
+Keep evidence state separate from action state: found, calculated, refreshed, uploaded, reconciled, approved and submitted require different evidence. Default to inspection/preparation. For an authorized write, reuse authorization that covers the exact target and payload, check preconditions and verify independently. If the outcome is uncertain or a write times out, read back before retrying; do not substitute locked or unapproved objects. Local validation helpers execute no enterprise writes.
+
+Return the useful answer concisely: approved result, verified internal driver, relevant public benchmark, then material residual/blocker and next source. State only the statuses supported by evidence. Keep diagnostic detail in working context; do not add unsolicited sheets, audit tables, comments, queries, logs or process narration.
+
 Complete the user's real objective correctly. Use the current request, workbook, and relevant work context to understand the intended result. Carry out the authorized work with the capabilities actually available; a plan or plausible explanation alone is not a completed task.
 
 ## Retrieve evidence before assuming
@@ -27,7 +45,11 @@ Complete the user's real objective correctly. Use the current request, workbook,
 4. Resolve contradictory evidence by checking applicability, scope, authority, effective date, and the user's latest instruction. If a material conflict remains, identify it concisely and ask only for what is still needed after those searches.
 5. Use public sources when the task needs external facts, keeping private information out of public queries. Keep company data and results in approved work locations. Never claim an inaccessible tool, source, search, refresh, or calculation was used.
 
+Use all relevant available capabilities required to resolve the objective. Prefer a supported deeper reasoning or research mode for complex work when it is available in the host; do not claim to enable a hidden mode or override time, context, quota, tool or permission limits. Choose further searches for their ability to resolve a concrete gap, not to meet an arbitrary count. A failed or incomplete first search is a reason to adapt retrieval, not to abandon the task.
+
 ## Perform the smallest correct change
+
+Keep approved internal figures, internal workflow status and public benchmarks separate. Resolve the requested period/cutoff, scenario/version, entity/basis, currency/unit/sign and source snapshot before comparing values. A newer working file does not replace a frozen submission. Public context cannot fill a missing internal forecast, mapping, exposure, job-rank cost or owner confirmation.
 
 1. Preserve existing business logic, valid formulas, mappings, references, dependencies, source values, and workbook structure unless the requested change requires modifying them. Understand the relevant logic before editing it.
 2. Use available spreadsheet or calculation capabilities for arithmetic over the intended population. Check units, periods, scenarios, filters, keys, lookup/join cardinality, missing values, and the difference between actuals and assumptions. Investigate references and dependencies that could affect the result.
@@ -41,7 +63,11 @@ Keep only relevant context. Break a large task into manageable parts and compres
 
 Before returning, check internally: Is the result correct, complete for the requested scope, and consistent? Were calculations, mappings, references, dependencies, and material assumptions checked? Was relevant or contradictory evidence ignored? Does the actual result fulfill the user's objective? Revisit any failure that can still be resolved with available authorized capabilities.
 
+Independently recompute consequential figures or compare them with the authoritative source at the required detail. Repeating the same calculation or rereading the model's answer does not establish independence. After a correction, rerun the affected checks and dependencies. Stop when the requested scope is solved with adequate evidence; if a material gap remains after useful available retrieval routes, state the exact gap and next source. At a host limit, preserve a compact continuation with completed work and pending checks; do not invent results or silently drop the objective.
+
 ## Return the result directly
+
+Distinguish evidence state from action state. Found, calculated, refreshed, uploaded, reconciled, approved and submitted each require their own evidence. A prepared payload or matching grand total does not establish a detailed readback or submission. Preserve approved configuration and verify an uncertain action before considering a retry.
 
 Give the requested outcome with concise source references, necessary calculations, and useful recommendations. Mention material unresolved exceptions or access/execution limits that change the conclusion. Keep routine verification internal; do not hide failed checks that matter.
 
@@ -53,4 +79,4 @@ Avoid filler, AI self-reference, process commentary, unsolicited audit text, and
 
 ## Edition record
 
-Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.2.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

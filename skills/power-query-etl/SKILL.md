@@ -15,6 +15,10 @@ For each input, capture its filename or approved tenant locator, sheet/table, ve
 
 ## Build the pipeline
 
+For a repair, inspect the actual dependency graph first: parameters, source queries, helper functions, referenced queries, loaded tables, named ranges, formulas and downstream BI consumers. Capture the accepted baseline and protect history, planning records, scenario labels, ordered column names/types, keys and load targets outside the authorized change. Diagnose the first failure separately in source selection, access, headers/types, join, transformation, load or recalculation.
+
+Choose append versus replacement from the approved change. A full rebuild is not implied by a request to fix one source or period. Return complete, paste-ready replacement M for the affected existing query when code is requested, with its dependencies and parameters identified. Do not create additional queries or worksheets just to demonstrate a repair.
+
 1. **Inventory before combining.** List candidate files. Apply explicit folder, extension, naming and period filters before opening binaries. Exclude temporary lock files, archived versions, generated outputs and unrelated subfolders using visible rules. Report exclusions and counts. Select a representative sample with all required columns; the first file is not automatically the right sample.
 2. **Separate stages.** Keep source discovery, per-file parsing, standardization, mapping, validation and final output distinguishable. Preserve source filename and source row/key through the transformations. Add descriptive step names and parameters for dates and approved locations; avoid personal hard-coded paths.
 3. **Check schema for every file.** Compare required and optional columns with the contract. Reject or quarantine missing required columns, duplicate headers and ambiguous renamed columns. Add absent optional fields as null only when allowed. Report new columns rather than silently dropping information that may change the grain. Retain failed-file identifiers and errors in the working query/context so they can be investigated; do not use skip-errors to hide missing populations or create/load a separate error table unless requested.
@@ -34,6 +38,8 @@ Use explicit tolerances in the source currency and unit. Show rounding residuals
 For refresh errors, report the failing step, exact observed error, affected population, proposed correction and verification result. Preserve privacy classifications; do not solve a connection problem by making confidential sources Public or disabling privacy controls.
 
 ## Deliver
+
+Check both population parity and interface parity against the accepted baseline. A refresh that drops protected planning records, changes an existing scenario's meaning, renames/reorders a downstream field or changes a load target fails compatibility even when it finishes successfully. Keep static code review, native refresh, recalculation and downstream regression results separate; do not claim tests that the current host could not perform. Do not replace the accepted output when a required compatibility check fails.
 
 Return the requested working query/result or paste-ready M/editor steps with execution status. Briefly state the resulting grain, necessary source references/parameters, and material exclusions, errors, stale data or residuals. Keep the source inventory and stage checks internal; deliver a full inventory, exception table, audit log or validation report only when requested. Include next-period instructions only when needed to use the requested workflow.
 

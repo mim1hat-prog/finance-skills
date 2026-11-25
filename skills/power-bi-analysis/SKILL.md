@@ -5,6 +5,8 @@ description: "Analyze or draft Power BI measures, DAX, Power Query transformatio
 
 # Power BI analysis
 
+For freshness or release checks, trace the available source-to-report dependencies through queries/dataflows, semantic model measures, report filters and intended audience. Check upstream period coverage and corrections as well as the latest successful refresh event. Separate source refresh, semantic model refresh, report publication and changes actually visible to readers. A lineage view is evidence about the dependencies it exposes, not proof that every upstream or cross-workspace dependency was inspected.
+
 Produce an explainable model change or analysis from the actual model definition and business question. This skill can assist in Copilot or Gemini using supplied schema and measures. It does not enable Power BI access, refresh a dataset, or install a skill into Power BI itself.
 
 ## Inputs

@@ -1,0 +1,2728 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-25",
+  "policy": {
+    "sourceDocumentsBundled": false,
+    "automaticMethodChanges": false,
+    "networkChecksOptIn": true,
+    "unknownUpdateStateMeans": "review incomplete, not unchanged",
+    "conformanceClaim": "Lightweight catalog inspired by selected standards; no full DCAT/FAIR/DataCite conformance claim."
+  },
+  "sources": [
+    {
+      "id": "w3c-dwbp",
+      "type": "normative-standard",
+      "title": "Data on the Web Best Practices",
+      "publisher": "W3C",
+      "authors": [
+        "W3C"
+      ],
+      "year": 2017,
+      "url": "https://www.w3.org/TR/dwbp/",
+      "doi": null,
+      "edition": "W3C Recommendation, 31 January 2017",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://www.w3.org/TR/dwbp/",
+        "attribution": "W3C",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup",
+            "reproducible-analysis"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "skills/reproducible-analysis/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json"
+          ],
+          "section": "Best Practices 1–8: metadata, licences, provenance, quality and versions",
+          "purpose": "Record series identifiers, units, provenance, licensing and immutable snapshot versions.",
+          "limits": "This is a lightweight local catalog, not a claim of full standards conformance or of fitness for a particular business decision.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_partial_month_and_rebase_reject_changes",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_retrieval_time_follows_completed_fetch_or_import_not_request_start",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_public_origin_cannot_bypass_frozen_series_kind"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "w3c-dcat3",
+      "type": "normative-standard",
+      "title": "Data Catalog Vocabulary (DCAT) — Version 3",
+      "publisher": "W3C",
+      "authors": [
+        "W3C"
+      ],
+      "year": 2024,
+      "url": "https://www.w3.org/TR/2024/REC-vocab-dcat-3-20240822/",
+      "doi": null,
+      "edition": "W3C Recommendation, 22 August 2024",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://www.w3.org/TR/2024/REC-vocab-dcat-3-20240822/",
+        "attribution": "W3C",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json"
+          ],
+          "section": "Dataset, Distribution, Data Service and dataset versioning",
+          "purpose": "Keep dataset discovery, distribution files, API access and snapshot versions distinguishable.",
+          "limits": "This is a lightweight local catalog, not a claim of full standards conformance or of fitness for a particular business decision.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "fair-principles",
+      "type": "empirical-research",
+      "title": "The FAIR Guiding Principles for scientific data management and stewardship",
+      "publisher": "Scientific Data",
+      "authors": [
+        "Mark D. Wilkinson et al."
+      ],
+      "year": 2016,
+      "url": "https://www.nature.com/articles/sdata201618",
+      "doi": "10.1038/sdata.2016.18",
+      "edition": "Scientific Data 3, 160018; 2019 addendum reviewed",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "CC BY 4.0 (article); metadata and summaries only",
+        "termsUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4792175/",
+        "attribution": "Wilkinson et al. (2016), DOI 10.1038/sdata.2016.18.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "reproducible-analysis",
+            "benchmark-lookup"
+          ],
+          "paths": [
+            "skills/reproducible-analysis/SKILL.md",
+            "skills/benchmark-lookup/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "research/sources.json",
+            "scripts/research_registry.py"
+          ],
+          "section": "Box 2, F1–F4 and R1–R1.3",
+          "purpose": "Use stable identifiers, machine-readable metadata, explicit provenance and reuse terms.",
+          "limits": "This is a lightweight local catalog, not a claim of full standards conformance or of fitness for a particular business decision.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [
+        {
+          "kind": "addendum",
+          "url": "https://www.nature.com/articles/s41597-019-0009-6",
+          "reviewedOn": "2026-11-25",
+          "disposition": "reviewed-no-method-change",
+          "assessment": "Publisher addendum dated 19 March 2019 changes the maintained-principles URL. No change to the metadata and provenance principles used here; canonical publication and addendum links retained.",
+          "doi": "10.1038/s41597-019-0009-6"
+        }
+      ],
+      "relatedUrls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4792175/",
+        "https://www.nature.com/articles/s41597-019-0009-6"
+      ]
+    },
+    {
+      "id": "openapi-3.1",
+      "type": "normative-standard",
+      "title": "OpenAPI Specification",
+      "publisher": "OpenAPI Initiative",
+      "authors": [
+        "OpenAPI Initiative"
+      ],
+      "year": 2025,
+      "url": "https://spec.openapis.org/oas/v3.1.2.html",
+      "doi": null,
+      "edition": "3.1.2, 19 September 2025",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://spec.openapis.org/oas/v3.1.2.html",
+        "attribution": "OpenAPI Initiative",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "api/openapi.yaml",
+            "scripts/benchmark_data.py",
+            "scripts/benchmark_api.py"
+          ],
+          "section": "Paths, Parameter Object, Responses Object and Schema Object",
+          "purpose": "Describe bounded read-only routes, query parameters, responses and schemas in an inspectable API contract.",
+          "limits": "Targets the requested 3.1 family; does not claim that 3.1.2 is the latest OpenAPI family or that the local service is publicly deployed.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_all_registered_openapi_routes_match_schema",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_api_contract_pagination_errors_and_no_provider_calls"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "rfc9457",
+      "type": "normative-standard",
+      "title": "Problem Details for HTTP APIs",
+      "publisher": "IETF",
+      "authors": [
+        "Mark Nottingham",
+        "Erik Wilde",
+        "Sanjay Dalal"
+      ],
+      "year": 2023,
+      "url": "https://datatracker.ietf.org/doc/html/rfc9457",
+      "doi": null,
+      "edition": "RFC 9457, July 2023",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://datatracker.ietf.org/doc/html/rfc9457",
+        "attribution": "IETF",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "api/openapi.yaml",
+            "scripts/benchmark_data.py",
+            "scripts/benchmark_api.py"
+          ],
+          "section": "Sections 3 and 3.1, problem JSON and extension members",
+          "purpose": "Return application/problem+json failures with stable type, title, status and detail.",
+          "limits": "Problem details communicate failures; they do not establish upstream availability or authorization.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_api_contract_pagination_errors_and_no_provider_calls"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "alfred-realtime",
+      "type": "provider-documentation",
+      "title": "FRED API: Real-Time Periods",
+      "publisher": "Federal Reserve Bank of St. Louis",
+      "authors": [
+        "Federal Reserve Bank of St. Louis"
+      ],
+      "year": null,
+      "url": "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+      "doi": null,
+      "edition": "Living API documentation accessed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+        "attribution": "Federal Reserve Bank of St. Louis",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup",
+            "forecast-variance"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "skills/forecast-variance/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_api.py"
+          ],
+          "section": "Default current history versus a historical real-time period",
+          "purpose": "Distinguish retrieval time and historical information availability; return as_of_unavailable without a captured vintage.",
+          "limits": "This is point-in-time design guidance. No FRED collector or universal reconstruction of other providers' past vintages is claimed.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_after_cutoff_revision_never_uses_latest",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_as_of_response_excludes_refresh_results_after_cutoff"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "alfred-vintages",
+      "type": "provider-documentation",
+      "title": "FRED API: fred/series/vintagedates",
+      "publisher": "Federal Reserve Bank of St. Louis",
+      "authors": [
+        "Federal Reserve Bank of St. Louis"
+      ],
+      "year": null,
+      "url": "https://fred.stlouisfed.org/docs/api/fred/series_vintagedates.html",
+      "doi": null,
+      "edition": "Living API documentation accessed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://fred.stlouisfed.org/docs/api/fred/series_vintagedates.html",
+        "attribution": "Federal Reserve Bank of St. Louis",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_api.py"
+          ],
+          "section": "Vintage dates and the distinction from all release dates",
+          "purpose": "Preserve previously captured observations instead of replacing history after a revision.",
+          "limits": "A vintage date records a new or revised observation; no-change releases may be absent. Local snapshots do not create evidence for dates before collection.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_after_cutoff_revision_never_uses_latest",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_outage_preserves_last_good_and_redacts_credentials"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "m4-competition",
+      "type": "empirical-research",
+      "title": "The M4 Competition: 100,000 time series and 61 forecasting methods",
+      "publisher": "International Journal of Forecasting / University of Nicosia",
+      "authors": [
+        "Spyros Makridakis",
+        "Evangelos Spiliotis",
+        "Vassilios Assimakopoulos"
+      ],
+      "year": 2020,
+      "url": "https://pure.unic.ac.cy/en/publications/the-m4-competition-100000-time-series-and-61-forecasting-methods/",
+      "doi": "10.1016/j.ijforecast.2019.04.014",
+      "edition": "Volume 36, issue 1, pages 54–74",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "needs-review",
+      "reviewNotes": "Original article metadata and abstract were verified through the publisher and author institution. Live Crossref metadata on 25 November 2026 links an erratum concerning missing competing-interest statements. Finding that title is not a completed impact review; direct notice/API requests returned 403.",
+      "license": {
+        "name": "CC BY-NC-ND 4.0 (article); links and original summaries only",
+        "termsUrl": "https://www.sciencedirect.com/science/article/pii/S0169207019301128",
+        "attribution": "International Journal of Forecasting / University of Nicosia",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [],
+      "updates": [
+        {
+          "kind": "correction",
+          "url": "https://doi.org/10.1016/j.ijforecast.2021.01.013",
+          "detectedOn": "2026-11-25",
+          "reviewedOn": null,
+          "disposition": "needs-review",
+          "assessment": "Publisher metadata identifies a missing-competing-interest-statements erratum that includes this paper. Full notice content is unavailable here; no claim about the declarations or methodological impact is made.",
+          "doi": "10.1016/j.ijforecast.2021.01.013"
+        }
+      ],
+      "integrationStatus": "candidate",
+      "candidateReason": "A publisher erratum linked by Crossref was detected, but its full text could not be retrieved. This paper is not active support for any skill or method until the notice is reviewed; FPP supports the current evaluation guidance.",
+      "affectedSkills": [
+        "forecast-variance",
+        "scenario-planning",
+        "reproducible-analysis"
+      ]
+    },
+    {
+      "id": "fpp-tscv",
+      "type": "method-guide",
+      "title": "Forecasting: Principles and Practice",
+      "publisher": "OTexts",
+      "authors": [
+        "Rob J. Hyndman",
+        "George Athanasopoulos"
+      ],
+      "year": null,
+      "url": "https://otexts.com/fpp3/toolbox.html",
+      "doi": null,
+      "edition": "Third edition; online book updated 20 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://otexts.com/fpp3/toolbox.html",
+        "attribution": "OTexts",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "forecast-variance",
+            "scenario-planning",
+            "reproducible-analysis"
+          ],
+          "paths": [
+            "skills/forecast-variance/SKILL.md",
+            "skills/scenario-planning/SKILL.md",
+            "skills/reproducible-analysis/SKILL.md"
+          ],
+          "section": "Chapter 5, simple methods, forecast accuracy and time-series cross-validation",
+          "purpose": "Compare proposed methods with simple baselines at rolling forecast origins and the intended horizon; keep future revisions outside training information.",
+          "limits": "The source uses R examples. This project supplies method instructions, not a bundled forecasting engine or an assurance of improved accuracy.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "ecb-exr-api",
+      "type": "provider-documentation",
+      "title": "ECB Data Portal API: data examples",
+      "publisher": "European Central Bank",
+      "authors": [
+        "European Central Bank"
+      ],
+      "year": null,
+      "url": "https://data.ecb.europa.eu/help/api/data-examples",
+      "doi": null,
+      "edition": "EXR daily reference rates; reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official API examples and the official reference-rate page were reviewed. A normal keyless CSV request succeeded; the dataset records actual retrieval time.",
+      "license": {
+        "name": "ECB statistics reuse policy",
+        "termsUrl": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+        "attribution": "Source: ECB statistics; series identifier, period and retrieval/snapshot identifier.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Keep ECB observations and metadata unmodified. Label currency crosses separately as project calculations from ECB observations; do not imply ECB approval. Third-party series require their own rights check."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup",
+            "fx-allocation-preflight"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "skills/fx-allocation-preflight/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "EXR series keys, startPeriod/endPeriod, CSV output and updatedAfter",
+          "purpose": "Retrieve daily JPY, USD, CNY and THB per EUR as original series; retain provider keys and quote direction.",
+          "limits": "Reference rates are public context, not approved planning or booked rates. updatedAfter is an update query, not a guarantee of complete historical vintages.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_reversed_fx_quote_is_rejected"
+          ],
+          "distribution": "data-values"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://data.ecb.europa.eu/help/api/data",
+        "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+      ]
+    },
+    {
+      "id": "ecb-data-usage",
+      "type": "data-license",
+      "title": "Use of ECB statistics and other statistical information",
+      "publisher": "European Central Bank",
+      "authors": [
+        "European Central Bank"
+      ],
+      "year": null,
+      "url": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "doi": null,
+      "edition": "Current policy reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "ECB statistics reuse policy",
+        "termsUrl": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+        "attribution": "Source: ECB statistics; series identifier, period and retrieval/snapshot identifier.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Keep ECB observations and metadata unmodified. Label currency crosses separately as project calculations from ECB observations; do not imply ECB approval. Third-party series require their own rights check."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Free reuse, attribution, unchanged statistics and third-party information",
+          "purpose": "Gate publication of selected ECB observations and label separately derived calculations.",
+          "limits": "The policy does not license third-party data merely because the ECB displays it.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_rights_gate_blocks_before_fetch"
+          ],
+          "distribution": "data-values"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "boj-cgpi",
+      "type": "provider-documentation",
+      "title": "Bank of Japan: Corporate Goods Price Index (2020 base)",
+      "publisher": "Bank of Japan",
+      "authors": [
+        "Bank of Japan"
+      ],
+      "year": null,
+      "url": "https://www.stat-search.boj.or.jp/ssi/mtshtml/pr01_m_1_en.html",
+      "doi": null,
+      "edition": "Monthly CY2020=100 series; table reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Bank of Japan time-series website notice",
+        "termsUrl": "https://www.stat-search.boj.or.jp/info/notice_en.html",
+        "attribution": "Source: Bank of Japan, Corporate Goods Price Index; exact series and period.",
+        "rawRedistribution": "permission-required",
+        "derivedRedistribution": "permission-required",
+        "checkedOn": "2026-11-25",
+        "notes": "The official notice requires advance permission for commercial copying/reproduction and restricts alteration. Metadata and retrieval recipes only; no BOJ observations are bundled for work redistribution."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Domestic Producer Price Index and yen-basis Import Price Index, All commodities",
+          "purpose": "Identify PR01'PRCG20_2200000000 and PR01'PRCG20_2600000000 without confusing level indices with percentage-change columns.",
+          "limits": "Metadata is verified; commercial redistribution permission is not established, and no BOJ numeric snapshot is shipped.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://www.stat-search.boj.or.jp/ssi/mtshtml/csv/pr01_m_1.csv"
+      ]
+    },
+    {
+      "id": "boj-terms",
+      "type": "data-license",
+      "title": "Notice on the Bank of Japan Time-Series Data Search website",
+      "publisher": "Bank of Japan",
+      "authors": [
+        "Bank of Japan"
+      ],
+      "year": null,
+      "url": "https://www.stat-search.boj.or.jp/info/notice_en.html",
+      "doi": null,
+      "edition": "Current notice reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Bank of Japan time-series website notice",
+        "termsUrl": "https://www.stat-search.boj.or.jp/info/notice_en.html",
+        "attribution": "Source: Bank of Japan, Corporate Goods Price Index; exact series and period.",
+        "rawRedistribution": "permission-required",
+        "derivedRedistribution": "permission-required",
+        "checkedOn": "2026-11-25",
+        "notes": "The official notice requires advance permission for commercial copying/reproduction and restricts alteration. Metadata and retrieval recipes only; no BOJ observations are bundled for work redistribution."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Copyright and permission for commercial use",
+          "purpose": "Keep the BOJ adapter behind an explicit rights decision and publish metadata only by default.",
+          "limits": "Public download access does not itself establish commercial redistribution rights.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_rights_gate_blocks_before_fetch"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "meti-iip",
+      "type": "provider-documentation",
+      "title": "Historical Data: Indices of Industrial Production, base 2020",
+      "publisher": "Ministry of Economy, Trade and Industry, Japan",
+      "authors": [
+        "Ministry of Economy, Trade and Industry, Japan"
+      ],
+      "year": null,
+      "url": "https://www.meti.go.jp/english/statistics/tyo/iip/b2020_result-2.html",
+      "doi": null,
+      "edition": "2020-base original and seasonally adjusted monthly industry tables",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Official search-indexed landing page verified filenames b2020_gom1e.xlsx and b2020_gsm1e.xlsx and 2020 base. Fetch failure is retained as a verification gap; no URL path or series code was guessed.",
+      "license": {
+        "name": "METI Public Data License 1.0 terms",
+        "termsUrl": "https://www.meti.go.jp/english/other/terms_of_use.html",
+        "attribution": "Source: Ministry of Economy, Trade and Industry (METI), Indices of Industrial Production; indicate any processing.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Official indexed terms allow reuse with attribution and processing labels, with third-party exceptions. Exact monthly workbook and series selection remain pending; no real METI observations are bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup",
+            "forecast-variance"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "skills/forecast-variance/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Monthly by-industry original and seasonally adjusted indices",
+          "purpose": "Prepare separate transport-equipment production series for original and seasonally adjusted context.",
+          "limits": "Landing metadata is official-indexed, but direct retrieval returned 403 and exact workbook row/URL has not been verified. This is a configured adapter candidate, not a supported live series or a proxy for customer schedules.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "meti-terms",
+      "type": "data-license",
+      "title": "METI Website: Terms of Use",
+      "publisher": "Ministry of Economy, Trade and Industry, Japan",
+      "authors": [
+        "Ministry of Economy, Trade and Industry, Japan"
+      ],
+      "year": null,
+      "url": "https://www.meti.go.jp/english/other/terms_of_use.html",
+      "doi": null,
+      "edition": "Public Data License 1.0, official indexed terms",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Official search-indexed terms reviewed; direct page retrieval returned 403. Recheck current provider terms when enabling an actual series.",
+      "license": {
+        "name": "METI Public Data License 1.0 terms",
+        "termsUrl": "https://www.meti.go.jp/english/other/terms_of_use.html",
+        "attribution": "Source: Ministry of Economy, Trade and Industry (METI), Indices of Industrial Production; indicate any processing.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Official indexed terms allow reuse with attribution and processing labels, with third-party exceptions. Exact monthly workbook and series selection remain pending; no real METI observations are bundled."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Source citation, edited-content labeling and third-party rights",
+          "purpose": "Record the conditions that must accompany an eventual verified METI snapshot.",
+          "limits": "Rights metadata does not establish a successful fetch, a verified row selection or permission for third-party content.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "worldbank-pink-sheet",
+      "type": "provider-documentation",
+      "title": "Commodity Markets: World Bank Pink Sheet",
+      "publisher": "World Bank Prospects Group",
+      "authors": [
+        "World Bank Prospects Group"
+      ],
+      "year": 2026,
+      "url": "https://www.worldbank.org/en/research/commodity-markets",
+      "doi": null,
+      "edition": "November 2026 release; historical monthly workbook",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official monthly XLSX was retrieved and exact labels/units checked against the official November publication. The selected numeric rows are independently normalized; original worksheet and publisher metadata are not mirrored.",
+      "license": {
+        "name": "CC BY 4.0 with World Bank additional dataset terms",
+        "termsUrl": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+        "attribution": "The World Bank: Commodity Prices - History and Projections (Pink Sheet): underlying providers identified in the workbook Description; series and snapshot.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "The dataset-specific catalog lists CC BY 4.0. Selected workbook descriptions contain provider attribution and no contrary selected-series licence notice. Keep those credits and the terms URL, label transformations, and recheck future metadata exceptions. No raw workbook or PDF is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup",
+            "scenario-planning"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "skills/scenario-planning/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Monthly Prices and Description worksheets: Aluminum, Copper, Crude oil Brent, Natural Gas Japan",
+          "purpose": "Provide aluminium/copper in USD per metric ton, Brent in USD per barrel and Japan LNG in USD per MMBtu; keep currency conversions separate.",
+          "limits": "Commodity benchmarks are context for sensitivity, not supplier contract prices or plant tariffs. Observed current history does not reconstruct past publication vintages.",
+          "tests": [],
+          "distribution": "data-values"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx"
+      ]
+    },
+    {
+      "id": "worldbank-data-terms",
+      "type": "data-license",
+      "title": "World Bank Terms of Use for Datasets",
+      "publisher": "World Bank",
+      "authors": [
+        "World Bank"
+      ],
+      "year": null,
+      "url": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+      "doi": null,
+      "edition": "Current terms and dataset catalog 0038238 reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "CC BY 4.0 with World Bank additional dataset terms",
+        "termsUrl": "https://www.worldbank.org/ext/en/legal/terms-conditions/datasets",
+        "attribution": "The World Bank: Commodity Prices - History and Projections (Pink Sheet): underlying providers identified in the workbook Description; series and snapshot.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "The dataset-specific catalog lists CC BY 4.0. Selected workbook descriptions contain provider attribution and no contrary selected-series licence notice. Keep those credits and the terms URL, label transformations, and recheck future metadata exceptions. No raw workbook or PDF is bundled."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Licenses, attribution and exceptions for some third-party data",
+          "purpose": "Permit the selected Pink Sheet observations with dataset-specific attribution and maintain a per-series rights gate.",
+          "limits": "The decision covers the reviewed selected dataset. It does not license all World Bank-hosted material or unpublished third-party series.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_rights_gate_blocks_before_fetch"
+          ],
+          "distribution": "data-values"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://datacatalog.worldbank.org/search/dataset/0038238/commodity-prices-history-and-projections",
+        "https://datacatalog.worldbank.org/public-licenses",
+        "https://reproducibility.worldbank.org/catalog/377"
+      ]
+    },
+    {
+      "id": "estat-api",
+      "type": "provider-documentation",
+      "title": "e-Stat API User Guide",
+      "publisher": "Statistics Bureau of Japan / National Statistics Center",
+      "authors": [
+        "Statistics Bureau of Japan / National Statistics Center"
+      ],
+      "year": null,
+      "url": "https://www.e-stat.go.jp/api/api/api/index.php/en/api-info/api-guide",
+      "doi": null,
+      "edition": "API 3.0 user guide and current service terms",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "e-Stat terms compatible with CC BY 4.0",
+        "termsUrl": "https://www.e-stat.go.jp/en/terms-of-use",
+        "attribution": "Source: Monthly Labour Survey (Ministry of Health, Labour and Welfare), via e-Stat; identify processing.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Source attribution and edited-content labels required; third-party and API service terms remain separate. No exact wage/hour table has been enabled without verified table and category metadata."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Application registration, application ID and statistical table metadata",
+          "purpose": "Require a separately supplied application ID and verified statistical table/category metadata before enabling wage/hour retrieval.",
+          "limits": "The API is credentialed. No application ID, exact MHLW table selection or successful credentialed request is supplied by this repository.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_credential_metadata_is_rejected",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_outage_preserves_last_good_and_redacts_credentials"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://www.e-stat.go.jp/api/en/terms-of-use",
+        "https://api.e-stat.go.jp/swagger-ui/e-statapi3.0.html"
+      ]
+    },
+    {
+      "id": "estat-terms",
+      "type": "data-license",
+      "title": "e-Stat Terms of Use",
+      "publisher": "Statistics Bureau of Japan / National Statistics Center",
+      "authors": [
+        "Statistics Bureau of Japan / National Statistics Center"
+      ],
+      "year": null,
+      "url": "https://www.e-stat.go.jp/en/terms-of-use",
+      "doi": null,
+      "edition": "Government of Japan Standard Terms of Use 2.0, compatible with CC BY 4.0",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "e-Stat terms compatible with CC BY 4.0",
+        "termsUrl": "https://www.e-stat.go.jp/en/terms-of-use",
+        "attribution": "Source: Monthly Labour Survey (Ministry of Health, Labour and Welfare), via e-Stat; identify processing.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Source attribution and edited-content labels required; third-party and API service terms remain separate. No exact wage/hour table has been enabled without verified table and category metadata."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Source citation, edited content, third-party rights and API terms",
+          "purpose": "Record public-content reuse conditions separately from credentialed API access requirements.",
+          "limits": "General content terms do not establish that all linked external data is covered or permit disclosure of an API application ID.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "mhlw-monthly-labour",
+      "type": "provider-documentation",
+      "title": "Monthly Labour Survey: national survey results",
+      "publisher": "Ministry of Health, Labour and Welfare, Japan",
+      "authors": [
+        "Ministry of Health, Labour and Welfare, Japan"
+      ],
+      "year": null,
+      "url": "https://www.mhlw.go.jp/toukei/list/30-1a.html",
+      "doi": null,
+      "edition": "Current survey publication index and revision notices",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "e-Stat terms compatible with CC BY 4.0",
+        "termsUrl": "https://www.e-stat.go.jp/en/terms-of-use",
+        "attribution": "Source: Monthly Labour Survey (Ministry of Health, Labour and Welfare), via e-Stat; identify processing.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Source attribution and edited-content labels required; third-party and API service terms remain separate. No exact wage/hour table has been enabled without verified table and category metadata."
+      },
+      "uses": [
+        {
+          "skills": [
+            "benchmark-lookup",
+            "workforce-reconciliation"
+          ],
+          "paths": [
+            "skills/benchmark-lookup/SKILL.md",
+            "skills/workforce-reconciliation/SKILL.md",
+            "scripts/benchmark_data.py",
+            "benchmarks/catalog.json",
+            "scripts/benchmark_collect.py"
+          ],
+          "section": "Survey releases, corrected indices and seasonal-adjustment revisions",
+          "purpose": "Use wage and hours publications as contextual candidates and retain revision/version metadata.",
+          "limits": "Table IDs, employment coverage, industry, establishment-size classes and units must be verified before support. A public wage index cannot reconstruct internal job-grade costs.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "crossref-updates",
+      "type": "metadata-guidance",
+      "title": "Retraction Watch and Crossref metadata retrieval",
+      "publisher": "Crossref",
+      "authors": [
+        "Crossref"
+      ],
+      "year": null,
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/",
+      "doi": null,
+      "edition": "Current public metadata documentation",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://www.crossref.org/documentation/retrieve-metadata/retraction-watch/",
+        "attribution": "Crossref",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "evidence-research"
+          ],
+          "paths": [
+            "skills/evidence-research/SKILL.md",
+            "research/sources.json",
+            "scripts/research_registry.py",
+            "docs/RESEARCH-POLICY.md"
+          ],
+          "section": "Post-publication changes and Retraction Watch coverage",
+          "purpose": "Flag DOI metadata updates for publisher review; block unresolved or retracted sources still referenced by skills.",
+          "limits": "Metadata can be incomplete and corrections are less comprehensive than retractions. No-update-reported is not proof of no correction or retraction.",
+          "tests": [
+            "tests/test_research_registry.py::ResearchRegistryTests.test_retracted_source_blocks_release",
+            "tests/test_research_registry.py::ResearchRegistryTests.test_update_failure_is_unknown"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://www.crossref.org/documentation/retrieve-metadata/rest-api/"
+      ]
+    },
+    {
+      "id": "datacite-metadata",
+      "type": "metadata-guidance",
+      "title": "DataCite Metadata Schema and versioning guidance",
+      "publisher": "DataCite",
+      "authors": [
+        "DataCite"
+      ],
+      "year": 2026,
+      "url": "https://schema.datacite.org/",
+      "doi": null,
+      "edition": "Metadata Schema 4.7, released 3 March 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://schema.datacite.org/",
+        "attribution": "DataCite",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only links, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "research/sources.json",
+            "scripts/research_registry.py"
+          ],
+          "section": "Core citation properties; Version and RelatedIdentifier version relationships",
+          "purpose": "Keep stable source identifiers, editions, links to notices and distinct access/review dates in the canonical registry.",
+          "limits": "The project does not register DOIs or claim DataCite schema conformance; these are selected metadata design concepts.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://support.datacite.org/docs/versioning"
+      ]
+    },
+    {
+      "id": "project-finance-design",
+      "type": "project-design",
+      "title": "Finance Skills product and operating design",
+      "publisher": "Finance Skills maintainers",
+      "authors": [
+        "Finance Skills maintainers"
+      ],
+      "year": 2026,
+      "url": "https://github.com/mim1hat-prog/finance-skills",
+      "doi": null,
+      "edition": "Repository product decisions, versioned with release",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "A local design choice is linked to its actual implementation. No employer documents, identifiers, mappings or real cases were used as examples.",
+      "license": {
+        "name": "Repository MIT licence; original project text",
+        "termsUrl": "https://github.com/mim1hat-prog/finance-skills/blob/main/LICENSE",
+        "attribution": "Finance Skills maintainers.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Original project decisions are distinguished from external evidence; this software licence does not extend to upstream data."
+      },
+      "uses": [
+        {
+          "skills": [
+            "excel-agent-core",
+            "connected-reporting"
+          ],
+          "paths": [
+            "skills/excel-agent-core/SKILL.md",
+            "skills/connected-reporting/SKILL.md",
+            "PRODUCT.md",
+            "scripts/project_gates.py",
+            "scripts/check_release.py",
+            "scripts/check_publication.py",
+            "tools/publication-policy.json"
+          ],
+          "section": "Operating boundaries and source priority",
+          "purpose": "Keep approved figures, workflow status and public context separate; preserve existing workbook logic and avoid unsolicited audit outputs.",
+          "limits": "This is an original project design decision, not a cited industry standard or evidence that a particular company uses these controls.",
+          "tests": [
+            "tests/test_project_gates.py::ProjectGates.test_generated_skill_and_citation_drift_are_rejected_before_freeze",
+            "tests/test_project_gates.py::ProjectGates.test_unresolved_research_reference_prevents_release_gate",
+            "tests/test_publication_gate.py::PublicationGate.test_nested_native_packages_are_inspected_not_just_source"
+          ],
+          "distribution": "metadata-only"
+        },
+        {
+          "skills": [
+            "provision-reconciliation",
+            "close-controls",
+            "workforce-reconciliation",
+            "fx-allocation-preflight"
+          ],
+          "paths": [
+            "skills/provision-reconciliation/SKILL.md",
+            "skills/close-controls/SKILL.md",
+            "skills/workforce-reconciliation/SKILL.md",
+            "skills/fx-allocation-preflight/SKILL.md",
+            "PRODUCT.md"
+          ],
+          "section": "Validation and release decision boundaries",
+          "purpose": "Require supported granularity, explicit confirmation states, versioned assumptions and reconciled inputs before concluding completion.",
+          "limits": "Generic procedures and invented fixtures are not accounting policy, employer rules or proof of approval.",
+          "tests": [],
+          "distribution": "metadata-only"
+        },
+        {
+          "skills": [],
+          "paths": [
+            "CONTRIBUTING.md",
+            "SECURITY.md",
+            "docs/STANDARDS.md"
+          ],
+          "section": "Project maintenance and disclosure boundaries",
+          "purpose": "Document contribution checks, safe issue reporting and the evidence required before publication.",
+          "limits": "These are original project procedures, not a security certification, service-level agreement or claim that incidents are continuously monitored.",
+          "tests": [],
+          "distribution": "metadata-only"
+        },
+        {
+          "skills": [
+            "excel-agent-core",
+            "evidence-research"
+          ],
+          "paths": [
+            "skills/excel-agent-core/SKILL.md",
+            "skills/evidence-research/SKILL.md",
+            "adapters/workflow-controls.md",
+            "docs/RESEARCH-POLICY.md"
+          ],
+          "section": "Bounded diligence, evidence sufficiency and independent verification",
+          "purpose": "Continue targeted retrieval while material evidence gaps remain, independently recheck consequential results and checkpoint only useful sources, calculations and decisions.",
+          "limits": "These are original operating instructions. They cannot guarantee exhaustive retrieval, increase host context or runtime limits, override permissions, or justify repeated identical failed requests.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-hallmark",
+      "type": "software-reference",
+      "title": "Nutlope/hallmark — pinned source review",
+      "publisher": "Nutlope",
+      "authors": [
+        "Nutlope"
+      ],
+      "year": null,
+      "url": "https://github.com/Nutlope/hallmark/tree/04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "doi": null,
+      "edition": "Commit 04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/Nutlope/hallmark/tree/04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+        "attribution": "Nutlope/hallmark",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "design-review",
+            "corporate-style"
+          ],
+          "paths": [
+            "skills/design-review/SKILL.md",
+            "skills/corporate-style/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/hallmark/SKILL.md",
+          "purpose": "Apply layout, legibility and visual-consistency review to repository and work-output design.",
+          "limits": "The project design kit and employer template remain authoritative; an upstream coding-host skill does not provide a Microsoft 365 or Gemini runtime.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-anthropic-skills",
+      "type": "software-reference",
+      "title": "anthropics/skills — pinned source review",
+      "publisher": "anthropics",
+      "authors": [
+        "anthropics"
+      ],
+      "year": null,
+      "url": "https://github.com/anthropics/skills/tree/e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "doi": null,
+      "edition": "Commit e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "Apache-2.0",
+        "termsUrl": "https://github.com/anthropics/skills/tree/e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+        "attribution": "anthropics/skills",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: Apache-2.0 for inspected xlsx/docx/pdf/pptx folders; check individual folder notices for other skills. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "excel-data-coverage",
+            "spreadsheet-modeling",
+            "management-presentation",
+            "business-document",
+            "cash-working-capital",
+            "scenario-planning"
+          ],
+          "paths": [
+            "skills/excel-data-coverage/SKILL.md",
+            "skills/spreadsheet-modeling/SKILL.md",
+            "skills/management-presentation/SKILL.md",
+            "skills/business-document/SKILL.md",
+            "skills/cash-working-capital/SKILL.md",
+            "skills/scenario-planning/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/xlsx/SKILL.md",
+          "purpose": "Preserve spreadsheet formulas and source lineage, require recalculation evidence, and use concise document/presentation structures for finance output.",
+          "limits": "Original portable procedures are provided; upstream spreadsheet/document runtimes and recalculation dependencies are not installed by importing a skill.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-claude-mem",
+      "type": "software-reference",
+      "title": "thedotmack/claude-mem — pinned source review",
+      "publisher": "thedotmack",
+      "authors": [
+        "thedotmack"
+      ],
+      "year": null,
+      "url": "https://github.com/thedotmack/claude-mem/tree/4dc8e48cddee663edc3e401109f836d11f926a45",
+      "doi": null,
+      "edition": "Commit 4dc8e48cddee663edc3e401109f836d11f926a45",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "Apache-2.0",
+        "termsUrl": "https://github.com/thedotmack/claude-mem/tree/4dc8e48cddee663edc3e401109f836d11f926a45",
+        "attribution": "thedotmack/claude-mem",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: Apache-2.0. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "project-context"
+          ],
+          "paths": [
+            "skills/project-context/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "Pinned README and source metadata",
+          "purpose": "Keep concise project decisions, source pointers and next actions in an approved portable handoff.",
+          "limits": "This is a procedural adaptation; there is no automatic memory worker, session recording, cloud sync or provider subscription.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-hyperframes",
+      "type": "software-reference",
+      "title": "heygen-com/hyperframes — pinned source review",
+      "publisher": "heygen-com",
+      "authors": [
+        "heygen-com"
+      ],
+      "year": null,
+      "url": "https://github.com/heygen-com/hyperframes/tree/c890cb38f0d0786831c99ab515587f5750185cb8",
+      "doi": null,
+      "edition": "Commit c890cb38f0d0786831c99ab515587f5750185cb8",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "Apache-2.0",
+        "termsUrl": "https://github.com/heygen-com/hyperframes/tree/c890cb38f0d0786831c99ab515587f5750185cb8",
+        "attribution": "heygen-com/hyperframes",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: Apache-2.0. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "video-storyboard"
+          ],
+          "paths": [
+            "skills/video-storyboard/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/hyperframes/SKILL.md",
+          "purpose": "Plan a finance explainer as a sequenced storyboard with explicit figures, narration and review points.",
+          "limits": "Native editions contain a storyboard procedure, not an installed video renderer or a claim that a Copilot/Gemini subscription supplies rendering.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-duckdb-skills",
+      "type": "software-reference",
+      "title": "duckdb/duckdb-skills — pinned source review",
+      "publisher": "duckdb",
+      "authors": [
+        "duckdb"
+      ],
+      "year": null,
+      "url": "https://github.com/duckdb/duckdb-skills/tree/44dfbbb414e54187964a2212eae28495f6ae21d9",
+      "doi": null,
+      "edition": "Commit 44dfbbb414e54187964a2212eae28495f6ae21d9",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/duckdb/duckdb-skills/tree/44dfbbb414e54187964a2212eae28495f6ae21d9",
+        "attribution": "duckdb/duckdb-skills",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "analytical-sql",
+            "account-mapping",
+            "power-query-etl"
+          ],
+          "paths": [
+            "skills/analytical-sql/SKILL.md",
+            "skills/account-mapping/SKILL.md",
+            "skills/power-query-etl/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/query/SKILL.md, skills/read-file/SKILL.md",
+          "purpose": "Use typed local SQL, explicit grain and join/cardinality checks to validate large-file aggregations and mappings.",
+          "limits": "The capability depends on approved local packages and resources. No fixed dataset-size capacity, host support or automatic extension download is promised.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-valyu",
+      "type": "software-reference",
+      "title": "valyuAI/skills — pinned source review",
+      "publisher": "valyuAI",
+      "authors": [
+        "valyuAI"
+      ],
+      "year": null,
+      "url": "https://github.com/valyuAI/skills/tree/be57c51696fa74a0fce129e3dc165c93c599a0c9",
+      "doi": null,
+      "edition": "Commit be57c51696fa74a0fce129e3dc165c93c599a0c9",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "Redistribution permission unverified",
+        "termsUrl": "https://github.com/valyuAI/skills/tree/be57c51696fa74a0fce129e3dc165c93c599a0c9",
+        "attribution": "valyuAI/skills",
+        "rawRedistribution": "unknown",
+        "derivedRedistribution": "unknown",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT declared in skill frontmatter/README; no root license file observed. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "evidence-research",
+            "sharepoint-evidence"
+          ],
+          "paths": [
+            "skills/evidence-research/SKILL.md",
+            "skills/sharepoint-evidence/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "valyu-search/valyu-best-practices/SKILL.md",
+          "purpose": "Collect source-backed claims, compare evidence quality and retain useful references for a finance research answer.",
+          "limits": "Independent instructions do not call the Valyu service or redistribute its skill text; source licence permission remains unresolved.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-d3-viz",
+      "type": "software-reference",
+      "title": "chrisvoncsefalvay/claude-d3js-skill — pinned source review",
+      "publisher": "chrisvoncsefalvay",
+      "authors": [
+        "chrisvoncsefalvay"
+      ],
+      "year": null,
+      "url": "https://github.com/chrisvoncsefalvay/claude-d3js-skill/tree/e198c87d03f1c9811acbff681886fac24baee53d",
+      "doi": null,
+      "edition": "Commit e198c87d03f1c9811acbff681886fac24baee53d",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "Redistribution permission unverified",
+        "termsUrl": "https://github.com/chrisvoncsefalvay/claude-d3js-skill/tree/e198c87d03f1c9811acbff681886fac24baee53d",
+        "attribution": "chrisvoncsefalvay/claude-d3js-skill",
+        "rawRedistribution": "unknown",
+        "derivedRedistribution": "unknown",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: No licence file or licence frontmatter observed at inspected commit. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "interactive-visualization"
+          ],
+          "paths": [
+            "skills/interactive-visualization/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "SKILL.md",
+          "purpose": "Design an interactive view only when filtering or comparison helps explain a finance result.",
+          "limits": "The finance skill is independently authored; upstream text/code is not bundled because redistribution permission was not established.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-scientific-skills",
+      "type": "software-reference",
+      "title": "K-Dense-AI/scientific-agent-skills — pinned source review",
+      "publisher": "K-Dense-AI",
+      "authors": [
+        "K-Dense-AI"
+      ],
+      "year": null,
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/c21d13b3cc2894680229ba9959a53281acb9200e",
+      "doi": null,
+      "edition": "Commit c21d13b3cc2894680229ba9959a53281acb9200e",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/c21d13b3cc2894680229ba9959a53281acb9200e",
+        "attribution": "K-Dense-AI/scientific-agent-skills",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT root and inspected modules; individual dependencies can differ. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "reproducible-analysis",
+            "scenario-planning",
+            "workforce-reconciliation",
+            "forecast-variance"
+          ],
+          "paths": [
+            "skills/reproducible-analysis/SKILL.md",
+            "skills/scenario-planning/SKILL.md",
+            "skills/workforce-reconciliation/SKILL.md",
+            "skills/forecast-variance/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/statistical-analysis/SKILL.md, skills/exploratory-data-analysis/SKILL.md, skills/scientific-critical-thinking/SKILL.md, skills/database-lookup/SKILL.md",
+          "purpose": "Retain reproducible inputs, explicit assumptions and sensitivity/validation reasoning in quantitative finance workflows.",
+          "limits": "Selected methodological inspiration is used, not the full scientific skill collection, an installed environment or proof that a model fits business data.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-markitdown",
+      "type": "software-reference",
+      "title": "microsoft/markitdown — pinned source review",
+      "publisher": "microsoft",
+      "authors": [
+        "microsoft"
+      ],
+      "year": null,
+      "url": "https://github.com/microsoft/markitdown/tree/ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+      "doi": null,
+      "edition": "Commit ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/microsoft/markitdown/tree/ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+        "attribution": "microsoft/markitdown",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "document-extraction"
+          ],
+          "paths": [
+            "skills/document-extraction/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "Pinned README and source metadata",
+          "purpose": "Check extraction coverage and source/page/table references before using converted document content in analysis.",
+          "limits": "Conversion alone does not prove OCR accuracy or preserve every spreadsheet formula and layout feature; no cloud conversion is enabled by these instructions.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-diagram-design",
+      "type": "software-reference",
+      "title": "cathrynlavery/diagram-design — pinned source review",
+      "publisher": "cathrynlavery",
+      "authors": [
+        "cathrynlavery"
+      ],
+      "year": null,
+      "url": "https://github.com/cathrynlavery/diagram-design/tree/1acb8776bab34f5055399fbac96a693c8d5cf7b3",
+      "doi": null,
+      "edition": "Commit 1acb8776bab34f5055399fbac96a693c8d5cf7b3",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/cathrynlavery/diagram-design/tree/1acb8776bab34f5055399fbac96a693c8d5cf7b3",
+        "attribution": "cathrynlavery/diagram-design",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "process-diagram"
+          ],
+          "paths": [
+            "skills/process-diagram/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/diagram-design/SKILL.md",
+          "purpose": "Draw a clearly scoped reporting or close-process diagram from supplied steps and source relationships.",
+          "limits": "The diagram describes retrieved evidence; it cannot establish undocumented dependencies or prove a workflow has completed.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-superpowers",
+      "type": "software-reference",
+      "title": "obra/superpowers — pinned source review",
+      "publisher": "obra",
+      "authors": [
+        "obra"
+      ],
+      "year": null,
+      "url": "https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7",
+      "doi": null,
+      "edition": "Commit 22f0b463e7a5e579904dd6211a520321035526f7",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7",
+        "attribution": "obra/superpowers",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT (previous pinned inspection, unchanged commit). Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "work-tool-routing",
+            "close-controls",
+            "excel-data-coverage"
+          ],
+          "paths": [
+            "skills/work-tool-routing/SKILL.md",
+            "skills/close-controls/SKILL.md",
+            "skills/excel-data-coverage/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/verification-before-completion/SKILL.md",
+          "purpose": "Require fresh checks of the actual result before declaring a reporting or workbook task complete.",
+          "limits": "The finance adaptation is a verification procedure, not a coding harness or an approval mechanism.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-addy-agent-skills",
+      "type": "software-reference",
+      "title": "addyosmani/agent-skills — pinned source review",
+      "publisher": "addyosmani",
+      "authors": [
+        "addyosmani"
+      ],
+      "year": null,
+      "url": "https://github.com/addyosmani/agent-skills/tree/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+      "doi": null,
+      "edition": "Commit e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/addyosmani/agent-skills/tree/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+        "attribution": "addyosmani/agent-skills",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT (previous pinned inspection, unchanged commit). Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "business-document",
+            "project-context",
+            "account-mapping"
+          ],
+          "paths": [
+            "skills/business-document/SKILL.md",
+            "skills/project-context/SKILL.md",
+            "skills/account-mapping/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/documentation-and-adrs/SKILL.md",
+          "purpose": "Record the reason, source version and impact of material mapping or recurring-report decisions in a concise handoff.",
+          "limits": "No separate documentation system or unsolicited workbook audit sheet is created; the source does not establish employer policy.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-mattpocock-skills",
+      "type": "software-reference",
+      "title": "mattpocock/skills — pinned source review",
+      "publisher": "mattpocock",
+      "authors": [
+        "mattpocock"
+      ],
+      "year": null,
+      "url": "https://github.com/mattpocock/skills/tree/d65391149dbb5fe76478e76fa8d5122b2aa5a70e",
+      "doi": null,
+      "edition": "Commit d65391149dbb5fe76478e76fa8d5122b2aa5a70e",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/mattpocock/skills/tree/d65391149dbb5fe76478e76fa8d5122b2aa5a70e",
+        "attribution": "mattpocock/skills",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT (previous pinned inspection, unchanged commit). Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "project-context"
+          ],
+          "paths": [
+            "skills/project-context/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/productivity/handoff/SKILL.md",
+          "purpose": "Compress the current goal, verified state and next action into a portable project handoff.",
+          "limits": "A handoff preserves useful context but is not a durable background memory service.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-ecc",
+      "type": "software-reference",
+      "title": "affaan-m/ECC — pinned source review",
+      "publisher": "affaan-m",
+      "authors": [
+        "affaan-m"
+      ],
+      "year": null,
+      "url": "https://github.com/affaan-m/ECC/tree/4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
+      "doi": null,
+      "edition": "Commit 4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/affaan-m/ECC/tree/4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
+        "attribution": "affaan-m/ECC",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT (previous pinned inspection, unchanged commit). Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "evidence-research"
+          ],
+          "paths": [
+            "skills/evidence-research/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skills/market-research/SKILL.md",
+          "purpose": "Compare primary-source evidence before writing a market-driver research briefing.",
+          "limits": "No Firecrawl/Exa dependency or external upload of work context is implied; a bibliography alone does not prove a causal claim.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-impeccable",
+      "type": "software-reference",
+      "title": "pbakaus/impeccable — pinned source review",
+      "publisher": "pbakaus",
+      "authors": [
+        "pbakaus"
+      ],
+      "year": null,
+      "url": "https://github.com/pbakaus/impeccable/tree/b49177d32788f2dc585c42831d845dacf1ebed2c",
+      "doi": null,
+      "edition": "Commit b49177d32788f2dc585c42831d845dacf1ebed2c",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "Apache-2.0",
+        "termsUrl": "https://github.com/pbakaus/impeccable/tree/b49177d32788f2dc585c42831d845dacf1ebed2c",
+        "attribution": "pbakaus/impeccable",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: Apache-2.0. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [
+            "design-review"
+          ],
+          "paths": [
+            "skills/design-review/SKILL.md",
+            "upstream.lock.json"
+          ],
+          "section": "skill/SKILL.src.md, .github/skills/impeccable/SKILL.md, .agents/skills/impeccable/SKILL.md",
+          "purpose": "Review the repository interface for clear hierarchy, accessible reading and consistent interactions.",
+          "limits": "Project DESIGN.md takes priority. Source review does not mean the optional design engine is installed on a work PC.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "upstream-dot-brand-kit",
+      "type": "software-reference",
+      "title": "Somamill/dot-brand-kit — pinned source review",
+      "publisher": "Somamill",
+      "authors": [
+        "Somamill"
+      ],
+      "year": null,
+      "url": "https://github.com/Somamill/dot-brand-kit/tree/1bd44c0909747258cddd8f4110ff70684f6bb3e7",
+      "doi": null,
+      "edition": "Commit 1bd44c0909747258cddd8f4110ff70684f6bb3e7",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "carried-forward",
+      "reviewNotes": "Provenance carried forward from the existing upstream.lock.json review dated 2026-11-25. Not represented as a new independent source-content audit by this registry update.",
+      "license": {
+        "name": "MIT",
+        "termsUrl": "https://github.com/Somamill/dot-brand-kit/tree/1bd44c0909747258cddd8f4110ff70684f6bb3e7",
+        "attribution": "Somamill/dot-brand-kit",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Existing pinned-source licence observation: MIT licence retained with the vendored foundation. Only links and independently authored procedural adaptations are included here; this registry does not bundle upstream code or wording."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "upstream.lock.json",
+            "DESIGN.md"
+          ],
+          "section": "Pinned README and source metadata",
+          "purpose": "Retain the actual pinned dot. typography, spacing and visual foundation described in DESIGN.md.",
+          "limits": "A changed upstream kit is a review candidate; it does not automatically replace project design decisions or an employer output template.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-planning-analytics",
+      "type": "provider-documentation",
+      "title": "Planning Analytics for Microsoft Excel report types",
+      "publisher": "IBM",
+      "authors": [
+        "IBM"
+      ],
+      "year": null,
+      "url": "https://www.ibm.com/docs/en/planning-analytics/3.1.0?topic=types-planning-analytics-microsoft-excel-report",
+      "doi": null,
+      "edition": "Planning Analytics documentation 3.1.0",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Official publisher text was reviewed through indexed primary-source results; direct page retrieval was blocked or exposed no readable content. No installed software version is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://www.ibm.com/docs/en/planning-analytics/3.1.0?topic=types-planning-analytics-microsoft-excel-report",
+        "attribution": "IBM",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "connected-reporting"
+          ],
+          "paths": [
+            "skills/connected-reporting/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Report types and managed report regions",
+          "purpose": "Recognize connected Planning Analytics report areas before editing a workbook or interpreting formulas.",
+          "limits": "Product documentation describes capabilities, not the installed version, current connection, user permissions or a completed refresh.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-planning-writeback",
+      "type": "provider-documentation",
+      "title": "Automatically commit data in Planning Analytics for Microsoft Excel",
+      "publisher": "IBM",
+      "authors": [
+        "IBM"
+      ],
+      "year": null,
+      "url": "https://www.ibm.com/docs/en/planning-analytics/2.1.0?topic=reports-automatically-commit-data",
+      "doi": null,
+      "edition": "Planning Analytics documentation 2.1.0",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Official publisher text was reviewed through indexed primary-source results; direct page retrieval was blocked or exposed no readable content. No installed software version is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://www.ibm.com/docs/en/planning-analytics/2.1.0?topic=reports-automatically-commit-data",
+        "attribution": "IBM",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "connected-reporting"
+          ],
+          "paths": [
+            "skills/connected-reporting/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Automatic data commit and AutoWriteback mode",
+          "purpose": "Check whether cell edits commit to the connected planning source before changing managed report cells.",
+          "limits": "The documented mode can commit upon Enter or leaving a cell; the project does not assume this setting is enabled, use it to authorize writes, or change a planning model.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-sap-analysis",
+      "type": "provider-documentation",
+      "title": "Analysis for Microsoft Office: Information tab",
+      "publisher": "SAP",
+      "authors": [
+        "SAP"
+      ],
+      "year": null,
+      "url": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/f26f9dfa6c9b1014bf2c9a7eb0e91070.html",
+      "doi": null,
+      "edition": "Analysis for Microsoft Office official documentation",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Official publisher text was reviewed through indexed primary-source results; direct page retrieval was blocked or exposed no readable content. No installed software version is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/f26f9dfa6c9b1014bf2c9a7eb0e91070.html",
+        "attribution": "SAP",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "connected-reporting"
+          ],
+          "paths": [
+            "skills/connected-reporting/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Information tab: variables, filters, Last Refreshed At and Last Data Update",
+          "purpose": "Separate workbook/query refresh evidence from source-system update evidence and preserve filter context.",
+          "limits": "An add-in capability does not prove that a connection, current variable set, backend data or all workbook ranges are complete.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-fabric",
+      "type": "provider-documentation",
+      "title": "Lineage in Microsoft Fabric",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/fabric/governance/lineage",
+      "doi": null,
+      "edition": "Living Microsoft Fabric documentation",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official publisher documentation was directly reviewed for the limited capabilities and constraints stated here. No tenant connection or software installation is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/fabric/governance/lineage",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "power-bi-analysis",
+            "connected-reporting"
+          ],
+          "paths": [
+            "skills/power-bi-analysis/SKILL.md",
+            "skills/connected-reporting/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Workspace lineage scope and limitations",
+          "purpose": "Use available lineage as partial dependency evidence, including the limits of cross-workspace and manually constructed connections.",
+          "limits": "The view includes workspace items and one upstream level; cross-workspace downstream dependencies and some manual connections are not fully shown.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-power-bi",
+      "type": "provider-documentation",
+      "title": "Data refresh in Power BI",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data",
+      "doi": null,
+      "edition": "Living Power BI documentation",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official publisher documentation was directly reviewed for the limited capabilities and constraints stated here. No tenant connection or software installation is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "power-bi-analysis",
+            "connected-reporting"
+          ],
+          "paths": [
+            "skills/power-bi-analysis/SKILL.md",
+            "skills/connected-reporting/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Data, schema and visual refresh",
+          "purpose": "Distinguish source-data updates, model refresh and the visuals currently displayed before explaining a result.",
+          "limits": "A refreshed visual or successful model refresh does not by itself prove every upstream business input is complete or approved.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-power-query",
+      "type": "provider-documentation",
+      "title": "Using data profiling tools in Power Query",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/power-query/data-profiling-tools",
+      "doi": null,
+      "edition": "Living Power Query documentation",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official publisher documentation was directly reviewed for the limited capabilities and constraints stated here. No tenant connection or software installation is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/power-query/data-profiling-tools",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "power-query-etl",
+            "excel-data-coverage"
+          ],
+          "paths": [
+            "skills/power-query-etl/SKILL.md",
+            "skills/excel-data-coverage/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Column quality/distribution/profile and first-1000-row versus entire-dataset profiling",
+          "purpose": "Check profiling scope and inspect all relevant rows before claiming full-data quality.",
+          "limits": "Preview profiling over the first 1000 rows is not proof of complete dataset coverage, and changing a profile option is not an approval to refresh external sources.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tool-m365",
+      "type": "provider-documentation",
+      "title": "Use connectors in Copilot Studio",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-connectors",
+      "doi": null,
+      "edition": "Living Copilot Studio documentation",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Tool and research maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official publisher documentation was directly reviewed for the limited capabilities and constraints stated here. No tenant connection or software installation is inferred.",
+      "license": {
+        "name": "Publisher document terms; metadata and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-connectors",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Public links and original summaries only; no documentation text, application binaries or customer information is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [
+            "work-tool-routing",
+            "sharepoint-evidence"
+          ],
+          "paths": [
+            "skills/work-tool-routing/SKILL.md",
+            "skills/sharepoint-evidence/SKILL.md",
+            "tools/catalog.json",
+            "TOOLS.md"
+          ],
+          "section": "Connectors as actions and connection requirements",
+          "purpose": "Route a task through an actually enabled and authorized connection, and state when the host can only provide instructions.",
+          "limits": "A Microsoft 365 subscription or prompt import does not establish a Copilot Studio connector, authenticated access, a published agent or a working local API integration.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "synthetic-fixtures",
+      "type": "project-design",
+      "title": "Independently invented public-benchmark test fixtures",
+      "publisher": "Finance Skills maintainers",
+      "authors": [
+        "Finance Skills maintainers"
+      ],
+      "year": 2026,
+      "url": "https://github.com/mim1hat-prog/finance-skills",
+      "doi": null,
+      "edition": "Fixture data versioned with this repository",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Test and data maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "These are deliberately invented observations and metadata for deterministic offline tests. They are not current market data, values from an employer, or reconstructed provider observations.",
+      "license": {
+        "name": "MIT for original project fixtures",
+        "termsUrl": "https://github.com/mim1hat-prog/finance-skills/blob/main/LICENSE",
+        "attribution": "Finance Skills maintainers; synthetic demonstration data.",
+        "rawRedistribution": "allowed-with-conditions",
+        "derivedRedistribution": "allowed-with-conditions",
+        "checkedOn": "2026-11-25",
+        "notes": "Applies to the original test fixtures only; this repository licence does not relicense actual provider data."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "tests/test_benchmarks.py",
+            "benchmarks/README.md"
+          ],
+          "section": "Offline fixture generation and failure-mode tests",
+          "purpose": "Exercise revisions, outages, partial periods, rebasing, FX direction and rights failures without sending private content or requiring credentials.",
+          "limits": "Synthetic observations are explicitly separate from the actual public dataset and never used as an unannounced fallback.",
+          "tests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_after_cutoff_revision_never_uses_latest",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_partial_month_and_rebase_reject_changes"
+          ],
+          "distribution": "data-values"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "agent-skills-spec",
+      "type": "normative-standard",
+      "title": "Agent Skills specification",
+      "publisher": "Agent Skills maintainers",
+      "authors": [
+        "Agent Skills maintainers"
+      ],
+      "year": null,
+      "url": "https://agentskills.io/specification",
+      "doi": null,
+      "edition": "Current format specification reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official primary documentation was reviewed for the stated implementation use. No certification or production deployment is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://agentskills.io/specification",
+        "attribution": "Agent Skills maintainers",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/build.py",
+            "docs/STANDARDS.md",
+            "CONTRIBUTING.md"
+          ],
+          "section": "Directory structure, required frontmatter, naming and progressive disclosure",
+          "purpose": "Validate SKILL.md names/descriptions and deterministic packages; keep large reference material outside the main instructions.",
+          "limits": "Format portability does not establish host availability, script execution permissions or unlimited context. This repository uses a deliberately narrow metadata profile.",
+          "tests": [
+            "tests/test_build_install.py::PackagingTests.test_invalid_names_unbundled_resources_and_bom_fail"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "json-schema-2020-12",
+      "type": "normative-standard",
+      "title": "JSON Schema Draft 2020-12: Core and Validation",
+      "publisher": "JSON Schema project",
+      "authors": [
+        "Austin Wright",
+        "Henry Andrews",
+        "Ben Hutton",
+        "Greg Dennis"
+      ],
+      "year": 2022,
+      "url": "https://json-schema.org/draft/2020-12",
+      "doi": null,
+      "edition": "2020-12; revised specification published 16 June 2022",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official primary documentation was reviewed for the stated implementation use. No certification or production deployment is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://json-schema.org/draft/2020-12",
+        "attribution": "JSON Schema project",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "scripts/schema_validation.py",
+            "schemas/benchmark-catalog.schema.json",
+            "schemas/benchmark-snapshot.schema.json",
+            "schemas/benchmark-api.schema.json",
+            "schemas/workflow-request.schema.json",
+            "docs/STANDARDS.md"
+          ],
+          "section": "Dialects, vocabularies, type/assertion keywords and format annotation versus assertion",
+          "purpose": "Declare the dataset/API/workflow contracts and validate the documented keyword subset with explicit local reference resolution.",
+          "limits": "The standard-library checker is a strict project subset, not a general JSON Schema implementation. It rejects unsupported keywords and performs no network schema resolution.",
+          "tests": [
+            "tests/test_workflow_controls.py::SchemaSubsetTests.test_enforced_keywords_refs_formats_and_unknown_keyword_fail_closed",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_all_registered_openapi_routes_match_schema"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://json-schema.org/draft/2020-12/json-schema-core",
+        "https://json-schema.org/draft/2020-12/json-schema-validation"
+      ]
+    },
+    {
+      "id": "citation-file-format-1.2",
+      "type": "normative-standard",
+      "title": "Citation File Format: schema and guide",
+      "publisher": "Citation File Format maintainers",
+      "authors": [
+        "Citation File Format maintainers"
+      ],
+      "year": null,
+      "url": "https://citation-file-format.github.io/",
+      "doi": null,
+      "edition": "CFF 1.2.0",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "The official schema, guide and licence were retrieved through the GitHub plugin. The schema was inspected for required fields and entity authors; no invented personal author, DOI or institution is needed.",
+      "license": {
+        "name": "CC BY 4.0 for the CFF specification",
+        "termsUrl": "https://github.com/citation-file-format/citation-file-format/blob/main/LICENSE",
+        "attribution": "Citation File Format maintainers",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "CITATION.cff",
+            "docs/STANDARDS.md",
+            "CONTRIBUTING.md"
+          ],
+          "section": "Required authors, cff-version, message and title; entity author, version, release date and repository metadata",
+          "purpose": "Provide machine-readable software citation metadata with the actual repository and release version.",
+          "limits": "A CITATION.cff file does not register a DOI, create academic affiliation, certify research quality or imply peer review. The official CFF schema uses JSON Schema draft-07, distinct from the dataset contracts.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md",
+        "https://github.com/citation-file-format/citation-file-format/blob/main/schema.json"
+      ]
+    },
+    {
+      "id": "spdx-license-identifiers",
+      "type": "normative-standard",
+      "title": "SPDX License List and short identifiers",
+      "publisher": "SPDX project",
+      "authors": [
+        "SPDX project"
+      ],
+      "year": 2026,
+      "url": "https://spdx.org/licenses/",
+      "doi": null,
+      "edition": "License List 3.29.0, 16 September 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official primary documentation was reviewed for the stated implementation use. No certification or production deployment is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://spdx.org/licenses/",
+        "attribution": "SPDX project",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "LICENSE",
+            "CITATION.cff",
+            "upstream.lock.json",
+            "docs/STANDARDS.md"
+          ],
+          "section": "Standard short identifiers, canonical licence links and deprecated identifiers",
+          "purpose": "Use exact identifiers such as MIT and Apache-2.0 in software metadata while retaining the full applicable licence text and separate provider data terms.",
+          "limits": "An SPDX identifier describes a licence; it does not grant new rights, establish compatibility or relicense upstream data and documents.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://spdx.org/licenses/MIT.html",
+        "https://spdx.org/licenses/Apache-2.0.html"
+      ]
+    },
+    {
+      "id": "semantic-versioning-2.0.0",
+      "type": "normative-standard",
+      "title": "Semantic Versioning 2.0.0",
+      "publisher": "Semantic Versioning project",
+      "authors": [
+        "Tom Preston-Werner"
+      ],
+      "year": null,
+      "url": "https://semver.org/spec/v2.0.0.html",
+      "doi": null,
+      "edition": "SemVer 2.0.0",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official primary documentation was reviewed for the stated implementation use. No certification or production deployment is claimed.",
+      "license": {
+        "name": "CC BY 3.0 for the specification",
+        "termsUrl": "https://creativecommons.org/licenses/by/3.0/",
+        "attribution": "Semantic Versioning project",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "catalog.json",
+            "scripts/release.py",
+            "docs/RELEASES.md",
+            "docs/STANDARDS.md"
+          ],
+          "section": "Rules 1–3 and 6–10: public API, version increments, immutable releases and metadata",
+          "purpose": "Version documented skill/package/API contracts and preserve previously released archives unchanged.",
+          "limits": "SemVer communicates compatibility intent; it is not proof that a change is compatible. The v prefix belongs to a Git tag, not the numeric version itself.",
+          "tests": [
+            "tests/test_release.py::ReleaseTests.test_semver_is_strict_and_index_sorts_numerically_preserving_older_versions",
+            "tests/test_release.py::ReleaseTests.test_source_notes_or_ref_change_cannot_rewrite_existing_version"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-skills",
+      "type": "provider-documentation",
+      "title": "Create and edit skills with Copilot",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://support.microsoft.com/en-gb/microsoft-365-copilot/create-edit-skills-copilot",
+      "doi": null,
+      "edition": "Current Copilot skill guidance, reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official primary documentation was reviewed for the stated implementation use. No certification or production deployment is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://support.microsoft.com/en-gb/microsoft-365-copilot/create-edit-skills-copilot",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md",
+            "scripts/build.py",
+            "docs/STANDARDS.md",
+            "docs/RESEARCH-POLICY.md"
+          ],
+          "section": "Personal skill imports, invocation and Advanced Reasoning; separate declarative-agent support matrix",
+          "purpose": "Package individual native skills and document the available import/invocation route, with declarative-agent limits clearly scoped.",
+          "limits": "Availability, licensing, preview runtime, network/package installation and admin controls are host-specific. A skill cannot override them or turn a personal skill package into a deployed agent.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://learn.microsoft.com/en-us/plugins/declarative-agent-skills"
+      ]
+    },
+    {
+      "id": "copilot-researcher",
+      "type": "provider-documentation",
+      "title": "Get started with Researcher in Microsoft Copilot",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-researcher-in-microsoft-365-copilot",
+      "doi": null,
+      "edition": "Current Researcher guidance, reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official primary documentation was reviewed for the stated implementation use. No certification or production deployment is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-researcher-in-microsoft-365-copilot",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [
+            "work-tool-routing",
+            "evidence-research"
+          ],
+          "paths": [
+            "skills/work-tool-routing/SKILL.md",
+            "skills/evidence-research/SKILL.md",
+            "docs/COPILOT.md",
+            "docs/STANDARDS.md",
+            "adapters/workflow-controls.md",
+            "docs/RESEARCH-POLICY.md"
+          ],
+          "section": "Researcher versus standard chat, source scope, eligible subscriptions and administrator enablement",
+          "purpose": "Choose the available research workflow for complex source-backed questions, keep retrieval targeted, and verify cited support before concluding.",
+          "limits": "Researcher availability and source access must be observed in the account. Instructions cannot force a reasoning mode, grant work-source permissions, remove quotas or ensure that every relevant record was retrieved.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "gemini-skills",
+      "type": "provider-documentation",
+      "title": "Transfer skills from other platforms to Gemini Apps",
+      "publisher": "Google",
+      "authors": [
+        "Google"
+      ],
+      "year": null,
+      "url": "https://support.google.com/gemini/answer/18977944?hl=en",
+      "doi": null,
+      "edition": "Current skill import guidance and account rollout, reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official import and transition guidance was reviewed. The transition FAQ explicitly says skills do not yet work with Canvas or Deep Research. Native skill availability and this interoperability limit must be rechecked for the actual work account.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://support.google.com/gemini/answer/18977944?hl=en",
+        "attribution": "Google",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/GEMINI.md",
+            "scripts/build.py",
+            "docs/STANDARDS.md",
+            "docs/RESEARCH-POLICY.md"
+          ],
+          "section": "One-skill imports, root SKILL.md, supported packaging/files, script restrictions and Gems transition",
+          "purpose": "Provide individual cleaned skill packages and retain a Gems/instructions route where the work account has not received native skills.",
+          "limits": "A bulk download is not a bulk import. Skills do not yet work inside Canvas or Deep Research, and skill scripts cannot make external requests. Personal-account rollout does not establish work-account availability.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://support.google.com/gemini/answer/18560919?hl=en",
+        "https://support.google.com/gemini/answer/17094296?hl=en"
+      ]
+    },
+    {
+      "id": "gemini-deep-research",
+      "type": "provider-documentation",
+      "title": "Use Deep Research in Gemini Apps",
+      "publisher": "Google",
+      "authors": [
+        "Google"
+      ],
+      "year": null,
+      "url": "https://support.google.com/gemini/answer/15719111?hl=en",
+      "doi": null,
+      "edition": "Current Deep Research guidance, reviewed 25 November 2026",
+      "accessedOn": "2026-11-25",
+      "lastReviewedOn": "2026-11-25",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Official Deep Research guidance and the Gems-to-skills transition FAQ were reviewed. The FAQ says skills do not yet work with Deep Research; no imported-skill execution inside that mode is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://support.google.com/gemini/answer/15719111?hl=en",
+        "attribution": "Google",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-25",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [
+            "work-tool-routing",
+            "evidence-research"
+          ],
+          "paths": [
+            "skills/work-tool-routing/SKILL.md",
+            "skills/evidence-research/SKILL.md",
+            "docs/GEMINI.md",
+            "docs/STANDARDS.md",
+            "adapters/workflow-controls.md",
+            "docs/RESEARCH-POLICY.md"
+          ],
+          "section": "Source selection, research-plan editing, available models and daily/concurrent request limits",
+          "purpose": "When Deep Research is available, transfer a manual research brief into that separate mode, choose permitted sources, then bring cited findings back for independent verification.",
+          "limits": "Imported skills do not yet run inside Deep Research or Canvas. Google Search is included by default unless deselected; connected sources need enabled connections. Model choice, runtime and quotas remain host-controlled.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": [],
+      "relatedUrls": [
+        "https://support.google.com/gemini/answer/18560919?hl=en"
+      ]
+    }
+  ]
+}

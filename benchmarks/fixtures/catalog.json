@@ -1,0 +1,41 @@
+{
+  "dataset_id": "finance-benchmark-demo",
+  "dataset_version": "1.0.0",
+  "description": "Synthetic regression inputs only; not company data or observations from any provider.",
+  "schema_version": "1.0",
+  "series": [
+    {
+      "access": "official-file",
+      "adapter": "synthetic",
+      "adapter_status": "parser-validated",
+      "base_currency": null,
+      "currency": null,
+      "download_url": "https://github.com/mim1hat-prog/finance-skills",
+      "frequency": "monthly",
+      "freshness_days": 75,
+      "geography": "Invented region",
+      "id": "demo-monthly-index",
+      "index_base": "invented2020=100",
+      "notes": "A fully invented index for revision/cutoff/partial-period checks. Never use it as a public benchmark or substitute.",
+      "provider": "synthetic",
+      "provider_series_id": "invented-index",
+      "quote_currency": null,
+      "rights": {
+        "attribution": "Finance skills contributors; independently invented synthetic data.",
+        "checked_on": "2026-11-25",
+        "license": "MIT, original synthetic fixtures",
+        "notes": "These values are not provider observations and do not derive from company data.",
+        "redistribution": "permitted",
+        "terms_url": "https://github.com/mim1hat-prog/finance-skills/blob/main/LICENSE"
+      },
+      "seasonal_adjustment": "original",
+      "series_kind": "original",
+      "source_id": "synthetic-fixtures",
+      "source_url": "https://github.com/mim1hat-prog/finance-skills",
+      "title": "Invented monthly benchmark index",
+      "unit": "index"
+    }
+  ],
+  "stream": "public-benchmark",
+  "title": "Independently invented benchmark fixtures"
+}

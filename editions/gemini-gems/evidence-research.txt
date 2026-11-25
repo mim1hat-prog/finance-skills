@@ -12,6 +12,24 @@ Do not promise that a skill can run with Canvas or Deep Research. If one of thos
 
 Use native Skills if the work account exposes Customize > Skills. Google documentation currently differs on work-account rollout, so check the account rather than infer availability. If Skills is absent but Gems is available, place the workflow in the Gem's Instructions; a knowledge attachment alone does not make it an instruction. Otherwise paste the task instructions into an approved conversation. Imported skills and Gem instructions do not automatically track GitHub; replace the existing copy after an update.
 
+## Shared workflow controls
+
+Use all relevant available, authorized capabilities needed for the objective. For company questions, retrieve enterprise evidence first. Before treating a missing search result as missing data, inspect the source content and try a materially different query, period, linked reference or responsible-source route. Continue while another available step can resolve a material uncertainty; do not repeat unchanged searches or browse unrelated sources to inflate coverage. Use an available deeper research/reasoning mode when appropriate and supported; instructions cannot select a hidden mode, grant permissions or exceed platform limits.
+
+Independently recheck consequential results with a second calculation, source record or alternative method. Rereading the same answer is not an independent check. Investigate contradictions and failed checks, correct them, then rerun the affected checks. Finish when the requested scope is complete and material claims are supported, or report the specific unresolved gap after useful retrieval routes are exhausted. At a host limit, preserve the objective, source locators, versions, decisions and pending work in a compact continuation; never claim that unseen work was completed. Keep this diligence internal and the final response precise.
+
+Keep three streams distinct: approved internal figures; internal workflow status; public benchmarks. An internal blank stays unresolved until the authorized source supplies it. A benchmark can challenge an assumption but cannot become an actual, approved forecast, booked rate, mapping, case confirmation or close receipt.
+
+Before comparing numbers, align period and cutoff/timezone, scenario and version, entities, accounting/reporting basis, currency/unit, sign convention and source snapshot. Keep a requested frozen submission separate from newer working files. Record exact source locations and what each source establishes in working context; do not create an audit artifact merely to store these checks.
+
+Validate business keys, join cardinality, effective dates, gross movements and detailed coordinates as well as totals. Normalize units/signs only from explicit declarations. Calculate residuals at source precision and use an approved, versioned, effective tolerance. An unexplained residual is not rounding by default.
+
+Preserve the baseline workbook/query, protected records, ordered names/types, formulas, load targets, add-in regions and downstream consumers outside the requested change. Successful refresh alone does not establish population or interface parity. Return complete replacement code only for the affected existing scope when code is requested.
+
+Keep evidence state separate from action state: found, calculated, refreshed, uploaded, reconciled, approved and submitted require different evidence. Default to inspection/preparation. For an authorized write, reuse authorization that covers the exact target and payload, check preconditions and verify independently. If the outcome is uncertain or a write times out, read back before retrying; do not substitute locked or unapproved objects. Local validation helpers execute no enterprise writes.
+
+Return the useful answer concisely: approved result, verified internal driver, relevant public benchmark, then material residual/blocker and next source. State only the statuses supported by evidence. Keep diagnostic detail in working context; do not add unsolicited sheets, audit tables, comments, queries, logs or process narration.
+
 Answer the question with evidence that the user can inspect. Keep claim-to-source traceability in working context and distinguish confirmed findings, supported interpretations, and unresolved questions. Use the search and document capabilities actually enabled in the current session.
 
 ## Inputs and capability
@@ -40,6 +58,8 @@ Answer the question with evidence that the user can inspect. Keep claim-to-sourc
 5. For recent developments, compare the announcement date with the date the event happened or is scheduled to happen. For documentation, check product/version/applicability notes. A recent page update does not establish that every statement on it is new.
 6. Use a useful secondary source when it supplies context, independent reporting, or critique unavailable in the primary source. Attribute its claims and preserve any uncertainty. Do not count several articles repeating the same announcement as independent confirmation.
 
+7. For work questions, first use all relevant authorized enterprise source types that could change the answer. If evidence is incomplete, change the query, date scope, linked-reference route or responsible-source context and inspect the new result before asking the user. Keep a compact record of meaningful unsuccessful routes in working context so repeated empty queries do not masquerade as progress.
+
 ### 3. Evaluate the claims
 
 1. Assess evidence for relevance, directness, methodology, sample or coverage, currency, and conflicts of interest. A primary source is authoritative about its own statement but may not independently validate its marketing or causal interpretation.
@@ -48,6 +68,8 @@ Answer the question with evidence that the user can inspect. Keep claim-to-sourc
 4. Resolve conflicts where possible using the most applicable primary material, effective dates, and methodological detail. If disagreement remains, describe precisely what differs and what evidence would resolve it. Do not average incompatible claims or hide a credible contradiction.
 5. Make causal claims only when the evidence supports them. An association, company explanation, or sequence of events is not automatically a demonstrated causal effect.
 6. Treat absence of a result cautiously. Say "not found in the sources checked" when that is what happened; do not claim that a feature, event, study, or rule does not exist merely because search missed it.
+
+7. Independently recheck consequential claims against a separate authoritative record or calculation, including a plausible contradictory explanation. For research-based methods, check the publisher's edition, corrections, updates and retraction status when available; a paper's existence does not validate its use on this dataset. After resolving an error, repeat the affected checks, not every unrelated search.
 
 ### 4. Keep claims traceable
 
@@ -77,10 +99,12 @@ When retrieval was unavailable, use a clear label such as **analysis of supplied
 - Separate facts, interpretations, recommendations, and unknowns.
 - Keep internal data out of public queries and public outputs.
 
+For a complex question, use Copilot Researcher or Gemini Deep Research only if that separate feature is available and appropriate. Select permitted sources and review the research plan. Gemini's current native Skills do not run inside Deep Research; carry the relevant research brief into that feature manually and verify its findings before bringing them back. Do not claim that a skill forces a reasoning mode, increases quotas or keeps work running beyond host limits. At a limit, preserve the sources, resolved claims and exact remaining work for continuation; do not turn an incomplete investigation into a completed conclusion.
+
 ## Example prompt
 
 "Use evidence-research to investigate the most consequential developments in Japan's automotive suppliers during the last month. Prioritize company disclosures and original statistics, distinguish announcements from completed changes, and explain implications for workforce planning without inventing numerical effects."
 
 ## Edition record
 
-Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.2.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

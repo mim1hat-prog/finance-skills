@@ -5,6 +5,8 @@ description: "Plan, perform, or review a reproducible quantitative analysis of s
 
 # Reproducible analysis
 
+For forecast-method or external-indicator evaluation, compare with a simple baseline at rolling forecast origins. Preserve the information vintage at each origin, the test horizon, metric and transformation version. Do not let later revised observations or future training data leak into an earlier forecast test. Distinguish an implemented evaluation from a suggested method, and do not claim that a cited paper proves improvement on the current dataset.
+
 Make the analytical question, data transformations, method, and uncertainty inspectable. Use deterministic computation when an approved capability is available, and provide an executable plan when it is not. Do not confuse an apparently precise result with a reliable conclusion.
 
 ## Inputs and capability

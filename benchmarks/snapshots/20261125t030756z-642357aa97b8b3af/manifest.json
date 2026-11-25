@@ -1,0 +1,17 @@
+{
+  "data_class": "public",
+  "files": [
+    {
+      "bytes": 63014,
+      "path": "observations.csv",
+      "sha256": "b8327b50041f9ff1df02885df8f94ac24c7c1e4f729edd4152200ef4ada67868"
+    },
+    {
+      "bytes": 151368,
+      "path": "snapshot.json",
+      "sha256": "70679a44354989856d4446f1be4b176f4e5bb5763c107fbd2463c62fc25a86fe"
+    }
+  ],
+  "schema_version": "1.0",
+  "snapshot_id": "20261125t030756z-642357aa97b8b3af"
+}

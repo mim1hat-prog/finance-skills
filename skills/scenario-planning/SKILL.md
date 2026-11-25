@@ -5,6 +5,10 @@ description: "Build transparent finance sensitivities and driver-based scenarios
 
 # Driver-based scenario planning
 
+Keep approved internal baselines, workflow status and public benchmark context separate. Public FX is not an approved planning rate or an internal exposure. Preserve the base forecast and incremental opportunities/risks as separate components, including assumption-version and scope changes. For historical challenge, use an available information-vintage snapshot; today's revised history cannot fill an unavailable cutoff.
+
+Before adopting an external indicator or more complex forecasting method, compare it with a simple baseline at rolling forecast origins using only information available at each origin. Evaluate the intended horizon and a consistent error measure. Treat any apparent improvement as specific to the tested dataset and period; a publication does not establish predictive value for this scenario.
+
 Build an inspectable model around a specific management decision. Use supplied actuals, forecasts and approved assumptions; label illustrative assumptions clearly. Keep the model small enough that the user can trace each material output to its drivers. Use an available spreadsheet or calculation tool. If no execution tool is available, provide formulas and a model layout without claiming results were recalculated.
 
 ## Define the decision and baseline

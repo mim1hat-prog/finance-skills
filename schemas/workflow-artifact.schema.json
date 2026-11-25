@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:finance-skills:workflow:artifact:1",
+  "title": "Finance workflow artifact contract",
+  "type": "object",
+  "properties": {
+    "context": {
+      "$ref": "workflow-context.schema.json"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "type": {
+            "enum": [
+              "text",
+              "decimal",
+              "integer",
+              "date",
+              "boolean"
+            ]
+          },
+          "sourceType": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 256
+    },
+    "keyColumns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "\\S"
+      },
+      "minItems": 1,
+      "maxItems": 128,
+      "uniqueItems": true
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "minItems": 0,
+      "maxItems": 100000
+    },
+    "formulas": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096,
+        "pattern": "\\S"
+      }
+    },
+    "loadTargets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128,
+        "pattern": "\\S"
+      },
+      "minItems": 0,
+      "maxItems": 128,
+      "uniqueItems": true
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "\\S"
+        },
+        "minItems": 0,
+        "maxItems": 128,
+        "uniqueItems": true
+      }
+    }
+  },
+  "required": [
+    "context",
+    "columns",
+    "keyColumns",
+    "rows",
+    "formulas",
+    "loadTargets",
+    "dependencies"
+  ],
+  "additionalProperties": false,
+  "description": "A read-only exported workbook/query contract. Ordered names/types, keys, formulas, load targets, dependencies and protected rows are checked; it does not refresh an actual workbook."
+}

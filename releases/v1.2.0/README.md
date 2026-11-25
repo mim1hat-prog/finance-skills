@@ -1,0 +1,50 @@
+# Finance skills v1.2.0
+
+## Downloads
+
+These are repository-hosted release files, not GitHub Release assets.
+
+| Download | File |
+| --- | --- |
+| Copilot skills | [finance-skills-v1.2.0-copilot.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.2.0/finance-skills-v1.2.0-copilot.zip) |
+| Gemini skills | [finance-skills-v1.2.0-gemini.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.2.0/finance-skills-v1.2.0-gemini.zip) |
+| Both editions | [finance-skills-v1.2.0-all.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.2.0/finance-skills-v1.2.0-all.zip) |
+| Full project, tools and documentation | [finance-skills-v1.2.0-full.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip) |
+
+Extract a transport bundle before importing individual native skill ZIPs. The full project archive contains source, tools and documentation; it is not a native skill import.
+
+[SHA-256 checksums](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.2.0/SHA256SUMS.txt) · [Release manifest](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.2.0/manifest.json)
+
+## Release notes
+
+Released **2026-11-25**. A compatible expansion from 25 to **29 skills**, with **58 individual native packages**, separate Copilot/Gemini bundles and a full project download. Existing skill IDs and native import shapes remain available. All v1.1.0 release files are preserved.
+
+### What changes
+
+- Add `connected-reporting`, `provision-reconciliation`, `fx-allocation-preflight` and `benchmark-lookup`.
+- Share run-context, source, residual, artifact-preservation and action-state controls across every native edition. Strengthen enterprise-first retrieval, meaningful follow-up searches, independent checks and precise output without unsolicited audit sheets or text.
+- Add standard-library workflow helpers and strict schemas for supplied snapshots. Checks retain incomplete explanations, reject invalid mappings, detect protected-population/schema changes and compare detailed reporting intersections even when totals match. No enterprise writeback is executed.
+- Add a **29-entry tool and capability list**, linked to workflow contracts and required evidence. Availability labels do not claim connector installation.
+- Add a public benchmark dataset, explicit collector and manual loopback API with four read-only OpenAPI 3.1.2 routes. Retain immutable snapshots, original/derived lineage, terms, freshness and cutoff semantics; failures preserve the last good snapshot.
+- Add a research registry with exact source uses, correction/retraction status and generated documentation. Add CFF citation metadata, SemVer contract policy, standards documentation, contribution guidance and publication boundaries.
+- Add an offline release gate covering generated artifacts, source/tool references, dataset/API validation, tests and nested public package inspection.
+
+### Public data included
+
+Two public snapshots contain **119 ECB FX rows**—68 published observations plus 51 derived JPY crosses—and **48 World Bank monthly commodity rows** for aluminum, copper, Brent and Japan LNG. They were retrieved on 25 November 2026; those retrieval timestamps do not establish historical availability at an earlier forecast cutoff. Separate invented vintage fixtures support offline tests.
+
+BOJ values are not bundled because reproduction permission is unresolved for this use. METI transport-equipment and MHLW wage/hour parsers are implemented as configured candidates; exact source selections remain unverified. e-Stat requires an application ID. Public benchmarks never replace missing internal figures, mappings, exposures or confirmations.
+
+### Use and update
+
+Extract an outer release ZIP, then import individual native packages or follow the Office matching-folder workflow. Update the saved Excel agent Instructions profile separately if you use it. Keep company-specific additions in approved work storage and compare them before replacement.
+
+Use the full release for local tools, schemas, dataset, API contract, research registry and offline guides. The smaller edition/all-skills bundles contain instructions and packages. Start with `docs/WORKFLOWS.md`, `TOOLS.md`, `benchmarks/README.md` and `docs/RESEARCH-POLICY.md`.
+
+Run `python scripts/check_release.py` for the offline checks; use `--require-release` after freezing. The exact observed results and environment limits are recorded in `docs/VALIDATION.md`.
+
+### Scope of this release
+
+The repository does not deploy a public API, activate enterprise connections, install a background worker or enable GitHub Actions. Native Copilot/Gemini imports, Windows execution and live enterprise acceptance still require the actual approved environment. A skill cannot expand host quotas or permissions. Native Gemini Skills currently do not run inside Deep Research; the guide describes a separate research-brief handoff.
+
+These are versioned repository-hosted downloads with manifests and SHA-256 checksums; no GitHub Release object, tag, scientific certification or peer-reviewed status is implied.

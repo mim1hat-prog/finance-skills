@@ -1,6 +1,14 @@
 # Further implementation priorities
 
-The first release contains 24 skills, including eight new specialist workflows. The next useful work is to connect those methods to the actual approved work environment, with measurable results and company-only details kept private.
+Version 1.2.0 contains 29 skills, shared workflow contracts, a public benchmark dataset and a research registry. The next useful work is to validate those methods in the actual approved work environment, with company-only details kept private. Local checks and generic instructions are already implemented; live connections and enterprise acceptance are separate work.
+
+## Next acceptance work
+
+Prioritize the two [workflow pilots](WORKFLOWS.md): provision calculation through detailed reporting readback, and a workforce/Power Query change that preserves the accepted artifact contract. Use actual approved sources and native capabilities inside the work environment. Keep every resulting private contract, example and acceptance record outside this public repository.
+
+For public benchmarks, complete the exact METI transport-equipment source/code selection and distinguish it from vehicle counts. Then select the MHLW/e-Stat wage and hours table/classifications, with approved application-ID handling. BOJ reproduction remains permission-gated. Trade flows and recall alerts remain future candidates; they require separate source, coverage and rights review before implementation. Keep one shared benchmark lookup and provider adapters rather than adding a skill per feed.
+
+The professional standards are implemented in [STANDARDS.md](STANDARDS.md). Further research adds value when it resolves a particular method decision or test; source counts alone are not a quality target.
 
 | Priority | Next implementation | Why it earns its place | Completion evidence |
 | --- | --- | --- | --- |

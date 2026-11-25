@@ -19,6 +19,8 @@ Reconcile a defined workforce population and explain evidenced differences. Use 
 
 ### 1. Define the measures
 
+Keep closing headcount, average capacity, direct/indirect personnel cost, contingent labor, overtime and productivity distinct. Each needs its own population, period basis and unit. A productivity numerator and denominator must cover the same work and time; duplicate or transferred employee records are data-quality questions, not performance findings.
+
 1. Define **headcount** using the approved eligibility rule and unique person key at a specific cutoff. Define how multiple contracts or concurrent assignments count at each reporting level.
 2. Define **FTE** using the approved working-time basis. Do not equate it with headcount, paid hours, or budgeted positions. Sum validated assignment FTE only when the reporting rule makes assignments additive; flag overlapping assignments or unexpected totals for review.
 3. Keep occupied positions, open positions, permanent/temporary employees, and external workers separate unless the approved reporting definition combines them.
@@ -50,6 +52,10 @@ Reconcile a defined workforce population and explain evidenced differences. Use 
 5. If splitting data, partition without overlap and deduplicate person keys across partitions before combining distinct counts. A person assigned to multiple cost centers may make subgroup headcounts nonadditive; show the total as a separately calculated distinct count.
 
 ### 4. Reconcile cost when requested
+
+Before explaining a personnel-cost gap, reconcile direct, indirect, contingent and explicitly out-of-scope components at the approved grain. Cost-center totals cannot establish job-rank costs. If a required rank, location, department or group field is absent, retain the gap and identify the approved detailed source or mapping needed; do not infer it from public wages or spread the total using an invented rule. A confirmed scope for regular employees does not establish temporary or external-worker coverage.
+
+Before projecting, reconcile actuals, the approved capacity target and confirmed movements separately. Preserve effective-dated mappings and approved overrides; a later mapping must not silently rewrite an earlier snapshot. Check movement confirmation and source completeness rather than treating the absence of a row as zero or a cancellation.
 
 1. Separate recurring pay, employer contributions, overtime/premiums, bonuses, severance, accruals, external labor, and other components according to the approved account mapping.
 2. Align transaction dates, service periods, accrual treatment, FX basis, allocation rules, and proration. Check that allocated costs tie to the source total and that allocations do not duplicate source transactions.

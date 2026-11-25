@@ -2,28 +2,28 @@
 
 [![Copilot edition](https://img.shields.io/badge/Copilot-edition-245844?style=flat)](docs/COPILOT.md) [![Gemini edition](https://img.shields.io/badge/Gemini-edition-245844?style=flat)](docs/GEMINI.md) [![License MIT](https://img.shields.io/badge/license-MIT-4C5054?style=flat)](LICENSE)
 
-[Downloads & releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) | [Copilot setup](docs/COPILOT.md) | [Gemini setup](docs/GEMINI.md) | [All skills](SKILLS.md) | [Windows tools](docs/WINDOWS.md) | [Updates](docs/UPDATES.md) | [Support Max on Ko-fi](https://ko-fi.com/somamill)
+[Downloads & releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) | [Copilot setup](docs/COPILOT.md) | [Gemini setup](docs/GEMINI.md) | [All skills](SKILLS.md) | [Tool list](TOOLS.md) | [Windows tools](docs/WINDOWS.md) | [Updates](docs/UPDATES.md) | [Support Max on Ko-fi](https://ko-fi.com/somamill)
 
 ![Finance skills: from source to decision, with Copilot and Gemini editions](assets/readme-banner.svg)
 
-**25 skills for financial controlling, planning and reporting: 24 task workflows and your Excel agent instructions.** One maintained source library, separate Microsoft 365 Copilot and Gemini editions, and optional Python tools for your Windows work PC.
+**29 skills for financial controlling, planning and reporting: 28 task workflows and your Excel agent instructions.** One maintained source library, separate Microsoft 365 Copilot and Gemini editions, and optional Python tools for your Windows work PC.
 
 Supply the relevant work files in your approved account and ask for the result you need. The instructions prioritize relevant internal evidence, preserve existing business logic and verify calculations without adding unsolicited audit tables, worksheets or process commentary. They work without a local coding agent or an API subscription. Python, Power BI, VS Code and SharePoint provide additional routes when those capabilities are available.
 
-## Ready to download · v1.1.0
+## Ready to download · v1.2.0
 
-**[Download the full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip)** — both editions, every individual skill package, Excel agent instructions, setup guides, source files, local Python tools, tests and the dot catalogue.
+**[Download the full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip)** — both editions, every individual skill package, Excel agent instructions, setup guides, source files, local Python tools, tests and the dot catalogue.
 
 | Package | Contents | Download |
 | --- | --- | --- |
-| Copilot | 25 individual skill ZIPs, matching skill folders and Excel agent instructions | [Copilot v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-copilot.zip) |
-| Gemini | 25 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-gemini.zip) |
-| All skills | Both editions: 50 individual ZIPs, skill folders, Gem-ready text and Excel agent instructions | [All skills v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-all.zip) |
-| Full release | All skills plus the complete useful project, guides and optional local tools | [Full v1.1.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip) |
+| Copilot | 29 individual skill ZIPs, matching skill folders and Excel agent instructions | [Copilot v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-copilot.zip) |
+| Gemini | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-gemini.zip) |
+| All skills | Both editions: 58 individual ZIPs, skill folders, Gem-ready text and Excel agent instructions | [All skills v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-all.zip) |
+| Full release | All skills plus the complete useful project, guides and optional local tools | [Full v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip) |
 
 **Extract the outer ZIP first.** Then import the individual skill ZIPs you need, or follow the Office folder-copy instructions. A complete download does not bulk-install or activate skills in your account. Edition/all-skills bundles contain instructions and packages; choose the full release for local Python tools and offline guides.
 
-[Release notes and checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.1.0/README.md) · [All releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+[Release notes and checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.2.0/README.md) · [All releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Versioning and verification](docs/RELEASES.md)
 
 ## Your Excel agent instructions
 
@@ -57,7 +57,7 @@ Each **individual skill ZIP** contains one root `SKILL.md`. Upload one skill at 
 | Management reporting | Power BI analysis, management presentation, corporate style | Measures and slides tied to source totals and the approved company template |
 | Research and communication | Evidence research, document extraction, process diagram | Primary-source findings, extraction checks and a readable process map |
 
-[Browse all 25 skills and their download links](SKILLS.md). The core, extended and specialist groups each contain eight task skills; the Excel agent instructions form a separate defaults group. A custom Agent Builder agent can use a focused selection. Importing `excel-agent-core` as a skill consumes one of that agent's available skill slots.
+[Browse all 29 skills and their download links](SKILLS.md). The core, extended and specialist groups each contain eight task skills; four additional workflow pilots cover connected reporting, provisions, allocation preflight and benchmarks. The Excel agent instructions form a separate defaults group. A custom Agent Builder agent can use a focused selection. Importing `excel-agent-core` as a skill consumes one of that agent's available skill slots.
 
 ### An example request
 
@@ -65,9 +65,35 @@ Each **individual skill ZIP** contains one root `SKILL.md`. Upload one skill at 
 
 For ordinary analysis, let Excel, Power Query or a local calculation tool do the arithmetic. Use the assistant to select the method, investigate exceptions, explain the result and prepare the requested deliverable.
 
+## Shared workflow controls
+
+Every native edition includes the same evidence and preservation rules. Keep **approved internal figures**, **internal workflow status** and **public benchmarks** separate. Align period, cutoff, scenario, version, units and source snapshot before comparing. Check detailed coordinates and gross differences as well as totals. A successful calculation does not establish refresh, approval or submission.
+
+Four new skills connect those rules to work: `connected-reporting`, `provision-reconciliation`, `fx-allocation-preflight` and `benchmark-lookup`. The local helpers check supplied evidence and retain unexplained residuals; they perform no enterprise writes. [Two pilot workflows and migration map](docs/WORKFLOWS.md) · [Exact skill contracts](docs/SKILL-CONTRACTS.md)
+
+The [tool list](TOOLS.md) maps **29 tools and capabilities** to finance workflows and the evidence each requires. It distinguishes tools reported available, optional products, unconfirmed work capabilities and local implementations. Listing a product does not install a connector.
+
+## Thorough research, concise conclusions
+
+The shared policy requires further targeted searches when evidence is incomplete and independent checks for consequential results. Use relevant authorized enterprise sources first, resolve contradictions, correct failed checks and preserve the remaining work if the host reaches a limit. Final answers stay concise and do not add unsolicited audit artifacts. [Research policy](docs/RESEARCH-POLICY.md)
+
+Copilot Researcher and Gemini Deep Research are separate host features with their own availability and limits. Native Gemini Skills currently do not run inside Deep Research. The guides explain how to transfer a research brief where appropriate; a skill cannot increase a quota, grant access or force unlimited reasoning.
+
+## Public benchmarks and research evidence
+
+The full release includes a queryable dataset with **119 ECB FX observations**—68 published rates and 51 separately derived JPY crosses—and **48 World Bank commodity observations** for aluminum, copper, Brent and Japan LNG. Two retained public snapshots record their exact periods, retrieval timestamps, units, source IDs, rights and transformations. Independently invented vintage fixtures are kept separate.
+
+The local API serves validated stored snapshots through four read-only routes. Use an immutable `snapshot_id`, or `as_of` only where a snapshot was actually retained by that cutoff. A provider's earlier observation period does not make today's revised history an earlier information vintage. Failed refreshes preserve the last good snapshot.
+
+**Availability:** ECB and the selected World Bank extracts were exercised. BOJ values are excluded pending reproduction permission; METI transport-production and MHLW wage/hour configurations remain candidates pending exact source validation. Public values provide market context and never fill a missing internal forecast, exposure, mapping or confirmation.
+
+[Dataset and local API](benchmarks/README.md) · [Data dictionary](benchmarks/DATA_DICTIONARY.md) · [OpenAPI contract](api/openapi.yaml) · [Research registry](research/README.md)
+
+The registry connects each integrated source to the exact method, skill, decision or test it supports. [Standards](docs/STANDARDS.md) documents Agent Skills, SemVer, CFF citation metadata, SPDX identifiers, JSON Schema, OpenAPI and RFC 9457, with a lightweight provenance approach informed by W3C and FAIR. No certification or peer-reviewed status is claimed.
+
 ## Python tools that run locally
 
-The core tools use Python's standard library. They never modify input files, make network calls or start a background service.
+The finance calculation and workflow validation helpers use Python's standard library. They leave input files unchanged and make no network calls. The separate public benchmark collector runs only through an explicit refresh command; the read-only API starts manually in the foreground.
 
 ```powershell
 py -3 scripts\finance_tools.py profile examples\actual.csv --keys cost_center account --amounts amount
@@ -85,12 +111,12 @@ The library draws on reviewed methods from Anthropic's document skills, DuckDB s
 
 ## Keep it current
 
-Canonical instructions live in `skills/`. A deterministic build produces both editions, 50 individual upload packages, Gem-ready text, the Excel agent profile, three download-all bundles and the catalogue. A separate release step freezes versioned downloads and SHA-256 checksums. Published version directories are preserved; fixes receive a new version. Upstream changes are checked against pinned commits and reviewed before adoption. [Update workflow](docs/UPDATES.md)
+Canonical instructions live in `skills/`. A deterministic build produces both editions, 58 individual upload packages, Gem-ready text, the Excel agent profile, three download-all bundles and the catalogue. The offline gate checks generated files, workflow/tool/source references, dataset and API contracts, tests and public package contents. A separate release step freezes versioned downloads and SHA-256 checksums. Published version directories are preserved; fixes receive a new version. Upstream changes are checked against pinned commits and reviewed before adoption. [Update workflow](docs/UPDATES.md)
 
 ```powershell
+py -3 scripts\research_registry.py
 py -3 scripts\build.py
-py -3 scripts\build.py --check
-py -3 -m unittest discover -s tests -v
+py -3 scripts\check_release.py
 ```
 
 This repository includes no GitHub Actions workflows. A separately configured daily maintenance task checks relevant platform and upstream changes around 08:00 Asia/Tokyo; it was enabled on 2026-11-25. Compatible updates are reviewed and validated before publication. Updating GitHub does not update an existing native Copilot or Gemini import. The folder copier preserves local edits and records the package version it copied.
@@ -109,6 +135,6 @@ Then open `http://127.0.0.1:8000/site/`. The catalogue provides edition selectio
 
 [Validation record](docs/VALIDATION.md) separates tests actually run from Windows, tenant and visual checks still outstanding. [Further implementation priorities](docs/ROADMAP.md) focuses on company-specific data contracts, Power BI tie-outs and repeatable close workflows.
 
-Keep business data, internal SharePoint addresses, credentials and private templates in approved company storage. Public examples here are synthetic. Report a reproducible issue with synthetic data and a package version.
+Keep business data, internal links, credentials and private templates in approved company storage. Examples and test cases here are independently invented; the benchmark dataset contains separately attributed public observations. Report a reproducible issue with invented data and a package version. See [contributing](CONTRIBUTING.md), [security and data boundaries](SECURITY.md) and [citation metadata](CITATION.cff).
 
 Designed with the dot. foundation. Original library and tooling: [MIT](LICENSE). Upstream projects retain their own licences and attribution in [source notes](docs/UPSTREAMS.md).

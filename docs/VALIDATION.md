@@ -2,7 +2,26 @@
 
 Checked **2026-11-25**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
 
-## Automated checks actually run
+## Current release: v1.2.0
+
+The current library contains **29 canonical skills, 58 individual native ZIPs and 158 deterministic generated files**, including the Excel Instructions profile, three transport bundles, tool inventory, workflow contracts and citation metadata. All generated files matched their sources. The largest native instruction file was 15,746 bytes, within the project's portable ceiling.
+
+The integrated offline gate ran **126 Python tests with zero skips**. The environment had Python 3.12.14, openpyxl 3.1.5 and DuckDB 2.0.1; optional dependency tests actually executed. The release helper's isolated CLI test was updated to copy its new local catalogue dependency, then passed. No provider calls or enterprise actions run as part of this gate.
+
+- **Workflow controls:** 21 focused tests passed. An independent reviewer reran all original reproductions after corrections. Duplicate explanations, blank evidence/owners, invalid timestamp offsets, changed artifact scale/sign, mismatched allocation receivers and prior-run evidence for a different target or payload now block or reject. Valid controls remain valid. A separate synthetic skill task retained an unexplained reserve difference of 50 after two approved components explained 320 of a 370 difference; the newer unsubmitted draft did not replace the submitted baseline.
+- **Benchmarks:** 20 focused tests passed. Independent reproductions confirmed that a request starting before cutoff cannot make later-arriving bytes available early, a later refresh receipt cannot leak into historical status, and relabeling a derived series cannot bypass formula/input checks. Additional checks cover mixed timezone offsets, strict timestamp rejection, partial months, index rebases, reversed FX, outages, rights and credential redaction.
+- **Dataset and API:** 17 catalogue series, two real public snapshots and two separate synthetic vintages passed schema, CSV, inventory and hash checks. The real snapshots contain 119 ECB rows and 48 World Bank rows. Replaying parsers against the saved public source bytes reproduced the complete snapshots and identical IDs. Seed validation receipts record the later offline validation time, separately from source acquisition. All four OpenAPI routes passed response validation; a real loopback GET/POST check passed and the server stopped.
+- **Research and standards:** 56 registry records map to 29 skills, with no unresolved reference errors. All 23 registry tests passed. The M4 paper remains an inactive candidate while its erratum requires review. BOJ and selected upstream redistribution restrictions remain explicit. `CITATION.cff` passed an independent check against the official CFF 1.2.0 draft-07 schema; data/workflow schemas use 2020-12 separately.
+- **Publication boundary:** the public inventory and nested packages passed the heuristic scan, including an additional private marker policy stored outside the project. The one exception is bound to the exact hash of an already published synthetic invalid-URL test; it cannot exempt another file, changed bytes, private links or other finding categories. The previous v1.1.0 release files passed their integrity checks and remain unchanged.
+- **Catalogue behavior:** DOM checks passed for the actual 29-entry v1.2.0 data, edition routing, search/filter/reset, example-copy feedback, theme state, fallbacks and version-derived download links. This does not establish browser layout. Presentation code and dot assets were retained; native desktop/mobile rendering remains unverified in this environment.
+
+`scripts/check_release.py` is the offline pre-release command. After freezing, `--require-release` additionally requires exact current release bytes and indexes. The full ZIP deliberately excludes nested release history and can run the default gate independently. Remote publication is verified separately from this local record; a GitHub Release object or native account installation is not implied.
+
+## Historical evidence: v1.1.0 and earlier
+
+The following results describe prior published versions. Their original counts and limitations are retained for traceability.
+
+### Automated checks actually run
 
 | Check | Observed result |
 | --- | --- |
@@ -30,7 +49,7 @@ The test count includes 16 upstream-helper cases. Package validation does not pr
 
 Release tooling tests use isolated temporary projects. The published release includes its exact project-file inventory and SHA-256 checksums in `releases/v1.1.0/manifest.json`; remote publication is verified separately from local packaging. No GitHub Release object or tag is claimed.
 
-## Independent finance task checks
+### Independent finance task checks
 
 For the new Excel profile, a fresh agent received the relevant skill files, a raw synthetic request to correct a November Personnel total, an editable JSON workbook cell model and exported internal-source fixtures. It resolved an obsolete draft against the approved definition and final export. It corrected benefits from **EUR 18,000 to EUR 21,000**, retained the existing Personnel and Opex formulas, and updated their evaluated totals to **EUR 141,000 and EUR 167,000**. Only the existing workbook cell model changed; no worksheet, audit table, log or extra output file was created. The result was independently checked against the supplied fixture. This tests instruction behavior with synthetic local exports, not live enterprise retrieval, a native Copilot/Gemini import or Excel recalculation.
 
@@ -40,7 +59,7 @@ For working capital, it calculated an available **15-day** two-point-average DSO
 
 An independent code review identified six edge issues. All six original reproductions were rerun after correction: CSV header inference, a key/count alias collision, unsized workbooks, a destination symlink introduced after preview, Git line endings and extreme decimal precision. Each reproduction now behaves as intended. Native Windows junction and OneDrive behavior were not exercised by those checks.
 
-## Catalogue checks
+### Catalogue checks
 
 The original catalogue passed DOM execution checks for edition-specific links, search, category selection, empty/reset behavior, focus restoration, example-prompt copy feedback with a mocked clipboard, theme persistence, unique IDs, visible control labels and malformed-data recovery. JavaScript syntax and SVG XML checks passed.
 

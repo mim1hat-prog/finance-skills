@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "reviewedOn": "2026-11-25",
   "repoUrl": "https://github.com/mim1hat-prog/finance-skills",
   "sourcePack": {
@@ -15,7 +15,48 @@
       "summary": "Search internal evidence first, preserve workbook logic and return concise results without unsolicited audit tables or new sheets.",
       "category": "Agent setup",
       "group": "agent defaults",
-      "prompt": "Use excel-agent-core to resolve the discrepancy in the current workbook. Review the relevant available internal sources, preserve existing business logic and make only the necessary corrections. Return the result and any material unresolved issue concisely."
+      "prompt": "Use excel-agent-core to resolve the discrepancy in the current workbook. Review the relevant available internal sources, preserve existing business logic and make only the necessary corrections. Return the result and any material unresolved issue concisely.",
+      "contract": {
+        "triggers": [
+          "Excel work objective",
+          "enterprise evidence and workbook corrections"
+        ],
+        "requiredInputs": [
+          "requested objective",
+          "existing workbook or relevant approved sources"
+        ],
+        "outputs": [
+          "concise completed result",
+          "material unresolved gap"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_granularity_and_three_streams_do_not_backfill_internal_inputs"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "project-finance-design"
+      ]
     },
     {
       "name": "work-tool-routing",
@@ -23,7 +64,48 @@
       "summary": "Choose the available tool and finish with evidence.",
       "category": "Core",
       "group": "core",
-      "prompt": "Use work-tool-routing to turn the attached monthly headcount workbook into a management update. Calculate in Excel where possible, explain the largest exceptions, and prepare a short presentation in the approved template. State which sources and checks you could actually access."
+      "prompt": "Use work-tool-routing to turn the attached monthly headcount workbook into a management update. Calculate in Excel where possible, explain the largest exceptions, and prepare a short presentation in the approved template. State which sources and checks you could actually access.",
+      "contract": {
+        "triggers": [
+          "choose a finance work surface"
+        ],
+        "requiredInputs": [
+          "requested deliverable",
+          "available authorized capabilities"
+        ],
+        "outputs": [
+          "selected workflow",
+          "usable result or capability-limited next step"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "copilot-researcher",
+        "gemini-deep-research",
+        "tool-m365",
+        "upstream-superpowers"
+      ]
     },
     {
       "name": "excel-data-coverage",
@@ -31,7 +113,47 @@
       "summary": "Check the complete workbook population before drawing conclusions.",
       "category": "Controls",
       "group": "core",
-      "prompt": "Use excel-data-coverage to check whether this month's personnel-cost total covers every relevant table in the accessible workbook. Let Excel calculate, inspect aggregate controls and exceptions, leave source data unchanged, and identify any coverage you cannot verify."
+      "prompt": "Use excel-data-coverage to check whether this month's personnel-cost total covers every relevant table in the accessible workbook. Let Excel calculate, inspect aggregate controls and exceptions, leave source data unchanged, and identify any coverage you cannot verify.",
+      "contract": {
+        "triggers": [
+          "check workbook scope or source coverage"
+        ],
+        "requiredInputs": [
+          "workbook or export",
+          "required population and independent control when available"
+        ],
+        "outputs": [
+          "scoped result",
+          "material coverage gaps and residual"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "tool-power-query",
+        "upstream-anthropic-skills",
+        "upstream-superpowers"
+      ]
     },
     {
       "name": "workforce-reconciliation",
@@ -39,7 +161,51 @@
       "summary": "Reconcile headcount, FTE, transfers and personnel costs.",
       "category": "Planning",
       "group": "core",
-      "prompt": "Use workforce-reconciliation to reconcile opening and closing headcount and FTE for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources."
+      "prompt": "Use workforce-reconciliation to reconcile opening and closing headcount and FTE for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources.",
+      "contract": {
+        "triggers": [
+          "reconcile headcount, capacity or personnel cost"
+        ],
+        "requiredInputs": [
+          "approved populations and dates",
+          "workforce/cost snapshots",
+          "effective mappings and measure definitions"
+        ],
+        "outputs": [
+          "separate headcount/FTE/cost bridges",
+          "unresolved mapping or granularity gap"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_granularity_and_three_streams_do_not_backfill_internal_inputs",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_missing_ambiguous_future_unapproved_and_incomplete_mappings_are_not_guessed"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "mhlw-monthly-labour",
+        "project-finance-design",
+        "upstream-scientific-skills"
+      ]
     },
     {
       "name": "forecast-variance",
@@ -47,7 +213,49 @@
       "summary": "Explain budget and forecast differences with reconciled drivers.",
       "category": "Planning",
       "group": "core",
-      "prompt": "Use forecast-variance to compare the selected month's actual personnel cost with the approved forecast. Let Excel calculate, reconcile nonoverlapping staffing/rate/FX effects where the inputs support them, preserve the JPY display unit, and show any unexplained residual."
+      "prompt": "Use forecast-variance to compare the selected month's actual personnel cost with the approved forecast. Let Excel calculate, reconcile nonoverlapping staffing/rate/FX effects where the inputs support them, preserve the JPY display unit, and show any unexplained residual.",
+      "contract": {
+        "triggers": [
+          "forecast/budget variance or driver bridge"
+        ],
+        "requiredInputs": [
+          "baseline and comparison versions",
+          "approved actual horizon",
+          "driver inputs and units"
+        ],
+        "outputs": [
+          "nonoverlapping driver bridge",
+          "residual and concise commentary"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "alfred-realtime",
+        "fpp-tscv",
+        "meti-iip",
+        "upstream-scientific-skills"
+      ]
     },
     {
       "name": "power-bi-analysis",
@@ -55,7 +263,47 @@
       "summary": "Review model grain, DAX, filter context and control totals.",
       "category": "Analysis",
       "group": "core",
-      "prompt": "Use power-bi-analysis to review this monthly FTE measure. The total across three months is triple the expected closing FTE. Here are the snapshot grain, date relationship, DAX, and an anonymized sample. Propose the corrected measure, explain the total behavior, and list the checks you actually ran."
+      "prompt": "Use power-bi-analysis to review this monthly FTE measure. The total across three months is triple the expected closing FTE. Here are the snapshot grain, date relationship, DAX, and an independently invented sample. Propose the corrected measure, explain the total behavior, and list the checks you actually ran.",
+      "contract": {
+        "triggers": [
+          "DAX, model totals or reporting freshness"
+        ],
+        "requiredInputs": [
+          "model grain/relationships/measures",
+          "filters and source controls",
+          "refresh/visibility evidence when available"
+        ],
+        "outputs": [
+          "measure/model review",
+          "scope-specific tie-out and freshness result"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "tool-fabric",
+        "tool-power-bi"
+      ]
     },
     {
       "name": "management-presentation",
@@ -63,7 +311,46 @@
       "summary": "Build source-backed management slides with a clear decision.",
       "category": "Reporting",
       "group": "core",
-      "prompt": "Use management-presentation on the supplied work files. State what you could actually check."
+      "prompt": "Use management-presentation on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "management slides or decision update"
+        ],
+        "requiredInputs": [
+          "validated figures",
+          "audience and decision",
+          "approved template"
+        ],
+        "outputs": [
+          "editable requested presentation",
+          "material unresolved evidence"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-anthropic-skills"
+      ]
     },
     {
       "name": "business-document",
@@ -71,7 +358,47 @@
       "summary": "Prepare a concise memo, procedure or decision record.",
       "category": "Reporting",
       "group": "core",
-      "prompt": "Use business-document on the supplied work files. State what you could actually check."
+      "prompt": "Use business-document on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "business document or report"
+        ],
+        "requiredInputs": [
+          "purpose and audience",
+          "approved source content",
+          "requested format/template"
+        ],
+        "outputs": [
+          "requested document",
+          "concise source/decision references"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-addy-agent-skills",
+        "upstream-anthropic-skills"
+      ]
     },
     {
       "name": "corporate-style",
@@ -79,7 +406,46 @@
       "summary": "Apply the approved company template and visual standards.",
       "category": "Design",
       "group": "core",
-      "prompt": "Use corporate-style on the supplied work files. State what you could actually check."
+      "prompt": "Use corporate-style on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "apply an approved corporate template"
+        ],
+        "requiredInputs": [
+          "approved template",
+          "requested artifact",
+          "content to preserve"
+        ],
+        "outputs": [
+          "styled requested artifact",
+          "material template limitation"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-hallmark"
+      ]
     },
     {
       "name": "spreadsheet-modeling",
@@ -87,7 +453,46 @@
       "summary": "Create auditable models, formulas, pivots and sensitivity views.",
       "category": "Analysis",
       "group": "extended",
-      "prompt": "Use spreadsheet-modeling to turn the supplied monthly volumes and labor-rate assumptions into a reusable personnel-cost planning model with base and downside scenarios. Keep derived values as formulas, show units and editable inputs, and verify the outputs using whatever spreadsheet capabilities this session actually provides."
+      "prompt": "Use spreadsheet-modeling to turn the supplied monthly volumes and labor-rate assumptions into a reusable personnel-cost planning model with base and downside scenarios. Keep derived values as formulas, show units and editable inputs, and verify the outputs using whatever spreadsheet capabilities this session actually provides.",
+      "contract": {
+        "triggers": [
+          "create or correct an Excel model"
+        ],
+        "requiredInputs": [
+          "existing workbook or requested new-model scope",
+          "approved inputs/assumptions",
+          "calculation dependencies"
+        ],
+        "outputs": [
+          "working model or exact proposed formulas",
+          "recalculation status and residual"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-anthropic-skills"
+      ]
     },
     {
       "name": "analytical-sql",
@@ -95,7 +500,46 @@
       "summary": "Query local data with explicit grain, joins and null handling.",
       "category": "Analysis",
       "group": "extended",
-      "prompt": "Use analytical-sql to draft a read-only query for monthly labor cost by cost center from this schema. Check mapping cardinality and unmatched keys, preserve the reporting cutoff, and give validation queries. If this session has no authorized SQL engine, mark the queries as not executed."
+      "prompt": "Use analytical-sql to draft a read-only query for monthly labor cost by cost center from this schema. Check mapping cardinality and unmatched keys, preserve the reporting cutoff, and give validation queries. If this session has no authorized SQL engine, mark the queries as not executed.",
+      "contract": {
+        "triggers": [
+          "analytical SQL over approved exports"
+        ],
+        "requiredInputs": [
+          "dataset/schema",
+          "grain and keys",
+          "requested query/result"
+        ],
+        "outputs": [
+          "reviewed query or executed result",
+          "scope and residual"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-duckdb-skills"
+      ]
     },
     {
       "name": "evidence-research",
@@ -103,7 +547,51 @@
       "summary": "Trace consequential claims to dated primary sources.",
       "category": "Research",
       "group": "extended",
-      "prompt": "Use evidence-research to investigate the most consequential developments in Japan's automotive suppliers during the last month. Prioritize company disclosures and original statistics, distinguish announcements from completed changes, and explain implications for workforce planning without inventing numerical effects."
+      "prompt": "Use evidence-research to investigate the most consequential developments in Japan's automotive suppliers during the last month. Prioritize company disclosures and original statistics, distinguish announcements from completed changes, and explain implications for workforce planning without inventing numerical effects.",
+      "contract": {
+        "triggers": [
+          "research with primary evidence"
+        ],
+        "requiredInputs": [
+          "question and cutoff",
+          "authorized source access",
+          "needed decision/scope"
+        ],
+        "outputs": [
+          "sourced conclusion",
+          "unresolved material evidence gap"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "copilot-researcher",
+        "crossref-updates",
+        "gemini-deep-research",
+        "project-finance-design",
+        "upstream-ecc",
+        "upstream-valyu"
+      ]
     },
     {
       "name": "reproducible-analysis",
@@ -111,7 +599,49 @@
       "summary": "Keep transformations, assumptions and checks reproducible.",
       "category": "Analysis",
       "group": "extended",
-      "prompt": "Use reproducible-analysis to compare monthly overtime rates across the supplied sites. Define the denominator, inspect missingness and repeated monthly observations, report meaningful effect sizes and supported uncertainty, and provide a reproducible calculation record. If computation is unavailable, deliver the unexecuted analysis recipe."
+      "prompt": "Use reproducible-analysis to compare monthly overtime rates across the supplied sites. Define the denominator, inspect missingness and repeated monthly observations, report meaningful effect sizes and supported uncertainty, and provide a reproducible calculation record. If computation is unavailable, deliver the unexecuted analysis recipe.",
+      "contract": {
+        "triggers": [
+          "repeatable quantitative analysis"
+        ],
+        "requiredInputs": [
+          "input snapshot",
+          "method and environment",
+          "acceptance controls"
+        ],
+        "outputs": [
+          "reproducible calculation or proposed code",
+          "limits and residual"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "fair-principles",
+        "fpp-tscv",
+        "upstream-scientific-skills",
+        "w3c-dwbp"
+      ]
     },
     {
       "name": "design-review",
@@ -119,7 +649,45 @@
       "summary": "Review clarity, accessibility and layout against the real output.",
       "category": "Design",
       "group": "extended",
-      "prompt": "Use design-review on the supplied work files. State what you could actually check."
+      "prompt": "Use design-review on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "review an artifact design"
+        ],
+        "requiredInputs": [
+          "actual artifact",
+          "audience and design requirements"
+        ],
+        "outputs": [
+          "located findings or requested edits"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-hallmark",
+        "upstream-impeccable"
+      ]
     },
     {
       "name": "project-context",
@@ -127,7 +695,47 @@
       "summary": "Carry decisions and open issues between work sessions.",
       "category": "Core",
       "group": "extended",
-      "prompt": "Use project-context on the supplied work files. State what you could actually check."
+      "prompt": "Use project-context on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "resume or hand off a work task"
+        ],
+        "requiredInputs": [
+          "current objective",
+          "authoritative decisions and artifacts"
+        ],
+        "outputs": [
+          "concise relevant context",
+          "next unresolved decision"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-addy-agent-skills",
+        "upstream-claude-mem",
+        "upstream-mattpocock-skills"
+      ]
     },
     {
       "name": "video-storyboard",
@@ -135,7 +743,46 @@
       "summary": "Plan a financial explainer with timed scenes and source notes.",
       "category": "Reporting",
       "group": "extended",
-      "prompt": "Use video-storyboard on the supplied work files. State what you could actually check."
+      "prompt": "Use video-storyboard on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "create a requested video storyboard"
+        ],
+        "requiredInputs": [
+          "validated message",
+          "audience and duration",
+          "approved assets/template"
+        ],
+        "outputs": [
+          "storyboard or supported output",
+          "render status"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-hyperframes"
+      ]
     },
     {
       "name": "interactive-visualization",
@@ -143,7 +790,46 @@
       "summary": "Specify and build interactive views with honest scales and labels.",
       "category": "Reporting",
       "group": "extended",
-      "prompt": "Use interactive-visualization on the supplied work files. State what you could actually check."
+      "prompt": "Use interactive-visualization on the supplied work files. State what you could actually check.",
+      "contract": {
+        "triggers": [
+          "create an interactive finance visualization"
+        ],
+        "requiredInputs": [
+          "validated dataset",
+          "question and audience",
+          "supported runtime"
+        ],
+        "outputs": [
+          "requested interactive artifact",
+          "data/interaction limitations"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-d3-viz"
+      ]
     },
     {
       "name": "power-query-etl",
@@ -151,7 +837,51 @@
       "summary": "Combine recurring exports with schema checks, explicit exclusions and totals that reconcile.",
       "category": "Pipeline",
       "group": "specialist",
-      "prompt": "Combine these monthly ledger exports for Power BI. Preserve account codes, flag schema changes and mapping errors, and reconcile totals by entity, period and currency."
+      "prompt": "Combine these monthly ledger exports for Power BI. Preserve account codes, flag schema changes and mapping errors, and reconcile totals by entity, period and currency.",
+      "contract": {
+        "triggers": [
+          "repair or extend a Power Query pipeline"
+        ],
+        "requiredInputs": [
+          "actual dependency graph and query text",
+          "accepted baseline",
+          "approved change and downstream contract"
+        ],
+        "outputs": [
+          "complete affected replacement M",
+          "population/interface compatibility result"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-power-query-refresh",
+          "downstream-export-inspection"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_successful_refresh_cannot_hide_protected_population_or_schema_regression",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_scoped_replacement_and_append_preserve_history_with_native_checks_separate",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_duplicate_business_keys_and_typed_cells_fail_even_if_refresh_succeeded"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "tool-power-query",
+        "upstream-duckdb-skills"
+      ]
     },
     {
       "name": "sharepoint-evidence",
@@ -159,7 +889,46 @@
       "summary": "Find approved sources, resolve versions and build a precise internal evidence register.",
       "category": "Research",
       "group": "specialist",
-      "prompt": "Find the approved forecast and headcount policy in this SharePoint scope. Compare the HC and FTE definitions, cite exact locations, and list inaccessible or conflicting evidence."
+      "prompt": "Find the approved forecast and headcount policy in this SharePoint scope. Compare the HC and FTE definitions, cite exact locations, and list inaccessible or conflicting evidence.",
+      "contract": {
+        "triggers": [
+          "identify authoritative work files or versions"
+        ],
+        "requiredInputs": [
+          "question and cutoff",
+          "authorized source locations or exports"
+        ],
+        "outputs": [
+          "traceable authoritative source",
+          "version/coverage gap"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "tool-m365",
+        "upstream-valyu"
+      ]
     },
     {
       "name": "account-mapping",
@@ -167,7 +936,49 @@
       "summary": "Check dated mappings, duplicate rules and allocation weights before reporting classifications.",
       "category": "Controls",
       "group": "specialist",
-      "prompt": "Apply this dated reporting mapping to the ledger. Flag overlapping rules, invalid allocations and unmapped records, and reconcile source amounts to mapped and unresolved totals."
+      "prompt": "Apply this dated reporting mapping to the ledger. Flag overlapping rules, invalid allocations and unmapped records, and reconcile source amounts to mapped and unresolved totals.",
+      "contract": {
+        "triggers": [
+          "validate effective account or organizational mapping"
+        ],
+        "requiredInputs": [
+          "source records and keys",
+          "approved mapping with effective dates",
+          "declared relationship/weights"
+        ],
+        "outputs": [
+          "mapped and unresolved amounts",
+          "cardinality/effectivity blockers"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_missing_ambiguous_future_unapproved_and_incomplete_mappings_are_not_guessed"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-addy-agent-skills",
+        "upstream-duckdb-skills"
+      ]
     },
     {
       "name": "close-controls",
@@ -175,7 +986,47 @@
       "summary": "Prepare reconciliations, accrual checks and a reviewer handoff with clear evidence and open items.",
       "category": "Controls",
       "group": "specialist",
-      "prompt": "Prepare the close pack from this trial balance, AP aging and accrual register. Reconcile balances, identify cutoff and reversal issues, and keep proposed adjustments as drafts."
+      "prompt": "Prepare the close pack from this trial balance, AP aging and accrual register. Reconcile balances, identify cutoff and reversal issues, and keep proposed adjustments as drafts.",
+      "contract": {
+        "triggers": [
+          "period close or anomaly disposition"
+        ],
+        "requiredInputs": [
+          "approved period/calendar/control scope",
+          "source evidence",
+          "effective thresholds and owner roles"
+        ],
+        "outputs": [
+          "specific control/anomaly outcome",
+          "readiness blockers and separately evidenced action states"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "project-finance-design",
+        "upstream-superpowers"
+      ]
     },
     {
       "name": "cash-working-capital",
@@ -183,7 +1034,46 @@
       "summary": "Reconcile cash and aging, calculate aligned DSO/DIO/DPO and separate scenarios from realized cash.",
       "category": "Planning",
       "group": "specialist",
-      "prompt": "Analyze working capital using these balances and period flows. Show the DSO, DIO and DPO formulas and averaging basis, reconcile aging, and estimate a five-day DSO sensitivity."
+      "prompt": "Analyze working capital using these balances and period flows. Show the DSO, DIO and DPO formulas and averaging basis, reconcile aging, and estimate a five-day DSO sensitivity.",
+      "contract": {
+        "triggers": [
+          "working-capital movement or cash sensitivity"
+        ],
+        "requiredInputs": [
+          "balances and flows",
+          "period/unit/averaging definitions",
+          "approved scope"
+        ],
+        "outputs": [
+          "scoped KPI/cash bridge",
+          "modeled versus received-cash distinction"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-anthropic-skills"
+      ]
     },
     {
       "name": "scenario-planning",
@@ -191,7 +1081,49 @@
       "summary": "Build traceable driver scenarios, sensitivities and break-even views with explicit assumptions.",
       "category": "Planning",
       "group": "specialist",
-      "prompt": "Model next quarter with volume down 10%, price up 2% and a one-month hiring delay. Compare the baseline and a volume-only sensitivity, then explain the profit bridge and cash timing."
+      "prompt": "Model next quarter with volume down 10%, price up 2% and a one-month hiring delay. Compare the baseline and a volume-only sensitivity, then explain the profit bridge and cash timing.",
+      "contract": {
+        "triggers": [
+          "forecast scenarios or sensitivity"
+        ],
+        "requiredInputs": [
+          "approved baseline",
+          "versioned assumptions",
+          "scenario bounds and decision"
+        ],
+        "outputs": [
+          "comparable scenarios",
+          "assumptions and residual"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "fpp-tscv",
+        "upstream-anthropic-skills",
+        "upstream-scientific-skills",
+        "worldbank-pink-sheet"
+      ]
     },
     {
       "name": "document-extraction",
@@ -199,7 +1131,45 @@
       "summary": "Turn report tables and statements into traceable data with OCR exceptions and source locators.",
       "category": "Pipeline",
       "group": "specialist",
-      "prompt": "Extract invoice number, supplier, due date, currency and gross amount from these statements. Preserve page locators, flag ambiguous values and reconcile each statement total."
+      "prompt": "Extract invoice number, supplier, due date, currency and gross amount from these statements. Preserve page locators, flag ambiguous values and reconcile each statement total.",
+      "contract": {
+        "triggers": [
+          "extract structured facts from documents"
+        ],
+        "requiredInputs": [
+          "accessible documents and versions",
+          "required fields and output contract"
+        ],
+        "outputs": [
+          "requested extracted data",
+          "material uncertainty and exact source locators"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-markitdown"
+      ]
     },
     {
       "name": "process-diagram",
@@ -207,7 +1177,261 @@
       "summary": "Explain data flows, ownership, review gates and exception paths with compact diagrams.",
       "category": "Reporting",
       "group": "specialist",
-      "prompt": "Diagram the forecast process from SharePoint uploads through Power Query into Power BI. Show owners, review gates, exception handling and which steps are manual."
+      "prompt": "Diagram the forecast process from SharePoint uploads through Power Query into Power BI. Show owners, review gates, exception handling and which steps are manual.",
+      "contract": {
+        "triggers": [
+          "map a finance process"
+        ],
+        "requiredInputs": [
+          "approved process evidence",
+          "requested scope and audience"
+        ],
+        "outputs": [
+          "requested diagram",
+          "unverified process assumptions"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "upstream-diagram-design"
+      ]
+    },
+    {
+      "name": "connected-reporting",
+      "title": "Connected reporting",
+      "summary": "Validate report context, ordered upload coordinates and independent readback.",
+      "category": "Controls",
+      "group": "workflow pilots",
+      "prompt": "Use connected-reporting to compare the approved staged payload with this reporting export. Check the same target coordinates, preserve add-in regions and distinguish export validation from a live readback or submission.",
+      "contract": {
+        "triggers": [
+          "planning-cube/SAP/BW upload or readback checks"
+        ],
+        "requiredInputs": [
+          "report type and target coordinates",
+          "staged payload and independent readback",
+          "connection/action evidence"
+        ],
+        "outputs": [
+          "coordinate-level parity result",
+          "separate evidence/action/submission states"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-export-inspection",
+          "known-good-live-read",
+          "authorized-write-and-independent-readback"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_readback_checks_target_intersections_not_only_grand_total",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_failed_cached_blank_or_empty_reads_never_become_zero_activity"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "project-finance-design",
+        "tool-fabric",
+        "tool-planning-analytics",
+        "tool-planning-writeback",
+        "tool-power-bi",
+        "tool-sap-analysis"
+      ]
+    },
+    {
+      "name": "provision-reconciliation",
+      "title": "Provision and warranty reconciliation",
+      "summary": "Reconcile movement components and frozen versions, retaining residuals and missing confirmations.",
+      "category": "Controls",
+      "group": "workflow pilots",
+      "prompt": "Use provision-reconciliation to explain the utilization difference between the frozen overview, calculation and reporting export. Check additions separately and keep the unexplained residual visible.",
+      "contract": {
+        "triggers": [
+          "provision additions, utilization or version difference"
+        ],
+        "requiredInputs": [
+          "frozen overview and supporting detail",
+          "signed movement definitions",
+          "staged payload/readback and case confirmations when available"
+        ],
+        "outputs": [
+          "movement-level bridge",
+          "explicit residual and confirmation gap"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_partial_provision_explanation_retains_component_and_total_residual",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_explained_difference_is_not_equal_snapshots_and_latest_cannot_replace_requested_version",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_case_coverage_requires_owner_scope_and_dated_explicit_zero_confirmation"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "project-finance-design"
+      ]
+    },
+    {
+      "name": "fx-allocation-preflight",
+      "title": "FX and allocation preflight",
+      "summary": "Separate FX sensitivity, accounting scope and allocation preconditions.",
+      "category": "Planning",
+      "group": "workflow pilots",
+      "prompt": "Use fx-allocation-preflight to check the approved rate/exposure version and allocation configuration. Identify scope changes, invalid weights, locked objects or uncertain prior runs without posting anything.",
+      "contract": {
+        "triggers": [
+          "FX exposure/scope or allocation readiness"
+        ],
+        "requiredInputs": [
+          "approved rate/exposure/configuration versions",
+          "sender/receiver sets and effective weights",
+          "lock/permission/prior-run evidence"
+        ],
+        "outputs": [
+          "separate FX sensitivity and allocation preflight",
+          "blocking unresolved configuration/run state"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-source-read",
+          "native-artifact-edit",
+          "local-calculation"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_allocation_locks_duplicate_run_risk_timeout_and_exact_binding_block_execution",
+            "tests/test_workflow_controls.py::WorkflowControlsTests.test_declared_scale_sign_and_source_precision_preserve_raw_values"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "ecb-exr-api",
+        "project-finance-design"
+      ]
+    },
+    {
+      "name": "benchmark-lookup",
+      "title": "Public benchmark lookup",
+      "summary": "Query rights-cleared public snapshots with explicit units, freshness and information vintage.",
+      "category": "Research",
+      "group": "workflow pilots",
+      "prompt": "Use benchmark-lookup to challenge this forecast assumption using an appropriate public series and the available snapshot at the requested cutoff. Keep approved internal figures unchanged and explain any unavailable vintage.",
+      "contract": {
+        "triggers": [
+          "public context for forecast/FX/cost commentary"
+        ],
+        "requiredInputs": [
+          "decision, geography and horizon",
+          "series/unit/base/adjustment",
+          "immutable snapshot or as_of cutoff"
+        ],
+        "outputs": [
+          "cited public benchmark",
+          "freshness/vintage/rights limits"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "approved-snapshot-inspection",
+          "local-read-only-benchmark-api"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_after_cutoff_revision_never_uses_latest",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_outage_preserves_last_good_and_redacts_credentials",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_reversed_fx_quote_is_rejected",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_derived_inputs_and_formula_are_independently_verified",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_rights_gate_blocks_before_fetch",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_api_contract_pagination_errors_and_no_provider_calls",
+            "tests/test_benchmarks.py::BenchmarkDatasetTests.test_public_origin_cannot_bypass_frozen_series_kind"
+          ],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "alfred-realtime",
+        "alfred-vintages",
+        "boj-cgpi",
+        "ecb-exr-api",
+        "fair-principles",
+        "meti-iip",
+        "mhlw-monthly-labour",
+        "w3c-dcat3",
+        "w3c-dwbp",
+        "worldbank-pink-sheet"
+      ]
     }
-  ]
+  ],
+  "workflowContractsVersion": 1,
+  "releasedOn": "2026-11-25"
 }

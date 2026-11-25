@@ -1,0 +1,23 @@
+{
+  "catalog_path": "catalog.json",
+  "catalog_sha256": "36cf7d3285c540ec829da590f0439994ffe6361bb83cfe0c51597d5c40196a14",
+  "dataset_id": "finance-public-benchmarks",
+  "dataset_version": "1.0.0",
+  "schema_version": "1.0",
+  "snapshot_layout": "snapshots/{id}/{snapshot.json,observations.csv,manifest.json}",
+  "snapshots": [
+    {
+      "data_class": "public",
+      "id": "20261125t030750z-e3debcf7d3272b67",
+      "manifest_sha256": "a7b8257a010049c7d0051c14f582541f82a79973dbd1cad1f6ec0e26c2e6c7f0",
+      "retrieved_at": "2026-11-25T03:07:50.858358+00:00"
+    },
+    {
+      "data_class": "public",
+      "id": "20261125t030756z-642357aa97b8b3af",
+      "manifest_sha256": "4fa674e02d39ab3ab7e673f01ec0c6794683e195235395a08327004474db7a16",
+      "retrieved_at": "2026-11-25T03:07:56.456028+00:00"
+    }
+  ],
+  "stream": "public-benchmark"
+}

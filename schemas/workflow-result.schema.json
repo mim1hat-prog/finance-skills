@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:finance-skills:workflow:result:1",
+  "title": "Finance workflow result contract",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "operation": {
+      "enum": [
+        "provision",
+        "artifact",
+        "readback",
+        "mapping",
+        "granularity",
+        "case-status",
+        "allocation-preflight"
+      ]
+    },
+    "evidenceStatus": {
+      "enum": [
+        "reconciled",
+        "validated",
+        "blocked",
+        "unverified"
+      ]
+    },
+    "actionState": {
+      "const": "not-executed"
+    },
+    "submissionState": {
+      "const": "not-established"
+    },
+    "scope": {
+      "const": "supplied-snapshots-and-evidence"
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "\\S"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "pattern": "\\S"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "code",
+          "detail"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 100000
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "snapshotId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "snapshotId",
+          "version",
+          "locator"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 100000
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "details": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0,
+      "maxItems": 100000
+    },
+    "nextAction": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "pattern": "\\S"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "operation",
+    "evidenceStatus",
+    "actionState",
+    "submissionState",
+    "scope",
+    "answer",
+    "issues",
+    "evidence",
+    "metrics",
+    "details",
+    "nextAction"
+  ],
+  "additionalProperties": false,
+  "description": "Separate evidence and action state. Reconciled means supplied values meet declared checks; it never means approved, posted or submitted. Full diagnostics stay in explicitly requested CLI output, not a new workbook sheet."
+}

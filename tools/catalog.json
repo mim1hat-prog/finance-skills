@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-25",
+  "scope": "Generic workflow support inventory; no listed connection is activated by this repository.",
+  "availabilityNotes": {
+    "user-reported": "The user reported access; native integration was not tested here.",
+    "partial-user-reported": "Python or Microsoft 365 Copilot was reported; SQL connections or Copilot Studio availability still require verification.",
+    "confirm-at-work": "Product, version, licensing, permissions and enabled capabilities must be confirmed.",
+    "optional-evaluation": "Candidate only; not assumed installed or approved.",
+    "capability-only": "The underlying proprietary software is not verified.",
+    "local-implementation": "Code exists in this repository; the service must be explicitly started locally."
+  },
+  "tools": [
+    {
+      "id": "excel",
+      "name": "Microsoft Excel",
+      "group": "Core finance",
+      "priority": "P0",
+      "availability": "user-reported",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Models, reconciliation, pivots and upload preparation",
+      "actions": [
+        "Trace formulas, named ranges, tables and pivots to the source",
+        "Preserve unrelated workbook structure; distinguish saved caches from evaluated formulas"
+      ],
+      "requiredEvidence": [
+        "Workbook/version",
+        "formula and recalculation evidence",
+        "approved scope"
+      ],
+      "skillIds": [
+        "excel-agent-core",
+        "excel-data-coverage",
+        "spreadsheet-modeling",
+        "workforce-reconciliation",
+        "provision-reconciliation"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "power-query",
+      "name": "Microsoft Power Query",
+      "group": "Core finance",
+      "priority": "P0",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Repeatable ingestion and repair of existing queries",
+      "actions": [
+        "Inspect the dependency chain and accepted baseline",
+        "Return complete affected M; validate protected rows and ordered schema"
+      ],
+      "requiredEvidence": [
+        "Query/dependency text",
+        "source-selection rules",
+        "native refresh and downstream parity"
+      ],
+      "skillIds": [
+        "power-query-etl",
+        "account-mapping"
+      ],
+      "researchIds": [
+        "tool-power-query"
+      ]
+    },
+    {
+      "id": "planning-analytics",
+      "name": "IBM Planning Analytics / TM1 / PAfE",
+      "group": "Core finance",
+      "priority": "P0",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Planning-cube reports and staged uploads",
+      "actions": [
+        "Identify report type and writeback mode before editing",
+        "Preserve managed regions and compare complete target intersections"
+      ],
+      "requiredEvidence": [
+        "Installed version and report type",
+        "model/cube and ordered dimensions",
+        "known-good read and independent readback"
+      ],
+      "skillIds": [
+        "connected-reporting",
+        "provision-reconciliation",
+        "fx-allocation-preflight"
+      ],
+      "researchIds": [
+        "tool-planning-analytics",
+        "tool-planning-writeback"
+      ]
+    },
+    {
+      "id": "sap-erp",
+      "name": "SAP ERP / SAP S/4HANA: FI, CO and CO-PA",
+      "group": "Core finance",
+      "priority": "P0",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Ledger, cost/profit centers, costing, inventory and allocation extracts",
+      "actions": [
+        "Validate accounting grain, scope, effective masters and duplicates",
+        "Prepare allocation checks without posting or substituting locked objects"
+      ],
+      "requiredEvidence": [
+        "Ledger/period/currency",
+        "approved extract and document keys",
+        "master validity and execution evidence"
+      ],
+      "skillIds": [
+        "close-controls",
+        "account-mapping",
+        "fx-allocation-preflight",
+        "connected-reporting"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "sap-bw-analysis",
+      "name": "SAP BW / Analysis for Microsoft Office",
+      "group": "Core finance",
+      "priority": "P0",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Repeatable reporting and workbook-based analysis",
+      "actions": [
+        "Capture variables, filters, hierarchies and units",
+        "Compare equal selections and distinguish saved values from refresh"
+      ],
+      "requiredEvidence": [
+        "Report variables and key date",
+        "source update and workbook refresh evidence",
+        "aggregation level"
+      ],
+      "skillIds": [
+        "connected-reporting",
+        "excel-data-coverage"
+      ],
+      "researchIds": [
+        "tool-sap-analysis"
+      ]
+    },
+    {
+      "id": "power-bi",
+      "name": "Power BI Desktop / Service, DAX and Power Query",
+      "group": "Core finance",
+      "priority": "P1",
+      "availability": "user-reported",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Semantic models and finance dashboards",
+      "actions": [
+        "Trace measures, filters, source dependencies and detailed totals",
+        "Separate data refresh, publication and reader visibility"
+      ],
+      "requiredEvidence": [
+        "Model grain/relationships",
+        "DAX and filter context",
+        "source/model/visual refresh evidence"
+      ],
+      "skillIds": [
+        "power-bi-analysis",
+        "power-query-etl",
+        "forecast-variance"
+      ],
+      "researchIds": [
+        "tool-power-bi"
+      ]
+    },
+    {
+      "id": "fabric",
+      "name": "Microsoft Fabric",
+      "group": "Core finance",
+      "priority": "P1",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Dataflows, pipelines, notebooks and lakehouse tables",
+      "actions": [
+        "Locate the first stale/failed dependency",
+        "Validate keys, period coverage, corrections and incremental-refresh assumptions"
+      ],
+      "requiredEvidence": [
+        "Actual lineage and coverage limits",
+        "run status and source snapshot",
+        "downstream control totals"
+      ],
+      "skillIds": [
+        "power-bi-analysis",
+        "power-query-etl",
+        "reproducible-analysis"
+      ],
+      "researchIds": [
+        "tool-fabric"
+      ]
+    },
+    {
+      "id": "sharepoint-onedrive",
+      "name": "SharePoint / OneDrive",
+      "group": "Workflow and delivery",
+      "priority": "P0",
+      "availability": "user-reported",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Authoritative files, approved templates and version history",
+      "actions": [
+        "Resolve working versus approved or frozen copies",
+        "Preserve permissions and keep work files outside the public repository"
+      ],
+      "requiredEvidence": [
+        "Source locator/version",
+        "approval or submission evidence",
+        "actual access scope"
+      ],
+      "skillIds": [
+        "sharepoint-evidence",
+        "evidence-research",
+        "project-context"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "m365-context",
+      "name": "Teams / Outlook / OneNote",
+      "group": "Workflow and delivery",
+      "priority": "P1",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Handoffs, decisions, deadlines and confirmations",
+      "actions": [
+        "Find the authoritative decision, role, deadline and next action",
+        "Keep agreed, implemented and confirmed complete separate"
+      ],
+      "requiredEvidence": [
+        "Message/document version",
+        "owner role and effective decision",
+        "numeric evidence from approved sources"
+      ],
+      "skillIds": [
+        "project-context",
+        "sharepoint-evidence",
+        "close-controls",
+        "provision-reconciliation"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "forms-automate",
+      "name": "Microsoft Forms / Power Automate",
+      "group": "Workflow and delivery",
+      "priority": "P1",
+      "availability": "confirm-at-work",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Structured submissions, routing and notifications",
+      "actions": [
+        "Validate fields and duplicate-notification controls",
+        "Distinguish a draft action from a send and inspect failed connections"
+      ],
+      "requiredEvidence": [
+        "Flow ownership/connections",
+        "approved routing and action scope",
+        "independent completion receipt"
+      ],
+      "skillIds": [
+        "work-tool-routing",
+        "close-controls",
+        "project-context"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "powerpoint",
+      "name": "Microsoft PowerPoint",
+      "group": "Workflow and delivery",
+      "priority": "P1",
+      "availability": "confirm-at-work",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Editable decision slides and management commentary",
+      "actions": [
+        "Use validated figures and the approved template",
+        "Keep baseline and signs consistent; state driver, impact and decision"
+      ],
+      "requiredEvidence": [
+        "Source tie-out",
+        "audience/template",
+        "actual editable output"
+      ],
+      "skillIds": [
+        "management-presentation",
+        "corporate-style",
+        "forecast-variance"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "copilot",
+      "name": "Microsoft 365 Copilot / Copilot Studio",
+      "group": "Workflow and delivery",
+      "priority": "P0",
+      "availability": "partial-user-reported",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Agent entry point, retrieval and orchestration",
+      "actions": [
+        "Route by finance workflow and available capabilities",
+        "Separate retrieval, calculation, preparation and action authorization"
+      ],
+      "requiredEvidence": [
+        "Actual host and enabled tools",
+        "approved connection scope",
+        "native task verification"
+      ],
+      "skillIds": [
+        "work-tool-routing",
+        "excel-agent-core",
+        "connected-reporting"
+      ],
+      "researchIds": [
+        "tool-m365"
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini Apps / approved Gems",
+      "group": "Workflow and delivery",
+      "priority": "P0",
+      "availability": "user-reported",
+      "repositorySupport": "instructions-and-export-checks",
+      "financeUse": "Alternative skill entry point and snapshot analysis",
+      "actions": [
+        "Use the account-supported skill or Instructions route",
+        "Inspect approved exports when enterprise/native capabilities are absent"
+      ],
+      "requiredEvidence": [
+        "Actual account features",
+        "authorized input files",
+        "import and representative task"
+      ],
+      "skillIds": [
+        "work-tool-routing",
+        "excel-agent-core",
+        "benchmark-lookup"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "git-github",
+      "name": "Git / GitHub Enterprise / GitHub Desktop",
+      "group": "Workflow and delivery",
+      "priority": "P0",
+      "availability": "confirm-at-work",
+      "repositorySupport": "local-code",
+      "financeUse": "Versioned code, skills, fixtures and releases",
+      "actions": [
+        "Track canonical changes and run deterministic release gates",
+        "Keep live company configuration and artifacts out of shareable history"
+      ],
+      "requiredEvidence": [
+        "Current branch/head",
+        "reviewed diff and test results",
+        "authorized publication destination"
+      ],
+      "skillIds": [
+        "project-context",
+        "reproducible-analysis"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "vscode",
+      "name": "Visual Studio Code",
+      "group": "Workflow and delivery",
+      "priority": "P1",
+      "availability": "user-reported",
+      "repositorySupport": "local-code",
+      "financeUse": "Editing and running reviewed local scripts",
+      "actions": [
+        "Use the approved local interpreter",
+        "Distinguish editor availability from coding-agent subscriptions or production access"
+      ],
+      "requiredEvidence": [
+        "Interpreter and dependencies",
+        "input/output scope",
+        "actual execution result"
+      ],
+      "skillIds": [
+        "reproducible-analysis",
+        "power-query-etl",
+        "analytical-sql"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "python-sql",
+      "name": "Python / SQL",
+      "group": "Additional analytics",
+      "priority": "P0",
+      "availability": "partial-user-reported",
+      "repositorySupport": "local-code",
+      "financeUse": "Deterministic checks over authorized exports",
+      "actions": [
+        "Validate schemas, joins, mappings, weights and row-level residuals",
+        "Run synthetic regressions before considering a live connection"
+      ],
+      "requiredEvidence": [
+        "Local interpreter or approved SQL engine",
+        "dataset and explicit grain",
+        "actual execution and input immutability"
+      ],
+      "skillIds": [
+        "reproducible-analysis",
+        "analytical-sql",
+        "account-mapping",
+        "connected-reporting"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "duckdb",
+      "name": "DuckDB",
+      "group": "Additional analytics",
+      "priority": "P1",
+      "availability": "optional-evaluation",
+      "repositorySupport": "local-code",
+      "financeUse": "Local SQL on approved CSV/Parquet exports",
+      "actions": [
+        "Use the optional pinned local helper or reviewed query",
+        "Reconcile scope and keys without claiming a size/performance guarantee"
+      ],
+      "requiredEvidence": [
+        "Approved installation",
+        "exact file/schema",
+        "full-population controls"
+      ],
+      "skillIds": [
+        "analytical-sql",
+        "reproducible-analysis"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "knime",
+      "name": "KNIME Analytics Platform",
+      "group": "Additional analytics",
+      "priority": "P2",
+      "availability": "optional-evaluation",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Maintainable low-code preparation and joins",
+      "actions": [
+        "Evaluate only when the team can maintain and approve the workflow"
+      ],
+      "requiredEvidence": [
+        "Available licensed/approved environment",
+        "workflow ownership",
+        "known-good outputs and failure cases"
+      ],
+      "skillIds": [
+        "power-query-etl",
+        "reproducible-analysis"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks SQL / Unity Catalog",
+      "group": "Additional analytics",
+      "priority": "P2",
+      "availability": "optional-evaluation",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Governed SQL, lineage and reusable datasets",
+      "actions": [
+        "Add an adapter only for actual approved datasets and permissions"
+      ],
+      "requiredEvidence": [
+        "Dataset identifiers kept private",
+        "approved connection",
+        "lineage and query controls"
+      ],
+      "skillIds": [
+        "analytical-sql",
+        "power-bi-analysis"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "sap-cloud",
+      "name": "SAP Analytics Cloud / SAP Datasphere",
+      "group": "Additional analytics",
+      "priority": "P2",
+      "availability": "optional-evaluation",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Optional semantic modeling and scenario analysis",
+      "actions": [
+        "Evaluate integration against the established reporting process"
+      ],
+      "requiredEvidence": [
+        "Available services and models",
+        "approved source/semantic definitions",
+        "process-owner acceptance"
+      ],
+      "skillIds": [
+        "scenario-planning",
+        "connected-reporting"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "power-apps",
+      "name": "Microsoft Power Apps",
+      "group": "Additional analytics",
+      "priority": "P2",
+      "availability": "optional-evaluation",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Structured exception intake and confirmations",
+      "actions": [
+        "Keep analytical review, approvals and writes distinct"
+      ],
+      "requiredEvidence": [
+        "Approved app/flow ownership",
+        "access and routing",
+        "write and readback controls"
+      ],
+      "skillIds": [
+        "work-tool-routing",
+        "close-controls"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "public-interfaces",
+      "name": "REST / OpenAPI / SDMX / CSV",
+      "group": "Additional analytics",
+      "priority": "P1",
+      "availability": "local-implementation",
+      "repositorySupport": "local-code",
+      "financeUse": "Public benchmark dataset and read-only local API",
+      "actions": [
+        "Query validated immutable snapshots without provider calls per request",
+        "Preserve series, units, periods, rights, vintage and transformation lineage"
+      ],
+      "requiredEvidence": [
+        "Rights-reviewed source",
+        "series and snapshot ID",
+        "freshness and as-of availability"
+      ],
+      "skillIds": [
+        "benchmark-lookup",
+        "forecast-variance",
+        "fx-allocation-preflight"
+      ],
+      "researchIds": [
+        "openapi-3.1",
+        "rfc9457",
+        "ecb-exr-api"
+      ]
+    },
+    {
+      "id": "close-task-tracker",
+      "name": "Close task tracker",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Deadlines, dependencies and completion evidence",
+      "actions": [
+        "Keep ready, transferred, reviewed and closed separately evidenced"
+      ],
+      "requiredEvidence": [
+        "Approved calendar and task version",
+        "owner role and completion receipt"
+      ],
+      "skillIds": [
+        "close-controls"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "workforce-planning",
+      "name": "Workforce planning system",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Headcount, FTE, hiring status and movements",
+      "actions": [
+        "Separate staffing approval from confirmed forecast movement"
+      ],
+      "requiredEvidence": [
+        "Effective population and dates",
+        "approved movement status"
+      ],
+      "skillIds": [
+        "workforce-reconciliation"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "cost-driver-planning",
+      "name": "Cost-driver planning system",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Assumptions, baselines and overrides",
+      "actions": [
+        "Verify the exact version used by the forecast"
+      ],
+      "requiredEvidence": [
+        "Approved assumption version",
+        "scope and source snapshot"
+      ],
+      "skillIds": [
+        "forecast-variance",
+        "scenario-planning"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "customer-forecast",
+      "name": "Customer forecast or order feed",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Product demand and short-horizon schedules",
+      "actions": [
+        "Keep orders, customer forecasts and approved financial forecasts distinct"
+      ],
+      "requiredEvidence": [
+        "Product-level grain",
+        "period/version and demand category"
+      ],
+      "skillIds": [
+        "forecast-variance"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "warranty-claims",
+      "name": "Warranty or claims system",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Case status, ownership and confirmations",
+      "actions": [
+        "Do not infer reserves, invoices or payments from operational status"
+      ],
+      "requiredEvidence": [
+        "Case owner, requested scope and confirmation date",
+        "separate numeric support"
+      ],
+      "skillIds": [
+        "provision-reconciliation"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "master-access",
+      "name": "Master-data and access workflow",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Approved mappings, validity, locks and permissions",
+      "actions": [
+        "Stop on missing approval or locks without substituting objects"
+      ],
+      "requiredEvidence": [
+        "Approved mapping/version",
+        "effective dates and permission/lock evidence"
+      ],
+      "skillIds": [
+        "account-mapping",
+        "fx-allocation-preflight"
+      ],
+      "researchIds": []
+    },
+    {
+      "id": "allocation-system",
+      "name": "Transfer-pricing or allocation system",
+      "group": "Unverified product: capability labels",
+      "priority": "P1",
+      "availability": "capability-only",
+      "repositorySupport": "candidate-only",
+      "financeUse": "Approved rules, run parameters and receipts",
+      "actions": [
+        "Check configuration and totals separately from actual execution"
+      ],
+      "requiredEvidence": [
+        "Approved sender/receiver sets",
+        "weights and prior-run status",
+        "independent receipt/readback"
+      ],
+      "skillIds": [
+        "fx-allocation-preflight",
+        "connected-reporting"
+      ],
+      "researchIds": []
+    }
+  ]
+}

@@ -17,6 +17,24 @@ Do not promise that a skill can run with Canvas or Deep Research. If one of thos
 
 Use native Skills if the work account exposes Customize > Skills. Google documentation currently differs on work-account rollout, so check the account rather than infer availability. If Skills is absent but Gems is available, place the workflow in the Gem's Instructions; a knowledge attachment alone does not make it an instruction. Otherwise paste the task instructions into an approved conversation. Imported skills and Gem instructions do not automatically track GitHub; replace the existing copy after an update.
 
+## Shared workflow controls
+
+Use all relevant available, authorized capabilities needed for the objective. For company questions, retrieve enterprise evidence first. Before treating a missing search result as missing data, inspect the source content and try a materially different query, period, linked reference or responsible-source route. Continue while another available step can resolve a material uncertainty; do not repeat unchanged searches or browse unrelated sources to inflate coverage. Use an available deeper research/reasoning mode when appropriate and supported; instructions cannot select a hidden mode, grant permissions or exceed platform limits.
+
+Independently recheck consequential results with a second calculation, source record or alternative method. Rereading the same answer is not an independent check. Investigate contradictions and failed checks, correct them, then rerun the affected checks. Finish when the requested scope is complete and material claims are supported, or report the specific unresolved gap after useful retrieval routes are exhausted. At a host limit, preserve the objective, source locators, versions, decisions and pending work in a compact continuation; never claim that unseen work was completed. Keep this diligence internal and the final response precise.
+
+Keep three streams distinct: approved internal figures; internal workflow status; public benchmarks. An internal blank stays unresolved until the authorized source supplies it. A benchmark can challenge an assumption but cannot become an actual, approved forecast, booked rate, mapping, case confirmation or close receipt.
+
+Before comparing numbers, align period and cutoff/timezone, scenario and version, entities, accounting/reporting basis, currency/unit, sign convention and source snapshot. Keep a requested frozen submission separate from newer working files. Record exact source locations and what each source establishes in working context; do not create an audit artifact merely to store these checks.
+
+Validate business keys, join cardinality, effective dates, gross movements and detailed coordinates as well as totals. Normalize units/signs only from explicit declarations. Calculate residuals at source precision and use an approved, versioned, effective tolerance. An unexplained residual is not rounding by default.
+
+Preserve the baseline workbook/query, protected records, ordered names/types, formulas, load targets, add-in regions and downstream consumers outside the requested change. Successful refresh alone does not establish population or interface parity. Return complete replacement code only for the affected existing scope when code is requested.
+
+Keep evidence state separate from action state: found, calculated, refreshed, uploaded, reconciled, approved and submitted require different evidence. Default to inspection/preparation. For an authorized write, reuse authorization that covers the exact target and payload, check preconditions and verify independently. If the outcome is uncertain or a write times out, read back before retrying; do not substitute locked or unapproved objects. Local validation helpers execute no enterprise writes.
+
+Return the useful answer concisely: approved result, verified internal driver, relevant public benchmark, then material residual/blocker and next source. State only the statuses supported by evidence. Keep diagnostic detail in working context; do not add unsolicited sheets, audit tables, comments, queries, logs or process narration.
+
 Turn supplied source files into a repeatable, traceable dataset with explicit exceptions. Work with the user's actual schema and approved sources. Use Power Query when available; otherwise return precise M code or numbered editor steps and label them as unexecuted. Local Python can prepare or inspect approved exports, but this skill does not grant access to the user's Windows PC or install packages.
 
 ## Establish the data contract
@@ -26,6 +44,10 @@ Confirm the output grain, reporting period, entity scope, currency, amount sign,
 For each input, capture its filename or approved tenant locator, sheet/table, version or modified time, period, extract timestamp, row count and amount totals by currency. Keep company paths, credentials and data inside the approved work environment. Do not embed authentication tokens in M code or public documentation.
 
 ## Build the pipeline
+
+For a repair, inspect the actual dependency graph first: parameters, source queries, helper functions, referenced queries, loaded tables, named ranges, formulas and downstream BI consumers. Capture the accepted baseline and protect history, planning records, scenario labels, ordered column names/types, keys and load targets outside the authorized change. Diagnose the first failure separately in source selection, access, headers/types, join, transformation, load or recalculation.
+
+Choose append versus replacement from the approved change. A full rebuild is not implied by a request to fix one source or period. Return complete, paste-ready replacement M for the affected existing query when code is requested, with its dependencies and parameters identified. Do not create additional queries or worksheets just to demonstrate a repair.
 
 1. **Inventory before combining.** List candidate files. Apply explicit folder, extension, naming and period filters before opening binaries. Exclude temporary lock files, archived versions, generated outputs and unrelated subfolders using visible rules. Report exclusions and counts. Select a representative sample with all required columns; the first file is not automatically the right sample.
 2. **Separate stages.** Keep source discovery, per-file parsing, standardization, mapping, validation and final output distinguishable. Preserve source filename and source row/key through the transformations. Add descriptive step names and parameters for dates and approved locations; avoid personal hard-coded paths.
@@ -47,6 +69,8 @@ For refresh errors, report the failing step, exact observed error, affected popu
 
 ## Deliver
 
+Check both population parity and interface parity against the accepted baseline. A refresh that drops protected planning records, changes an existing scenario's meaning, renames/reorders a downstream field or changes a load target fails compatibility even when it finishes successfully. Keep static code review, native refresh, recalculation and downstream regression results separate; do not claim tests that the current host could not perform. Do not replace the accepted output when a required compatibility check fails.
+
 Return the requested working query/result or paste-ready M/editor steps with execution status. Briefly state the resulting grain, necessary source references/parameters, and material exclusions, errors, stale data or residuals. Keep the source inventory and stage checks internal; deliver a full inventory, exception table, audit log or validation report only when requested. Include next-period instructions only when needed to use the requested workflow.
 
 Example request: “Combine these monthly ledger CSVs into an Actual table for Power BI. Preserve account codes, exclude archive and temporary files, flag schema changes, and reconcile totals for each entity and currency.”
@@ -55,4 +79,4 @@ Use the official [combine-files guide](https://learn.microsoft.com/en-us/power-q
 
 ## Edition record
 
-Finance skills 1.1.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.2.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

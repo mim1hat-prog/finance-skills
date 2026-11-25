@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "transport-bundle-index",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "reviewedOn": "2026-11-25",
   "import": "Extract the outer archive; native imports remain individual skills.",
   "bundles": [
@@ -11,11 +11,11 @@
       "editions": [
         "copilot"
       ],
-      "skillCount": 25,
-      "packageCount": 25,
-      "fileCount": 54,
-      "sha256": "3d5e9c83523bed76d9dc0415a6bdb44c33ef3e4705fd96fe1bfe52d2d47445ac",
-      "bytes": 222180
+      "skillCount": 29,
+      "packageCount": 29,
+      "fileCount": 62,
+      "sha256": "1d56ef90191eabfecbacf2034c6025bda525e61343f4d6cc0be256a173f1c30f",
+      "bytes": 330808
     },
     {
       "name": "finance-skills-gemini",
@@ -23,11 +23,11 @@
       "editions": [
         "gemini"
       ],
-      "skillCount": 25,
-      "packageCount": 25,
-      "fileCount": 79,
-      "sha256": "b2db9c87618fea589f6e2fbd51885f67f6a53b94ded2c58e50d743642de524c8",
-      "bytes": 325985
+      "skillCount": 29,
+      "packageCount": 29,
+      "fileCount": 91,
+      "sha256": "7353c08ec1fba524b920dc47c91eb7d2021e3fd6a5c88c92c010d523ea402aaa",
+      "bytes": 488232
     },
     {
       "name": "finance-skills-all",
@@ -36,11 +36,11 @@
         "copilot",
         "gemini"
       ],
-      "skillCount": 25,
-      "packageCount": 50,
-      "fileCount": 130,
-      "sha256": "d8e7689083311c8c634556251f472f1af028d297b18a9e57fcfff9b13690644b",
-      "bytes": 544275
+      "skillCount": 29,
+      "packageCount": 58,
+      "fileCount": 150,
+      "sha256": "81ef7f05226292b54d47fa2dd019b3be298eceb575540f5c1915cb3c05117f92",
+      "bytes": 814387
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "data_class": "synthetic",
+  "files": [
+    {
+      "bytes": 1168,
+      "path": "observations.csv",
+      "sha256": "051c8b90257569c9bec8e564e41865acf3658bb188fb67339a1a37e1875a97a0"
+    },
+    {
+      "bytes": 4595,
+      "path": "snapshot.json",
+      "sha256": "a1119fac8c08ed211d5439f373f7a922fe663500fd0c7d75b0230b87421048c3"
+    }
+  ],
+  "schema_version": "1.0",
+  "snapshot_id": "20240402t090000z-1bfd72bc3fe6aaad"
+}

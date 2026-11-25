@@ -1,0 +1,1062 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:finance-skills:workflow:request:1",
+  "title": "Finance workflow request contract",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "provision"
+        },
+        "requiredVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "\\S"
+        },
+        "movementConvention": {
+          "const": "signed-increases-positive"
+        },
+        "tolerance": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "amount": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            },
+            "effectiveFrom": {
+              "type": "string",
+              "format": "date"
+            },
+            "effectiveTo": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "amount",
+            "effectiveFrom",
+            "effectiveTo"
+          ],
+          "additionalProperties": false
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "enum": [
+                  "overview",
+                  "detail",
+                  "upload",
+                  "readback"
+                ]
+              },
+              "context": {
+                "$ref": "workflow-context.schema.json"
+              },
+              "movements": {
+                "type": "object",
+                "properties": {
+                  "opening": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  "additions": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  "releases": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  "utilization": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  "other": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  "closing": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  }
+                },
+                "required": [
+                  "opening",
+                  "additions",
+                  "releases",
+                  "utilization",
+                  "other",
+                  "closing"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "context",
+              "movements"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2,
+          "maxItems": 4
+        },
+        "explanations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fromStage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "toStage": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "movement": {
+                "enum": [
+                  "opening",
+                  "additions",
+                  "releases",
+                  "utilization",
+                  "other"
+                ]
+              },
+              "amount": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              "evidenceRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "pattern": "\\S"
+              },
+              "componentId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              }
+            },
+            "required": [
+              "fromStage",
+              "toStage",
+              "movement",
+              "amount",
+              "evidenceRef"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 100000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "requiredVersion",
+        "movementConvention",
+        "tolerance",
+        "stages",
+        "explanations"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "artifact"
+        },
+        "baseline": {
+          "$ref": "workflow-artifact.schema.json"
+        },
+        "candidate": {
+          "$ref": "workflow-artifact.schema.json"
+        },
+        "changeMode": {
+          "enum": [
+            "append",
+            "replace-scoped"
+          ]
+        },
+        "scopeKeys": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "minItems": 1,
+            "maxItems": 128
+          },
+          "minItems": 0,
+          "maxItems": 100000,
+          "uniqueItems": true
+        },
+        "protectedKeys": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "minItems": 1,
+            "maxItems": 128
+          },
+          "minItems": 1,
+          "maxItems": 100000,
+          "uniqueItems": true
+        },
+        "refresh": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "not-run",
+                "succeeded",
+                "failed"
+              ]
+            },
+            "locator": {
+              "type": "string",
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "status",
+            "locator"
+          ],
+          "additionalProperties": false
+        },
+        "downstreamChecks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "status": {
+                "enum": [
+                  "not-run",
+                  "passed",
+                  "failed"
+                ]
+              },
+              "locator": {
+                "type": "string",
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "name",
+              "status",
+              "locator"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 100000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "baseline",
+        "candidate",
+        "changeMode",
+        "scopeKeys",
+        "protectedKeys",
+        "refresh",
+        "downstreamChecks"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "readback"
+        },
+        "expected": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "$ref": "workflow-context.schema.json"
+            },
+            "model": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "dimensions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "minItems": 1,
+              "maxItems": 128,
+              "uniqueItems": true
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "members": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "\\S"
+                    },
+                    "minItems": 1,
+                    "maxItems": 128
+                  },
+                  "value": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120,
+                        "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "members",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 100000
+            }
+          },
+          "required": [
+            "context",
+            "model",
+            "dimensions",
+            "rows"
+          ],
+          "additionalProperties": false
+        },
+        "observed": {
+          "type": "object",
+          "properties": {
+            "context": {
+              "$ref": "workflow-context.schema.json"
+            },
+            "model": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "dimensions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "minItems": 1,
+              "maxItems": 128,
+              "uniqueItems": true
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "members": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 128,
+                      "pattern": "\\S"
+                    },
+                    "minItems": 1,
+                    "maxItems": 128
+                  },
+                  "value": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120,
+                        "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "members",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 100000
+            }
+          },
+          "required": [
+            "context",
+            "model",
+            "dimensions",
+            "rows"
+          ],
+          "additionalProperties": false
+        },
+        "read": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "enum": [
+                "live",
+                "cached",
+                "failed",
+                "not-attempted"
+              ]
+            },
+            "knownGoodRead": {
+              "type": "boolean"
+            },
+            "independent": {
+              "type": "boolean"
+            },
+            "errorSuppressed": {
+              "type": "boolean"
+            },
+            "readAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "locator": {
+              "type": "string",
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "state",
+            "knownGoodRead",
+            "independent",
+            "errorSuppressed",
+            "readAt",
+            "locator"
+          ],
+          "additionalProperties": false
+        },
+        "tolerance": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "amount": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            },
+            "effectiveFrom": {
+              "type": "string",
+              "format": "date"
+            },
+            "effectiveTo": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "amount",
+            "effectiveFrom",
+            "effectiveTo"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "expected",
+        "observed",
+        "read",
+        "tolerance"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "mapping"
+        },
+        "context": {
+          "$ref": "workflow-context.schema.json"
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "maxItems": 100000,
+          "uniqueItems": true
+        },
+        "requiredFields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "fields": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 4096
+                }
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date"
+              },
+              "validTo": {
+                "type": "string",
+                "format": "date"
+              },
+              "approvalRef": {
+                "type": "string",
+                "maxLength": 4096
+              }
+            },
+            "required": [
+              "key",
+              "fields",
+              "validFrom",
+              "validTo",
+              "approvalRef"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 100000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "context",
+        "keys",
+        "requiredFields",
+        "rules"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "granularity"
+        },
+        "context": {
+          "$ref": "workflow-context.schema.json"
+        },
+        "measure": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "\\S"
+        },
+        "availableDimensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "maxItems": 128,
+          "uniqueItems": true
+        },
+        "requiredDimensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "context",
+        "measure",
+        "availableDimensions",
+        "requiredDimensions"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "case-status"
+        },
+        "context": {
+          "$ref": "workflow-context.schema.json"
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "scope": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "ownerRole": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "\\S"
+              },
+              "status": {
+                "enum": [
+                  "not-requested",
+                  "awaiting-confirmation",
+                  "confirmed-none",
+                  "cases-received"
+                ]
+              },
+              "caseCount": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "confirmedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "evidenceRef": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "pattern": "\\S"
+              }
+            },
+            "required": [
+              "scope",
+              "ownerRole",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 100000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "context",
+        "cases"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "fixtureOrigin": {
+          "const": "independently-invented"
+        },
+        "operation": {
+          "const": "allocation-preflight"
+        },
+        "context": {
+          "$ref": "workflow-context.schema.json"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096,
+          "pattern": "\\S"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "sender": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "amount": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            },
+            "configurationVersion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "receivers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "member": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "\\S"
+                  },
+                  "weight": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  }
+                },
+                "required": [
+                  "member",
+                  "weight"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 100000
+            }
+          },
+          "required": [
+            "sender",
+            "amount",
+            "configurationVersion",
+            "receivers"
+          ],
+          "additionalProperties": false
+        },
+        "approval": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096,
+              "pattern": "\\S"
+            },
+            "payloadSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "expiresAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "evidenceRef": {
+              "type": "string",
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "target",
+            "payloadSha256",
+            "expiresAt",
+            "evidenceRef"
+          ],
+          "additionalProperties": false
+        },
+        "configuration": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            },
+            "validFrom": {
+              "type": "string",
+              "format": "date"
+            },
+            "validTo": {
+              "type": "string",
+              "format": "date"
+            },
+            "membershipEvidence": {
+              "type": "string",
+              "maxLength": 4096
+            },
+            "permissionEvidence": {
+              "type": "string",
+              "maxLength": 4096
+            },
+            "lockState": {
+              "enum": [
+                "unlocked",
+                "locked",
+                "unknown"
+              ]
+            },
+            "receivers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "member": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "\\S"
+                  },
+                  "weight": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120,
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  }
+                },
+                "required": [
+                  "member",
+                  "weight"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 100000
+            },
+            "sender": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "\\S"
+            }
+          },
+          "required": [
+            "version",
+            "validFrom",
+            "validTo",
+            "membershipEvidence",
+            "permissionEvidence",
+            "lockState",
+            "receivers",
+            "sender"
+          ],
+          "additionalProperties": false
+        },
+        "priorRun": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "confirmed-not-executed",
+                "executed",
+                "unknown"
+              ]
+            },
+            "checkedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "evidenceRef": {
+              "type": "string",
+              "maxLength": 4096
+            },
+            "target": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096,
+              "pattern": "\\S"
+            },
+            "payloadSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "status",
+            "checkedAt",
+            "evidenceRef",
+            "target",
+            "payloadSha256"
+          ],
+          "additionalProperties": false
+        },
+        "lastAttempt": {
+          "type": "object",
+          "properties": {
+            "outcome": {
+              "const": "timed-out"
+            },
+            "at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "outcome",
+            "at"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "operation",
+        "context",
+        "target",
+        "payload",
+        "approval",
+        "configuration",
+        "priorRun"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "description": "Exactly one read-only operation. This contract describes supplied inputs and evidence; it cannot authenticate enterprise access or execute, approve or submit a transaction."
+}

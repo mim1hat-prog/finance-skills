@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "fixtureOrigin": "independently-invented",
+  "operation": "artifact",
+  "baseline": {
+    "context": {
+      "schemaVersion": 1,
+      "workflow": "workforce-query-check",
+      "period": "2032-04",
+      "cutoff": "2032-04-30T18:00:00Z",
+      "scenario": "forecast",
+      "version": "scenario-f1",
+      "entities": [
+        "DEMO-UNIT-A"
+      ],
+      "basis": "synthetic-management-view",
+      "currency": "USD",
+      "unitScale": "1",
+      "signMultiplier": 1,
+      "stream": "approved_internal_figures",
+      "sourceSnapshot": {
+        "id": "accepted-workforce",
+        "version": "accepted-workforce-revision-1",
+        "asOf": "2032-04-29T10:00:00Z",
+        "kind": "observed",
+        "locator": "urn:synthetic:accepted-workforce"
+      },
+      "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+    },
+    "columns": [
+      {
+        "name": "period",
+        "type": "text"
+      },
+      {
+        "name": "person",
+        "type": "text"
+      },
+      {
+        "name": "scenario",
+        "type": "text"
+      },
+      {
+        "name": "hours",
+        "type": "decimal"
+      },
+      {
+        "name": "amount",
+        "type": "decimal"
+      }
+    ],
+    "keyColumns": [
+      "period",
+      "person",
+      "scenario"
+    ],
+    "rows": [
+      {
+        "period": "2032-03",
+        "person": "sample-a",
+        "scenario": "actual",
+        "hours": "128",
+        "amount": "3600"
+      },
+      {
+        "period": "2032-05",
+        "person": "sample-a",
+        "scenario": "plan",
+        "hours": "120",
+        "amount": "3300"
+      },
+      {
+        "period": "2032-04",
+        "person": "sample-b",
+        "scenario": "actual",
+        "hours": "132",
+        "amount": "3700"
+      }
+    ],
+    "formulas": {
+      "ReportTotal": "=SUM(ApprovedOutput[amount])"
+    },
+    "loadTargets": [
+      "ApprovedOutput"
+    ],
+    "dependencies": {
+      "ApprovedOutput": [
+        "SourceExport",
+        "EffectiveMapping"
+      ],
+      "ManagementView": [
+        "ApprovedOutput"
+      ]
+    }
+  },
+  "candidate": {
+    "context": {
+      "schemaVersion": 1,
+      "workflow": "workforce-query-check",
+      "period": "2032-04",
+      "cutoff": "2032-04-30T18:00:00Z",
+      "scenario": "forecast",
+      "version": "scenario-f1",
+      "entities": [
+        "DEMO-UNIT-A"
+      ],
+      "basis": "synthetic-management-view",
+      "currency": "USD",
+      "unitScale": "1",
+      "signMultiplier": 1,
+      "stream": "approved_internal_figures",
+      "sourceSnapshot": {
+        "id": "candidate-workforce",
+        "version": "candidate-workforce-revision-1",
+        "asOf": "2032-04-29T10:00:00Z",
+        "kind": "observed",
+        "locator": "urn:synthetic:candidate-workforce"
+      },
+      "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+    },
+    "columns": [
+      {
+        "name": "period",
+        "type": "text"
+      },
+      {
+        "name": "person",
+        "type": "text"
+      },
+      {
+        "name": "scenario",
+        "type": "text"
+      },
+      {
+        "name": "capacity",
+        "type": "decimal"
+      },
+      {
+        "name": "amount",
+        "type": "decimal"
+      }
+    ],
+    "keyColumns": [
+      "period",
+      "person",
+      "scenario"
+    ],
+    "rows": [
+      {
+        "period": "2032-03",
+        "person": "sample-a",
+        "scenario": "actual",
+        "amount": "3600",
+        "capacity": "128"
+      },
+      {
+        "period": "2032-04",
+        "person": "sample-b",
+        "scenario": "actual",
+        "amount": "3700",
+        "capacity": "132"
+      }
+    ],
+    "formulas": {
+      "ReportTotal": "=SUM(ApprovedOutput[amount])"
+    },
+    "loadTargets": [
+      "ApprovedOutput"
+    ],
+    "dependencies": {
+      "ApprovedOutput": [
+        "SourceExport",
+        "EffectiveMapping"
+      ],
+      "ManagementView": [
+        "ApprovedOutput"
+      ]
+    }
+  },
+  "changeMode": "append",
+  "scopeKeys": [],
+  "protectedKeys": [
+    [
+      "2032-03",
+      "sample-a",
+      "actual"
+    ],
+    [
+      "2032-05",
+      "sample-a",
+      "plan"
+    ]
+  ],
+  "refresh": {
+    "status": "succeeded",
+    "locator": "urn:synthetic:refresh-observation"
+  },
+  "downstreamChecks": [
+    {
+      "name": "management-view",
+      "status": "passed",
+      "locator": "urn:synthetic:synthetic-check-claim"
+    }
+  ]
+}

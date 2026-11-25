@@ -23,10 +23,15 @@ SEMVER = re.compile(r"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\Z")
 REPOSITORY = re.compile(r"https://github\.com/([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)\Z")
 ROOT_FILES = {
     ".gitattributes", ".gitignore", "AGENTS.md", "CHANGELOG.md", "DESIGN.md",
-    "LICENSE", "NOTICE", "PRODUCT.md", "README.md", "SKILLS.md", "catalog.json",
+    "LICENSE", "NOTICE", "PRODUCT.md", "README.md", "SKILLS.md", "TOOLS.md", "catalog.json",
+    "CITATION.cff", "CONTRIBUTING.md", "SECURITY.md",
     "upstream.lock.json", "requirements.txt", "requirements-duckdb.txt", "requirements-xlsx.txt",
 }
 DIRECTORIES = {
+    "api": {".yaml", ".yml", ".json", ".md"},
+    "benchmarks": {".json", ".csv", ".md", ".txt"},
+    "research": {".json", ".yaml", ".yml", ".md", ".txt"},
+    "schemas": {".json"}, "tools": {".json", ".md"},
     "adapters": {".md"}, "assets": {".svg", ".png", ".jpg", ".jpeg", ".webp", ".txt", ".md"},
     "branding": {".css", ".json", ".svg", ".png", ".md", ".txt", ""},
     "docs": {".md", ".txt", ".json", ".svg", ".png"}, "editions": {".md", ".txt"},
@@ -197,6 +202,9 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
     notes = sources[notes_path].decode("utf-8")
     notes_body = embedded_notes(notes, version)
     verify_build(root, sources)
+    if catalog.get("workflowContractsVersion") is not None:
+        import project_gates
+        project_gates.validate(root, sources=sources)
     if collect_project(root) != sources:
         raise ReleaseError("Project changed while preparing the release; retry after edits finish")
     prefix = f"finance-skills-v{version}"

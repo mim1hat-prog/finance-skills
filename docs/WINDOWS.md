@@ -4,7 +4,7 @@ This repository supports two independent paths: import a portable skill into you
 
 ## Get the files
 
-Download the [full versioned release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip), extract it into an approved work folder and open that folder in VS Code. It includes all skills, packages, guides, the catalogue and local tools. Use the [release checksums](RELEASES.md) to verify the download. Git is optional. You can also use GitHub's **Code → Download ZIP** for the current repository tree. If Git is installed and you cloned the repository, use `git pull --ff-only` from a clean checkout to obtain reviewed updates.
+Download the [full versioned release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip), extract it into an approved work folder and open that folder in VS Code. It includes all skills, packages, guides, the catalogue and local tools. Use the [release checksums](RELEASES.md) to verify the download. Git is optional. You can also use GitHub's **Code → Download ZIP** for the current repository tree. If Git is installed and you cloned the repository, use `git pull --ff-only` from a clean checkout to obtain reviewed updates.
 
 If you only want skill instructions, choose a smaller [Copilot, Gemini or combined bundle](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md). Extract it before choosing individual native imports or matching-name skill folders. These smaller bundles do not contain the Python tools below. The included `profiles/excel-agent-instructions.txt` can be pasted into the existing Excel agent Instructions field.
 
@@ -73,6 +73,65 @@ The checked pins are openpyxl 3.1.5 and DuckDB 2.0.1. The DuckDB requirement nee
 The workbook helper opens two read-only views: formulas and saved values. It reports visible/hidden sheets, populated cells, stored errors and formula caches that are blank or absent. It does not save the workbook, run macros, refresh connections, render the layout or recalculate formulas. An absent cache can also mean an intentionally blank formula result; a populated cache can be stale. Recalculate and inspect in the authorized Excel environment before relying on formula outputs. [openpyxl read/save behavior](https://openpyxl.readthedocs.io/en/stable/tutorial.html)
 
 The DuckDB helper reads an exact local `.csv` or `.parquet` file, keeps CSV values as text and computes complete row/key controls. It downloads no extension and accepts no arbitrary SQL. Rename a copy if the filename contains wildcard characters. It may make several passes; no file-size capacity, speed or memory guarantee is implied. Use the `analytical-sql` skill to prepare a separate reviewed SQL analysis for more complex queries.
+
+## Workflow validation from supplied snapshots
+
+The v1.2 helper checks JSON exports against the documented workflow contracts without changing a workbook or contacting a company system:
+
+```powershell
+py -3 scripts\workflow_controls.py validate --schema request examples\workflows\provision-residual.json
+py -3 scripts\workflow_controls.py check examples\workflows\provision-residual.json
+```
+
+The first command validates the request shape. The second returns **exit 2** because this invented case deliberately retains an unexplained movement residual. It is a successful demonstration of a blocked result, not a broken installation. Exit 0 means the supplied check passed; exit 1 means invalid input or a file/configuration error.
+
+The helper can check provisions, artifact preservation, detailed readback, mappings, granularity, case status and allocation preconditions. It does not authenticate the supplied evidence, refresh Excel, approve a result or post an allocation. Keep real request and result files outside this checkout. [Contracts, precision and examples](../examples/workflows/README.md) · [Two pilot workflows](WORKFLOWS.md)
+
+## Public benchmark dataset and local API
+
+The full release includes actual public ECB and selected World Bank observations plus separate synthetic fixtures. Source IDs, units, dates, rights and snapshot hashes are part of the dataset. BOJ values are not distributed pending permission; METI and MHLW/e-Stat configurations remain candidates. [Exact coverage and status](../benchmarks/README.md)
+
+Validate the stored dataset and API contract without network access:
+
+```powershell
+py -3 scripts\benchmark_api.py --check
+```
+
+Start the read-only server only when needed:
+
+```powershell
+py -3 scripts\benchmark_api.py
+```
+
+It runs in the foreground at `http://127.0.0.1:8765`. In another PowerShell terminal, query the stored data:
+
+```powershell
+Invoke-RestMethod 'http://127.0.0.1:8765/v1/datasets'
+Invoke-RestMethod 'http://127.0.0.1:8765/v1/series/ecb-jpy-per-eur/observations?start=2026-11-01&end=2026-11-24&limit=10'
+```
+
+Stop the server with **Ctrl+C**. It makes no provider requests for API queries and installs no background service. A cloud assistant cannot automatically reach this address. Use a supported approved snapshot-import route or local client; company connectivity and public deployment are separate work.
+
+Use an immutable `snapshot_id` for exact repetition, or a timezone-bearing `as_of` only where a retained snapshot predates that cutoff. Missing history returns `as_of_unavailable`. Invalid timestamps are rejected rather than normalized into another cutoff. Original and derived values remain distinct; consult the [dictionary](../benchmarks/DATA_DICTIONARY.md) before loading decimal strings, periods or units into Power Query/Power BI.
+
+Refresh is a separate explicit public-network operation:
+
+```powershell
+py -3 scripts\benchmark_collect.py --adapter ecb --start 2026-11-01 --end 2026-11-24
+py -3 scripts\benchmark_collect.py --adapter worldbank --start 2025-11-01 --end 2026-10-31
+```
+
+Choose the period required and review current source/rights configuration first. The command preserves last-good snapshots when a provider fails. An approved provider file can be supplied with `--input`; this does not bypass source or rights checks. Future e-Stat use requires a reviewed exact table/classification and `ESTAT_APP_ID` in the local environment, never in saved URLs, config JSON or logs. Public providers receive no private prompts or workbook values.
+
+## Offline project checks
+
+From a full release, run the maintained gate:
+
+```powershell
+py -3 scripts\check_release.py
+```
+
+It checks generated artifacts, source and tool references, dataset/API contracts, publication boundaries and unit tests without fetching providers. Inspect any optional-dependency skips. Maintainers use `--require-release` after freezing a repository release; the full ZIP itself omits nested previous release directories. [Release procedure](RELEASES.md) · [Standards](STANDARDS.md)
 
 ## Copy a Copilot edition into an Office skill folder
 

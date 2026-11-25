@@ -33,6 +33,8 @@ Answer the question with evidence that the user can inspect. Keep claim-to-sourc
 5. For recent developments, compare the announcement date with the date the event happened or is scheduled to happen. For documentation, check product/version/applicability notes. A recent page update does not establish that every statement on it is new.
 6. Use a useful secondary source when it supplies context, independent reporting, or critique unavailable in the primary source. Attribute its claims and preserve any uncertainty. Do not count several articles repeating the same announcement as independent confirmation.
 
+7. For work questions, first use all relevant authorized enterprise source types that could change the answer. If evidence is incomplete, change the query, date scope, linked-reference route or responsible-source context and inspect the new result before asking the user. Keep a compact record of meaningful unsuccessful routes in working context so repeated empty queries do not masquerade as progress.
+
 ### 3. Evaluate the claims
 
 1. Assess evidence for relevance, directness, methodology, sample or coverage, currency, and conflicts of interest. A primary source is authoritative about its own statement but may not independently validate its marketing or causal interpretation.
@@ -41,6 +43,8 @@ Answer the question with evidence that the user can inspect. Keep claim-to-sourc
 4. Resolve conflicts where possible using the most applicable primary material, effective dates, and methodological detail. If disagreement remains, describe precisely what differs and what evidence would resolve it. Do not average incompatible claims or hide a credible contradiction.
 5. Make causal claims only when the evidence supports them. An association, company explanation, or sequence of events is not automatically a demonstrated causal effect.
 6. Treat absence of a result cautiously. Say "not found in the sources checked" when that is what happened; do not claim that a feature, event, study, or rule does not exist merely because search missed it.
+
+7. Independently recheck consequential claims against a separate authoritative record or calculation, including a plausible contradictory explanation. For research-based methods, check the publisher's edition, corrections, updates and retraction status when available; a paper's existence does not validate its use on this dataset. After resolving an error, repeat the affected checks, not every unrelated search.
 
 ### 4. Keep claims traceable
 
@@ -69,6 +73,8 @@ When retrieval was unavailable, use a clear label such as **analysis of supplied
 - Keep citations traceable and close to the relevant claims.
 - Separate facts, interpretations, recommendations, and unknowns.
 - Keep internal data out of public queries and public outputs.
+
+For a complex question, use Copilot Researcher or Gemini Deep Research only if that separate feature is available and appropriate. Select permitted sources and review the research plan. Gemini's current native Skills do not run inside Deep Research; carry the relevant research brief into that feature manually and verify its findings before bringing them back. Do not claim that a skill forces a reasoning mode, increases quotas or keeps work running beyond host limits. At a limit, preserve the sources, resolved claims and exact remaining work for continuation; do not turn an incomplete investigation into a completed conclusion.
 
 ## Example prompt
 

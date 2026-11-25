@@ -8,13 +8,13 @@ Verified against official documentation on **2026-11-25**. This guide targets **
 
 Look for **Customize → Skills** at [gemini.google.com](https://gemini.google.com); **Customize** may be under **More**. Use native Skills when available. If the work account still exposes Gems without Skills, use the fallback below.
 
-Google's current pages differ on the work-account rollout. The [Workspace administrator guide](https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/about-the-transition-to-skills), updated November 9, says Gemini-app skills are available across Workspace editions. The [consumer transition FAQ](https://support.google.com/gemini/answer/18560919?hl=en) still says work/school availability is coming soon. The actual approved account's interface and organization settings determine the available route. The Workspace guide keeps business/enterprise Gems available until no earlier than March 1, 2027.
+Google's current pages differ on the work-account rollout. The [Workspace administrator guide](https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/about-the-transition-to-skills), updated November 9, says Gemini-app skills are available across Workspace editions. The [consumer transition FAQ](https://support.google.com/gemini/answer/18560919?hl=en) still says work/school availability is coming soon and places the work/school Gems transition in 2027, with March for business/enterprise/non-profit accounts and June for education accounts. The actual approved account's interface and organization settings determine the available route. The Workspace guide keeps business/enterprise Gems available until no earlier than March 1, 2027.
 
 Gemini App, skills in Google Workspace apps, Gemini Enterprise and Gemini CLI are different surfaces. A skill imported here should not be assumed to appear in the others. This repository's Gemini edition does not require Gemini CLI or a paid API key.
 
 ## 1. Download one skill
 
-For one download, choose the [Gemini release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-gemini.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.1.0/finance-skills-v1.1.0-full.zip), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
+For one download, choose the [Gemini release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-gemini.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
 
 Open [packages/gemini](../packages/gemini), choose an individual ZIP and use GitHub's download control. Each ZIP contains `SKILL.md` at its root. Start with `excel-data-coverage`, `forecast-variance`, `account-mapping`, `evidence-research` and `business-document`, then add specialist workflows as needed.
 
@@ -38,6 +38,8 @@ Gemini imports do not accept nested archives, `.skill` packages, separate `.sql`
 
 The current transition FAQ says native Skills do not work with Canvas or Deep Research. The research and visualization skills therefore use capabilities actually available in the session; they do not promise to invoke those features. If you choose a separate supported feature, carry over the relevant instructions as task context and verify the resulting workflow separately. [Feature limits](https://support.google.com/gemini/answer/18560919?hl=en)
 
+For a substantial investigation, open **Deep Research** separately if the approved account offers it. Supply a concise brief with the objective, period, permitted source scope, unresolved questions and required citations. Review its proposed plan and available source selection. Then bring the cited findings back to the finance task and independently check consequential claims. Model choices, request quotas and runtime are controlled by the host; the imported skill cannot expand them. [Deep Research guide](https://support.google.com/gemini/answer/15719111?hl=en) · [Thorough research policy](RESEARCH-POLICY.md)
+
 Skills can be used with Keep Activity off, but connected apps that require it are then unavailable. Company account settings may be controlled by your administrator. Do not assume Gemini can access internal SharePoint merely because that source is available in Microsoft 365. Use approved connected access or supply an appropriate authorized export. [Skills and connected apps](https://support.google.com/gemini/answer/17094296)
 
 ## Windows Python and VS Code
@@ -45,6 +47,8 @@ Skills can be used with Keep Activity off, but connected apps that require it ar
 Use the available local Python environment for calculations or larger files that require a specific local library. The Gemini skill can describe the procedure and interpret supplied outputs, but it cannot automatically execute code on your PC. Keep original inputs unchanged, run the code locally, and verify the resulting totals and exception report before using the result in a decision.
 
 For Power BI, prefer a repeatable local/Power Query pipeline with clear grain, source coverage and refresh evidence. Supply Gemini with the relevant schema, measures or approved result when you want a review. A suggested DAX measure, M query or Python script remains a proposal until it has run successfully in the intended environment.
+
+The full release's public-benchmark API serves validated snapshots on the local PC when started manually. Gemini's cloud session cannot be assumed to reach that loopback address. Supply a permitted JSON/CSV snapshot through a supported approved route, or query it with an approved local client. Keep approved internal figures, internal workflow status and public benchmarks separate. [Dataset and API](../benchmarks/README.md) · [Tool inventory](../TOOLS.md) · [Workflow pilots](WORKFLOWS.md)
 
 Use approved company templates for work output. The dot visual design in this repository is for the repository; it does not supply your company's visual identity or permission to move employer assets into a public repository.
 

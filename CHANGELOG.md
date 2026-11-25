@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 — 2026-11-25
+
+- Add connected reporting, provision reconciliation, FX/allocation preflight and shared benchmark lookup: 29 canonical skills and 58 native packages.
+- Share evidence, run-context, residual, artifact-preservation and action-state controls across both editions; strengthen targeted retrieval and independent checking while respecting host limits.
+- Add read-only workflow schemas and helpers, with independently invented failure cases for incomplete explanations, protected-record/schema regressions and detailed readback differences.
+- Add a public benchmark dataset, explicit collector and local read-only OpenAPI 3.1.2 service. Retain ECB and selected World Bank observations, original/derived lineage, rights and immutable vintages; keep restricted or unverified sources visibly unavailable.
+- Add the canonical research registry, correction/retraction checks and exact source-to-skill/test links; unresolved research candidates are not active method support.
+- Add a 29-entry tool and capability inventory with availability, support and evidence requirements.
+- Add generated CFF citation metadata, documented repository standards, contribution guidance, data boundaries and an offline release gate that also checks nested packages.
+- Preserve all v1.1.0 release files and the existing native import shapes. Existing imports require replacement or Refresh; no public API deployment or enterprise connector activation is included.
+
 ## 1.1.0 — 2026-11-25
 
 - Add the Excel agent's enterprise-first, concise-output instructions as `excel-agent-core` and generated plain text for an existing agent's Instructions field.

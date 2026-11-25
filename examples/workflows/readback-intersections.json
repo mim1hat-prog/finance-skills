@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "fixtureOrigin": "independently-invented",
+  "operation": "readback",
+  "expected": {
+    "context": {
+      "schemaVersion": 1,
+      "workflow": "coordinate-readback",
+      "period": "2032-04",
+      "cutoff": "2032-04-30T18:00:00Z",
+      "scenario": "forecast",
+      "version": "scenario-f1",
+      "entities": [
+        "DEMO-UNIT-A"
+      ],
+      "basis": "synthetic-management-view",
+      "currency": "USD",
+      "unitScale": "1",
+      "signMultiplier": 1,
+      "stream": "approved_internal_figures",
+      "sourceSnapshot": {
+        "id": "expected-upload",
+        "version": "expected-upload-revision-1",
+        "asOf": "2032-04-29T10:00:00Z",
+        "kind": "observed",
+        "locator": "urn:synthetic:expected-upload"
+      },
+      "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+    },
+    "model": "synthetic-finance-model",
+    "dimensions": [
+      "entity",
+      "account"
+    ],
+    "rows": [
+      {
+        "members": [
+          "DEMO-UNIT-A",
+          "sample-account-a"
+        ],
+        "value": "100"
+      },
+      {
+        "members": [
+          "DEMO-UNIT-A",
+          "sample-account-b"
+        ],
+        "value": "60"
+      }
+    ]
+  },
+  "observed": {
+    "context": {
+      "schemaVersion": 1,
+      "workflow": "coordinate-readback",
+      "period": "2032-04",
+      "cutoff": "2032-04-30T18:00:00Z",
+      "scenario": "forecast",
+      "version": "scenario-f1",
+      "entities": [
+        "DEMO-UNIT-A"
+      ],
+      "basis": "synthetic-management-view",
+      "currency": "USD",
+      "unitScale": "1",
+      "signMultiplier": 1,
+      "stream": "approved_internal_figures",
+      "sourceSnapshot": {
+        "id": "observed-readback",
+        "version": "observed-readback-revision-1",
+        "asOf": "2032-04-29T10:00:00Z",
+        "kind": "observed",
+        "locator": "urn:synthetic:observed-readback"
+      },
+      "requestedOutput": "Compare the supplied snapshots without changing a workbook or system."
+    },
+    "model": "synthetic-finance-model",
+    "dimensions": [
+      "entity",
+      "account"
+    ],
+    "rows": [
+      {
+        "members": [
+          "DEMO-UNIT-A",
+          "sample-account-a"
+        ],
+        "value": "85"
+      },
+      {
+        "members": [
+          "DEMO-UNIT-A",
+          "sample-account-b"
+        ],
+        "value": "75"
+      }
+    ]
+  },
+  "read": {
+    "state": "live",
+    "knownGoodRead": true,
+    "independent": true,
+    "errorSuppressed": false,
+    "readAt": "2032-04-30T17:00:00Z",
+    "locator": "urn:synthetic:readback-evidence"
+  },
+  "tolerance": {
+    "id": "synthetic-exact",
+    "version": "1",
+    "amount": "0",
+    "effectiveFrom": "2032-01-01",
+    "effectiveTo": "2032-12-31"
+  }
+}

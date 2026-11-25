@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:finance-skills:benchmark:catalog:1",
+  "title": "Finance public benchmarks catalog",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "stream": {
+      "const": "public-benchmark"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "series": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Series"
+      },
+      "maxItems": 1000,
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "dataset_version",
+    "title",
+    "stream",
+    "description",
+    "series"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "Series": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+        },
+        "provider_series_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "download_url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "geography": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "frequency": {
+          "enum": [
+            "daily",
+            "monthly"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        },
+        "base_currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        },
+        "quote_currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        },
+        "index_base": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        },
+        "seasonal_adjustment": {
+          "enum": [
+            "not-applicable",
+            "original",
+            "seasonally-adjusted"
+          ]
+        },
+        "series_kind": {
+          "enum": [
+            "original",
+            "derived"
+          ]
+        },
+        "access": {
+          "enum": [
+            "keyless-api",
+            "official-file",
+            "credentialed-api",
+            "project-calculation"
+          ]
+        },
+        "adapter": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "pattern": "^[a-z0-9][a-z0-9.-]{0,119}$"
+        },
+        "adapter_status": {
+          "enum": [
+            "live-validated",
+            "parser-validated",
+            "rights-gated",
+            "requires-configuration",
+            "needs-source-validation"
+          ]
+        },
+        "freshness_days": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3660
+        },
+        "rights": {
+          "type": "object",
+          "properties": {
+            "redistribution": {
+              "enum": [
+                "permitted",
+                "permission-required",
+                "unverified",
+                "restricted"
+              ]
+            },
+            "license": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "terms_url": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "attribution": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "checked_on": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "format": "date"
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "redistribution",
+            "license",
+            "terms_url",
+            "attribution",
+            "checked_on",
+            "notes"
+          ],
+          "additionalProperties": false
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "provider",
+        "provider_series_id",
+        "source_id",
+        "source_url",
+        "download_url",
+        "geography",
+        "frequency",
+        "unit",
+        "currency",
+        "base_currency",
+        "quote_currency",
+        "index_base",
+        "seasonal_adjustment",
+        "series_kind",
+        "access",
+        "adapter",
+        "adapter_status",
+        "freshness_days",
+        "rights",
+        "notes"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
