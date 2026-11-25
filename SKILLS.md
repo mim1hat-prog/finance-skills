@@ -1,6 +1,6 @@
 # Skills
 
-29 skills · version 1.4.2 · reviewed 2026-11-25
+29 skills · version 1.4.3 · reviewed 2026-11-25
 
 Choose one edition. Import each skill separately. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 

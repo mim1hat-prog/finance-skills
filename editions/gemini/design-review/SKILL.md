@@ -94,4 +94,4 @@ Use only files and capabilities permitted in the current work environment. A ski
 
 ## Edition record
 
-Finance skills 1.4.2; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.4.3; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

@@ -1,11 +1,12 @@
 # Finance skills releases
 
-Latest stable version: **1.4.2**.
+Latest stable version: **1.4.3**.
 
 Download a versioned file from its release page. Extract transport bundles before importing individual native skill ZIPs. These files are hosted in the repository; no GitHub Release object is implied.
 
 | Version | Downloads and notes |
 | --- | --- |
+| 1.4.3 | [v1.4.3](v1.4.3/README.md) |
 | 1.4.2 | [v1.4.2](v1.4.2/README.md) |
 | 1.4.1 | [v1.4.1](v1.4.1/README.md) |
 | 1.4.0 | [v1.4.0](v1.4.0/README.md) |

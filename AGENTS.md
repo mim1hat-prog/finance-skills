@@ -18,6 +18,8 @@ Use `catalog.json` as the version source. Follow `docs/RELEASES.md` for version 
 
 Do not use GitHub Actions; this repository includes no Actions workflows. Use the documented local update checker and the separately configured maintenance task. The user's request for ongoing maintenance authorizes checking upstream changes and preparing validated updates; it does not authorize expanding credentials, collecting telemetry, restarting paused services or publishing employer data. Do not enable a background daemon on the work PC.
 
+The existing maintenance task runs weekly on Wednesdays at 08:00 Asia/Tokyo. Preserve this cadence without adding a duplicate daily task. Regenerate and publish the README graph with each validated repository update; the weekly check is a backstop, not a continuous data feed.
+
 Publish generic, tested maintenance changes through the user's existing GitHub permissions. Preserve concurrent edits. If a test cannot run, keep the change reviewable and state the missing evidence. Native Copilot and Gemini imports still require their own replacement or Refresh step.
 
 Treat public Git author and committer identities as a separate publication boundary. Use the maintainer's verified public no-reply identity, check relevant history with `scripts/check_git_identity.py` and keep any remote commit exports outside the project. A connector that cannot select or verify its commit identity must not create another commit while a private-identity finding is unresolved. Do not treat `.mailmap`, local Git configuration, or a successful file scan as historical metadata removal. History rewriting requires a concrete reviewed remediation that preserves source/release bytes and handles concurrent refs.

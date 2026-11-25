@@ -63,7 +63,7 @@ block must agree with the current canonical inputs. Regenerate these outputs
 for every reviewed skill, evidence or dataset change and publish them in the
 same commit. A mismatch is actionable even if no new skill is being added.
 Verify the remote README and image hashes after publication. Keep the existing
-daily check as a backstop; a schedule is not a guarantee of continuous updates.
+weekly check as a backstop; a schedule is not a guarantee of continuous updates.
 
 The README does not execute the collector or plotting code in a visitor's
 browser. Its graph reflects the latest successfully published repository
@@ -84,7 +84,7 @@ lease. If no authenticated route is available, retain the prepared work and
 report that access gap. Source links to Somamill repositories remain
 provenance; they do not select the maintenance destination.
 
-The owner requested ongoing updates. A separate maintenance task was enabled on **2026-11-25**, with a daily check around **08:00 Asia/Tokyo** and its first scheduled check on **2026-11-26**. It checks this repository's published location, official host docs and pinned upstreams, and reports material changes and imports that need replacement. It uses neither GitHub Actions nor a work-PC daemon.
+The owner requested ongoing updates. The existing maintenance task was changed to **weekly on Wednesdays at 08:00 Asia/Tokyo** on **2026-11-25**, with its first weekly check on **2026-12-02**. It checks this repository's published location, official host docs and pinned upstreams, and reports material changes and imports that need replacement. It uses neither GitHub Actions nor a work-PC daemon. Keep this single weekly task; do not create a second daily check.
 
 For compatible instruction/documentation changes, the maintainer can publish only after rebuilding, testing and reviewing the diff. Runtime upgrades, changed permissions/data transmission, new commercial services and changed finance definitions require a concrete reviewable proposal. If the execution environment cannot validate a change, leave it in a clearly described branch/PR and report the blocker. Do not call the library updated because a check was merely scheduled.
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.3 — 2026-11-25
+
+- Change the existing maintenance task to weekly on Wednesdays at 08:00 Asia/Tokyo; the next scheduled check is 2026-12-02.
+- Align the README and maintainer instructions with the confirmed weekly cadence, retaining graph regeneration on each validated publication.
+- Preserve all earlier frozen releases, finance instructions and public-data acquisition dates.
+
 ## 1.4.2 — 2026-11-25
 
 - Generate the GitHub README chart and numerical summary together so the main-page graph cannot silently disappear or point to a frozen release.

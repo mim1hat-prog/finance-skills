@@ -1,41 +1,41 @@
 {
   "schemaVersion": 1,
   "kind": "repository-hosted-release-index",
-  "version": "1.4.2",
-  "path": "releases/v1.4.2",
+  "version": "1.4.3",
+  "path": "releases/v1.4.3",
   "repository": "https://github.com/mim1hat-prog/finance-skills",
   "downloads": [
     {
-      "path": "releases/v1.4.2/finance-skills-v1.4.2-all.zip",
-      "bytes": 814441,
-      "sha256": "fb85882fd1fa0ec2d6996fa2bfb08390ae40f0567c2ad3d4b421331437431b19",
-      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.2/finance-skills-v1.4.2-all.zip"
+      "path": "releases/v1.4.3/finance-skills-v1.4.3-all.zip",
+      "bytes": 814425,
+      "sha256": "ac56150bb176e627825442841855d771601211519a4e9f90a12a7176ab6f4d06",
+      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.3/finance-skills-v1.4.3-all.zip"
     },
     {
-      "path": "releases/v1.4.2/finance-skills-v1.4.2-copilot.zip",
-      "bytes": 330814,
-      "sha256": "b0949f596e48dd556b34b4bf1edcd10292e3550e25b51bf9e20e0176e759bcfe",
-      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.2/finance-skills-v1.4.2-copilot.zip"
+      "path": "releases/v1.4.3/finance-skills-v1.4.3-copilot.zip",
+      "bytes": 330823,
+      "sha256": "d2a0fc26804c7a01b0f8f54ea8c1d4136c2b366d316f0a1028092c53b8877259",
+      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.3/finance-skills-v1.4.3-copilot.zip"
     },
     {
-      "path": "releases/v1.4.2/finance-skills-v1.4.2-full.zip",
-      "bytes": 3210512,
-      "sha256": "2733cef34f7de4bda4175c19086367c32a54986b22b5dd1d2dcd942ecf58c94b",
-      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.2/finance-skills-v1.4.2-full.zip"
+      "path": "releases/v1.4.3/finance-skills-v1.4.3-full.zip",
+      "bytes": 3212226,
+      "sha256": "1f3aa9e37a11d0d5b9b28737defaf3288251eafca617e29aa45ac0772564462e",
+      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.3/finance-skills-v1.4.3-full.zip"
     },
     {
-      "path": "releases/v1.4.2/finance-skills-v1.4.2-gemini.zip",
-      "bytes": 488253,
-      "sha256": "2b4e48e8215bf393933fbc59dd3cf851569b093def2b907962c17e8e464191f0",
-      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.2/finance-skills-v1.4.2-gemini.zip"
+      "path": "releases/v1.4.3/finance-skills-v1.4.3-gemini.zip",
+      "bytes": 488255,
+      "sha256": "e4e280b061699a9427c87e5fdad4a9c39925f68f3daad8e9a3d5a905942d1df5",
+      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.3/finance-skills-v1.4.3-gemini.zip"
     },
     {
-      "path": "releases/v1.4.2/finance-skills-v1.4.2-markdown.zip",
-      "bytes": 310409,
-      "sha256": "ea9d6dd3187bea289de16698ec718e1d2c8bb7a3ee6d3086eef2730d8de4d485",
-      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.2/finance-skills-v1.4.2-markdown.zip"
+      "path": "releases/v1.4.3/finance-skills-v1.4.3-markdown.zip",
+      "bytes": 310399,
+      "sha256": "5e493edea8d2c805e21440a381c1a11eeefba018ae061ebfa486cc406a553f36",
+      "downloadUrl": "https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.4.3/finance-skills-v1.4.3-markdown.zip"
     }
   ],
-  "manifestPath": "releases/v1.4.2/manifest.json",
-  "checksumsPath": "releases/v1.4.2/SHA256SUMS.txt"
+  "manifestPath": "releases/v1.4.3/manifest.json",
+  "checksumsPath": "releases/v1.4.3/SHA256SUMS.txt"
 }

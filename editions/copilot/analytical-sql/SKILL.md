@@ -109,4 +109,4 @@ Do not return a fabricated CSV, database export, execution log, or benchmark. Op
 
 ## Edition record
 
-Finance skills 1.4.2; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.4.3; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
