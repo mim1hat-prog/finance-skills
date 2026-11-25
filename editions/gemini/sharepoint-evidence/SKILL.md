@@ -74,4 +74,4 @@ Example request: “Find the approved November forecast and the latest headcount
 
 ## Edition record
 
-Finance skills 1.2.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.3.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

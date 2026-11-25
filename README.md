@@ -10,20 +10,25 @@
 
 Supply the relevant work files in your approved account and ask for the result you need. The instructions prioritize relevant internal evidence, preserve existing business logic and verify calculations without adding unsolicited audit tables, worksheets or process commentary. They work without a local coding agent or an API subscription. Python, Power BI, VS Code and SharePoint provide additional routes when those capabilities are available.
 
-## Ready to download · v1.2.0
+## Ready to download · v1.3.0
 
-**[Download the full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip)** — both editions, every individual skill package, Excel agent instructions, setup guides, source files, local Python tools, tests and the dot catalogue.
+**[Download Markdown only — ready to copy and paste](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-markdown.zip)** — 60 `.md` files: 29 Copilot skills, 29 Gemini skills, your Excel agent instructions and a short start guide. Each skill keeps its complete edition-specific instructions; YAML headers are removed.
+
+Extract the ZIP, open the relevant file in VS Code or Notepad, copy all its contents and paste into your available agent/Gem **Instructions** field or an approved conversation. Choose one relevant workflow at a time. This download contains only Markdown files, with no scripts, datasets or nested ZIPs.
+
+**[Download the full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-full.zip)** — both editions, every individual skill package, Excel agent instructions, setup guides, source files, local Python tools, tests and the dot catalogue.
 
 | Package | Contents | Download |
 | --- | --- | --- |
-| Copilot | 29 individual skill ZIPs, matching skill folders and Excel agent instructions | [Copilot v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-copilot.zip) |
-| Gemini | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-gemini.zip) |
-| All skills | Both editions: 58 individual ZIPs, skill folders, Gem-ready text and Excel agent instructions | [All skills v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-all.zip) |
-| Full release | All skills plus the complete useful project, guides and optional local tools | [Full v1.2.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.2.0/finance-skills-v1.2.0-full.zip) |
+| Markdown only | 60 Markdown files, ready to copy and paste | [Markdown v1.3.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-markdown.zip) |
+| Copilot | 29 individual skill ZIPs, matching skill folders and Excel agent instructions | [Copilot v1.3.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-copilot.zip) |
+| Gemini | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini v1.3.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-gemini.zip) |
+| All skills | Both editions: 58 individual ZIPs, skill folders, Gem-ready text and Excel agent instructions | [All skills v1.3.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-all.zip) |
+| Full release | All skills plus the complete useful project, guides and optional local tools | [Full v1.3.0 ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.3.0/finance-skills-v1.3.0-full.zip) |
 
-**Extract the outer ZIP first.** Then import the individual skill ZIPs you need, or follow the Office folder-copy instructions. A complete download does not bulk-install or activate skills in your account. Edition/all-skills bundles contain instructions and packages; choose the full release for local Python tools and offline guides.
+**For native skill packages, extract the outer ZIP first.** Then import the individual skill ZIPs you need, or follow the Office folder-copy instructions. A complete download does not bulk-install or activate skills in your account. Edition/all-skills bundles contain instructions and packages; choose the full release for local Python tools and offline guides.
 
-[Release notes and checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.2.0/README.md) · [All releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+[Release notes and checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.3.0/README.md) · [All releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Versioning and verification](docs/RELEASES.md)
 
 ## Your Excel agent instructions
 

@@ -1,11 +1,12 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.2.0.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.3.0.md)
 
 ## Choose a package
 
-Each published version has four ZIP downloads under `releases/v<version>/`:
+From v1.3.0, each published version has five ZIP downloads under `releases/v<version>/`. Earlier releases retain their original four:
 
+- **Markdown only:** complete Copilot and Gemini instruction bodies as `.md` files, the Excel agent profile and a start guide. Extract, open the relevant file and copy its full contents into an available Instructions field or approved conversation. YAML headers are removed. Every archive member is Markdown; checksums and the file inventory are kept outside this ZIP.
 - **Copilot:** every Copilot skill as an individual native-import ZIP and matching folder, plus the Excel agent Instructions text.
 - **Gemini:** every Gemini skill as an individual native-import ZIP and matching folder, Gem-ready text and the Excel agent Instructions text.
 - **All skills:** both editions in one transport download.
@@ -22,12 +23,14 @@ These downloads are hosted as versioned repository files. The available ChatGPT 
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.2.0-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.3.0-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.
 
-Versioned edition ZIPs are byte-for-byte copies of the validated transport bundles at the time of release. Each bundle contains its own manifest covering every other member. Every native skill ZIP still contains exactly one root `SKILL.md`.
+Versioned edition ZIPs are byte-for-byte copies of the validated transport bundles at the time of release. Each transport bundle contains its own manifest covering every other member. Every native skill ZIP still contains exactly one root `SKILL.md`.
+
+The versioned Markdown ZIP is a byte-for-byte copy of `packages/markdown/finance-skills-markdown.zip`. Its external `packages/markdown/manifest.json` records every member's size and SHA-256; that inventory is included in the matching full release. The version's `SHA256SUMS.txt` verifies the Markdown ZIP directly. Release manifest schema 1 retains the original four-archive inventory; schema 2 requires the additional Markdown archive. Both formats remain verifiable.
 
 ## Version policy
 

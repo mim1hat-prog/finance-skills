@@ -7,6 +7,7 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | Financial workflow | `skills/<name>/SKILL.md` | Review and edit canonical instructions | Focused task checks and a documented change |
 | Host behavior | `adapters/` and platform guides | Compare current official Microsoft/Google docs | Dated sources, account caveats and actual restrictions |
 | Upload packages | `editions/`, `packages/` | Deterministic `scripts/build.py` | Exact bytes and SHA-256 manifest |
+| Copy-and-paste Markdown | Generated edition bodies and Excel profile | Generate `packages/markdown/` with `scripts/build.py` | Markdown-only ZIP with external file inventory; replace pasted copies manually |
 | Excel agent defaults | `skills/excel-agent-core/SKILL.md` | Generate `profiles/excel-agent-instructions.txt` with the editions | Body-only text from one canonical source |
 | Release downloads | `releases/v<version>/` | Freeze with `scripts/release.py` after validation | Versioned ZIPs, release notes, SHA-256 checksums and no-overwrite check |
 | Upstream ideas/tools | `upstream.lock.json` | Check commits, then review relevant diffs/licences | Pinned reviewed revision; new head is only a candidate |
@@ -70,6 +71,8 @@ For compatible instruction/documentation changes, the maintainer can publish onl
 This file does not create or prove a running automation. The actual task confirmation in the conversation is the record of whether scheduling succeeded. The repository includes no GitHub Actions workflows and installs no poller, webhook, background worker or persistent credentials.
 
 ## Refresh your work account
+
+For the Markdown-only download, open the updated file and replace the relevant pasted Instructions text after preserving approved company additions. The Markdown ZIP is regenerated with every build; text already pasted into an agent or conversation does not synchronize automatically.
 
 The download-all bundles and versioned releases simplify acquisition; they do not synchronize installed copies. Extract the downloaded outer ZIP, choose individual native packages and perform the host steps below. If you use the plain-text Excel agent profile, update the saved Instructions field separately after comparing company-specific additions. Both the profile and native editions derive from the same canonical skill; do not edit generated copies in this repository.
 

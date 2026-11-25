@@ -18,6 +18,50 @@ import install_edition
 
 
 class PackagingTests(unittest.TestCase):
+    def test_markdown_bundle_is_complete_body_only_and_has_external_inventory(self):
+        outputs = build.generate(ROOT)
+        catalog = json.loads((ROOT / "catalog.json").read_text())
+        names = {row["name"] for row in catalog["skills"]}
+        data = outputs[build.MARKDOWN_BUNDLE]
+        self.assertEqual(data, build.generate(ROOT)[build.MARKDOWN_BUNDLE])
+        manifest = json.loads(outputs[Path("packages/markdown/manifest.json")])
+        expected = {"START-HERE.md", "EXCEL-AGENT-INSTRUCTIONS.md"} | {
+            f"{edition}/{name}.md" for edition in build.EDITIONS for name in names
+        }
+        self.assertEqual(manifest["version"], catalog["version"])
+        self.assertEqual(manifest["skillCount"], len(names))
+        self.assertEqual(manifest["fileCount"], len(expected))
+        self.assertEqual(manifest["bytes"], len(data))
+        self.assertEqual(manifest["sha256"], hashlib.sha256(data).hexdigest())
+        self.assertEqual(manifest["path"], build.MARKDOWN_BUNDLE.as_posix())
+        self.assertEqual(manifest["editions"], list(build.EDITIONS))
+        with zipfile.ZipFile(io.BytesIO(data)) as packed:
+            self.assertEqual(packed.namelist(), sorted(expected))
+            self.assertTrue(all(name.endswith(".md") for name in packed.namelist()))
+            self.assertEqual([row["path"] for row in manifest["files"]], sorted(expected))
+            for row in manifest["files"]:
+                text = packed.read(row["path"])
+                self.assertTrue(text.startswith(b"# "))
+                self.assertFalse(text.startswith(b"---"))
+                self.assertNotIn("\r", text.decode("utf-8"))
+                self.assertEqual(row["sha256"], hashlib.sha256(text).hexdigest())
+                self.assertEqual(row["bytes"], len(text))
+            for edition in build.EDITIONS:
+                for name in names:
+                    source = outputs[Path("editions") / edition / name / "SKILL.md"]
+                    body = build.parse_skill(source, name)[2]
+                    self.assertEqual(packed.read(f"{edition}/{name}.md"), (body + "\n").encode())
+            self.assertEqual(packed.read("EXCEL-AGENT-INSTRUCTIONS.md"), outputs[build.EXCEL_PROFILE])
+            guide = packed.read("START-HERE.md").decode()
+            self.assertIn("Ctrl+A", guide)
+            self.assertIn("Ctrl+C", guide)
+            self.assertIn("do not update automatically", guide)
+            self.assertIn(catalog["repoUrl"], guide)
+            for entry in packed.infolist():
+                self.assertEqual(entry.date_time, (1980, 1, 1, 0, 0, 0))
+                self.assertEqual(entry.external_attr >> 16, 0o100644)
+        self.assertIn(build.MARKDOWN_BUNDLE.as_posix() + "?raw=1", outputs[Path("SKILLS.md")].decode())
+
     def test_all_packages_are_deterministic_standalone_and_exact(self):
         first, second = build.generate(ROOT), build.generate(ROOT)
         self.assertEqual(first, second)
@@ -122,6 +166,14 @@ class PackagingTests(unittest.TestCase):
                     f"## {edition} overlay\n\nUse the available tools.", encoding="utf-8",
                 )
             outputs = build.generate(root)
+            self.assertNotIn(build.MARKDOWN_BUNDLE, outputs)
+            for bad_version in (True, 0, 2, "1"):
+                catalog["markdownBundleVersion"] = bad_version
+                (root / "catalog.json").write_text(json.dumps(catalog), encoding="utf-8")
+                with self.subTest(markdownBundleVersion=bad_version), self.assertRaisesRegex(ValueError, "Markdown bundle version"):
+                    build.generate(root)
+            del catalog["markdownBundleVersion"]
+            (root / "catalog.json").write_text(json.dumps(catalog), encoding="utf-8")
             bundles = json.loads(outputs[Path("packages/bundles/manifest.json")])["bundles"]
             self.assertEqual({record["skillCount"] for record in bundles}, {2})
             self.assertEqual({record["packageCount"] for record in bundles}, {2, 4})

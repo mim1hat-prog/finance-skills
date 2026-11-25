@@ -48,7 +48,16 @@ EXCLUDED_PARTS = {
 }
 REQUIRED = {"README.md", "AGENTS.md", "LICENSE", "catalog.json", "docs/RELEASES.md",
             "scripts/build.py", "scripts/release.py"}
-VARIANTS = ("copilot", "gemini", "all", "full")
+VARIANTS_BY_SCHEMA = {
+    1: ("copilot", "gemini", "all", "full"),
+    2: ("copilot", "gemini", "all", "markdown", "full"),
+}
+BUNDLE_PATHS = {
+    "copilot": "packages/bundles/finance-skills-copilot.zip",
+    "gemini": "packages/bundles/finance-skills-gemini.zip",
+    "all": "packages/bundles/finance-skills-all.zip",
+    "markdown": "packages/markdown/finance-skills-markdown.zip",
+}
 LOCK_NAME = ".release.lock"
 
 
@@ -187,6 +196,11 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
     catalog = json.loads(sources["catalog.json"])
     if not isinstance(catalog, dict):
         raise ReleaseError("Catalogue must be a JSON object")
+    markdown_version = catalog.get("markdownBundleVersion")
+    if markdown_version is not None and (type(markdown_version) is not int or markdown_version != 1):
+        raise ReleaseError("Unsupported Markdown bundle version")
+    schema_version = 2 if markdown_version == 1 else 1
+    variants = VARIANTS_BY_SCHEMA[schema_version]
     version = catalog.get("version")
     version_key(version)
     repo_value = catalog.get("repoUrl")
@@ -209,22 +223,26 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
         raise ReleaseError("Project changed while preparing the release; retry after edits finish")
     prefix = f"finance-skills-v{version}"
     raw = f"https://raw.githubusercontent.com/{match[1]}/{match[2]}/{download_ref}/releases/v{version}"
-    files = {f"{prefix}-{variant}.zip": sources[f"packages/bundles/finance-skills-{variant}.zip"]
-             for variant in VARIANTS[:-1]}
+    files = {f"{prefix}-{variant}.zip": sources[BUNDLE_PATHS[variant]]
+             for variant in variants if variant != "full"}
     files[f"{prefix}-full.zip"] = build.archive_files(sources)
     labels = {"copilot": "Copilot skills", "gemini": "Gemini skills", "all": "Both editions",
+              "markdown": "Copy-and-paste Markdown only",
               "full": "Full project, tools and documentation"}
     lines = [f"# Finance skills v{version}", "", "## Downloads", "",
              "These are repository-hosted release files, not GitHub Release assets.", "",
              "| Download | File |", "| --- | --- |"]
-    lines += [f"| {labels[v]} | [{prefix}-{v}.zip]({raw}/{prefix}-{v}.zip) |" for v in VARIANTS]
+    lines += [f"| {labels[v]} | [{prefix}-{v}.zip]({raw}/{prefix}-{v}.zip) |" for v in variants]
+    if schema_version == 2:
+        lines += ["", "For copy and paste, extract the Markdown-only ZIP, open START-HERE.md, "
+                  "then copy the relevant Copilot or Gemini file. Every file in that ZIP is Markdown."]
     lines += ["", "Extract a transport bundle before importing individual native skill ZIPs. "
               "The full project archive contains source, tools and documentation; it is not a native skill import.",
               "", f"[SHA-256 checksums]({raw}/SHA256SUMS.txt) · [Release manifest]({raw}/manifest.json)",
               "", "## Release notes", "", notes_body, ""]
     files["README.md"] = "\n".join(lines).encode("utf-8")
     manifest = {
-        "schemaVersion": 1, "kind": "repository-hosted-release", "version": version,
+        "schemaVersion": schema_version, "kind": "repository-hosted-release", "version": version,
         "repository": repo, "downloadRef": download_ref, "reviewedOn": catalog["reviewedOn"],
         "skillCount": len(catalog["skills"]), "notes": file_record(notes_path, sources[notes_path]),
         "files": [dict(file_record(name, content), downloadUrl=f"{raw}/{name}")
@@ -241,15 +259,21 @@ def verify_frozen(directory: Path) -> dict:
         raise ReleaseError("Release snapshot must be a regular version directory")
     version = directory.name[1:]
     version_key(version)
-    names = {f"finance-skills-v{version}-{v}.zip" for v in VARIANTS} | {"README.md"}
+    manifest_bytes = read_regular(directory / "manifest.json")
+    manifest = json.loads(manifest_bytes)
+    if not isinstance(manifest, dict):
+        raise ReleaseError(f"Invalid release manifest for {directory.name}")
+    schema_version = manifest.get("schemaVersion")
+    if (type(schema_version) is not int or schema_version not in VARIANTS_BY_SCHEMA
+            or manifest.get("kind") != "repository-hosted-release" or manifest.get("version") != version):
+        raise ReleaseError(f"Invalid release manifest for {directory.name}")
+    names = {f"finance-skills-v{version}-{v}.zip" for v in VARIANTS_BY_SCHEMA[schema_version]} | {"README.md"}
     all_names = names | {"manifest.json", "SHA256SUMS.txt"}
     if {p.name for p in directory.iterdir()} != all_names:
         raise ReleaseError(f"Unexpected or missing files in frozen {directory.name}")
     files = {name: read_regular(directory / name) for name in sorted(all_names)}
-    manifest = json.loads(files["manifest.json"])
-    if (not isinstance(manifest, dict) or manifest.get("schemaVersion") != 1 or manifest.get("kind") != "repository-hosted-release"
-            or manifest.get("version") != version):
-        raise ReleaseError(f"Invalid release manifest for {directory.name}")
+    if files["manifest.json"] != manifest_bytes:
+        raise ReleaseError(f"Release manifest changed while verifying {directory.name}")
     repo = manifest.get("repository")
     ref = manifest.get("downloadRef")
     if (not isinstance(repo, str) or not REPOSITORY.fullmatch(repo) or not isinstance(ref, str)
@@ -258,7 +282,8 @@ def verify_frozen(directory: Path) -> dict:
     match = REPOSITORY.fullmatch(repo)
     raw = f"https://raw.githubusercontent.com/{match[1]}/{match[2]}/{ref}/releases/v{version}"
     records = manifest.get("files", [])
-    if (not isinstance(records, list) or len(records) != len(names) or any(not isinstance(r, dict) for r in records)
+    if (not isinstance(records, list) or len(records) != len(names)
+            or any(not isinstance(r, dict) or not isinstance(r.get("path"), str) for r in records)
             or {r.get("path") for r in records} != names):
         raise ReleaseError(f"Invalid release file inventory for {directory.name}")
     for record in records:

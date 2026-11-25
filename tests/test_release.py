@@ -134,6 +134,99 @@ class ReleaseTests(unittest.TestCase):
             self.write(name, b"Must stay out of public release.\n")
         self.assertEqual(release.prepare(self.root)[1], baseline)
 
+    def test_markdown_release_preserves_legacy_snapshots_and_lists_five_archives(self):
+        for version in ("1.1.0", "1.2.0"):
+            self.set_version(version)
+            release.run(self.root)
+            folder = self.root / f"releases/v{version}"
+            self.assertEqual(release.verify_frozen(folder)["schemaVersion"], 1)
+            self.assertEqual({p.name for p in folder.iterdir()}, {
+                f"finance-skills-v{version}-{variant}.zip" for variant in ("copilot", "gemini", "all", "full")
+            } | {"README.md", "manifest.json", "SHA256SUMS.txt"})
+        old = {name: value for name, value in self.snapshot().items()
+               if name.startswith(("releases/v1.1.0/", "releases/v1.2.0/"))}
+        self.catalog["markdownBundleVersion"] = 1
+        self.set_version("1.3.0")
+        self.assertEqual(release.run(self.root)["status"], "created")
+        folder = self.root / "releases/v1.3.0"
+        manifest = release.verify_frozen(folder)
+        archives = {f"finance-skills-v1.3.0-{variant}.zip"
+                    for variant in ("copilot", "gemini", "all", "markdown", "full")}
+        self.assertEqual(manifest["schemaVersion"], 2)
+        self.assertEqual({p.name for p in folder.iterdir()}, archives | {"README.md", "manifest.json", "SHA256SUMS.txt"})
+        self.assertEqual({r["path"] for r in manifest["files"]}, archives | {"README.md"})
+        self.assertEqual((folder / "finance-skills-v1.3.0-markdown.zip").read_bytes(),
+                         (self.root / "packages/markdown/finance-skills-markdown.zip").read_bytes())
+        index = json.loads((self.root / "releases/latest.json").read_bytes())
+        self.assertEqual(index["version"], "1.3.0")
+        self.assertEqual({r["path"] for r in index["downloads"]}, {f"releases/v1.3.0/{name}" for name in archives})
+        self.assertIn("START-HERE.md", (folder / "README.md").read_text())
+        after = self.snapshot()
+        self.assertEqual({name: after[name] for name in old}, old)
+        before = self.snapshot()
+        self.assertEqual(release.run(self.root, check=True)["status"], "verified")
+        self.assertEqual(release.run(self.root)["status"], "unchanged")
+        self.assertEqual(self.snapshot(), before)
+
+    def test_release_manifest_schema_and_inventory_are_strict_for_both_formats(self):
+        release.run(self.root)
+        self.catalog["markdownBundleVersion"] = 1
+        self.set_version("1.3.0")
+        release.run(self.root)
+        for version, schema in (("1.1.0", 1), ("1.3.0", 2)):
+            folder = self.root / f"releases/v{version}"
+            manifest_path = folder / "manifest.json"
+            original = manifest_path.read_bytes()
+            for invalid in (None, True, False, 1.0, 2.0, 0, 3, "1", [], {}):
+                with self.subTest(version=version, schema=invalid):
+                    manifest = json.loads(original)
+                    manifest["schemaVersion"] = invalid
+                    manifest_path.write_bytes(build.json_bytes(manifest))
+                    with self.assertRaisesRegex(release.ReleaseError, "Invalid release manifest"):
+                        release.verify_frozen(folder)
+            manifest = json.loads(original)
+            manifest["schemaVersion"] = 2 if schema == 1 else 1
+            manifest_path.write_bytes(build.json_bytes(manifest))
+            with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
+                release.verify_frozen(folder)
+            manifest_path.write_bytes(original)
+            archive = folder / f"finance-skills-v{version}-{'markdown' if schema == 2 else 'copilot'}.zip"
+            archive_bytes = archive.read_bytes()
+            archive.unlink()
+            with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
+                release.verify_frozen(folder)
+            archive.write_bytes(archive_bytes)
+            extra = folder / "unsupported.zip"
+            extra.write_bytes(archive_bytes)
+            with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
+                release.verify_frozen(folder)
+            extra.unlink()
+            for invalid in ("missing", "duplicate", "unknown", "invalid path"):
+                with self.subTest(version=version, inventory=invalid):
+                    manifest = json.loads(original)
+                    if invalid == "missing":
+                        manifest["files"].pop()
+                    elif invalid == "duplicate":
+                        manifest["files"][-1] = manifest["files"][0]
+                    else:
+                        manifest["files"][0]["path"] = "unknown.zip" if invalid == "unknown" else []
+                    manifest_path.write_bytes(build.json_bytes(manifest))
+                    with self.assertRaisesRegex(release.ReleaseError, "Invalid release file inventory"):
+                        release.verify_frozen(folder)
+            manifest_path.write_bytes(original)
+            self.assertEqual(release.verify_frozen(folder)["schemaVersion"], schema)
+
+    def test_unsupported_markdown_bundle_version_cannot_create_a_release(self):
+        for invalid in (True, False, 0, 2, 1.0, "1", [], {}):
+            with self.subTest(version=invalid):
+                self.catalog["markdownBundleVersion"] = invalid
+                self.write("catalog.json", build.json_bytes(self.catalog))
+                before = self.snapshot()
+                with self.assertRaisesRegex(release.ReleaseError, "Unsupported Markdown bundle version"):
+                    release.run(self.root)
+                self.assertEqual(self.snapshot(), before)
+                self.assertFalse((self.root / "releases").exists())
+
     def test_determinism_ignores_mtime_and_source_file_permissions(self):
         first = release.prepare(self.root)[1]
         for file in self.root.rglob("*"):

@@ -1,6 +1,6 @@
 # Skills
 
-29 skills · version 1.2.0 · reviewed 2026-11-25
+29 skills · version 1.3.0 · reviewed 2026-11-25
 
 Choose one edition. Import each skill separately. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 
@@ -13,6 +13,12 @@ Extract a bundle first, then use its individual skill ZIPs or follow its folder-
 [Excel agent instructions](profiles/excel-agent-instructions.txt) · [Bundle checksums](packages/bundles/manifest.json)
 
 [Tool inventory](TOOLS.md) · [Workflow contracts](docs/SKILL-CONTRACTS.md) · [Research registry](research/README.md)
+
+## Copy and paste
+
+[Download Markdown-only ZIP](packages/markdown/finance-skills-markdown.zip?raw=1) · [File inventory and checksum](packages/markdown/manifest.json)
+
+60 Markdown files: both editions, Excel agent instructions and a start guide. Extract, open the relevant file, copy its complete contents and paste into an available Instructions field or approved conversation. YAML headers are removed; the full host instructions and shared controls are retained.
 
 ## Individual skills
 

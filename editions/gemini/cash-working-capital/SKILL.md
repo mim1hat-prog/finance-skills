@@ -80,4 +80,4 @@ Example request: “Compare October and November working capital using these bal
 
 ## Edition record
 
-Finance skills 1.2.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.3.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

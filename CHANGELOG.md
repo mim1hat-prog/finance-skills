@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0 — 2026-11-25
+
+- Add a Markdown-only download containing all 29 Copilot and 29 Gemini instruction bodies, the Excel agent profile and a short start guide: 60 `.md` files ready to copy and paste.
+- Remove YAML headers in this generated format while retaining the complete edition notes, shared controls and skill procedures. Keep its exact inventory and checksums outside the ZIP.
+- Add the Markdown ZIP as a fifth versioned release download. Continue validating earlier four-archive release manifests and preserve all published v1.1.0 and v1.2.0 bytes.
+- Keep canonical finance procedures, benchmark observations and research records unchanged; pasted copies require manual replacement when updated.
+
 ## 1.2.0 — 2026-11-25
 
 - Add connected reporting, provision reconciliation, FX/allocation preflight and shared benchmark lookup: 29 canonical skills and 58 native packages.

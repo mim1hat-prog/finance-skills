@@ -2,7 +2,15 @@
 
 Checked **2026-11-25**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
 
-## Current release: v1.2.0
+## Current release: v1.3.0
+
+The Markdown-only download contains **60 `.md` files**: 29 complete Copilot instruction bodies, 29 complete Gemini bodies, the canonical Excel agent profile and a start guide. The 310,404-byte archive has no YAML frontmatter, scripts, datasets, JSON members or nested ZIPs. Every skill body matched its generated edition after removing only the YAML header and normalizing the final newline. The external inventory matched all file sizes and SHA-256 hashes; repeated builds produced identical bytes.
+
+The integrated offline gate ran **130 Python tests with zero skips**, including the focused Markdown packaging test and three new release compatibility cases. The current build has **160 deterministic generated files**. Tests exercised a transition from legacy four-archive releases to the new five-archive format, preserving earlier bytes and modification times; unknown schema versions, incorrect inventories and unsupported feature flags were rejected. Existing v1.1.0 and v1.2.0 snapshots passed their integrity checks.
+
+Canonical finance instructions, research records and benchmark observations were unchanged. The gate revalidated the existing dataset/API, research references, workflow contracts and nested publication inventory with no publication findings, including the separate private marker policy. This packaging check does not establish import, activation or a task result in Copilot/Gemini. The source-review dates retain their existing meaning; no new upstream review is claimed.
+
+## Previous release: v1.2.0
 
 The current library contains **29 canonical skills, 58 individual native ZIPs and 158 deterministic generated files**, including the Excel Instructions profile, three transport bundles, tool inventory, workflow contracts and citation metadata. All generated files matched their sources. The largest native instruction file was 15,746 bytes, within the project's portable ceiling.
 
