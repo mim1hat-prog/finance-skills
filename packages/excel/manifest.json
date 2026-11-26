@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "kind": "excel-onedrive-folder-package",
+  "version": "1.6.0",
+  "edition": "copilot",
+  "host": "Copilot in Excel",
+  "skillName": "finance-suite",
+  "folderName": "finance-suite",
+  "workflowCount": 29,
+  "registrationCount": 1,
+  "nativeStatus": "not-validated",
+  "installationMode": "extract-then-upload-folder",
+  "instructions": "Extract the ZIP, then use Upload Folder to upload the inner finance-suite folder to the OneDrive skills location opened by Copilot in Excel. Keep SKILL.md and references together, select Refresh in Excel, then invoke @finance-suite. Do not upload this ZIP through a native skill ZIP-import screen.",
+  "path": "packages/excel/finance-suite-onedrive.zip",
+  "bytes": 82116,
+  "sha256": "5104cdc36686d9c80d43ce41e521935a272a958240e660e479471fd7de1e2349",
+  "sourceSuitePath": "packages/suites/finance-suite-copilot.zip",
+  "sourceSuiteSha256": "8beea976368fa79b5747a52cebad002631eb56dbe83e0e08b6ec5607151a1625",
+  "sourceExpandedPath": "editions/copilot-suite/finance-suite",
+  "fileCount": 10,
+  "files": [
+    {
+      "path": "finance-suite/SKILL.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/SKILL.md",
+      "bytes": 17404,
+      "sha256": "6addaf9db9572d819f461b7776375b046c336fdb643fa0a7d03d023f50c1dc82"
+    },
+    {
+      "path": "finance-suite/references/agent-setup.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/agent-setup.md",
+      "bytes": 5725,
+      "sha256": "f5ea9394b93cb307e2cca5b648a5d5a84e9e9a80f08826f07e24239be382549b"
+    },
+    {
+      "path": "finance-suite/references/analysis.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/analysis.md",
+      "bytes": 33965,
+      "sha256": "a43c76ffe2e3b33c549e39e5cd0ae4d3f1379a8cb6efdec78e3f00a959510c3f"
+    },
+    {
+      "path": "finance-suite/references/controls.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/controls.md",
+      "bytes": 28667,
+      "sha256": "8659567a652106c71922bb650a2cf1ed748e162ef4613feb82ff5f24c53efb64"
+    },
+    {
+      "path": "finance-suite/references/core.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/core.md",
+      "bytes": 14005,
+      "sha256": "b952fc69fc4da0f2fa2bad01bd370914682801b55b9965b11610f1567ef35892"
+    },
+    {
+      "path": "finance-suite/references/design.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/design.md",
+      "bytes": 15528,
+      "sha256": "ed8c8264198488e98c40b1dfda46c2d14d99396f049ec5742341fa8414d97e18"
+    },
+    {
+      "path": "finance-suite/references/pipeline.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/pipeline.md",
+      "bytes": 14744,
+      "sha256": "8d1e2edf7be3ba6b0f02c4b0d0f4ec7131a8e9b968000827fee3b2037bac0670"
+    },
+    {
+      "path": "finance-suite/references/planning.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/planning.md",
+      "bytes": 35024,
+      "sha256": "6e5c9fc6ad9fe94e7380da95449f1d676f8a7941d8bb2eb87adf8cc69f4fdf30"
+    },
+    {
+      "path": "finance-suite/references/reporting.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/reporting.md",
+      "bytes": 35772,
+      "sha256": "f08bd4bc66388349c5a7a7c33f9f4cb924f30f8f1de2d33be5fe27e6df24d713"
+    },
+    {
+      "path": "finance-suite/references/research.md",
+      "sourcePath": "editions/copilot-suite/finance-suite/references/research.md",
+      "bytes": 19227,
+      "sha256": "7fea68f1d4fd0316099e1f6d3ce41ae74b16bf2215e9c8741fa72e47b41ba82b"
+    }
+  ]
+}

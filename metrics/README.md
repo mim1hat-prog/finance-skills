@@ -1,6 +1,6 @@
 # Repository coverage and public-data inventory
 
-Version **1.5.2** · release date **2026-11-26** · generated offline from the committed sources.
+Version **1.6.0** · release date **2026-11-26** · generated offline from the committed sources.
 
 These descriptive counts make implemented scope and remaining gaps visible. They do not measure model accuracy, task success or effectiveness in a work account.
 
@@ -17,7 +17,7 @@ The denominator is the complete canonical skill catalogue, including the Excel a
 | Declared workflow contracts | 29 / 29 (100%) | Skills with structured inputs, outputs and execution conditions |
 | Active source mappings | 29 / 29 (100%) | Skills linked to an active registry source with a matching stated use |
 | Declared package-test links | 29 / 29 (100%) | Skills naming at least one resolvable local package test |
-| Declared workflow-test links | 8 / 29 (27.6%) | Skills naming at least one resolvable local workflow test; full task coverage is not implied |
+| Declared workflow-test links | 12 / 29 (41.4%) | Skills naming at least one resolvable local workflow test; full task coverage is not implied |
 | Native execution evidence | 0 / 29 (0%) | Skills with an accepted native-account validation record; currently none is supported by the public contract |
 
 ### Scope by task category
@@ -38,28 +38,49 @@ Categories are the project's editorial grouping, not an external financial taxon
 
 ### Explicit gaps
 
-Skills without a declared workflow-test link: `analytical-sql`, `business-document`, `cash-working-capital`, `close-controls`, `corporate-style`, `design-review`, `document-extraction`, `evidence-research`, `excel-data-coverage`, `forecast-variance`, `interactive-visualization`, `management-presentation`, `power-bi-analysis`, `process-diagram`, `project-context`, `reproducible-analysis`, `scenario-planning`, `sharepoint-evidence`, `spreadsheet-modeling`, `video-storyboard`, `work-tool-routing`.
+Skills without a declared workflow-test link: `business-document`, `cash-working-capital`, `corporate-style`, `design-review`, `document-extraction`, `evidence-research`, `interactive-visualization`, `management-presentation`, `power-bi-analysis`, `process-diagram`, `project-context`, `reproducible-analysis`, `scenario-planning`, `sharepoint-evidence`, `spreadsheet-modeling`, `video-storyboard`, `work-tool-routing`.
 
 All host workflows still require a representative check in the actual approved Copilot/Gemini account. Local package and helper checks cannot establish host activation, tool access or answer quality.
 
 ## Research and tool inventory
 
-The registry has **87 records: 86 active and 1 candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.
+The registry has **89 records: 88 active and 1 candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.
+
+Active empirical-research sources: 0; excluded empirical candidates: 1. Source mappings describe stated uses, not measured model efficacy.
+
+### Active source composition
+
+Each registry record has one declared source type. Counts cover active records only; candidates remain excluded. A guideline, product manual or project design decision supports its stated scope without becoming a performance experiment.
+
+| Source type | Active records |
+| --- | ---: |
+| Provider documentation | 40 |
+| Software references | 24 |
+| Standards | 9 |
+| Data licences | 5 |
+| Metadata guidance | 5 |
+| Method guides | 3 |
+| Project design | 2 |
+| Empirical research | 0 |
+
+### Review status
+
+These status counts include both active records and candidates.
 
 | Source review status | Records |
 | --- | ---: |
 | carried-forward | 16 |
 | needs-review | 1 |
-| reviewed | 39 |
-| reviewed-with-limitations | 31 |
+| reviewed | 40 |
+| reviewed-with-limitations | 32 |
 
-The tool catalogue contains **29 capabilities/products**. Availability labels remain separate from installation or integration evidence.
+The tool catalogue contains **30 capabilities/products**. Availability labels remain separate from installation or integration evidence.
 
 | Tool availability label | Entries |
 | --- | ---: |
 | capability-only | 7 |
 | confirm-at-work | 9 |
-| local-implementation | 1 |
+| local-implementation | 2 |
 | optional-evaluation | 5 |
 | partial-user-reported | 2 |
 | user-reported | 5 |
@@ -123,6 +144,7 @@ For every ratio, percentage = numerator ÷ denominator × 100, rounded to one de
 
 - These are descriptive counts, not model accuracy, task success, statistical confidence or native account validation.
 - A linked local test is a declared test reference, not a full-workflow pass or an execution receipt; this generator does not run tests.
+- Source types describe the cited material, not an evidence hierarchy or proof of agent effectiveness; empirical candidates are excluded from active support.
 - Repository skill categories are editorial classifications, not a representative sample of all finance tasks.
 - Observed-series coverage is availability within this project's configured catalogue, not coverage of all public finance data or of a company's inputs.
 - Daily and monthly observations count retained rows; they are not comparable sample sizes. Financial values with different units are never pooled.

@@ -112,7 +112,10 @@ def generate(root: Path, catalog: dict) -> dict[Path, bytes]:
     contracts = ["# Workflow contracts and validation coverage", "", f"Generated from catalog.json for version {catalog['version']}.", "",
                  "These contracts describe triggers, inputs, outputs, modes and source support. Shared controls are included in every generated host skill. "
                  "Package tests do not prove that a live finance workflow is production-ready. Conditional execution requires the actual host, authorization, "
-                 "exact target and payload, preconditions and independent verification. Native work-account validation remains outstanding.", ""]
+                 "exact target and payload, preconditions and independent verification. Native work-account validation remains outstanding.", "",
+                 "Workflow-test links identify partial deterministic helper checks. Their presence does not establish that a model completed "
+                 "the workflow or that every task step was tested; inspect the named test's exact scope. Optional dependencies may affect "
+                 "whether a check runs, so use the release report's actual executed and skipped counts.", ""]
     for row in catalog["skills"]:
         contract = row["contract"]
         coverage = contract["validation"]

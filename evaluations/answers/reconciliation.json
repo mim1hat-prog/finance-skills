@@ -1,0 +1,12 @@
+{
+  "earlier_total": 180,
+  "later_total": 192,
+  "change": 12,
+  "matched_change": 5.25,
+  "removed_effect": 10.75,
+  "added_effect": -4,
+  "residual": 0,
+  "earlier_only": ["R103"],
+  "later_only": ["R104"],
+  "cause_status": "unconfirmed"
+}

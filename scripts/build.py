@@ -30,6 +30,8 @@ WINDOWS_RESERVED = {"con", "prn", "aux", "nul"} | {
     f"{prefix}{number}" for prefix in ("com", "lpt") for number in range(1, 10)
 }
 EXCEL_PROFILE = Path("profiles/excel-agent-instructions.txt")
+EXCEL_FOLDER_BUNDLE = Path("packages/excel/finance-suite-onedrive.zip")
+EXCEL_FOLDER_MANIFEST = Path("packages/excel/manifest.json")
 MARKDOWN_BUNDLE = Path("packages/markdown/finance-skills-markdown.zip")
 BUNDLE_EDITIONS = {
     "finance-skills-copilot": ("copilot",),
@@ -270,6 +272,9 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
             "workflow section before applying its procedure.")
         routing += ("\n\nWorkflow IDs and examples that name an individual workflow refer to sections "
                     "inside this suite. Invoke `finance-suite` and select that section; no separate skill is required.")
+        routing += ("\n\nCopying this root alone does not include the referenced procedures. If the host "
+                    "cannot read companion files, use the complete instructions for the selected workflow "
+                    "from the Markdown download, or provide its full reference section in the approved conversation.")
     records = []
     for edition in EDITIONS:
         adapter = host_notes.get(edition)
@@ -325,6 +330,44 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
         "import": "Upload one complete edition ZIP with its root SKILL.md and references together.",
         "packages": records,
         **({"layoutVersion": 2, "companionFileCountPerPackage": len(resources)} if layout_version == 2 else {}),
+    })
+
+
+def add_excel_folder_package(outputs: dict[Path, bytes], catalog: dict) -> None:
+    """Wrap the unchanged Copilot suite in its exact OneDrive skill-folder name."""
+    source_folder = Path("editions/copilot-suite") / SUITE_NAME
+    source_package = Path("packages/suites/finance-suite-copilot.zip")
+    members = {path.relative_to(source_folder).as_posix(): content
+               for path, content in outputs.items() if path.is_relative_to(source_folder)}
+    # Reuse the suite's root-name, resource-path, file-count and size safeguards.
+    # The comparison also prevents a partial folder or an unrelated generated file
+    # from becoming a different procedure in the OneDrive download.
+    validate_portable_suite_members(members)
+    suite_payload = outputs.get(source_package)
+    if suite_payload != archive_files(members):
+        raise ValueError("Excel folder must match the complete generated Copilot suite")
+    wrapped = {f"{SUITE_NAME}/{name}": content for name, content in members.items()}
+    payload = archive_files(wrapped)
+    outputs[EXCEL_FOLDER_BUNDLE] = payload
+    outputs[EXCEL_FOLDER_MANIFEST] = json_bytes({
+        "schemaVersion": 1, "kind": "excel-onedrive-folder-package",
+        "version": catalog["version"], "edition": "copilot", "host": "Copilot in Excel",
+        "skillName": SUITE_NAME, "folderName": SUITE_NAME,
+        "workflowCount": len(catalog["skills"]), "registrationCount": 1,
+        "nativeStatus": "not-validated", "installationMode": "extract-then-upload-folder",
+        "instructions": (
+            "Extract the ZIP, then use Upload Folder to upload the inner finance-suite folder "
+            "to the OneDrive skills location opened by Copilot in Excel. Keep SKILL.md and "
+            "references together, select Refresh in Excel, then invoke @finance-suite. "
+            "Do not upload this ZIP through a native skill ZIP-import screen."
+        ),
+        "path": EXCEL_FOLDER_BUNDLE.as_posix(), "bytes": len(payload), "sha256": sha(payload),
+        "sourceSuitePath": source_package.as_posix(), "sourceSuiteSha256": sha(suite_payload),
+        "sourceExpandedPath": source_folder.as_posix(), "fileCount": len(wrapped),
+        "files": [{"path": f"{SUITE_NAME}/{name}",
+                   "sourcePath": (source_folder / name).as_posix(),
+                   "bytes": len(content), "sha256": sha(content)}
+                  for name, content in sorted(members.items())],
     })
 
 
@@ -520,6 +563,12 @@ def generate(root: Path) -> dict[Path, bytes]:
             raise ValueError("Unsupported suite package version")
         if type(markdown_version) is not int or markdown_version != 1:
             raise ValueError("Suite packages require Markdown bundle version 1")
+    excel_folder_version = catalog.get("excelFolderBundleVersion")
+    if "excelFolderBundleVersion" in catalog:
+        if type(excel_folder_version) is not int or excel_folder_version != 1:
+            raise ValueError("Unsupported Excel folder bundle version")
+        if suite_version != 2:
+            raise ValueError("Excel folder bundle requires grouped suite package version 2")
     presentation_version = catalog.get("projectPresentationVersion")
     if presentation_version is not None and (type(presentation_version) is not int or presentation_version != 1):
         raise ValueError("Unsupported project presentation version")
@@ -614,6 +663,8 @@ def generate(root: Path) -> dict[Path, bytes]:
         add_markdown_bundle(outputs, catalog)
     if suite_version in (1, 2):
         add_suite_packages(outputs, catalog, canonical_sources, host_notes, shared)
+    if excel_folder_version == 1:
+        add_excel_folder_package(outputs, catalog)
     if presentation_version == 1:
         import project_discovery
         import project_metrics
@@ -647,6 +698,14 @@ def generate(root: Path) -> dict[Path, bytes]:
                   + reference_summary + "Upload the selected suite ZIP unchanged. The host must be able "
                   "to read its bundled references; verify this in the target account. This registers one skill, "
                   "not every workflow separately, and does not increase host limits. Individual packages remain available.", ""]
+    if excel_folder_version == 1:
+        index += ["## Copilot in Excel: upload one OneDrive folder", "",
+                  "[Download Excel OneDrive folder ZIP](packages/excel/finance-suite-onedrive.zip?raw=1) · "
+                  "[Folder inventory and checksum](packages/excel/manifest.json)", "",
+                  "Extract this download first. Use Upload Folder to upload the inner `finance-suite` folder "
+                  "to the OneDrive skills location opened by Excel. Keep `SKILL.md` and all references together, "
+                  "select Refresh in Excel, then invoke `@finance-suite`. This archive is a folder transport, "
+                  "not a native ZIP import. Account activation and workflow execution remain unverified.", ""]
     if markdown_version == 1:
         index += ["## Copy and paste", "",
                   "[Download Markdown-only ZIP](packages/markdown/finance-skills-markdown.zip?raw=1) · "

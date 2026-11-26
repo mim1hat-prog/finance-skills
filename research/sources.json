@@ -107,7 +107,7 @@
     },
     {
       "id": "fair-principles",
-      "type": "empirical-research",
+      "type": "metadata-guidance",
       "title": "The FAIR Guiding Principles for scientific data management and stewardship",
       "publisher": "Scientific Data",
       "authors": [
@@ -117,11 +117,11 @@
       "url": "https://www.nature.com/articles/sdata201618",
       "doi": "10.1038/sdata.2016.18",
       "edition": "Scientific Data 3, 160018; 2019 addendum reviewed",
-      "accessedOn": "2026-11-25",
-      "lastReviewedOn": "2026-11-25",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
       "maintainerRole": "Research and data maintainer",
       "reviewStatus": "reviewed",
-      "reviewNotes": "Primary publisher material was checked on the access date. Scope is limited to the stated uses.",
+      "reviewNotes": "The publisher identifies this article as a Comment presenting guiding principles, rationale and example implementations. Article type and the stated scope were checked on 26 November 2026; this is metadata guidance, not an empirical evaluation of agent or forecasting performance. The separately recorded 2019 addendum review remains dated 25 November 2026.",
       "license": {
         "name": "CC BY 4.0 (article); metadata and summaries only",
         "termsUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4792175/",
@@ -145,9 +145,9 @@
             "research/sources.json",
             "scripts/research_registry.py"
           ],
-          "section": "Box 2, F1–F4 and R1–R1.3",
+          "section": "Abstract; Box 2, F1–F4 and R1–R1.3; The Principles precede implementation",
           "purpose": "Use stable identifiers, machine-readable metadata, explicit provenance and reuse terms.",
-          "limits": "This is a lightweight local catalog, not a claim of full standards conformance or of fitness for a particular business decision.",
+          "limits": "The FAIR principles are guidance, not themselves a standard or specification, and this Comment is not an empirical performance study. This project uses selected metadata and provenance principles without claiming full FAIR assessment, native agent efficacy or fitness for a particular business decision.",
           "tests": [],
           "distribution": "metadata-only"
         }
@@ -4079,6 +4079,94 @@
           "section": "RAI validation failures",
           "purpose": "Keep import diagnostics distinct from platform content validation; do not infer a content-screening verdict from a combined generic error or claim that local tests reproduce it.",
           "limits": "This source documents declarative-agent validation; it does not publish a deterministic local test for every personal-skill import surface.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "joss-review-criteria",
+      "type": "method-guide",
+      "title": "JOSS review criteria",
+      "publisher": "Journal of Open Source Software / The Open Journals",
+      "authors": [
+        "The Open Journals"
+      ],
+      "year": null,
+      "url": "https://joss.readthedocs.io/en/latest/review_criteria.html",
+      "doi": null,
+      "edition": "Living review criteria, accessed 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Reviewed the official Documentation, Functionality and Tests sections for the limited practice of providing example inputs and objective functionality checks. No journal submission, eligibility assessment or editorial review of this repository has occurred.",
+      "license": {
+        "name": "Publisher document terms; metadata and original summaries only",
+        "termsUrl": "https://joss.readthedocs.io/en/latest/review_criteria.html",
+        "attribution": "The Open Journals, JOSS review criteria.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only a link, bibliographic metadata and original summaries are included; no source document is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/EVALUATION.md",
+            "evaluations/cases.json",
+            "scripts/evaluation.py",
+            "tests/test_evaluation.py"
+          ],
+          "section": "Documentation: Example usage; Functionality; Tests",
+          "purpose": "Provide independently invented sample inputs and objective result checks for a declared, reproducible evaluation plan.",
+          "limits": "These are software-review practices. The repository has not undergone JOSS peer review and is not asserted eligible for publication. Fixtures and result validation do not establish native Copilot/Gemini efficacy or successful tool execution.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-excel-skills",
+      "type": "provider-documentation",
+      "title": "Use skills with Copilot in Excel to complete repeatable tasks",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://support.microsoft.com/en-gb/excel/copilot/copilot-in-excel-skills",
+      "doi": null,
+      "edition": "Living Microsoft Support documentation; Excel folder setup reviewed 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Directly reviewed the official Excel page for the app-created OneDrive location, matching skill-folder name, required frontmatter, optional references, refresh and invocation. This is a documentation review; no work-account installation or native execution was observed.",
+      "license": {
+        "name": "Publisher document terms; links and original summaries only",
+        "termsUrl": "https://support.microsoft.com/en-gb/excel/copilot/copilot-in-excel-skills",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included; no full documentation page or screenshot is redistributed."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md",
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Create custom skills; Custom skills format requirements; Advanced custom skills; Edit or remove custom skills; Manage skills",
+          "purpose": "Keep the Excel download as an extractable matching-name finance-suite folder with its instructions and references, and document the OneDrive setup, Refresh and invocation steps separately from Chat ZIP imports.",
+          "limits": "The reviewed Excel page does not document Cowork's 20-companion limit. This source supports the folder format and setup route, not a diagnosis of the previous generic error, tenant availability, file synchronization or successful reference retrieval.",
           "tests": [],
           "distribution": "metadata-only"
         }

@@ -1,0 +1,12 @@
+{
+  "plan_jpy": 142000,
+  "actual_jpy": 169441,
+  "change_jpy": 27441,
+  "quantity_effect_jpy": 21300,
+  "price_effect_jpy": 9798,
+  "fx_effect_jpy": -3657,
+  "residual_jpy": 0,
+  "fx_quote": "JPY per USD",
+  "order": ["quantity", "price", "fx"],
+  "cause_status": "unconfirmed"
+}

@@ -1,0 +1,12 @@
+{
+  "benchmark_at_cutoff": 101,
+  "latest_benchmark": 104,
+  "snapshot_at_cutoff": "s-20240315",
+  "observation_period": "2024-02",
+  "unit": "index, 2020=100",
+  "internal_forecast": null,
+  "internal_forecast_status": "unavailable",
+  "public_backfill": false,
+  "benchmark_role": "context",
+  "driver_causality": "unconfirmed"
+}

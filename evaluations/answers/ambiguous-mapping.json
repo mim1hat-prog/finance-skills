@@ -1,0 +1,12 @@
+{
+  "source_total": 250,
+  "mapped_total": 220,
+  "unresolved_total": 30,
+  "unresolved_positive": 65,
+  "unresolved_negative": -35,
+  "groups": {"Red": 220},
+  "ambiguous_keys": ["J2"],
+  "missing_keys": ["J3"],
+  "unresolved_records": ["P12", "P13"],
+  "residual": 0
+}

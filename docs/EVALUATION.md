@@ -4,6 +4,32 @@
 
 This design adapts the matched skill/baseline approach in [Anthropic's skill-creator](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md) and the explicit acceptance criteria in [Microsoft's skills repository](https://github.com/microsoft/skills/blob/main/README.md). These are vendor-authored development practices, not evidence that this library improves a particular assistant.
 
+## Runnable development kit
+
+The [public evaluation kit](../evaluations/README.md) supplies four independently
+invented cases: unmatched-key reconciliation, an ordered quantity/price/FX
+bridge, ambiguous and missing mappings, and a post-cutoff revision with a missing
+internal forecast. Prompts and exact answer keys are separate, hashed files in
+versioned case set 1.0.0; plans bind its version and manifest hash.
+Because the answers are public, these cases support development and regressions;
+they are not a hidden holdout or proof of general finance-task effectiveness.
+
+`scripts/evaluation.py validate-kit` checks the fixtures. `init-plan` creates a
+manual baseline/suite schedule for one declared host/model/tool setup with a
+fixed repetition count and seeded, counterbalanced condition order. The tested
+package version and SHA-256 are supplied explicitly or recorded as unknown;
+neither is inferred from the repository. Every run starts `not-run`, with no
+execution timestamp. Record the actual timezone-aware attempt/completion time
+manually when changing its status. `summarize` grades completed JSON answers and retains all
+scheduled denominators, failure statuses, individual cases and paired outcomes.
+It rejects missing/duplicate scheduled records, fixture drift and invalid values.
+See the kit guide for Windows commands and the exact recording procedure.
+
+The release gate checks kit integrity and grader behavior only. No native runs,
+model results or efficacy scores are shipped. A manually entered result is a
+declaration, not an attestation of host execution; review its original evidence
+before using it to support a public claim. Keep every actual run record private.
+
 ## Define the comparison before running it
 
 Choose a focused task family, such as explaining an invented forecast variance or reconciling two invented extracts. Record the skill version and hash, task prompt, public or independently invented inputs, expected result and grading criteria before inspecting the model's answers. Include both routine cases and failures that a plausible answer could hide: missing populations, duplicate keys, wrong units, post-cutoff revisions or an unresolved difference.

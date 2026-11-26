@@ -7,6 +7,7 @@ from pathlib import Path
 import benchmark_api
 import benchmark_data
 import check_publication
+import evaluation
 import research_registry
 
 
@@ -20,6 +21,7 @@ def validate(root: Path, *, sources: dict[str, bytes] | None = None,
     registry = research_registry.validate(root, check_generated=True)
     if not registry["ok"]:
         raise ValueError("Research gate failed: " + "; ".join(registry["errors"]))
+    evaluation_kit = evaluation.validate_kit(root)
     store = root / "benchmarks"
     benchmark_data.check_inventory(store)
     benchmark_data.check_inventory(store / "fixtures")
@@ -35,6 +37,7 @@ def validate(root: Path, *, sources: dict[str, bytes] | None = None,
         raise ValueError("Publication gate failed: " + "; ".join(
             f"{finding['path']}: {finding['code']}" for finding in scan["findings"]))
     return {"ok": True, "generatedArtifacts": "exact", "research": registry,
+            "evaluationKit": evaluation_kit,
             "publicDataset": {"snapshots": len(benchmark_data.snapshots(store)), "contract": contract},
             "syntheticDataset": {"snapshots": len(benchmark_data.snapshots(store / 'fixtures')), "contract": fixtures},
             "verifiedPriorVersions": scan.get("verifiedReleaseVersions", []), "publication": scan}

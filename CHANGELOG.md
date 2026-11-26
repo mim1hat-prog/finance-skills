@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.6.0 — 2026-11-26
+
+- Add a dedicated Excel / OneDrive download that extracts to the matching `finance-suite` folder with all 29 workflows and nine references. Preserve Chat/Gemini suite ZIPs and all prior release formats.
+- Remove duplicated operating instructions and unused current artwork; simplify the README and current validation record while preserving historical releases.
+- Clarify completion of authorized changes, supporting-file access and the difference between copying a suite router and supplying complete workflow instructions.
+- Correct FAIR's source classification, show the active research composition on the homepage, and link four more workflows to their existing partial helper checks without claiming native performance.
+- Add four independently invented evaluation cases, hashed inputs and answer keys, reproducible baseline/suite plans, and strict local grading/reporting. No native runs or efficacy scores are fabricated.
+- Recheck the actual repository description/topics and document the verified settings; keep weekly maintenance and public benchmark vintages unchanged.
+
 ## 1.5.2 — 2026-11-26
 
 - Publish the complete grouped finance suites with all 29 workflows and nine companions per host, retaining the v1.5.1 portability correction.

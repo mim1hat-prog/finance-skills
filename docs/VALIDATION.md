@@ -1,190 +1,47 @@
-# Validation record
+# Validation and remaining evidence gaps
 
-Checked **2026-11-26**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
+## Current release: v1.6.0
 
-## v1.5.2 release and history validation
+This page separates software and package checks from actual assistant behavior. **Native Copilot/Gemini import, supporting-file access and task execution remain unverified.** The owner identified Copilot in Excel with its OneDrive folder route; a documentation match is not an installation receipt.
 
-The pre-freeze offline gate passed **179 Python tests with zero skips** and reproduced **189 generated artifacts**. Nine additional regressions exercise bounded history inspection: clean versions whose combined size exceeds one budget, private content inside a frozen archive, per-batch limits, exact version assignment, inventory changes, unsafe entries and forwarding the same policy through both gate entry points.
+**Pre-freeze gate passed on 2026-11-26:** 200 Python tests, zero skips, and exact reproduction of 191 generated artifacts. The optional pinned DuckDB 2.0.1 checks ran in a separate maintainer validation environment; nothing was installed on the work PC. Publication inspection covered the current project and 11 prior frozen versions in 12 bounded batches with no findings. All 92 prior frozen files retained their hashes. The registry's five pre-existing rights/correction warnings remain explicit.
 
-The actual pre-freeze publication scan covered the current project and ten verified frozen versions in **11 explicit batches**, totaling 224,262,641 expanded bytes. The largest batch was 24,268,112 bytes. Every batch kept the unchanged ceilings of 200,000,000 expanded bytes, 25,000 entries, 5,000 members per archive and depth five. The scan found no publication issues. Aggregate counts describe repeated physical entries across packages; they are not unique-source or skill-quality scores. Freezing adds the current version as another separately bounded batch and requires the final release gate again.
+An independent package audit used strict YAML parsing and separate ZIP/section extraction rather than the builder. It verified all 29 complete procedures, routing, metadata, byte ranges, hashes, regular-file modes and the Excel wrapper against both native suites and expanded folders. All 74 inspected inputs remained stable through the check.
 
-The Copilot suite is 82,717 bytes and Gemini is 82,746 bytes. Each has one root and nine companions with all 29 procedures. Direct comparison with the independently audited v1.5.1 archives confirmed that every reference is byte-identical and the only root change is its version record. YAML, archive integrity, expanded inventories and manifest hashes passed again. The earlier local grouped-workflow task therefore exercises the same reference content; no additional native model execution is claimed.
+The exact 1200 × 963 coverage SVG was rendered and visually inspected with no overlap or clipping observed. Its 12/29 partial helper-test links, 0/29 native evidence, 89 registered sources and source-type composition agree with independent counts. This is a figure review, not a new desktop/mobile browser-layout check.
 
-Guide links in current release notes use absolute repository URLs so embedding them in a release page does not change their targets. All prior frozen files are retained. Canonical finance instructions, public benchmark observations and retrieval times remain unchanged. Native import, resource access and Microsoft platform Responsible AI validation are still separate unverified outcomes for the new package.
+## What is checked
 
-## v1.5.1 grouped-suite validation
+- **Excel folder format:** a single matching `finance-suite` folder contains `SKILL.md` and nine reference files. Its name matches the YAML metadata; every resource equals the generated Copilot suite. The dedicated download must be extracted before adding its inner folder to Excel's app-created OneDrive location and selecting Refresh.
+- **Complete procedures:** both suites retain all 29 canonical workflows, valid frontmatter, explicit section routing, source/body hashes and byte ranges. Individual skill and copy-only formats are generated from the same sources. Copying the suite root alone does not supply its procedures.
+- **Instruction cleanup:** the Copilot root decreased from 18,846 to 17,404 characters; Gemini from 18,876 to 17,434. Shared controls remain in every individual edition. Authorized actions still require available capabilities, scoped permission, preconditions and independent verification.
+- **Calculation checks:** 12 of 29 workflows now link to existing partial helper tests. The four newly declared links cover forecast bridges, SQL population checks, workbook coverage and close reconciliation. A resolvable test link does not mean a model completed the workflow. The release report records actual executed/skipped checks separately.
+- **Scientific evidence:** source-type composition is generated from the registry. FAIR is metadata guidance rather than an empirical evaluation. Unresolved candidates stay outside active support. The figure measures a complete repository inventory, not task accuracy or statistical significance.
+- **Evaluation kit:** four invented development cases have separate hashed prompts and answer keys. The local grader checks exact responses, preserves every planned run and distinguishes incomplete/failure statuses. A prepared plan, a grader self-test or a manually filled record does not prove native execution. Public keys are not a hidden holdout.
+- **Release and publication:** deterministic generated output, all frozen release schemas, dataset/API contracts, research references and nested archives are checked offline. Private-marker scanning and public Git identity checks remain separate gates. No public provider refresh occurs in these commands.
 
-The supplied v1.5.0 Copilot ZIP matched the published archive exactly. Independent checks found valid YAML, UTF-8, root layout, safe paths, CRCs and references. Its 29 companion files nevertheless exceed the 20-companion per-skill limit documented for Cowork. The generic native rejection did not identify the exact Copilot surface or failed validation branch; no Responsible AI verdict is inferred.
+## Independent local task
 
-The updated offline gate passed **170 Python tests with zero skips** and reproduced **189 deterministic generated artifacts**. Fifteen suite tests include legacy compatibility, lossless category grouping, source/body byte ranges and hashes, routing completeness, malformed mappings and the separate companion/archive bounds. The old 29-companion package shape fails the new portability guard. Seventeen release tests cover the grouped-layout transition, exact full-project inclusion and preservation of prior snapshots.
+A fresh assistant received only the revised suite and independently invented CSV inputs. It verified the approved old amount, changed only that amount in the existing current extract, then reconciled the corrected total of **104.20** against **95.00**. Matched movement **6.20**, removed-record effect **5.00** and added-record effect **-2.00** explain the **9.20** difference with a **0.00** residual. It retained the unmatched records' explanation as unresolved, independently checked integer-cent and decimal arithmetic, and created no extra files. Independent file inspection confirmed the permitted edit and unchanged prior extract.
 
-Each v1.5.1 suite contains **ten Markdown files: one root SKILL.md and nine category companions**, retaining all 29 canonical workflows. The Copilot root is 18,846 characters and the ZIP is 82,717 bytes; Gemini is 18,876 characters and 82,746 bytes. Both use the conservative decimal-byte limits recorded in the build. A separate archive audit with strict PyYAML parsing, direct section extraction and manifest byte-range checks independently confirmed all 29 complete bodies, routes, hashes and exact expanded inventories. The external suite manifest uses schema/layout version 2 and records a unique source-to-section mapping for every workflow. Canonical skill files and benchmark observations are unchanged. All 63 legacy-layout suite outputs reproduced their pre-edit hashes.
+This is one local behavior check, not a native Excel task, a blinded comparative study, or evidence of general model effectiveness.
 
-A separate local task read the `close-controls` and `account-mapping` sections from the grouped controls reference. It reconciled independently invented extracts from 160.00 to 173.20, with a 13.20 change and zero arithmetic residual; the earlier-only and later-only IDs remained separately unmatched without an invented mapping. This checks local section routing on one synthetic case, not native Copilot/Gemini execution or general model accuracy.
+## Unchanged data and history
 
-The registry now has 87 scoped sources with the five pre-existing rights/correction warnings. The public graph retains zero accepted native execution records and unchanged public observation/retrieval dates. The nested publication scan passed. The release gate routes helper-test progress to stderr so stdout remains a JSON report. Native import, supporting-file access and Microsoft platform content validation remain unverified for v1.5.1.
+The retained public dataset still contains 11 observed series out of 17 configured, with 116 original rows and 51 separate derived rows across two snapshots. This release does not fetch providers or redate their observations. See the [generated methods and dates](../metrics/README.md).
 
-## v1.5.0 complete-suite validation
+All previous frozen releases remain available and are integrity checked. The repetitive historical narratives were removed from this current page; their exact earlier record remains in [the v1.5.2 source revision](https://github.com/mim1hat-prog/finance-skills/blob/bc11c32c31089fb50e5972765b8e5c27328f403d/docs/VALIDATION.md) and its frozen full-project archive. [Release history](../releases/README.md)
 
-The offline gate passed **161 Python tests with zero skips** and reproduced **229 generated artifacts**. Seven suite tests cover exact canonical reference contents, deterministic archives, root metadata and size limits, missing/unsafe resource paths, explicit feature flags and compatibility with individual packages. Release tests cover the new seven-archive schema, preservation of older formats and a suite payload changed after recomputing its checksums.
+## Reproduce and interpret
 
-Both native suites contain exactly **30 files: one root `SKILL.md` and 29 Markdown workflow references**, with no nested archives. An independent PyYAML parse and direct comparison with the canonical bodies passed. The Copilot main file has 18,265 characters and its ZIP is 96,275 bytes; Gemini has 18,295 characters and a 96,302-byte ZIP. Both remain under the portable 20,000-character main-file limit. The external suite manifest records every member hash, canonical source hash, version and one registration per package.
+```powershell
+py -3 scripts\research_registry.py
+py -3 scripts\build.py
+py -3 scripts\evaluation.py validate-kit
+py -3 scripts\check_release.py
+py -3 scripts\check_release.py --require-release
+```
 
-A separate local agent read the Copilot suite and its work-tool-routing, close-controls and reproducible-analysis references, then reconciled independently invented extracts from 585.00 to 615.00 with a 30.00 difference and zero arithmetic residual. It retained both unmatched keys without inventing a mapping and left the business reasons unconfirmed. Decimal arithmetic and integer-hundredths checks agreed. This is one local routing example, not a Copilot or Gemini execution result or a performance estimate.
+The last command requires the frozen current release. The JSON report records actual tests, skips, source warnings and publication batches. Optional workbook/SQL dependencies must be present to execute their checks. Private marker policies and Git history exports stay outside the project; see [release verification](RELEASES.md).
 
-Catalogue DOM checks passed for both new suite links, existing downloads, 29 workflow rows, filters, edition switching, copy success/failure, themes and metadata. They do not establish browser layout. The previous layout limitation remains. The research registry contains 83 sources with the five pre-existing rights/correction warnings; public benchmark observations and acquisition timestamps are unchanged.
-
-Native account import, reference access, invocation and task quality remain unverified. The public graph continues to report zero accepted native execution records. The suite is one installed skill containing multiple procedures; package validation does not establish 29 separate registrations, new permissions or automatic installed-copy refresh.
-
-## v1.4.4 Copilot import-format validation
-
-All 29 Copilot native packages in the inspected v1.3.0 and v1.4.3 releases were independently parsed with PyYAML 6.0.3. Each contains one root `SKILL.md`, valid name/description strings, UTF-8 without BOM and content within the documented Chat metadata and portable instruction limits. The live GitHub `excel-agent-core.zip` was also retrieved and independently checked: its required metadata is present, and it contains 13,008 instruction-file characters with a 331-character description.
-
-The headerless Markdown bundle is a copy-and-paste format; outer transport ZIPs are not one native skill. Either could explain the reported validation error if uploaded through the wrong route. The rejected file and host were not supplied, so no specific cause or successful native import is claimed. Current Microsoft Chat, Agent Builder and Copilot Studio troubleshooting pages were directly reviewed for the new guide text and recorded as scoped references.
-
-The offline gate passed **151 Python tests with zero skips** and reproduced **166 generated artifacts**. The registry has 81 sources with the five previously documented warnings. All 29 canonical skill files are unchanged; all 58 generated native packages differ from v1.4.3 only in their edition version record. The benchmark files retain their original bytes. No new runtime behavior or financial method was introduced.
-
-The README, setup guides and generated bundle start guides now distinguish native upload from copy-only text and extraction of transport downloads. Current setup guides use maintained download destinations; earlier frozen packages remain unchanged. Publication is verified separately.
-
-## v1.4.3 weekly-maintenance validation
-
-The existing scheduling record confirmed an enabled weekly check on Wednesdays at 08:00 Asia/Tokyo, with the first weekly occurrence on 2026-12-02. Current maintainer instructions and the README now match that cadence. Daily public-data frequencies and frozen historical releases retain their original meaning.
-
-The offline gate passed **151 Python tests with zero skips** and reproduced **166 generated artifacts**. No new test was added for this documentation-only change. The finance skill bodies, benchmark observations and acquisition dates remain unchanged. Source/release validation does not establish a successful remote push or a future maintenance run.
-
-## v1.4.2 main-page graph validation
-
-The offline gate passed **151 Python tests with zero skips** and reproduced **166 generated artifacts**. The complete README coverage block now owns the graph link, numerical fallback, repository version and retained source dates. Missing/wrong chart content is regenerated; stale generated bytes and a block moved after quick start fail the checks. The root image uses the current branch's asset rather than a frozen release path.
-
-Nine focused metrics tests passed, including mixed latest observation endpoints, distinct daily/monthly groups, UTC-normalized retrieval ranges, and a changed package release date that leaves acquisition dates unchanged. The current 1200 × 841 SVG was rendered and visually inspected with no clipping or overlap. The catalogue image no longer declares an obsolete fixed height. Existing desktop/mobile browser-layout limitations remain; no new browser rendering result is claimed.
-
-The figure reports 29 skills, workflow-test links for 8/29, native execution evidence for 0/29 and observations for 11/17 configured benchmark series. Retained ECB observations end at 2026-11-24, and World Bank monthly observations at 2026-10; their recorded acquisition timestamps are on 2026-11-25. No provider was fetched or redated by the build. The registry remains at 78 sources with the existing five warnings.
-
-Canonical finance instructions, benchmark values and earlier frozen releases remain unchanged. The main-page maintenance check is configured separately from build execution. Local checks, a schedule and prepared Git history do not establish a successful remote publication, current upstream availability or continuous live refresh.
-
-## v1.4.1 homepage validation
-
-The offline artifact gate passed **149 Python tests with zero skips** and reproduced **166 generated artifacts**. Earlier frozen v1.1.0–v1.4.0 release bytes remain unchanged. Canonical finance instructions and benchmark observations were not changed.
-
-- **Homepage:** the generated coverage figure appears before the README quick start and before the static catalogue's skill list. The compact original dot. hero was rendered with Inkscape and visually inspected. README relative links resolve. The marked numerical fallback matches the generated inventory and is checked against changed-count and malformed-marker regressions.
-- **Catalogue behavior:** independent DOM checks passed for 29 skills, both editions, search/category/reset, prompt copy success and failure, themes, unique IDs, metadata and malformed-data fallback. The current README, template and generated page contain no donation link. The catalogue regression also checks coverage order and the absence of donation destinations.
-- **Evidence:** the registry has 78 records, including three new software-project references used only for presentation decisions. It records 77 active sources and one candidate. The five existing source-rights/correction warnings remain visible. No native execution, model accuracy, adoption or ranking claim was added.
-- **Rendering limitation:** a local Chromium launch with alternate process/shared-memory flags failed before page navigation because the environment denied a socket operation. No desktop/mobile browser layout validation is claimed. SVG inspection and DOM execution are separate checks.
-- **Publication:** source/package checks and safe Git author/committer checks remain separate. Authenticated Git transport is supported for the owner's authorized history repair with an explicit expected-head lease. No successful authentication, remote push, settings change or deployment is implied by this validation record.
-
-## v1.4.0 artifact validation
-
-The artifact gate passed **148 Python tests with zero skips** and verified **165 deterministic generated files**. Existing v1.1.0, v1.2.0 and v1.3.0 snapshots passed integrity checks and remain unchanged. Canonical finance skill bodies and public benchmark observations were not changed. These are package-validation results; remote publication is verified separately.
-
-- **Coverage:** six focused tests passed for deterministic measurements, source hashes, exact reference use, missing evidence, latest-vintage selection, synthetic exclusion, empty denominators and metadata mismatch rejection. The generated inventory reports 29 skills, declared workflow-test links for 8/29, no recorded native execution evidence, 75 source records (74 active, one candidate), 11/17 configured public series with observations, 116 original rows and 51 derived rows. These are descriptive counts, not model-performance measures.
-- **Discovery and community:** six focused tests passed for complete static HTML, text/JSON-LD escaping, accurate metadata, invalid profile/template rejection, safe output handling and exact community-file inclusion. Independent DOM checks on the actual v1.4.0 files passed for all 29 rows, Gemini routing, search/filter/reset, deep links, copy success/failure feedback, theme state, unique IDs, version links and malformed-data fallback. All 29 skills and prompts remain readable without JavaScript. Arbitrary `.github` files and workflows are excluded from release collection; linked parents are rejected.
-- **Examples and sources:** the existing invented CSVs reconciled exactly from 350.30 to 365.35 with a 15.05 difference and zero residual, retaining both unmatched keys. Nineteen new primary source records document repository practices, discovery, proposed evaluation and metadata privacy. No new native efficacy or public-feed refresh is claimed.
-- **Presentation:** the coverage SVG and original 1280 × 640 social-preview SVG were rendered and visually inspected. The prepared social PNG is 73,337 bytes. System Chromium exited before opening the local catalogue, so desktop/mobile browser layout remains unverified. DOM and SVG inspection do not substitute for that check.
-- **Privacy boundaries:** the current source/package scan covered 4,367 expanded entries and 1,031 archive inspections with no findings under the separate private marker policy. A separate historical review examined all six published main commits and 812 distinct file blobs; source and release contents passed. Git author/committer metadata had an identity finding. The read-only identity guard's six tests passed, and the release CLI can now fail explicitly on an external commit export. A successful artifact gate does not establish a clean Git identity or authorize publication.
-
-No repository settings, search ranking, user-base growth, GitHub Pages deployment or third-party listing is claimed. The prepared metadata describes settings to apply separately. Identity remediation requires a separate authorized route because the available connector cannot select author and committer fields. Raw review exports and remediation evidence stay outside the public project.
-
-## Previous validation: v1.3.0
-
-The Markdown-only download contains **60 `.md` files**: 29 complete Copilot instruction bodies, 29 complete Gemini bodies, the canonical Excel agent profile and a start guide. The 310,404-byte archive has no YAML frontmatter, scripts, datasets, JSON members or nested ZIPs. Every skill body matched its generated edition after removing only the YAML header and normalizing the final newline. The external inventory matched all file sizes and SHA-256 hashes; repeated builds produced identical bytes.
-
-The integrated offline gate ran **130 Python tests with zero skips**, including the focused Markdown packaging test and three new release compatibility cases. The current build has **160 deterministic generated files**. Tests exercised a transition from legacy four-archive releases to the new five-archive format, preserving earlier bytes and modification times; unknown schema versions, incorrect inventories and unsupported feature flags were rejected. Existing v1.1.0 and v1.2.0 snapshots passed their integrity checks.
-
-Canonical finance instructions, research records and benchmark observations were unchanged. The gate revalidated the existing dataset/API, research references, workflow contracts and nested publication inventory with no publication findings, including the separate private marker policy. This packaging check does not establish import, activation or a task result in Copilot/Gemini. The source-review dates retain their existing meaning; no new upstream review is claimed.
-
-## Previous release: v1.2.0
-
-The current library contains **29 canonical skills, 58 individual native ZIPs and 158 deterministic generated files**, including the Excel Instructions profile, three transport bundles, tool inventory, workflow contracts and citation metadata. All generated files matched their sources. The largest native instruction file was 15,746 bytes, within the project's portable ceiling.
-
-The integrated offline gate ran **126 Python tests with zero skips**. The environment had Python 3.12.14, openpyxl 3.1.5 and DuckDB 2.0.1; optional dependency tests actually executed. The release helper's isolated CLI test was updated to copy its new local catalogue dependency, then passed. No provider calls or enterprise actions run as part of this gate.
-
-- **Workflow controls:** 21 focused tests passed. An independent reviewer reran all original reproductions after corrections. Duplicate explanations, blank evidence/owners, invalid timestamp offsets, changed artifact scale/sign, mismatched allocation receivers and prior-run evidence for a different target or payload now block or reject. Valid controls remain valid. A separate synthetic skill task retained an unexplained reserve difference of 50 after two approved components explained 320 of a 370 difference; the newer unsubmitted draft did not replace the submitted baseline.
-- **Benchmarks:** 20 focused tests passed. Independent reproductions confirmed that a request starting before cutoff cannot make later-arriving bytes available early, a later refresh receipt cannot leak into historical status, and relabeling a derived series cannot bypass formula/input checks. Additional checks cover mixed timezone offsets, strict timestamp rejection, partial months, index rebases, reversed FX, outages, rights and credential redaction.
-- **Dataset and API:** 17 catalogue series, two real public snapshots and two separate synthetic vintages passed schema, CSV, inventory and hash checks. The real snapshots contain 119 ECB rows and 48 World Bank rows. Replaying parsers against the saved public source bytes reproduced the complete snapshots and identical IDs. Seed validation receipts record the later offline validation time, separately from source acquisition. All four OpenAPI routes passed response validation; a real loopback GET/POST check passed and the server stopped.
-- **Research and standards:** 56 registry records map to 29 skills, with no unresolved reference errors. All 23 registry tests passed. The M4 paper remains an inactive candidate while its erratum requires review. BOJ and selected upstream redistribution restrictions remain explicit. `CITATION.cff` passed an independent check against the official CFF 1.2.0 draft-07 schema; data/workflow schemas use 2020-12 separately.
-- **Publication boundary:** the public inventory and nested packages passed the heuristic scan, including an additional private marker policy stored outside the project. The one exception is bound to the exact hash of an already published synthetic invalid-URL test; it cannot exempt another file, changed bytes, private links or other finding categories. The previous v1.1.0 release files passed their integrity checks and remain unchanged.
-- **Catalogue behavior:** DOM checks passed for the actual 29-entry v1.2.0 data, edition routing, search/filter/reset, example-copy feedback, theme state, fallbacks and version-derived download links. This does not establish browser layout. Presentation code and dot assets were retained; native desktop/mobile rendering remains unverified in this environment.
-
-`scripts/check_release.py` is the offline pre-release command. After freezing, `--require-release` additionally requires exact current release bytes and indexes. The full ZIP deliberately excludes nested release history and can run the default gate independently. Remote publication is verified separately from this local record; a GitHub Release object or native account installation is not implied.
-
-## Historical evidence: v1.1.0 and earlier
-
-The following results describe prior published versions. Their original counts and limitations are retained for traceability.
-
-### Automated checks actually run
-
-| Check | Observed result |
-| --- | --- |
-| Canonical skills and both generated editions | 25 source skills, 50 standalone ZIP packages; names, frontmatter, size and independent-resource rules passed |
-| Deterministic build | 135 generated files reproduced; generated bytes and SHA-256 package manifests agree |
-| Python tests | 48 tests passed with no skips in the tested environment |
-| Excel agent profile | Plain text derives exactly from the canonical skill body; both native editions retain the host-specific notes |
-| Download-all bundles | Copilot, Gemini and combined ZIPs have exact inventories, entry hashes and deterministic bytes; nested native packages each contain one root SKILL.md |
-| Release generation | Tests cover exact four-archive contents/checksums, deterministic bytes, stable SemVer ordering, immutable existing versions, prior-version preservation, current-build drift and non-writing verification, including a clean CLI run without new Python cache files |
-| Full-project boundary | Explicit public project roots and file types; private/runtime/cache/unlisted files and release snapshots excluded; unsafe paths, case collisions and symlinks rejected |
-| Optional libraries | DuckDB 2.0.1 and openpyxl 3.1.5 were available for their tests; Python 3.12.14 on Linux |
-| CSV controls and reconciliation | Full synthetic populations, malformed records, duplicate grain, leading-zero keys, finite exact decimals, unmatched records and no-overwrite behavior checked |
-| Quantity/rate/FX bridge | Known example reconciles exactly; supported numeric-extreme regression has zero residual |
-| Workbook audit | Read-only input unchanged; formula caches, stored error, hidden sheet and a workbook without declared dimensions checked |
-| DuckDB profile | CSV/Parquet controls; malformed rows cannot move the header; explicit dialect supports BOM/CRLF/quoted newline; key named `n` does not collide with aggregates |
-| Edition copier | Preview, apply, repeat installation, customized-file preservation, checksum/source-change refusal and destination-link revalidation checked |
-| Windows Git bytes | A real temporary Git checkout with `core.autocrlf=true` preserved hashed Markdown and ZIP bytes using `.gitattributes` |
-| Upstream source acquisition | All four requested archive hashes verified; 16,165 archive blobs matched the pinned Git files with zero mismatches |
-| Archive boundaries | Traversal, Windows names, case collisions, symlinks, size limits, checksums, existing files and non-execution behavior checked |
-| Update checker | Rate limits and blocked document redirects were recorded as unavailable; pins stayed unchanged |
-| Original GitHub publication | All 193 files published on the Somamill toolsuite finance branch matched their local Git blob hashes |
-| Work-account publication | Initial import `23277e2768d8267cb5b885be229d473cce802e64` on `mim1hat-prog/finance-skills` main matched all 193 local file hashes, including 48 ZIP packages |
-
-The test count includes 16 upstream-helper cases. Package validation does not prove that a model will follow every instruction. Optional tests intentionally skip when their dependencies are absent; inspect the run output before describing them as passed.
-
-Release tooling tests use isolated temporary projects. The published release includes its exact project-file inventory and SHA-256 checksums in `releases/v1.1.0/manifest.json`; remote publication is verified separately from local packaging. No GitHub Release object or tag is claimed.
-
-### Independent finance task checks
-
-For the new Excel profile, a fresh agent received the relevant skill files, a raw synthetic request to correct a November Personnel total, an editable JSON workbook cell model and exported internal-source fixtures. It resolved an obsolete draft against the approved definition and final export. It corrected benefits from **EUR 18,000 to EUR 21,000**, retained the existing Personnel and Opex formulas, and updated their evaluated totals to **EUR 141,000 and EUR 167,000**. Only the existing workbook cell model changed; no worksheet, audit table, log or extra output file was created. The result was independently checked against the supplied fixture. This tests instruction behavior with synthetic local exports, not live enterprise retrieval, a native Copilot/Gemini import or Excel recalculation.
-
-A fresh agent received only the relevant skill files and raw synthetic work requests. It quarantined overlapping mappings and an incomplete 95% allocation without normalizing or dropping the unresolved amount. Its bridge reconciled **320 source = −30 mapped + 350 unresolved**.
-
-For working capital, it calculated an available **15-day** two-point-average DSO, declined to fabricate missing average balances, and separately identified a **21-day** group closing-balance proxy. A five-day improvement of **166.67 JPY-thousand** was labeled a modeled potential release, not received cash or a recurring monthly benefit.
-
-An independent code review identified six edge issues. All six original reproductions were rerun after correction: CSV header inference, a key/count alias collision, unsized workbooks, a destination symlink introduced after preview, Git line endings and extreme decimal precision. Each reproduction now behaves as intended. Native Windows junction and OneDrive behavior were not exercised by those checks.
-
-### Catalogue checks
-
-The original catalogue passed DOM execution checks for edition-specific links, search, category selection, empty/reset behavior, focus restoration, example-prompt copy feedback with a mocked clipboard, theme persistence, unique IDs, visible control labels and malformed-data recovery. JavaScript syntax and SVG XML checks passed.
-
-The generated **25-entry, v1.1.0** catalogue additionally passed focused DOM execution checks for the combined download, edition-following bundle label/path/filename, Gemini deep link, Instructions profile, extraction text, no-JavaScript and malformed-data fallback links, dynamic count, unique IDs and the full-release URL derived from the catalogue version. All three current bundle destinations and the profile existed. The versioned release destination is checked during final packaging/publication.
-
-Impeccable's static detector returned no findings on the final product frontend files. Eight actual foreground/background token pairs passed 4.5:1; the lowest checked pair was 5.70:1. This is a token-pair check, not a complete accessibility certification.
-
-Hallmark static review retained one finding in an unchanged vendored `.dot-button:disabled` rule. The catalogue does not use that class; product disabled states are explicitly overridden. Mixed light/dark token resolution and a numeric-selector match also required manual interpretation. These are documented detector limitations, not a claim of a clean full Hallmark pass.
-
-**Desktop/mobile catalogue visual review is blocked in this environment.** Local Chromium failed before navigation with a socket-permission error. The cloud browser's URL policy rejected a local-file preview. No rendered catalogue screenshot or full browser-layout pass is claimed. The static catalogue can be reviewed locally using the Windows guide; it has not been deployed as a public website.
-
-The original GitHub README on the Somamill toolsuite finance branch was separately inspected in a desktop browser after publication. Its dot banner, edition badges, navigation and introductory layout rendered correctly. That check covers the GitHub README, not the interactive catalogue or a mobile layout.
-
-## Checks still requiring the target environment
-
-- Native import, explicit skill invocation and a representative task in the actual approved Copilot/Gemini account.
-- Windows 11 execution with the owner's installed Python version and approved packages.
-- Office-created OneDrive folder behavior, syncing, Refresh and locked-file handling.
-- Power BI model correctness and service refresh using the actual approved data/model.
-- Real SharePoint permissions, source coverage and document versions.
-- Desktop/mobile rendered catalogue inspection and any employer-template layout checks.
-
-No original Claude-mem worker, HyperFrames renderer or paid Valyu integration was installed on the work PC. Source acquisition, repository design tooling, portable instruction adaptation and native account activation are recorded separately.
-
-## Work-account migration
-
-Published on **2026-11-25** to `mim1hat-prog/finance-skills`, branch `main`,
-through the ChatGPT GitHub plugin connected as `mim1hat-prog`. The import uses
-only the reviewed tracked tree and follows the destination's starter README
-commit. Original source-pack and dot design-kit provenance, licences and
-package content are preserved; the older toolsuite history was not imported.
-
-All 193 destination files and their modes matched the staged Git hashes after
-the initial import, including all 48 individual skill packages. The destination
-README was read through the plugin. No cloud-browser authentication or visual
-inspection was performed for this destination; the earlier visual check covers
-the original publication described above. Native work-account imports remain
-checks for the actual approved Copilot/Gemini account.
+**Still outstanding:** native installation and reference retrieval in the work account; a representative task in each target host; matched baseline/suite runs from the evaluation kit; and independent external replication. Local Python checks do not establish Excel recalculation, enterprise access or completed writes. No certification, peer review, live data refresh or measured assistant-performance improvement is claimed.

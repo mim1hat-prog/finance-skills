@@ -31,6 +31,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`copilot-cowork-companions`](#copilot-cowork-companions) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-cowork-package-validation`](#copilot-cowork-package-validation) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-cowork-upload`](#copilot-cowork-upload) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-excel-skills`](#copilot-excel-skills) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-researcher`](#copilot-researcher) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
 | [`copilot-responsible-ai-validation`](#copilot-responsible-ai-validation) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-skills`](#copilot-skills) | provider-documentation | reviewed | Implementation / registry |
@@ -41,7 +42,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`ecb-exr-api`](#ecb-exr-api) | provider-documentation | reviewed | `benchmark-lookup`, `fx-allocation-preflight` |
 | [`estat-api`](#estat-api) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`estat-terms`](#estat-terms) | data-license | reviewed | Implementation / registry |
-| [`fair-principles`](#fair-principles) | empirical-research | reviewed | `benchmark-lookup`, `reproducible-analysis` |
+| [`fair-principles`](#fair-principles) | metadata-guidance | reviewed | `benchmark-lookup`, `reproducible-analysis` |
 | [`fastapi-readme-onboarding`](#fastapi-readme-onboarding) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`fpp-tscv`](#fpp-tscv) | method-guide | reviewed | `forecast-variance`, `reproducible-analysis`, `scenario-planning` |
 | [`gemini-deep-research`](#gemini-deep-research) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
@@ -60,6 +61,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`github-social-preview`](#github-social-preview) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`google-search-starter`](#google-search-starter) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`google-structured-data-policy`](#google-structured-data-policy) | metadata-guidance | reviewed-with-limitations | Implementation / registry |
+| [`joss-review-criteria`](#joss-review-criteria) | method-guide | reviewed-with-limitations | Implementation / registry |
 | [`json-schema-2020-12`](#json-schema-2020-12) | normative-standard | reviewed | Implementation / registry |
 | [`m4-competition`](#m4-competition) | empirical-research | needs-review | Candidate; no active use |
 | [`meti-iip`](#meti-iip) | provider-documentation | reviewed-with-limitations | `benchmark-lookup`, `forecast-variance` |
@@ -392,6 +394,27 @@ Only source links, factual metadata and original implementation summaries are in
   **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
   **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
 
+## copilot-excel-skills
+
+**[Use skills with Copilot in Excel to complete repeatable tasks](https://support.microsoft.com/en-gb/excel/copilot/copilot-in-excel-skills)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft Support documentation; Excel folder setup reviewed 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Directly reviewed the official Excel page for the app-created OneDrive location, matching skill-folder name, required frontmatter, optional references, refresh and invocation. This is a documentation review; no work-account installation or native execution was observed.
+
+Rights: [Publisher document terms; links and original summaries only](https://support.microsoft.com/en-gb/excel/copilot/copilot-in-excel-skills); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included; no full documentation page or screenshot is redistributed.
+
+- **Use:** Keep the Excel download as an extractable matching-name finance-suite folder with its instructions and references, and document the OneDrive setup, Refresh and invocation steps separately from Chat ZIP imports.
+  **Supporting section:** Create custom skills; Custom skills format requirements; Advanced custom skills; Edit or remove custom skills; Manage skills
+  **Limits:** The reviewed Excel page does not document Cowork's 20-companion limit. This source supports the folder format and setup route, not a diagnosis of the previous generic error, tenant availability, file synchronization or successful reference retrieval.
+  **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+
 ## copilot-researcher
 
 **[Get started with Researcher in Microsoft Copilot](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-researcher-in-microsoft-365-copilot)**
@@ -622,9 +645,9 @@ Source attribution and edited-content labels required; third-party and API servi
 
 Scientific Data; Mark D. Wilkinson et al.. Year: 2016. Edition: Scientific Data 3, 160018; 2019 addendum reviewed.
 
-Type: `empirical-research`. Review: `reviewed`. Accessed: 2026-11-25; last reviewed: 2026-11-25. Maintainer: Research and data maintainer.
+Type: `metadata-guidance`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and data maintainer.
 
-Primary publisher material was checked on the access date. Scope is limited to the stated uses.
+The publisher identifies this article as a Comment presenting guiding principles, rationale and example implementations. Article type and the stated scope were checked on 26 November 2026; this is metadata guidance, not an empirical evaluation of agent or forecasting performance. The separately recorded 2019 addendum review remains dated 25 November 2026.
 
 DOI: [10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18).
 
@@ -637,8 +660,8 @@ Attribution: Wilkinson et al. (2016), DOI 10.1038/sdata.2016.18.
 Only links, bibliographic metadata and original summaries are included; no source document is redistributed.
 
 - **Use:** Use stable identifiers, machine-readable metadata, explicit provenance and reuse terms.
-  **Supporting section:** Box 2, F1–F4 and R1–R1.3
-  **Limits:** This is a lightweight local catalog, not a claim of full standards conformance or of fitness for a particular business decision.
+  **Supporting section:** Abstract; Box 2, F1–F4 and R1–R1.3; The Principles precede implementation
+  **Limits:** The FAIR principles are guidance, not themselves a standard or specification, and this Comment is not an empirical performance study. This project uses selected metadata and provenance principles without claiming full FAIR assessment, native agent efficacy or fitness for a particular business decision.
   **Paths:** [`skills/reproducible-analysis/SKILL.md`](../skills/reproducible-analysis/SKILL.md), [`skills/benchmark-lookup/SKILL.md`](../skills/benchmark-lookup/SKILL.md), [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`benchmarks/catalog.json`](../benchmarks/catalog.json), [`research/sources.json`](../research/sources.json), [`scripts/research_registry.py`](../scripts/research_registry.py)
 
 **Recorded addendum:** [https://www.nature.com/articles/s41597-019-0009-6](https://www.nature.com/articles/s41597-019-0009-6); reviewed 2026-11-25. Publisher addendum dated 19 March 2019 changes the maintained-principles URL. No change to the metadata and provenance principles used here; canonical publication and addendum links retained. Disposition: `reviewed-no-method-change`.
@@ -1029,6 +1052,27 @@ Only bibliographic metadata, a public link and an original limited summary are i
   **Supporting section:** Content, relevance and rich-result limitations
   **Limits:** Correct structured data does not guarantee a rich result or ranking. SoftwareSourceCode metadata does not itself establish eligibility for a supported Google search feature.
   **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`scripts/project_discovery.py`](../scripts/project_discovery.py), [`site/index.html`](../site/index.html)
+
+## joss-review-criteria
+
+**[JOSS review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html)**
+
+Journal of Open Source Software / The Open Journals; The Open Journals. Year: living documentation. Edition: Living review criteria, accessed 26 November 2026.
+
+Type: `method-guide`. Review: `reviewed-with-limitations`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and data maintainer.
+
+Reviewed the official Documentation, Functionality and Tests sections for the limited practice of providing example inputs and objective functionality checks. No journal submission, eligibility assessment or editorial review of this repository has occurred.
+
+Rights: [Publisher document terms; metadata and original summaries only](https://joss.readthedocs.io/en/latest/review_criteria.html); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: The Open Journals, JOSS review criteria.
+
+Only a link, bibliographic metadata and original summaries are included; no source document is redistributed.
+
+- **Use:** Provide independently invented sample inputs and objective result checks for a declared, reproducible evaluation plan.
+  **Supporting section:** Documentation: Example usage; Functionality; Tests
+  **Limits:** These are software-review practices. The repository has not undergone JOSS peer review and is not asserted eligible for publication. Fixtures and result validation do not establish native Copilot/Gemini efficacy or successful tool execution.
+  **Paths:** [`docs/EVALUATION.md`](../docs/EVALUATION.md), [`evaluations/cases.json`](../evaluations/cases.json), [`scripts/evaluation.py`](../scripts/evaluation.py), [`tests/test_evaluation.py`](../tests/test_evaluation.py)
 
 ## json-schema-2020-12
 

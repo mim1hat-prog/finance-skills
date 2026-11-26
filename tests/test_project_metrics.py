@@ -77,6 +77,49 @@ class ProjectMetricsTests(unittest.TestCase):
         self.assertEqual(selected["selectedSnapshotId"], revised["id"])
         self.assertEqual(summary["observedSeries"], metrics.proportion(1, len(self.dataset["series"])))
 
+    def test_source_composition_excludes_candidates_and_keeps_empirical_zero_visible(self):
+        registry = copy.deepcopy(self.registry)
+        for source in registry["sources"]:
+            if source.get("integrationStatus", "active") == "active" and source["type"] == "empirical-research":
+                source["type"] = "metadata-guidance"
+        registry["sources"].append({"id": "invented-empirical-candidate", "type": "empirical-research",
+                                    "integrationStatus": "candidate", "reviewStatus": "needs-review", "uses": []})
+        summary = self.describe(registry=registry)
+        research = summary["research"]
+        self.assertEqual(research["activeSourceTypes"]["empirical-research"], 0)
+        self.assertEqual(sum(research["activeSourceTypes"].values()), research["active"])
+        self.assertEqual(sum(research["candidateSourceTypes"].values()), research["candidates"])
+        expected_candidates = sum(s["type"] == "empirical-research" and s.get("integrationStatus") == "candidate"
+                                  for s in registry["sources"])
+        self.assertEqual(research["candidateSourceTypes"]["empirical-research"], expected_candidates)
+        self.assertEqual(summary["skills"]["nativeExecutionEvidence"]["numerator"], 0)
+        self.assertIn("| Empirical research | 0 |", metrics.markdown(summary).decode())
+        text = "# Invented homepage\n\n<!-- project-coverage-summary:start -->\n<!-- project-coverage-summary:end -->\n"
+        readme = metrics.update_readme(text, summary).decode()
+        self.assertIn("Active empirical-research sources: 0", readme)
+        self.assertIn(f"excluded empirical candidates: {expected_candidates}", readme)
+        self.assertIn("not measured model efficacy", readme)
+        figure = ET.fromstring(metrics.figure(summary))
+        labels = " ".join(node.text for node in figure.iter("{http://www.w3.org/2000/svg}text"))
+        self.assertIn("D. Active source composition", labels)
+        self.assertIn("Empirical research: 0", labels)
+        self.assertIn("Active empirical-research sources: 0", labels)
+        self.assertTrue(all(float(node.get("y")) < int(figure.get("height"))
+                            for node in figure.iter("{http://www.w3.org/2000/svg}text")))
+
+    def test_empirical_source_classification_does_not_create_native_performance_evidence(self):
+        registry = copy.deepcopy(self.registry)
+        for source in registry["sources"]:
+            if source.get("integrationStatus", "active") == "active" and source["type"] == "empirical-research":
+                source["type"] = "metadata-guidance"
+        active = next(s for s in registry["sources"] if s.get("integrationStatus", "active") == "active")
+        active["type"] = "empirical-research"
+        summary = self.describe(registry=registry)
+        self.assertEqual(summary["research"]["activeSourceTypes"]["empirical-research"], 1)
+        self.assertEqual(summary["skills"]["nativeExecutionEvidence"]["numerator"], 0)
+        self.assertIn("Active empirical-research sources: 1", metrics.empirical_context(summary))
+        self.assertIn("not measured model efficacy", metrics.empirical_context(summary))
+
     def test_homepage_text_updates_from_counts_without_changing_surrounding_content(self):
         before = "# Invented homepage\n\n<!-- project-coverage-summary:start -->\nstale counts\n<!-- project-coverage-summary:end -->\n\nKeep this link.\n"
         summary = self.describe()

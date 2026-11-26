@@ -1,8 +1,10 @@
 # Workflow contracts and validation coverage
 
-Generated from catalog.json for version 1.5.2.
+Generated from catalog.json for version 1.6.0.
 
 These contracts describe triggers, inputs, outputs, modes and source support. Shared controls are included in every generated host skill. Package tests do not prove that a live finance workflow is production-ready. Conditional execution requires the actual host, authorization, exact target and payload, preconditions and independent verification. Native work-account validation remains outstanding.
+
+Workflow-test links identify partial deterministic helper checks. Their presence does not establish that a model completed the workflow or that every task step was tested; inspect the named test's exact scope. Optional dependencies may affect whether a check runs, so use the release report's actual executed and skipped counts.
 
 ## Excel agent instructions (`excel-agent-core`)
 
@@ -54,7 +56,7 @@ These contracts describe triggers, inputs, outputs, modes and source support. Sh
 
 **Package tests:** `tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact`.
 
-**Workflow tests:** No automated end-to-end workflow coverage claimed.
+**Workflow tests:** `tests/test_finance_tools.py::FinanceControls.test_profile_scans_full_population_preserves_keys_and_decimal`, `tests/test_finance_tools.py::WorkbookControls.test_workbook_without_stored_dimension_is_scanned`, `tests/test_finance_tools.py::WorkbookControls.test_formula_cache_and_hidden_sheet_are_not_calculation_claims`.
 
 **Native status:** not validated in the approved work account. **Research IDs:** `tool-power-query`, `upstream-anthropic-skills`, `upstream-superpowers`.
 
@@ -90,7 +92,7 @@ These contracts describe triggers, inputs, outputs, modes and source support. Sh
 
 **Package tests:** `tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact`.
 
-**Workflow tests:** No automated end-to-end workflow coverage claimed.
+**Workflow tests:** `tests/test_finance_tools.py::FinanceControls.test_quantity_rate_fx_bridge_closes_and_handles_zero_quantity`, `tests/test_finance_tools.py::FinanceControls.test_bridge_exact_at_supported_numeric_extremes`.
 
 **Native status:** not validated in the approved work account. **Research IDs:** `alfred-realtime`, `fpp-tscv`, `meti-iip`, `upstream-scientific-skills`.
 
@@ -198,7 +200,7 @@ These contracts describe triggers, inputs, outputs, modes and source support. Sh
 
 **Package tests:** `tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact`.
 
-**Workflow tests:** No automated end-to-end workflow coverage claimed.
+**Workflow tests:** `tests/test_finance_tools.py::DuckDBControls.test_csv_and_parquet_full_counts_and_key_rules`, `tests/test_finance_tools.py::DuckDBControls.test_bad_csv_cannot_shift_the_header_or_skip_records`, `tests/test_finance_tools.py::DuckDBControls.test_explicit_csv_dialect_supports_bom_crlf_and_quoted_newline`.
 
 **Native status:** not validated in the approved work account. **Research IDs:** `upstream-duckdb-skills`.
 
@@ -378,7 +380,7 @@ These contracts describe triggers, inputs, outputs, modes and source support. Sh
 
 **Package tests:** `tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact`.
 
-**Workflow tests:** No automated end-to-end workflow coverage claimed.
+**Workflow tests:** `tests/test_finance_tools.py::FinanceControls.test_reconciliation_retains_missing_keys_and_balances`, `tests/test_finance_tools.py::FinanceControls.test_duplicate_grain_requires_explicit_aggregation`.
 
 **Native status:** not validated in the approved work account. **Research IDs:** `project-finance-design`, `upstream-superpowers`.
 

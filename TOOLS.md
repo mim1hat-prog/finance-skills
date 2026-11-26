@@ -1,6 +1,6 @@
 # Tool and capability inventory
 
-Reviewed 2026-11-25 · 29 entries.
+Reviewed 2026-11-25 · 30 entries.
 
 One skill per finance workflow; tools supply the capabilities available in the approved session. This inventory does not install products, activate connections or certify native integrations.
 
@@ -13,7 +13,7 @@ Start with Excel/Power Query, planning-report coordinates and SAP/BW export vali
 - **confirm-at-work:** Product, version, licensing, permissions and enabled capabilities must be confirmed.
 - **optional-evaluation:** Candidate only; not assumed installed or approved.
 - **capability-only:** The underlying proprietary software is not verified.
-- **local-implementation:** Code exists in this repository; the service must be explicitly started locally.
+- **local-implementation:** Code exists in this repository; a helper or service runs only when explicitly started locally. No native host execution is implied.
 
 ## Core finance
 
@@ -387,6 +387,23 @@ Check configuration and totals separately from actual execution.
 **Evidence required:** Approved sender/receiver sets; weights and prior-run status; independent receipt/readback.
 
 **Workflow skills:** [fx-allocation-preflight](skills/fx-allocation-preflight/SKILL.md), [connected-reporting](skills/connected-reporting/SKILL.md).
+
+
+## Local maintenance
+
+### Synthetic skill evaluation kit
+
+**P1 · local-implementation · local-code**
+
+Reproducible development checks for manual baseline-versus-suite comparisons.
+
+Validate versioned invented prompts and separate answer keys. Initialize an unrun plan, then grade manually recorded structured outputs without contacting a model. Report every scheduled status and keep repeated runs separate from unique cases.
+
+**Evidence required:** Case-set version and file hashes; Host, visible model, tool settings and package identity; Actual outputs and independently reviewable provenance; a filled record alone cannot prove native execution.
+
+**Workflow skills:** [reproducible-analysis](skills/reproducible-analysis/SKILL.md), [forecast-variance](skills/forecast-variance/SKILL.md), [close-controls](skills/close-controls/SKILL.md), [account-mapping](skills/account-mapping/SKILL.md), [benchmark-lookup](skills/benchmark-lookup/SKILL.md).
+
+**Source registry:** `joss-review-criteria`.
 
 ## Connection boundary
 

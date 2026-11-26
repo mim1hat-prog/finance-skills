@@ -266,6 +266,100 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(release.ReleaseError, "Frozen suite package differs from full-project source"):
             release.verify_frozen(folder)
 
+    def test_excel_folder_release_keeps_all_legacy_snapshots_and_has_eight_archives(self):
+        release.run(self.root)
+        self.catalog["markdownBundleVersion"] = 1
+        self.set_version("1.3.0")
+        release.run(self.root)
+        self.catalog["suitePackageVersion"] = 2
+        self.set_version("1.5.2")
+        release.run(self.root)
+        old = {name: value for name, value in self.snapshot().items()
+               if name.startswith(("releases/v1.1.0/", "releases/v1.3.0/", "releases/v1.5.2/"))}
+        self.catalog["excelFolderBundleVersion"] = 1
+        self.set_version("1.6.0")
+        self.assertEqual(release.run(self.root)["status"], "created")
+        folder = self.root / "releases/v1.6.0"
+        manifest = release.verify_frozen(folder)
+        self.assertEqual(manifest["schemaVersion"], 4)
+        expected = {f"finance-skills-v1.6.0-{name}.zip" for name in release.VARIANTS_BY_SCHEMA[4]}
+        self.assertEqual(len(expected), 8)
+        self.assertEqual({p.name for p in folder.iterdir()}, expected | {"README.md", "manifest.json", "SHA256SUMS.txt"})
+        name = "finance-skills-v1.6.0-excel-onedrive.zip"
+        self.assertEqual((folder / name).read_bytes(), (self.root / build.EXCEL_FOLDER_BUNDLE).read_bytes())
+        with zipfile.ZipFile(folder / name) as archive:
+            self.assertEqual(archive.namelist(), ["finance-suite/SKILL.md", "finance-suite/references/core.md"])
+            self.assertTrue(archive.read("finance-suite/SKILL.md").startswith(b"---\nname: finance-suite\n"))
+        with zipfile.ZipFile(folder / "finance-skills-v1.6.0-full.zip") as full:
+            self.assertEqual(full.read(build.EXCEL_FOLDER_BUNDLE.as_posix()), (folder / name).read_bytes())
+            self.assertIn(build.EXCEL_FOLDER_MANIFEST.as_posix(), full.namelist())
+        readme = (folder / "README.md").read_text()
+        self.assertIn("extract the Excel OneDrive ZIP first", readme)
+        self.assertIn("Upload Folder", readme)
+        self.assertIn("Refresh in Excel", readme)
+        self.assertIn("@finance-suite", readme)
+        index = json.loads((self.root / "releases/latest.json").read_bytes())
+        self.assertEqual({r["path"] for r in index["downloads"]}, {f"releases/v1.6.0/{name}" for name in expected})
+        for version, schema in (("1.1.0", 1), ("1.3.0", 2), ("1.5.2", 3)):
+            self.assertEqual(release.verify_frozen(self.root / f"releases/v{version}")["schemaVersion"], schema)
+        self.assertEqual({name: self.snapshot()[name] for name in old}, old)
+        after = self.snapshot()
+        self.assertEqual(release.run(self.root, check=True)["status"], "verified")
+        self.assertEqual(release.run(self.root)["status"], "unchanged")
+        self.assertEqual(self.snapshot(), after)
+
+    def test_excel_folder_snapshot_rejects_replaced_archive_even_with_updated_outer_checksums(self):
+        self.catalog.update(markdownBundleVersion=1, suitePackageVersion=2, excelFolderBundleVersion=1)
+        self.set_version("1.6.0")
+        release.run(self.root)
+        folder = self.root / "releases/v1.6.0"
+        name = "finance-skills-v1.6.0-excel-onedrive.zip"
+        with zipfile.ZipFile(folder / name) as original:
+            entries = {path: original.read(path) for path in original.namelist()}
+        entries["finance-suite/SKILL.md"] += b"\nUnreviewed replacement.\n"
+        replacement = build.archive_files(entries)
+        (folder / name).write_bytes(replacement)
+        manifest = json.loads((folder / "manifest.json").read_bytes())
+        next(r for r in manifest["files"] if r["path"] == name).update(release.file_record(name, replacement))
+        (folder / "manifest.json").write_bytes(build.json_bytes(manifest))
+        (folder / "SHA256SUMS.txt").write_bytes(release.sums({
+            path.name: path.read_bytes() for path in folder.iterdir() if path.name != "SHA256SUMS.txt"
+        }))
+        with self.assertRaisesRegex(release.ReleaseError, "Frozen Excel folder differs from full-project source"):
+            release.verify_frozen(folder)
+
+    def test_excel_folder_verifier_rejects_wrong_folder_metadata_and_missing_resources(self):
+        self.catalog.update(markdownBundleVersion=1, suitePackageVersion=2, excelFolderBundleVersion=1)
+        self.set_version("1.6.0")
+        _, files, sources = release.prepare(self.root)
+        original = files["finance-skills-v1.6.0-excel-onedrive.zip"]
+        with zipfile.ZipFile(io.BytesIO(original)) as archive:
+            members = {name: archive.read(name) for name in archive.namelist()}
+        for wrong_path in ("renamed-suite/SKILL.md", "SKILL.md", "../finance-suite/SKILL.md",
+                           "finance-suite/CON.md", "finance-suite/SKILL.md:extra"):
+            changed = dict(members)
+            changed[wrong_path] = changed.pop("finance-suite/SKILL.md")
+            payload = build.archive_files(changed)
+            project = dict(sources, **{build.EXCEL_FOLDER_BUNDLE.as_posix(): payload})
+            with zipfile.ZipFile(io.BytesIO(build.archive_files(project))) as full:
+                with self.subTest(path=wrong_path), self.assertRaisesRegex(release.ReleaseError, "exactly the finance-suite folder"):
+                    release.verify_excel_folder(payload, full, list(project), "1.6.0", "v1.6.0")
+        changed = dict(members)
+        del changed["finance-suite/references/core.md"]
+        payload = build.archive_files(changed)
+        project = dict(sources, **{build.EXCEL_FOLDER_BUNDLE.as_posix(): payload})
+        with zipfile.ZipFile(io.BytesIO(build.archive_files(project))) as full:
+            with self.assertRaisesRegex(release.ReleaseError, "exactly the finance-suite folder"):
+                release.verify_excel_folder(payload, full, list(project), "1.6.0", "v1.6.0")
+        for field, value in (("folderName", "renamed-suite"), ("installationMode", "native-zip-import"),
+                             ("fileCount", 999), ("files", []), ("sha256", "0" * 64)):
+            metadata = json.loads(sources[build.EXCEL_FOLDER_MANIFEST.as_posix()])
+            metadata[field] = value
+            project = dict(sources, **{build.EXCEL_FOLDER_MANIFEST.as_posix(): build.json_bytes(metadata)})
+            with zipfile.ZipFile(io.BytesIO(build.archive_files(project))) as full:
+                with self.subTest(field=field), self.assertRaisesRegex(release.ReleaseError, "Invalid Excel folder inventory"):
+                    release.verify_excel_folder(original, full, list(project), "1.6.0", "v1.6.0")
+
     def test_release_manifest_schema_and_inventory_are_strict_for_all_formats(self):
         release.run(self.root)
         self.catalog["markdownBundleVersion"] = 1
@@ -274,25 +368,30 @@ class ReleaseTests(unittest.TestCase):
         self.catalog["suitePackageVersion"] = 1
         self.set_version("1.5.0")
         release.run(self.root)
-        for version, schema in (("1.1.0", 1), ("1.3.0", 2), ("1.5.0", 3)):
+        for path in self.root.glob("editions/*-suite/finance-suite/references/*.md"):
+            path.unlink()
+        self.catalog.update(suitePackageVersion=2, excelFolderBundleVersion=1)
+        self.set_version("1.6.0")
+        release.run(self.root)
+        for version, schema in (("1.1.0", 1), ("1.3.0", 2), ("1.5.0", 3), ("1.6.0", 4)):
             folder = self.root / f"releases/v{version}"
             manifest_path = folder / "manifest.json"
             original = manifest_path.read_bytes()
-            for invalid in (None, True, False, 1.0, 2.0, 3.0, 0, 4, "1", [], {}):
+            for invalid in (None, True, False, 1.0, 2.0, 3.0, 4.0, 0, 5, "1", [], {}):
                 with self.subTest(version=version, schema=invalid):
                     manifest = json.loads(original)
                     manifest["schemaVersion"] = invalid
                     manifest_path.write_bytes(build.json_bytes(manifest))
                     with self.assertRaisesRegex(release.ReleaseError, "Invalid release manifest"):
                         release.verify_frozen(folder)
-            for wrong_schema in {1, 2, 3} - {schema}:
+            for wrong_schema in {1, 2, 3, 4} - {schema}:
                 manifest = json.loads(original)
                 manifest["schemaVersion"] = wrong_schema
                 manifest_path.write_bytes(build.json_bytes(manifest))
                 with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
                     release.verify_frozen(folder)
             manifest_path.write_bytes(original)
-            variant = {1: "copilot", 2: "markdown", 3: "copilot-suite"}[schema]
+            variant = {1: "copilot", 2: "markdown", 3: "copilot-suite", 4: "excel-onedrive"}[schema]
             archive = folder / f"finance-skills-v{version}-{variant}.zip"
             archive_bytes = archive.read_bytes()
             archive.unlink()
@@ -348,6 +447,28 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(release.ReleaseError, "Suite packages require Markdown bundle version 1"):
             release.run(self.root)
         self.assertEqual(self.snapshot(), before)
+        self.assertFalse((self.root / "releases").exists())
+
+    def test_unsupported_excel_folder_version_or_missing_grouped_suite_cannot_create_release(self):
+        self.catalog.update(markdownBundleVersion=1, suitePackageVersion=2)
+        for invalid in (None, True, False, 0, 2, 1.0, "1", [], {}):
+            self.catalog["excelFolderBundleVersion"] = invalid
+            self.write("catalog.json", build.json_bytes(self.catalog))
+            before = self.snapshot()
+            with self.subTest(flag=invalid), self.assertRaisesRegex(release.ReleaseError, "Excel folder bundle version"):
+                release.run(self.root)
+            self.assertEqual(self.snapshot(), before)
+        self.catalog["excelFolderBundleVersion"] = 1
+        for suite in (None, 1):
+            if suite is None:
+                self.catalog.pop("suitePackageVersion", None)
+            else:
+                self.catalog["suitePackageVersion"] = suite
+            self.write("catalog.json", build.json_bytes(self.catalog))
+            before = self.snapshot()
+            with self.subTest(suite=suite), self.assertRaisesRegex(release.ReleaseError, "requires grouped suite"):
+                release.run(self.root)
+            self.assertEqual(self.snapshot(), before)
         self.assertFalse((self.root / "releases").exists())
 
     def test_determinism_ignores_mtime_and_source_file_permissions(self):

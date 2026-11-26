@@ -8,7 +8,7 @@
     "confirm-at-work": "Product, version, licensing, permissions and enabled capabilities must be confirmed.",
     "optional-evaluation": "Candidate only; not assumed installed or approved.",
     "capability-only": "The underlying proprietary software is not verified.",
-    "local-implementation": "Code exists in this repository; the service must be explicitly started locally."
+    "local-implementation": "Code exists in this repository; a helper or service runs only when explicitly started locally. No native host execution is implied."
   },
   "tools": [
     {
@@ -692,6 +692,35 @@
         "connected-reporting"
       ],
       "researchIds": []
+    },
+    {
+      "id": "synthetic-evaluation-kit",
+      "name": "Synthetic skill evaluation kit",
+      "group": "Local maintenance",
+      "priority": "P1",
+      "availability": "local-implementation",
+      "repositorySupport": "local-code",
+      "financeUse": "Reproducible development checks for manual baseline-versus-suite comparisons",
+      "actions": [
+        "Validate versioned invented prompts and separate answer keys",
+        "Initialize an unrun plan, then grade manually recorded structured outputs without contacting a model",
+        "Report every scheduled status and keep repeated runs separate from unique cases"
+      ],
+      "requiredEvidence": [
+        "Case-set version and file hashes",
+        "Host, visible model, tool settings and package identity",
+        "Actual outputs and independently reviewable provenance; a filled record alone cannot prove native execution"
+      ],
+      "skillIds": [
+        "reproducible-analysis",
+        "forecast-variance",
+        "close-controls",
+        "account-mapping",
+        "benchmark-lookup"
+      ],
+      "researchIds": [
+        "joss-review-criteria"
+      ]
     }
   ]
 }

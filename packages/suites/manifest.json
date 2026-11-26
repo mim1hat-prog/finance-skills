@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "kind": "single-registration-suite-index",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "name": "finance-suite",
   "workflowCount": 29,
   "registrationCountPerPackage": 1,
@@ -12,7 +12,7 @@
       "name": "finance-suite",
       "edition": "copilot",
       "host": "Microsoft 365 Copilot",
-      "sourceVersion": "1.5.2",
+      "sourceVersion": "1.6.0",
       "reviewedOn": "2026-11-25",
       "registrationCount": 1,
       "workflowCount": 29,
@@ -20,22 +20,22 @@
       "path": "packages/suites/finance-suite-copilot.zip",
       "expandedPath": "editions/copilot-suite/finance-suite",
       "fileCount": 10,
-      "packageBytes": 82717,
-      "packageSha256": "a05f39167b30c4157c80fa6c9031ccd2a2be8aba5ed42fc4cb679985bfe3fffe",
-      "skillCharacters": 18846,
-      "skillLines": 128,
-      "sharedControlsSha256": "d28944d6f2dbc80ffb0b4ac8f9c0d547db653358451d4917376439a28d939dba",
-      "hostGuidanceSha256": "2dfdaba6ffcad49551a4e58b15432348f9ce55de598738aababf0333ebefa2b0",
+      "packageBytes": 81836,
+      "packageSha256": "8beea976368fa79b5747a52cebad002631eb56dbe83e0e08b6ec5607151a1625",
+      "skillCharacters": 17404,
+      "skillLines": 122,
+      "sharedControlsSha256": "bbea7f858c88c9e728f3726e7f4760115b1c0e3cd460c14e0a6c3ce9321d57c7",
+      "hostGuidanceSha256": "ccce0e0e5481bbebe97253fede0c981fea0e983548f3a8e41a01ce537022b646",
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 18846,
-          "sha256": "31c0cfaa25988b90e4ebda5b82b8e90609f79f75128a0327e78f6bec8fc4a8ab"
+          "bytes": 17404,
+          "sha256": "6addaf9db9572d819f461b7776375b046c336fdb643fa0a7d03d023f50c1dc82"
         },
         {
           "path": "references/agent-setup.md",
-          "bytes": 7038,
-          "sha256": "95fb4ad0a3f724a38939676e2fdceb8dac7dd6deca598e0dfe1fc083ab2b63c9"
+          "bytes": 5725,
+          "sha256": "f5ea9394b93cb307e2cca5b648a5d5a84e9e9a80f08826f07e24239be382549b"
         },
         {
           "path": "references/analysis.md",
@@ -82,7 +82,7 @@
         {
           "name": "excel-agent-core",
           "path": "skills/excel-agent-core/SKILL.md",
-          "sha256": "95712cbe91001bd1ed0b67f196493d6db48a63cd7c776a88452789dfc6c1ecd9"
+          "sha256": "5128c1762cb46c2f8b76dd67c2389c24b6862b5c8814411692d2a77d66d1c0cd"
         },
         {
           "name": "work-tool-routing",
@@ -232,12 +232,12 @@
         {
           "name": "excel-agent-core",
           "sourcePath": "skills/excel-agent-core/SKILL.md",
-          "sourceSha256": "95712cbe91001bd1ed0b67f196493d6db48a63cd7c776a88452789dfc6c1ecd9",
+          "sourceSha256": "5128c1762cb46c2f8b76dd67c2389c24b6862b5c8814411692d2a77d66d1c0cd",
           "resource": "references/agent-setup.md",
           "sectionHeading": "Workflow: excel-agent-core",
           "bodyOffsetBytes": 220,
-          "bodyLengthBytes": 6817,
-          "bodySha256": "3fe8d28b7e898f7ddf791dca0efbbe3b38cab3a412fa55aacada5228e77a9b84"
+          "bodyLengthBytes": 5504,
+          "bodySha256": "828d051f5e6593af4fdef70eeb79291baef3b7c56e765c2a392ed924fbf0456b"
         },
         {
           "name": "work-tool-routing",
@@ -526,7 +526,7 @@
       "name": "finance-suite",
       "edition": "gemini",
       "host": "Gemini",
-      "sourceVersion": "1.5.2",
+      "sourceVersion": "1.6.0",
       "reviewedOn": "2026-11-25",
       "registrationCount": 1,
       "workflowCount": 29,
@@ -534,22 +534,22 @@
       "path": "packages/suites/finance-suite-gemini.zip",
       "expandedPath": "editions/gemini-suite/finance-suite",
       "fileCount": 10,
-      "packageBytes": 82746,
-      "packageSha256": "c3c95dfee6885eb94b71f56b8eb40d8fdadab6fb601552e0f23f54f0be125f3c",
-      "skillCharacters": 18876,
-      "skillLines": 128,
-      "sharedControlsSha256": "d28944d6f2dbc80ffb0b4ac8f9c0d547db653358451d4917376439a28d939dba",
-      "hostGuidanceSha256": "06e7828ddad878d63e95d73a9cc226e9fe850adc8931dc494bd924b69343adb3",
+      "packageBytes": 81864,
+      "packageSha256": "24c6761894004faecbb6bc4ee3e0fa6378902b1f69726aa12dbbe1f7fea5e002",
+      "skillCharacters": 17434,
+      "skillLines": 122,
+      "sharedControlsSha256": "bbea7f858c88c9e728f3726e7f4760115b1c0e3cd460c14e0a6c3ce9321d57c7",
+      "hostGuidanceSha256": "8700e5a2c41f9ba3f42f1b9b3db25bb985eb98783b54a51a7c1352ef012d565b",
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 18876,
-          "sha256": "f0422e6595a273dd0d931d29da59a1a2867cecceae4332a6ed8c2f322e6b5873"
+          "bytes": 17434,
+          "sha256": "5f7aa8fcd72e6eaae21793225e58e5c9555e11e4f38b3eecb43938b8cb9c1fce"
         },
         {
           "path": "references/agent-setup.md",
-          "bytes": 7038,
-          "sha256": "95fb4ad0a3f724a38939676e2fdceb8dac7dd6deca598e0dfe1fc083ab2b63c9"
+          "bytes": 5725,
+          "sha256": "f5ea9394b93cb307e2cca5b648a5d5a84e9e9a80f08826f07e24239be382549b"
         },
         {
           "path": "references/analysis.md",
@@ -596,7 +596,7 @@
         {
           "name": "excel-agent-core",
           "path": "skills/excel-agent-core/SKILL.md",
-          "sha256": "95712cbe91001bd1ed0b67f196493d6db48a63cd7c776a88452789dfc6c1ecd9"
+          "sha256": "5128c1762cb46c2f8b76dd67c2389c24b6862b5c8814411692d2a77d66d1c0cd"
         },
         {
           "name": "work-tool-routing",
@@ -746,12 +746,12 @@
         {
           "name": "excel-agent-core",
           "sourcePath": "skills/excel-agent-core/SKILL.md",
-          "sourceSha256": "95712cbe91001bd1ed0b67f196493d6db48a63cd7c776a88452789dfc6c1ecd9",
+          "sourceSha256": "5128c1762cb46c2f8b76dd67c2389c24b6862b5c8814411692d2a77d66d1c0cd",
           "resource": "references/agent-setup.md",
           "sectionHeading": "Workflow: excel-agent-core",
           "bodyOffsetBytes": 220,
-          "bodyLengthBytes": 6817,
-          "bodySha256": "3fe8d28b7e898f7ddf791dca0efbbe3b38cab3a412fa55aacada5228e77a9b84"
+          "bodyLengthBytes": 5504,
+          "bodySha256": "828d051f5e6593af4fdef70eeb79291baef3b7c56e765c2a392ed924fbf0456b"
         },
         {
           "name": "work-tool-routing",

@@ -7,6 +7,7 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | Financial workflow | `skills/<name>/SKILL.md` | Review and edit canonical instructions | Focused task checks and a documented change |
 | Host behavior | `adapters/` and platform guides | Compare current official Microsoft/Google docs | Dated sources, account caveats and actual restrictions |
 | Complete finance suites | Canonical workflows, host overlays and core defaults | Generate `packages/suites/` and expanded suite folders | One skill per host; replace the complete package with all references and verify resource access |
+| Excel / OneDrive folder | The generated Copilot suite | Generate `packages/excel/finance-suite-onedrive.zip` | Extract to matching `finance-suite` folder; verify all resources, upload the folder into Excel's app-created location, sync and Refresh |
 | Upload packages | `editions/`, `packages/` | Deterministic `scripts/build.py` | Exact bytes and SHA-256 manifest |
 | Copy-and-paste Markdown | Generated edition bodies and Excel profile | Generate `packages/markdown/` with `scripts/build.py` | Markdown-only ZIP with external file inventory; replace pasted copies manually |
 | Coverage and discovery | Canonical catalogues, research, public snapshots, `tools/discovery-profile.json` | Generate metrics and static catalogue in the main build | Exact generated counts, denominators, source hashes and no implied adoption/performance score |
@@ -15,6 +16,7 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | Upstream ideas/tools | `upstream.lock.json` | Check commits, then review relevant diffs/licences | Pinned reviewed revision; new head is only a candidate |
 | Tool routing | `tools/catalog.json` and `catalog.json` | Review availability/evidence requirements and regenerate lists/contracts | Every route resolves to an existing skill; a listing does not claim installation |
 | Research and standards | `research/sources.json` | Review publisher corrections, superseding editions and exact implementation uses | Resolved source IDs, rights and review status; generated registry agrees |
+| Synthetic evaluation kit | `evaluations/cases.json`, prompts and answer keys | Validate hashes and prepare a reproducible manual comparison plan | Preserve all planned runs and status distinctions; unrun plans and grader tests are not native evidence |
 | Public benchmarks | `benchmarks/catalog.json` and immutable snapshots | Run an explicit reviewed collector/import command | Source, unit, period, rights, lineage, retrieval time and exact snapshot hashes |
 | Work account | The host's saved/imported copy | Replace/edit or OneDrive folder update plus Refresh | Local installed-version record and a representative task |
 

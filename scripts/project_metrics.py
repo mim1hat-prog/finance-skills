@@ -18,6 +18,16 @@ import research_registry
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = (Path("metrics/summary.json"), Path("metrics/README.md"), Path("assets/coverage.svg"))
+SOURCE_TYPE_LABELS = {
+    "normative-standard": "Standards",
+    "empirical-research": "Empirical research",
+    "method-guide": "Method guides",
+    "provider-documentation": "Provider documentation",
+    "data-license": "Data licences",
+    "software-reference": "Software references",
+    "project-design": "Project design",
+    "metadata-guidance": "Metadata guidance",
+}
 
 
 def proportion(numerator: int, denominator: int) -> dict:
@@ -43,6 +53,10 @@ def describe(catalog: dict, tools: dict, registry: dict, dataset: dict, saved: l
         raise ValueError("Duplicate research identity in metrics input")
     active = {sid for sid, source in sources.items()
               if source.get("integrationStatus", "active") == "active"}
+    active_types = distribution(sources[sid]["type"] for sid in active)
+    # Show an absent empirical category explicitly instead of hiding the gap.
+    active_types.setdefault("empirical-research", 0)
+    candidate_types = distribution(sources[sid]["type"] for sid in set(sources) - active)
     mapped = set()
     for skill in skills:
         refs = skill.get("researchIds", [])
@@ -122,7 +136,8 @@ def describe(catalog: dict, tools: dict, registry: dict, dataset: dict, saved: l
         "research": {
             "registered": len(sources), "active": len(active), "candidates": len(sources) - len(active),
             "reviewStatus": distribution(s["reviewStatus"] for s in sources.values()),
-            "activeSourceTypes": distribution(sources[sid]["type"] for sid in active),
+            "activeSourceTypes": dict(sorted(active_types.items())),
+            "candidateSourceTypes": candidate_types,
             "candidateIds": sorted(set(sources) - active),
             "limit": "A source mapping records a stated use; it is not independent empirical validation of a skill.",
         },
@@ -144,6 +159,7 @@ def describe(catalog: dict, tools: dict, registry: dict, dataset: dict, saved: l
         "limits": [
             "These are descriptive counts, not model accuracy, task success, statistical confidence or native account validation.",
             "A linked local test is a declared test reference, not a full-workflow pass or an execution receipt; this generator does not run tests.",
+            "Source types describe the cited material, not an evidence hierarchy or proof of agent effectiveness; empirical candidates are excluded from active support.",
             "Repository skill categories are editorial classifications, not a representative sample of all finance tasks.",
             "Observed-series coverage is availability within this project's configured catalogue, not coverage of all public finance data or of a company's inputs.",
             "Daily and monthly observations count retained rows; they are not comparable sample sizes. Financial values with different units are never pooled.",
@@ -155,6 +171,21 @@ def describe(catalog: dict, tools: dict, registry: dict, dataset: dict, saved: l
 def ratio_text(value: dict) -> str:
     pct = "undefined" if value["percent"] is None else f"{value['percent']:g}%"
     return f"{value['numerator']} / {value['denominator']} ({pct})"
+
+
+def empirical_context(summary: dict) -> str:
+    """Keep source classification distinct from observed native performance."""
+    research = summary["research"]
+    active = research["activeSourceTypes"].get("empirical-research", 0)
+    candidates = research["candidateSourceTypes"].get("empirical-research", 0)
+    return (f"Active empirical-research sources: {active}; excluded empirical candidates: {candidates}. "
+            "Source mappings describe stated uses, not measured model efficacy.")
+
+
+def source_type_counts(summary: dict) -> list[tuple[str, int]]:
+    """Readable, deterministic source composition with the zero category retained."""
+    return [(SOURCE_TYPE_LABELS[kind], count) for kind, count in
+            sorted(summary["research"]["activeSourceTypes"].items(), key=lambda item: (-item[1], item[0]))]
 
 
 def retained_context(summary: dict) -> list[dict]:
@@ -198,7 +229,7 @@ def update_readme(text: str, summary: dict) -> bytes:
     )
     content = [
         "[![Descriptive coverage of skill evidence and public benchmark data, showing numerators, denominators and retained observation dates](assets/coverage.svg)](metrics/README.md)",
-        "", sentence, "",
+        "", sentence, "", empirical_context(summary), "",
         f"Repository measurements: **v{summary['projectVersion']}**, release **{summary['releaseDate']}**. "
         "The release date is not a provider retrieval date.", "",
     ]
@@ -240,6 +271,14 @@ def markdown(summary: dict) -> bytes:
               "All host workflows still require a representative check in the actual approved Copilot/Gemini account. Local package and helper checks cannot establish host activation, tool access or answer quality.", "",
               "## Research and tool inventory", "",
               f"The registry has **{research['registered']} records: {research['active']} active and {research['candidates']} candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.", "",
+              empirical_context(summary), "",
+              "### Active source composition", "",
+              "Each registry record has one declared source type. Counts cover active records only; candidates remain excluded. "
+              "A guideline, product manual or project design decision supports its stated scope without becoming a performance experiment.", "",
+              "| Source type | Active records |", "| --- | ---: |"]
+    lines += [f"| {name} | {count} |" for name, count in source_type_counts(summary)]
+    lines += ["", "### Review status", "",
+              "These status counts include both active records and candidates.", "",
               "| Source review status | Records |", "| --- | ---: |"]
     lines += [f"| {name} | {count} |" for name, count in research["reviewStatus"].items()]
     lines += ["", f"The tool catalogue contains **{summary['tools']['registered']} capabilities/products**. Availability labels remain separate from installation or integration evidence.", "",
@@ -305,6 +344,10 @@ def figure(summary: dict) -> bytes:
     if not context:
         footer_text("No retained public observations; no provider retrieval date is inferred.")
         y += 7
+    footer_text("D. Active source composition", 19, "650")
+    footer_text(" · ".join(f"{label}: {count}" for label, count in source_type_counts(summary)), 15)
+    footer_text(empirical_context(summary), 15, "600")
+    y += 7
     footer_text("Counts show scope and gaps, not model accuracy, native task success or a live provider refresh.", 16, "650")
     footer_text("Methods, denominators and source hashes: metrics/README.md · Reproduce: python scripts/project_metrics.py", 14)
     height = y + 22
@@ -314,6 +357,7 @@ def figure(summary: dict) -> bytes:
              f"Descriptive inventory for version {summary['projectVersion']}. "
              f"Workflow test links {ratio_text(skills['declaredWorkflowTestLinks'])}; native execution evidence {ratio_text(skills['nativeExecutionEvidence'])}. "
              f"Observed benchmark series {ratio_text(data['observedSeries'])}; {data['originalObservationRows']} original and {data['derivedObservationRows']} derived rows. "
+             f"{empirical_context(summary)} "
              "Counts describe repository evidence, not model accuracy or production readiness.") + '</desc>',
          f'<rect width="1200" height="{height}" fill="#FAF8F4"/>',
          '<g font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="#242622">',

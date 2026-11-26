@@ -1,6 +1,6 @@
 # Discovery and community design
 
-Reviewed **2026-11-25**. This project uses clear onboarding, useful finance examples and reproducible evidence to help people find and assess the library. Repository changes cannot guarantee indexing, search position, adoption or a particular user base.
+Repository settings checked **2026-11-26**; comparable-project practices reviewed **2026-11-25**. This project uses clear onboarding, useful finance examples and reproducible evidence to help people find and assess the library. Repository changes cannot guarantee indexing, search position, adoption or a particular user base.
 
 ## Practices adopted from comparable projects
 
@@ -29,12 +29,12 @@ The generated JSON-LD uses [Schema.org SoftwareSourceCode](https://schema.org/So
 
 Keep all visible counts generated from canonical sources. State the unit, denominator and scope. Skill counts, references and stored observations describe the repository; they are not accuracy scores, market coverage, endorsements or active-user measurements. [Evaluation limits](EVALUATION.md) · [Actual validation](VALIDATION.md)
 
-## Repository settings still to apply
+## Observed repository settings
 
-The current GitHub plugin can publish files but does not expose the settings writes needed below. The repository metadata check on 2026-11-25 returned an empty description, no topics and no GitHub Pages deployment. These are prepared suggestions, not settings already applied:
+The authenticated repository metadata read on **2026-11-26** confirmed that the About description and all 12 topics match [tools/discovery-profile.json](../tools/discovery-profile.json). The default branch is `main`. The repository reports no GitHub Pages deployment and no homepage URL. These observations supersede the earlier empty-description/topic check; they do not measure search indexing or adoption.
 
-- **About description and topics:** [tools/discovery-profile.json](../tools/discovery-profile.json) is the canonical prepared text and set of 12 relevant topics. [PROJECT-METADATA.json](PROJECT-METADATA.json) is the generated machine-readable record; edit the source profile and rebuild to keep the records consistent.
-- **Social preview:** [assets/social-preview.svg](../assets/social-preview.svg) is an original 1280 × 640 source asset. Export it as a PNG, then select that image in the repository's settings. GitHub recommends a PNG, JPG or GIF below 1 MB, ideally 1280 × 640 pixels. A committed image alone does not configure that setting.
+- **About description and topics:** the profile is the canonical text and set of relevant topics. [PROJECT-METADATA.json](PROJECT-METADATA.json) is the generated record; edit the source profile, rebuild and verify the remote settings separately.
+- **Social preview:** [assets/social-preview.svg](../assets/social-preview.svg) is an original 1280 × 640 source asset. Its selection in GitHub settings has not been verified. Export it as a PNG, then select that image in the repository's settings. GitHub recommends a PNG, JPG or GIF below 1 MB, ideally 1280 × 640 pixels. A committed image alone does not configure that setting.
 
 GitHub documents [topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) and [social-preview setup](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview). Use only relevant public topics. Do not invent a published website, set a canonical URL to an unlaunched site or claim a sitemap is being served without a deployment.
 

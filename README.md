@@ -4,11 +4,11 @@
 
 [![Copilot edition](https://img.shields.io/badge/Copilot-edition-31573F?style=flat)](docs/COPILOT.md) [![Gemini edition](https://img.shields.io/badge/Gemini-edition-31573F?style=flat)](docs/GEMINI.md) [![License MIT](https://img.shields.io/badge/license-MIT-4C5054?style=flat)](LICENSE)
 
-**Repeatable finance workflows for Excel reconciliation, FP&A, forecasting, financial controlling and management reporting.** One maintained library packages 29 workflows as a complete suite or individual skills for each assistant, with optional Python and Power BI tools for Windows.
+**29 repeatable workflows for Excel reconciliation, FP&A, forecasting, financial controlling and management reporting.** Import a complete suite or individual skills, with optional Python and Power BI tools for Windows.
 
-[**Copilot — all workflows, one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-copilot-suite.zip) · [**Gemini — all workflows, one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-gemini-suite.zip)
+[**Excel / OneDrive — all workflows, one folder**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-excel-onedrive.zip) · [**Copilot Chat — suite ZIP**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot-suite.zip) · [**Gemini — suite ZIP**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini-suite.zip)
 
-Upload the complete suite ZIP unchanged. It registers **one `finance-suite` skill containing all 29 complete workflows in nine reference files**. [Single-import setup](docs/SINGLE-IMPORT.md) · [Markdown for pasting only](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-markdown.zip) · [Full project](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-full.zip)
+Each suite packages **one `finance-suite` skill with all 29 workflows in nine reference files**. For Excel, extract the download and add its inner `finance-suite` folder to the OneDrive skills folder opened by Excel. [Setup by host](docs/SINGLE-IMPORT.md) · [Markdown for pasting only](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-markdown.zip) · [Full project](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-full.zip)
 
 [Quick start](#quick-start) · [Coverage](#coverage-at-a-glance) · [All skills](SKILLS.md) · [Downloads](#downloads) · [Copilot setup](docs/COPILOT.md) · [Gemini setup](docs/GEMINI.md) · [Help](SUPPORT.md)
 
@@ -17,9 +17,11 @@ Upload the complete suite ZIP unchanged. It registers **one `finance-suite` skil
 <!-- project-coverage-summary:start -->
 [![Descriptive coverage of skill evidence and public benchmark data, showing numerators, denominators and retained observation dates](assets/coverage.svg)](metrics/README.md)
 
-**29 skills** · **8/29** with workflow-test links · **0/29** with native execution evidence · **11/17** configured benchmark series with observations.
+**29 skills** · **12/29** with workflow-test links · **0/29** with native execution evidence · **11/17** configured benchmark series with observations.
 
-Repository measurements: **v1.5.2**, release **2026-11-26**. The release date is not a provider retrieval date.
+Active empirical-research sources: 0; excluded empirical candidates: 1. Source mappings describe stated uses, not measured model efficacy.
+
+Repository measurements: **v1.6.0**, release **2026-11-26**. The release date is not a provider retrieval date.
 
 - **`ecb-exr-api` (daily):** latest retained observation period per series **2026-11-24**; retrieval timestamp (UTC) **2026-11-25T03:07:56.456028Z**.
 - **`worldbank-pink-sheet` (monthly):** latest retained observation period per series **2026-10**; retrieval timestamp (UTC) **2026-11-25T03:07:50.858358Z**.
@@ -27,43 +29,40 @@ Repository measurements: **v1.5.2**, release **2026-11-26**. The release date is
 Dates describe retained snapshots. Rebuilding these graphs does not fetch providers or establish current market-data freshness.
 <!-- project-coverage-summary:end -->
 
-Generated from this branch’s canonical catalogue, research mappings, declared test links and retained public snapshots. **These measurements describe scope and gaps; they do not measure model accuracy or native task success.**
+Generated from the canonical catalogue, research mappings, declared tests and retained public snapshots. **These counts describe scope and gaps, not model accuracy or native task success.**
 
-[Methods and full results](metrics/README.md) · [Machine-readable measurements](metrics/summary.json) · [Validation record](docs/VALIDATION.md) · [Proposed evaluation protocol](docs/EVALUATION.md)
+[Methods and full results](metrics/README.md) · [Machine-readable measurements](metrics/summary.json) · [Validation record](docs/VALIDATION.md) · [Synthetic evaluation kit](docs/EVALUATION.md)
 
 ## Quick start
 
-**Upgrading after an import rejection?** v1.5.2 groups the complete procedures into nine companion files. v1.5.0 had 29, exceeding Cowork's documented 20-companion limit. [What changed and which limits apply](docs/COPILOT.md#troubleshoot-unsupported-invalid-import-limit-or-responsible-ai-errors). Native acceptance in the target account remains a separate check.
+1. **Choose [Excel / OneDrive](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-excel-onedrive.zip), [Copilot Chat](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot-suite.zip) or [Gemini](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini-suite.zip).**
+2. **Excel:** extract, upload the inner `finance-suite` folder into Excel's OneDrive skills location, then Refresh. **Chat/Gemini:** upload the complete suite ZIP through the supported Skills screen. Select or mention `finance-suite` for the first task. [Exact setup steps](docs/SINGLE-IMPORT.md)
+3. **Run the [invented reconciliation example](examples/QUICKSTART.md).** The CSVs reconcile from 350.30 to 365.35: a 15.05 difference with two unmatched records. Verify that the host reads the selected workflow reference and obtains the expected result.
 
-1. **Download the complete suite for [Copilot](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-copilot-suite.zip) or [Gemini](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-gemini-suite.zip).** Each ZIP is one native skill with all 29 workflows.
-2. **Upload the complete ZIP through your host's Skills screen**, then save and explicitly select `finance-suite`. For Excel's OneDrive route, follow the [single-import folder instructions](docs/SINGLE-IMPORT.md#copilot-in-excel).
-3. **Try the [invented reconciliation example](examples/QUICKSTART.md).** The two small CSVs reconcile from 350.30 to 365.35: a 15.05 difference with two unmatched records. Check that the host can read the selected workflow reference and compare the result before using a work task.
+**Native import and execution remain unverified in the target accounts.** Availability depends on the host, permissions and rollout. The current suite has nine companion files; v1.5.0 had 29, exceeding Cowork's documented 20-companion limit. [Import limits and troubleshooting](docs/COPILOT.md#troubleshoot-unsupported-invalid-import-limit-or-responsible-ai-errors).
 
-For a smaller installation, choose an [individual Copilot](packages/copilot) or [Gemini](packages/gemini) workflow. For an Instructions field, extract the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-markdown.zip) and copy one relevant file's full text. Copy-only files have no native metadata and must not be uploaded through Skills → Add. [Import troubleshooting](docs/COPILOT.md#troubleshoot-invalid-skill-information)
+For a focused installation, choose an [individual Copilot](packages/copilot) or [Gemini](packages/gemini) workflow. For an Instructions field, use the [Markdown download](#downloads) and paste the relevant file's full text.
 
-The instructions use relevant internal evidence first, preserve existing workbook logic and verify calculations. They request no audit tables, extra worksheets or process commentary unless you ask for them. A local coding agent or API subscription is not required for the instruction workflow.
-
-**Choose the correct host:** Microsoft 365 Copilot and Gemini Apps are the primary targets. GitHub Copilot and Gemini CLI are separate products. Native skills, connected sources and research features depend on your account, permissions and rollout. [Copilot guide](docs/COPILOT.md) · [Gemini guide](docs/GEMINI.md)
+The instructions prioritize relevant internal evidence, preserve workbook logic and verify calculations. They request no unsolicited audit tables, extra worksheets or process commentary. The instruction workflow needs no local coding agent or API subscription.
 
 ## Downloads
 
-**Current package: v1.5.2.** Choose a complete suite for one native import, Markdown for pasting instructions, or the full project for local tools and documentation.
+**Current package: v1.6.0.**
 
 | Package | What you receive | Download |
 | --- | --- | --- |
-| **Copilot complete suite** | One `finance-suite` skill with 29 complete workflows in nine reference files; upload this ZIP unchanged | [Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-copilot-suite.zip) |
-| **Gemini complete suite** | One `finance-suite` skill with 29 complete workflows in nine reference files; upload this ZIP unchanged | [Gemini suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-gemini-suite.zip) |
-| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-markdown.zip) |
-| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-copilot.zip) |
-| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-gemini.zip) |
-| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-all.zip) |
-| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.2/finance-skills-v1.5.2-full.zip) |
+| **Excel / OneDrive** | A correctly named `finance-suite` folder with all 29 workflows; extract and upload the folder | [Excel folder ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-excel-onedrive.zip) |
+| **Copilot complete suite** | All 29 workflows in one native skill package | [Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot-suite.zip) |
+| **Gemini complete suite** | All 29 workflows with Gemini host instructions | [Gemini suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini-suite.zip) |
+| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-markdown.zip) |
+| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot.zip) |
+| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini.zip) |
+| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-all.zip) |
+| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-full.zip) |
 
-For Markdown, open the relevant file in VS Code or Notepad and copy all its contents. Each file contains its complete edition-specific instructions without YAML headers; the archive contains no scripts, datasets or nested ZIPs. **Do not upload these files through Skills → Add.** Renaming a copy-only file to `SKILL.md` does not restore its required metadata.
+**Excel / OneDrive:** extract and upload the inner matching-name folder. **Chat/Gemini suite ZIPs:** upload unchanged through the supported Skills screen. **Other bundles:** extract first, then choose a native package or copy-only Markdown file. Markdown omits native metadata and is for pasting. [Package formats and replacement](docs/SINGLE-IMPORT.md)
 
-For the **complete suite ZIPs**, upload the file itself: one root `SKILL.md` routes to bundled workflow references. For the **Copilot/Gemini individual-package bundles, all-skills bundle and full project**, extract the outer ZIP first and select a native package. The suite appears as one installed skill; it does not create 29 separate entries or enable unavailable tools. [Package formats and replacement](docs/SINGLE-IMPORT.md)
-
-[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.5.2/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.6.0/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
 
 ## Find a workflow
 
@@ -78,7 +77,7 @@ For the **complete suite ZIPs**, upload the file itself: one root `SKILL.md` rou
 
 [**Browse all 29 skills**](SKILLS.md) · [Exact inputs, outputs and acceptance criteria](docs/SKILL-CONTRACTS.md) · [Tool list and availability](TOOLS.md)
 
-> Use workforce-reconciliation on the two attached monthly files. Reconcile company headcount and FTE, separate hires and leavers from transfers, show unmapped cost centres, and explain which population and checks you completed.
+> Use finance-suite's workforce-reconciliation workflow on the two attached monthly files. Reconcile headcount and FTE, separate hires and leavers from transfers, and identify unmapped cost centres and material unresolved differences.
 
 Let Excel, Power Query or a local calculation tool do the arithmetic. Use the assistant to select the method, investigate exceptions, explain the result and prepare the requested deliverable.
 
@@ -86,7 +85,7 @@ Let Excel, Power Query or a local calculation tool do the arithmetic. Use the as
 
 [**Download ready-to-paste Excel agent instructions**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/profiles/excel-agent-instructions.txt) and paste them into the **Instructions** field you already use. Compare and preserve approved company additions before saving.
 
-The profile prioritizes relevant available internal sources, retries incomplete retrieval, preserves workbook logic, verifies the result and keeps the response concise. It is generated from the same [canonical source](skills/excel-agent-core/SKILL.md) as the individual [Copilot](packages/copilot/excel-agent-core.zip?raw=1) and [Gemini](packages/gemini/excel-agent-core.zip?raw=1) skills. Importing it as a skill does not guarantee that it becomes the default for every request.
+The profile and individual [Copilot](packages/copilot/excel-agent-core.zip?raw=1) and [Gemini](packages/gemini/excel-agent-core.zip?raw=1) skills share one [canonical source](skills/excel-agent-core/SKILL.md). Importing a skill does not make it the default for every request.
 
 ## Choose your assistant
 
@@ -99,25 +98,25 @@ The profile prioritizes relevant available internal sources, retries incomplete 
 | Fallback | Paste one workflow into an approved conversation | [Gem-ready text](editions/gemini-gems) or an approved conversation |
 | Update an installed copy | Replace/edit, or update the app-created OneDrive folder and Refresh | Replace the skill; update Gem instructions separately |
 
-Use a focused selection for a custom agent and respect its available skill slots. Package checks establish integrity; import and task behavior require verification in the target account. Copilot Researcher and Gemini Deep Research have their own availability and limits. The [research policy](docs/RESEARCH-POLICY.md) calls for targeted retrieval, independent checks and concise conclusions; it cannot increase quotas or grant access. Native Gemini Skills currently do not run inside Deep Research.
+Microsoft 365 Copilot and Gemini Apps are the primary targets; GitHub Copilot and Gemini CLI are separate products. Respect the selected host's skill slots and available tools. The [research policy](docs/RESEARCH-POLICY.md) requires targeted retrieval and independent checks within host limits. Native Gemini Skills do not run inside Deep Research.
 
 ## Evidence, standards and public data
 
-Every workflow keeps **approved internal figures**, **internal workflow status** and **public benchmarks** separate. Match periods, cutoffs, scenarios, versions, units and snapshots before comparing. Public data never fills a missing internal forecast, exposure, mapping or confirmation. A successful calculation does not prove refresh, approval or submission.
+Keep **approved internal figures**, **internal workflow status** and **public benchmarks** separate. Align periods, cutoffs, scenarios, units and snapshots before comparing. Public data cannot fill missing internal inputs or prove approval or submission.
 
 The full release contains **119 ECB FX observations**—68 published rates and 51 separately derived JPY crosses—and **48 World Bank commodity observations** for aluminum, copper, Brent and Japan LNG. Two retained public snapshots record periods, retrieval timestamps, units, source IDs, rights and transformations. Synthetic vintage fixtures are separate.
 
-The local read-only API serves validated snapshots through four routes. Use an immutable `snapshot_id`, or `as_of` only when a snapshot was retained by that cutoff. An earlier observation period does not establish what was known at an earlier forecast date. Failed refreshes preserve the last good snapshot.
+The local read-only API serves retained snapshots. Use `snapshot_id`, or `as_of` only when a snapshot existed by the cutoff. An observation period alone does not establish what was known at a forecast date. Failed refreshes preserve the last good snapshot.
 
 **Source status:** ECB and the selected World Bank extracts were exercised. BOJ values are excluded pending reproduction permission. METI transport-production and MHLW wage/hour configurations remain candidates pending exact source validation.
 
 [Dataset and API guide](benchmarks/README.md) · [Data dictionary](benchmarks/DATA_DICTIONARY.md) · [OpenAPI contract](api/openapi.yaml) · [Research registry](research/README.md) · [Workflow pilots](docs/WORKFLOWS.md)
 
-The registry links each integrated source to the method, skill, decision or test it supports. [Standards](docs/STANDARDS.md) documents Agent Skills, SemVer, CFF, SPDX, JSON Schema, OpenAPI and RFC 9457, with lightweight provenance informed by W3C and FAIR. No certification or peer-reviewed status is claimed.
+The registry maps sources to their exact implementation uses. [Standards](docs/STANDARDS.md) records Agent Skills, SemVer, CFF, SPDX, JSON Schema, OpenAPI and RFC 9457, plus provenance informed by W3C and FAIR. This is not a certified or peer-reviewed project.
 
 ## Optional local tools
 
-The finance calculation and workflow helpers use Python's standard library, leave inputs unchanged and make no network calls. The separate public benchmark collector runs only through an explicit refresh command; the API starts manually in the foreground.
+Finance calculation helpers use Python's standard library, preserve inputs and make no network calls. Benchmark collection and the local API run only through explicit commands.
 
 ```powershell
 py -3 scripts\finance_tools.py profile examples\actual.csv --keys cost_center account --amounts amount
@@ -125,7 +124,7 @@ py -3 scripts\finance_tools.py reconcile examples\plan.csv examples\actual.csv -
 py -3 scripts\finance_tools.py bridge --plan-quantity 100 --actual-quantity 110 --plan-rate 20 --actual-rate 21 --plan-fx 150 --actual-fx 145
 ```
 
-Optional helpers use openpyxl for stored workbook cells and formula caches, and DuckDB for local CSV/Parquet profiling. They do not establish spreadsheet recalculation or guarantee a large-file capacity. [Windows setup and output definitions](docs/WINDOWS.md)
+Optional openpyxl and DuckDB helpers inspect stored workbook cells and local CSV/Parquet files. They do not recalculate Excel formulas or guarantee a large-file capacity. [Windows setup and output definitions](docs/WINDOWS.md)
 
 ### Visual catalogue
 
@@ -135,11 +134,11 @@ Open `site/index.html` from the extracted full release, or serve the repository 
 py -3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open `http://127.0.0.1:8000/site/` for edition selection, task search, prompt copying and theme controls. Skill descriptions, prompts and Copilot download links remain readable without JavaScript. This included catalogue is not a claimed public website deployment.
+Open `http://127.0.0.1:8000/site/` to search workflows and copy prompts. Descriptions, prompts and Copilot links also work without JavaScript. No public website deployment is claimed.
 
 ## Maintain and contribute
 
-Canonical instructions live in `skills/`. The deterministic build generates both editions, native packages, Gem-ready text, the Excel profile, Markdown downloads, coverage statistics and catalogue. Releases freeze the downloads with checksums and preserve prior versions.
+Edit canonical instructions in `skills/`. The deterministic build generates editions, downloads, profiles, statistics and catalogue; versioned releases preserve their checksums and contents.
 
 ```powershell
 py -3 scripts\research_registry.py
@@ -147,9 +146,9 @@ py -3 scripts\build.py
 py -3 scripts\check_release.py
 ```
 
-The offline gate checks generated files, workflow/tool/source references, dataset and API contracts, tests and package contents. Git identity is reviewed separately. [Maintenance and installed-copy updates](docs/UPDATES.md) · [Release procedure](docs/RELEASES.md)
+The offline gate checks generated files, evidence mappings, dataset/API contracts, tests and packages. Git identity is reviewed separately. [Maintenance](docs/UPDATES.md) · [Release procedure](docs/RELEASES.md)
 
-A separately configured weekly maintenance task checks relevant platform and upstream changes on Wednesdays at 08:00 Asia/Tokyo. The weekly schedule was confirmed on 2026-11-25. Compatible updates require validation and resolved publication-identity checks. This repository includes no GitHub Actions workflows. Updating GitHub does not update skills already imported into Copilot or Gemini.
+Weekly maintenance is scheduled for Wednesdays at **08:00 Asia/Tokyo** (confirmed 2026-11-25). Updates require validation; this repository uses no GitHub Actions. Replace or refresh imported skills separately after a repository update.
 
 | Read or contribute | Where to go |
 | --- | --- |
@@ -161,7 +160,7 @@ A separately configured weekly maintenance task checks relevant platform and ups
 
 Keep business data, internal links, credentials and private templates in approved company storage. Examples and test cases are independently invented; public observations retain their own attribution and rights. [Security and data boundaries](SECURITY.md)
 
-The portable finance instructions are independently authored. [Upstream notes](docs/UPSTREAMS.md) record reviewed commits, licences and host requirements for the source projects; acquiring their archives does not activate their plugins or install a runtime on your PC.
+[Upstream notes](docs/UPSTREAMS.md) record reviewed commits, licences and host requirements. Acquiring source archives does not activate plugins or install their runtimes.
 
 ---
 

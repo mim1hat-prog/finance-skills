@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "measurementType": "descriptive-repository-inventory",
-  "projectVersion": "1.5.2",
+  "projectVersion": "1.6.0",
   "releaseDate": "2026-11-26",
   "sourceReviewDates": {
     "skills": "2026-11-25",
@@ -44,9 +44,9 @@
       "percent": 100.0
     },
     "declaredWorkflowTestLinks": {
-      "numerator": 8,
+      "numerator": 12,
       "denominator": 29,
-      "percent": 27.6
+      "percent": 41.4
     },
     "nativeExecutionEvidence": {
       "numerator": 0,
@@ -58,25 +58,25 @@
     },
     "withDeclaredWorkflowTests": [
       "account-mapping",
+      "analytical-sql",
       "benchmark-lookup",
+      "close-controls",
       "connected-reporting",
       "excel-agent-core",
+      "excel-data-coverage",
+      "forecast-variance",
       "fx-allocation-preflight",
       "power-query-etl",
       "provision-reconciliation",
       "workforce-reconciliation"
     ],
     "withoutDeclaredWorkflowTests": [
-      "analytical-sql",
       "business-document",
       "cash-working-capital",
-      "close-controls",
       "corporate-style",
       "design-review",
       "document-extraction",
       "evidence-research",
-      "excel-data-coverage",
-      "forecast-variance",
       "interactive-visualization",
       "management-presentation",
       "power-bi-analysis",
@@ -91,24 +91,27 @@
     ]
   },
   "research": {
-    "registered": 87,
-    "active": 86,
+    "registered": 89,
+    "active": 88,
     "candidates": 1,
     "reviewStatus": {
       "carried-forward": 16,
       "needs-review": 1,
-      "reviewed": 39,
-      "reviewed-with-limitations": 31
+      "reviewed": 40,
+      "reviewed-with-limitations": 32
     },
     "activeSourceTypes": {
       "data-license": 5,
-      "empirical-research": 1,
-      "metadata-guidance": 4,
-      "method-guide": 2,
+      "empirical-research": 0,
+      "metadata-guidance": 5,
+      "method-guide": 3,
       "normative-standard": 9,
       "project-design": 2,
-      "provider-documentation": 39,
+      "provider-documentation": 40,
       "software-reference": 24
+    },
+    "candidateSourceTypes": {
+      "empirical-research": 1
     },
     "candidateIds": [
       "m4-competition"
@@ -116,11 +119,11 @@
     "limit": "A source mapping records a stated use; it is not independent empirical validation of a skill."
   },
   "tools": {
-    "registered": 29,
+    "registered": 30,
     "availability": {
       "capability-only": 7,
       "confirm-at-work": 9,
-      "local-implementation": 1,
+      "local-implementation": 2,
       "optional-evaluation": 5,
       "partial-user-reported": 2,
       "user-reported": 5
@@ -444,6 +447,7 @@
   "limits": [
     "These are descriptive counts, not model accuracy, task success, statistical confidence or native account validation.",
     "A linked local test is a declared test reference, not a full-workflow pass or an execution receipt; this generator does not run tests.",
+    "Source types describe the cited material, not an evidence hierarchy or proof of agent effectiveness; empirical candidates are excluded from active support.",
     "Repository skill categories are editorial classifications, not a representative sample of all finance tasks.",
     "Observed-series coverage is availability within this project's configured catalogue, not coverage of all public finance data or of a company's inputs.",
     "Daily and monthly observations count retained rows; they are not comparable sample sizes. Financial values with different units are never pooled.",
@@ -484,15 +488,15 @@
     },
     {
       "path": "catalog.json",
-      "sha256": "f679d190ccf902d177d601eeab05f96879b497ae8ff088fa8ace48de4e7af321"
+      "sha256": "b2254e9bf8ab0a0c44e93e6c0b0a1a0126b5650970a2053df715220a293d06fa"
     },
     {
       "path": "research/sources.json",
-      "sha256": "e5b49cb6ff6a41903975beb1456dea6275449a7d5256fbfd63bd591a1859f048"
+      "sha256": "ebf2506aa11cc72623be6eebecfe74e6672da1a99c79911bc23265ccd6efdbe7"
     },
     {
       "path": "tools/catalog.json",
-      "sha256": "b7c4d984fefa51b1b13c21cf7611042d11bbe47f58598a0c7c77a8f7bcab889e"
+      "sha256": "1c02c3d5d101dc3127df9f6ce2cc8ad77daca1214976ed68bbf446b4fde63f1f"
     }
   ]
 }

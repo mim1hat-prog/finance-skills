@@ -40,6 +40,7 @@ DIRECTORIES = {
     "branding": {".css", ".json", ".svg", ".png", ".md", ".txt", ""},
     "docs": {".md", ".txt", ".json", ".svg", ".png"}, "editions": {".md", ".txt"},
     "examples": {".csv", ".json", ".md", ".txt", ".sql", ".py"},
+    "evaluations": {".json", ".md"},
     "packages": {".zip", ".json"}, "profiles": {".txt", ".md", ".json"},
     "release-notes": {".md"}, "requirements": {".txt", ".lock", ".toml"},
     "scripts": {".py", ".ps1", ".cmd", ".bat", ".sh", ".mjs", ".js", ".json"},
@@ -56,6 +57,7 @@ VARIANTS_BY_SCHEMA = {
     1: ("copilot", "gemini", "all", "full"),
     2: ("copilot", "gemini", "all", "markdown", "full"),
     3: ("copilot-suite", "gemini-suite", "copilot", "gemini", "all", "markdown", "full"),
+    4: ("excel-onedrive", "copilot-suite", "gemini-suite", "copilot", "gemini", "all", "markdown", "full"),
 }
 BUNDLE_PATHS = {
     "copilot": "packages/bundles/finance-skills-copilot.zip",
@@ -64,6 +66,7 @@ BUNDLE_PATHS = {
     "markdown": "packages/markdown/finance-skills-markdown.zip",
     "copilot-suite": "packages/suites/finance-suite-copilot.zip",
     "gemini-suite": "packages/suites/finance-suite-gemini.zip",
+    "excel-onedrive": "packages/excel/finance-suite-onedrive.zip",
 }
 LOCK_NAME = ".release.lock"
 
@@ -216,9 +219,17 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
             raise ReleaseError("Unsupported suite package version")
         if type(markdown_version) is not int or markdown_version != 1:
             raise ReleaseError("Suite packages require Markdown bundle version 1")
+    excel_folder_version = catalog.get("excelFolderBundleVersion")
+    if "excelFolderBundleVersion" in catalog:
+        if type(excel_folder_version) is not int or excel_folder_version != 1:
+            raise ReleaseError("Unsupported Excel folder bundle version")
+        if suite_version != 2:
+            raise ReleaseError("Excel folder bundle requires grouped suite package version 2")
     schema_version = 2 if markdown_version == 1 else 1
     if suite_version in (1, 2):
         schema_version = 3
+    if excel_folder_version == 1:
+        schema_version = 4
     variants = VARIANTS_BY_SCHEMA[schema_version]
     version = catalog.get("version")
     version_key(version)
@@ -249,8 +260,9 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
               "markdown": "Copy-and-paste Markdown only",
               "copilot-suite": "Copilot complete suite — upload unchanged: one skill, all workflows",
               "gemini-suite": "Gemini complete suite — upload unchanged: one skill, all workflows",
+              "excel-onedrive": "Copilot in Excel — extract, then Upload Folder to OneDrive",
               "full": "Full project, tools and documentation"}
-    if schema_version == 3:
+    if schema_version >= 3:
         labels.update(copilot="Individual Copilot packages — extract first",
                       gemini="Individual Gemini packages — extract first",
                       all="Both individual editions — extract first")
@@ -258,8 +270,17 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
              "These are the frozen repository-hosted files. GitHub Release assets are published and verified separately.", "",
              "| Download | File |", "| --- | --- |"]
     lines += [f"| {labels[v]} | [{prefix}-{v}.zip]({raw}/{prefix}-{v}.zip) |" for v in variants]
-    if schema_version == 3:
-        lines += ["", f"For one import, upload the complete Copilot or Gemini suite ZIP unchanged. "
+    if schema_version == 4:
+        lines += ["", "For Copilot in Excel, extract the Excel OneDrive ZIP first, then upload the inner "
+                  "finance-suite folder using Upload Folder in the OneDrive skills location opened by Excel. "
+                  "The folder contains SKILL.md and all references. Select Refresh in Excel, then invoke "
+                  "@finance-suite. Do not upload this folder-transport ZIP through a native ZIP-import screen. "
+                  "Native account activation and task execution remain unverified."]
+    if schema_version >= 3:
+        lead = ("For hosts with native ZIP import, upload the complete Copilot or Gemini suite ZIP unchanged. "
+                if schema_version == 4 else
+                "For one import, upload the complete Copilot or Gemini suite ZIP unchanged. ")
+        lines += ["", lead +
                   f"Each registers one finance-suite skill containing {len(catalog['skills'])} workflow references. "
                   "It does not register the workflows as separate native skills. "
                   "Keep the reference files with SKILL.md when replacing the suite."]
@@ -343,13 +364,66 @@ def verify_frozen(directory: Path) -> dict:
         for record in project:
             if type(record.get("bytes")) is not int or file_record(record["path"], archive.read(record["path"])) != record:
                 raise ReleaseError(f"Full-project content mismatch: {directory.name}/{record['path']}")
-        if schema_version == 3:
+        if schema_version >= 3:
             for variant in ("copilot-suite", "gemini-suite"):
                 source_path = BUNDLE_PATHS[variant]
                 if (source_path not in paths
                         or archive.read(source_path) != files[f"finance-skills-v{version}-{variant}.zip"]):
                     raise ReleaseError(f"Frozen suite package differs from full-project source: {directory.name}/{variant}")
+        if schema_version == 4:
+            verify_excel_folder(files[f"finance-skills-v{version}-excel-onedrive.zip"], archive,
+                                paths, version, directory.name)
     return manifest
+
+
+def verify_excel_folder(payload: bytes, project: zipfile.ZipFile, paths: list[str],
+                        version: str, label: str) -> None:
+    """Independently verify the folder transport and its external inventory."""
+    source_path = BUNDLE_PATHS["excel-onedrive"]
+    metadata_path = "packages/excel/manifest.json"
+    suite_path = BUNDLE_PATHS["copilot-suite"]
+    source_folder = "editions/copilot-suite/finance-suite"
+    if any(path not in paths for path in (source_path, metadata_path, suite_path)):
+        raise ReleaseError(f"Missing Excel folder source or inventory: {label}")
+    if project.read(source_path) != payload:
+        raise ReleaseError(f"Frozen Excel folder differs from full-project source: {label}")
+    suite_payload = project.read(suite_path)
+    with zipfile.ZipFile(io.BytesIO(suite_payload)) as suite:
+        if len(suite.namelist()) != len(set(suite.namelist())):
+            raise ReleaseError(f"Duplicate source suite resource: {label}")
+        members = {name: suite.read(name) for name in suite.namelist()}
+    try:
+        build.validate_portable_suite_members(members, suite_payload)
+    except ValueError as exc:
+        raise ReleaseError(f"Invalid Excel source suite: {label}: {exc}") from exc
+    expected = {f"finance-suite/{name}": content for name, content in members.items()}
+    with zipfile.ZipFile(io.BytesIO(payload)) as folder:
+        if folder.namelist() != sorted(expected):
+            raise ReleaseError(f"Excel folder must contain exactly the finance-suite folder: {label}")
+        for name, content in expected.items():
+            if folder.read(name) != content:
+                raise ReleaseError(f"Excel folder differs from the complete Copilot suite: {label}/{name}")
+    metadata = json.loads(project.read(metadata_path))
+    expected_files = [{**file_record(name, content),
+                       "sourcePath": f"{source_folder}/{name.removeprefix('finance-suite/')}"}
+                      for name, content in sorted(expected.items())]
+    required_metadata = {
+        "schemaVersion": 1, "kind": "excel-onedrive-folder-package", "version": version,
+        "edition": "copilot", "skillName": "finance-suite", "folderName": "finance-suite",
+        "path": source_path, "bytes": len(payload), "sha256": hashlib.sha256(payload).hexdigest(),
+        "sourceSuitePath": suite_path, "sourceSuiteSha256": hashlib.sha256(suite_payload).hexdigest(),
+        "sourceExpandedPath": source_folder, "fileCount": len(expected),
+        "installationMode": "extract-then-upload-folder", "registrationCount": 1,
+        "nativeStatus": "not-validated", "files": expected_files,
+    }
+    if (not isinstance(metadata, dict)
+            or any(metadata.get(key) != value for key, value in required_metadata.items())
+            or any(type(metadata.get(key)) is not int
+                   for key in ("schemaVersion", "bytes", "fileCount", "registrationCount"))):
+        raise ReleaseError(f"Invalid Excel folder inventory: {label}")
+    for record in expected_files:
+        if record["sourcePath"] not in paths or project.read(record["sourcePath"]) != expected[record["path"]]:
+            raise ReleaseError(f"Excel folder differs from expanded source: {label}/{record['path']}")
 
 
 def existing_versions(folder: Path, *, locked: bool = False) -> list[dict]:

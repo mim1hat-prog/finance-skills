@@ -68,6 +68,10 @@ class PackagingTests(unittest.TestCase):
         catalog = json.loads((ROOT / "catalog.json").read_text())
         names = {row["name"] for row in catalog["skills"]}
         manifest = json.loads(first[Path("packages/manifest.json")])
+        # Host overlays omit generic output policy; every published standalone
+        # edition must therefore retain the complete shared controls.
+        self.assertEqual(catalog["workflowContractsVersion"], 1)
+        shared = (ROOT / "adapters/workflow-controls.md").read_text().strip()
         self.assertEqual(len(manifest["skills"]), 2 * len(names))
         for row in manifest["skills"]:
             source = first[Path("editions") / row["edition"] / row["name"] / "SKILL.md"]
@@ -78,6 +82,7 @@ class PackagingTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(data).hexdigest(), row["packageSha256"])
             self.assertEqual(hashlib.sha256(source).hexdigest(), row["skillSha256"])
             self.assertLess(len(source.decode()), 20000)
+            self.assertIn(shared, build.parse_skill(source, row["name"])[2])
 
         canonical = (ROOT / "skills/excel-agent-core/SKILL.md").read_bytes()
         body = build.parse_skill(canonical, "excel-agent-core")[2]

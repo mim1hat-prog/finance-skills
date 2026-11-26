@@ -20,6 +20,7 @@ class SuitePackagingTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.catalog = json.loads((ROOT / "catalog.json").read_text())
+        cls.catalog.pop("excelFolderBundleVersion", None)
         cls.catalog["suitePackageVersion"] = 1
         cls.catalog["markdownBundleVersion"] = 1
         cls.outputs = cls.generate_catalog(cls.catalog)
@@ -217,6 +218,7 @@ class GroupedSuitePackagingTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.catalog = json.loads((ROOT / "catalog.json").read_text())
+        cls.catalog.pop("excelFolderBundleVersion", None)
         cls.catalog.update(suitePackageVersion=2, markdownBundleVersion=1)
         cls.outputs = SuitePackagingTests.generate_catalog(cls.catalog)
         cls.manifest = json.loads(cls.outputs[Path("packages/suites/manifest.json")])
@@ -276,6 +278,7 @@ class GroupedSuitePackagingTests(unittest.TestCase):
                     self.assertIn((ROOT / "adapters" / f"{record['edition']}.md").read_text().strip(), text)
                     self.assertIn("read that entire workflow section", text)
                     self.assertIn("Invoke `finance-suite` and select that section", text)
+                    self.assertIn("Copying this root alone does not include the referenced procedures", text)
                     routes = re.findall(r"^- \[[^\n]+\]\((references/[^)]+)\), `([^`]+)`:", text, re.M)
                     self.assertEqual(len(routes), 29)
                     self.assertEqual({name for _, name in routes}, names)

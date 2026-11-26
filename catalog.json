@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.5.2",
+  "version": "1.6.0",
   "projectPresentationVersion": 1,
   "markdownBundleVersion": 1,
   "reviewedOn": "2026-11-25",
@@ -147,7 +147,11 @@
           "packageTests": [
             "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
           ],
-          "workflowTests": [],
+          "workflowTests": [
+            "tests/test_finance_tools.py::FinanceControls.test_profile_scans_full_population_preserves_keys_and_decimal",
+            "tests/test_finance_tools.py::WorkbookControls.test_workbook_without_stored_dimension_is_scanned",
+            "tests/test_finance_tools.py::WorkbookControls.test_formula_cache_and_hidden_sheet_are_not_calculation_claims"
+          ],
           "nativeStatus": "not-validated"
         }
       },
@@ -248,7 +252,10 @@
           "packageTests": [
             "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
           ],
-          "workflowTests": [],
+          "workflowTests": [
+            "tests/test_finance_tools.py::FinanceControls.test_quantity_rate_fx_bridge_closes_and_handles_zero_quantity",
+            "tests/test_finance_tools.py::FinanceControls.test_bridge_exact_at_supported_numeric_extremes"
+          ],
           "nativeStatus": "not-validated"
         }
       },
@@ -535,7 +542,11 @@
           "packageTests": [
             "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
           ],
-          "workflowTests": [],
+          "workflowTests": [
+            "tests/test_finance_tools.py::DuckDBControls.test_csv_and_parquet_full_counts_and_key_rules",
+            "tests/test_finance_tools.py::DuckDBControls.test_bad_csv_cannot_shift_the_header_or_skip_records",
+            "tests/test_finance_tools.py::DuckDBControls.test_explicit_csv_dialect_supports_bom_crlf_and_quoted_newline"
+          ],
           "nativeStatus": "not-validated"
         }
       },
@@ -1021,7 +1032,10 @@
           "packageTests": [
             "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
           ],
-          "workflowTests": [],
+          "workflowTests": [
+            "tests/test_finance_tools.py::FinanceControls.test_reconciliation_retains_missing_keys_and_balances",
+            "tests/test_finance_tools.py::FinanceControls.test_duplicate_grain_requires_explicit_aggregation"
+          ],
           "nativeStatus": "not-validated"
         }
       },
@@ -1436,5 +1450,6 @@
   ],
   "workflowContractsVersion": 1,
   "releasedOn": "2026-11-26",
-  "suitePackageVersion": 2
+  "suitePackageVersion": 2,
+  "excelFolderBundleVersion": 1
 }

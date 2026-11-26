@@ -24,6 +24,14 @@ The JSON Schema helper is intentionally limited to the keywords used by this rep
 
 `research/sources.json` is the canonical registry. Each integrated source has an ID, publisher, edition, access/review dates, rights, applicable section, implementation use, limitations and exact affected paths or tests. `research/README.md` is generated. Corrections and superseding versions are recorded; an unresolved retraction or correction cannot silently remain active support. Candidate research is visibly separated from implemented method support.
 
+Source type and demonstrated effectiveness are separate. The FAIR article supplies metadata principles; it is not an empirical test of this library. The generated coverage report shows the source-type composition and keeps unresolved empirical candidates outside active support. A method reference, passing helper check or complete package does not establish improved assistant performance.
+
+The [evaluation kit](EVALUATION.md) supplies versioned synthetic development cases, predetermined answer keys and a local result validator. It follows the documented-test practice in the [JOSS review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html#tests); this is a methodological reference, not JOSS review or a claim of publication eligibility. Public answer keys make the cases useful for development and regression checks, not an unseen benchmark.
+
+## AI assistance and review
+
+AI tools assist with instruction drafting, code changes and documentation. Source review, deterministic build and release checks, focused software tests and independent local synthetic tasks provide the recorded validation. These checks have different scopes; none substitutes for native Copilot/Gemini execution or external peer review. Human contributors remain responsible for reviewing changes and their applicability before work use. The repository claims no certification or independent scientific efficacy result.
+
 The benchmark store preserves originals and derived values separately. A derived row records its inputs, formula and transformation version. A snapshot ID fixes a particular retrieved history. Observation dates and a provider release date do not prove that a snapshot existed at an earlier cutoff. The API returns `as_of_unavailable` when it cannot reconstruct that cutoff. [Dataset dictionary and operation](../benchmarks/README.md)
 
 Use `python scripts/check_release.py` for the offline pre-release gates and `python scripts/check_release.py --require-release` after freezing. This is a command suitable for an approved CI runner; this repository does not enable GitHub Actions or claim that a server branch-protection rule enforces it. Native account checks remain explicit in [validation](VALIDATION.md).
