@@ -1,0 +1,49 @@
+# Finance skills v1.5.2
+
+## Downloads
+
+These are the frozen repository-hosted files. GitHub Release assets are published and verified separately.
+
+| Download | File |
+| --- | --- |
+| Copilot complete suite — upload unchanged: one skill, all workflows | [finance-skills-v1.5.2-copilot-suite.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-copilot-suite.zip) |
+| Gemini complete suite — upload unchanged: one skill, all workflows | [finance-skills-v1.5.2-gemini-suite.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-gemini-suite.zip) |
+| Individual Copilot packages — extract first | [finance-skills-v1.5.2-copilot.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-copilot.zip) |
+| Individual Gemini packages — extract first | [finance-skills-v1.5.2-gemini.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-gemini.zip) |
+| Both individual editions — extract first | [finance-skills-v1.5.2-all.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-all.zip) |
+| Copy-and-paste Markdown only | [finance-skills-v1.5.2-markdown.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-markdown.zip) |
+| Full project, tools and documentation | [finance-skills-v1.5.2-full.zip](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/finance-skills-v1.5.2-full.zip) |
+
+For one import, upload the complete Copilot or Gemini suite ZIP unchanged. Each registers one finance-suite skill containing 29 workflow references. It does not register the workflows as separate native skills. Keep the reference files with SKILL.md when replacing the suite.
+
+The complete workflows are grouped into 9 Markdown companion files, within the project's 20-companion portability ceiling. All workflow procedures remain complete. The earlier v1.5.0 suite has 29 companion files and exceeds Cowork's documented 20-companion limit. Use the current package; host acceptance and tenant permissions remain separate checks.
+
+For copy and paste, extract the Markdown-only ZIP, open START-HERE.md, then copy the relevant Copilot or Gemini file. Every file in that ZIP is Markdown.
+
+Extract a transport bundle before importing individual native skill ZIPs. The full project archive contains source, tools and documentation; it is not a native skill import.
+
+[SHA-256 checksums](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/SHA256SUMS.txt) · [Release manifest](https://raw.githubusercontent.com/mim1hat-prog/finance-skills/main/releases/v1.5.2/manifest.json)
+
+## Release notes
+
+### One complete finance-suite import
+
+Use the complete Copilot or Gemini suite ZIP to import one finance-suite containing all 29 complete workflows. The grouped layout introduced in v1.5.1 has nine category companion files and one root SKILL.md, rather than the 29 companions in v1.5.0. It fits Cowork's documented 20-companion ceiling while preserving every canonical workflow body.
+
+The supplied v1.5.0 Copilot file was intact and had valid metadata. Its generic import error did not identify the exact Copilot surface or prove a Responsible AI rejection. This release corrects the documented portability problem; native account acceptance and supporting-file access still need confirmation.
+
+### Release validation as history grows
+
+The historical archive collection exceeded the scanner's single-batch expansion budget during the final v1.5.1 check. This release verifies each frozen version's integrity and scans current files and each version separately under the unchanged per-batch expansion, file-count and nested-archive limits. It applies the same private-marker policy to every batch, preserves full findings and reports both per-batch and combined measurements. No prior release is skipped or overwritten.
+
+Guide links in these notes are absolute so they work when embedded in the versioned download page and GitHub Release. The complete suites, individual packages, Markdown-only package and full project remain available. Canonical finance instructions, public benchmark observations and acquisition times are unchanged.
+
+### Import or replace
+
+Upload the complete Copilot suite ZIP through the supported Skills screen. For Excel's OneDrive route, replace the complete finance-suite folder and Refresh; preserve approved private customizations separately first. Replace the old reference directory instead of merging its 29 files with the new nine. The Gemini suite has the same complete grouped procedures and its own host instructions.
+
+[Single-import setup](https://github.com/mim1hat-prog/finance-skills/blob/main/docs/SINGLE-IMPORT.md) · [Copilot import troubleshooting](https://github.com/mim1hat-prog/finance-skills/blob/main/docs/COPILOT.md#troubleshoot-unsupported-invalid-import-limit-or-responsible-ai-errors) · [Validation record](https://github.com/mim1hat-prog/finance-skills/blob/main/docs/VALIDATION.md)
+
+### Checks completed
+
+179 Python tests passed with zero skips; all 189 generated artifacts matched their sources. Independent archive and source-body checks retained all 29 workflows in nine companions. The pre-freeze publication scan checked the current project and every earlier frozen version in 11 bounded batches with no findings. Native import and Microsoft platform content validation remain unverified.

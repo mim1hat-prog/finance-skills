@@ -125,4 +125,4 @@ Avoid filler, AI self-reference, process commentary, unsolicited audit text, and
 
 ## Suite record
 
-Finance skills 1.5.1; copilot edition; source review 2026-11-25. This is the package's source-review date, not the freshness of business data. Package validation does not establish successful native import, reference retrieval or task execution in the work account.
+Finance skills 1.5.2; copilot edition; source review 2026-11-25. This is the package's source-review date, not the freshness of business data. Package validation does not establish successful native import, reference retrieval or task execution in the work account.

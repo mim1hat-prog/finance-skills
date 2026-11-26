@@ -18,9 +18,14 @@ BLOCKED_PARTS = {"private", "work-data", "outputs", "credentials", "secrets", ".
 BLOCKED_EXTENSIONS = {".xlsx", ".xlsm", ".xlsb", ".xls", ".docx", ".pptx", ".pbix", ".pbit", ".one", ".msg", ".eml", ".pst", ".pdf", ".sqlite", ".db"}
 URL = re.compile(r"https?://[^\s<>\"'`\]\)]+", re.I)
 SECRET_KEYS = {"apikey", "appid", "accesstoken", "refreshtoken", "clientsecret", "password", "authorization", "credential"}
+MAX_EXPANDED_BYTES = 200_000_000
+MAX_FILES = 25_000
+MAX_ARCHIVE_MEMBERS = 5_000
+MAX_ARCHIVE_DEPTH = 5
+LIMIT_NOTE = "Heuristics plus an explicit public inventory; does not establish source authenticity, licensing or publication approval."
 
 
-def scan_inventory(files: dict[str, bytes], *, private_literals: tuple[str, ...] = (), exceptions: tuple[dict, ...] = (), max_expanded_bytes: int = 200_000_000) -> dict:
+def _scan_inventory(files: dict[str, bytes], *, private_literals: tuple[str, ...] = (), exceptions: tuple[dict, ...] = (), max_expanded_bytes: int = MAX_EXPANDED_BYTES) -> tuple[dict, set]:
     """Inspect bytes without extraction/network; a pass is not publication approval."""
     findings: list[dict] = []
     counters = {"files": 0, "expandedBytes": 0, "archives": 0}
@@ -59,7 +64,7 @@ def scan_inventory(files: dict[str, bytes], *, private_literals: tuple[str, ...]
         inspected_hashes[path] = hashlib.sha256(data).hexdigest()
         counters["files"] += 1
         counters["expandedBytes"] += len(data)
-        if counters["files"] > 25000 or counters["expandedBytes"] > max_expanded_bytes:
+        if counters["files"] > MAX_FILES or counters["expandedBytes"] > max_expanded_bytes:
             raise ValueError("Publication inspection limit exceeded; split and review explicitly")
         inner = path.rsplit("!/", 1)[-1]
         parts = PurePosixPath(inner).parts
@@ -74,13 +79,13 @@ def scan_inventory(files: dict[str, bytes], *, private_literals: tuple[str, ...]
             return
         if suffix == ".zip":
             counters["archives"] += 1
-            if depth >= 5:
+            if depth >= MAX_ARCHIVE_DEPTH:
                 finding(path, "archive-depth-limit")
                 return
             try:
                 with zipfile.ZipFile(io.BytesIO(data)) as archive:
                     members = archive.infolist()
-                    if len(members) > 5000 or sum(x.file_size for x in members) + counters["expandedBytes"] > max_expanded_bytes:
+                    if len(members) > MAX_ARCHIVE_MEMBERS or sum(x.file_size for x in members) + counters["expandedBytes"] > max_expanded_bytes:
                         finding(path, "archive-expansion-limit")
                         return
                     seen = set()
@@ -130,8 +135,106 @@ def scan_inventory(files: dict[str, bytes], *, private_literals: tuple[str, ...]
 
     for path, data in sorted(files.items()):
         inspect(path, data, 0)
-    return {"ok": not findings, **counters, "findings": findings, "reviewedSyntheticExceptionsUsed": len(exceptions_used),
-            "limit": "Heuristics plus an explicit public inventory; does not establish source authenticity, licensing or publication approval."}
+    return ({"ok": not findings, **counters, "findings": findings, "reviewedSyntheticExceptionsUsed": len(exceptions_used),
+             "limit": LIMIT_NOTE}, exceptions_used)
+
+
+def scan_inventory(files: dict[str, bytes], *, private_literals: tuple[str, ...] = (),
+                   exceptions: tuple[dict, ...] = (), max_expanded_bytes: int = MAX_EXPANDED_BYTES) -> dict:
+    """Inspect one bounded inventory, retaining the original single-batch contract."""
+    return _scan_inventory(files, private_literals=private_literals, exceptions=exceptions,
+                           max_expanded_bytes=max_expanded_bytes)[0]
+
+
+def _verified_release_files(root: Path, manifest: dict) -> dict[str, bytes]:
+    """Read one verified snapshot and reject changes after its integrity check."""
+    import release
+
+    version = manifest["version"]
+    release.version_key(version)
+    folder = root / "releases" / f"v{version}"
+    if folder.is_symlink() or not folder.is_dir():
+        raise ValueError("Linked or missing frozen release directory refused")
+    names = {row["path"] for row in manifest["files"]} | {"manifest.json", "SHA256SUMS.txt"}
+    if {path.name for path in folder.iterdir()} != names:
+        raise ValueError(f"Frozen release inventory changed before inspection: v{version}")
+    files = {name: release.read_regular(folder / name) for name in sorted(names)}
+    if json.loads(files["manifest.json"]) != manifest:
+        raise ValueError(f"Frozen release manifest changed before inspection: v{version}")
+    for row in manifest["files"]:
+        if release.file_record(row["path"], files[row["path"]]) != {
+                key: row[key] for key in ("path", "bytes", "sha256")}:
+            raise ValueError(f"Frozen release bytes changed before inspection: v{version}")
+    if release.sums({name: content for name, content in files.items() if name != "SHA256SUMS.txt"}) != files["SHA256SUMS.txt"]:
+        raise ValueError(f"Frozen release checksum list changed before inspection: v{version}")
+    return {f"releases/v{version}/{name}": content for name, content in files.items()}
+
+
+def scan_project(root: Path, *, sources: dict[str, bytes] | None = None,
+                 include_history: bool = False, private_literals: tuple[str, ...] = (),
+                 exceptions: tuple[dict, ...] = (), max_expanded_bytes: int = MAX_EXPANDED_BYTES) -> dict:
+    """Scan current sources/index together, then each integrity-verified release.
+
+    A version gets its own budget only after the existing immutable-release verifier
+    accepts its exact directory and inventory. Arbitrary path prefixes cannot make
+    new batches. Every batch keeps the same file, expansion and nesting ceilings.
+    """
+    import release
+
+    current = dict(sources if sources is not None else release.collect_project(root))
+    if not include_history:
+        return scan_inventory(current, private_literals=private_literals, exceptions=exceptions,
+                              max_expanded_bytes=max_expanded_bytes)
+    if root.is_symlink() or not root.is_dir():
+        raise ValueError("Publication project root must be a regular directory")
+    for path in current:
+        release.safe_path(path)
+        if path.split("/", 1)[0].casefold() == "releases":
+            raise ValueError("Supply current sources separately; release paths must come from verified snapshots")
+    folder = root / "releases"
+    if folder.is_symlink():
+        raise ValueError("Linked releases directory refused")
+    manifests = release.existing_versions(folder) if folder.exists() else []
+    for name in ("README.md", "latest.json"):
+        path = folder / name
+        if path.exists() or path.is_symlink():
+            current[f"releases/{name}"] = release.read_regular(path)
+
+    batches = []
+    assigned = set()
+    used_exceptions = set()
+
+    def inspect_batch(batch_id: str, kind: str, files: dict[str, bytes], version: str | None = None) -> None:
+        if assigned.intersection(files):
+            raise ValueError("Publication batch inventories overlap")
+        assigned.update(files)
+        try:
+            checked, used = _scan_inventory(files, private_literals=private_literals, exceptions=exceptions,
+                                            max_expanded_bytes=max_expanded_bytes)
+        except ValueError as exc:
+            raise ValueError(f"Publication batch {batch_id}: {exc}") from exc
+        used_exceptions.update(used)
+        inventory = [{"path": path, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+                     for path, data in sorted(files.items())]
+        inventory_hash = hashlib.sha256(json.dumps(inventory, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        batches.append({"id": batch_id, "kind": kind, **({"version": version} if version is not None else {}),
+                        "topLevelFiles": len(files), "inventorySha256": inventory_hash,
+                        **{key: value for key, value in checked.items() if key != "limit"}})
+
+    inspect_batch("current-project", "current-project-and-release-index", current)
+    for manifest in manifests:
+        version = manifest["version"]
+        inspect_batch(f"release-v{version}", "verified-frozen-release",
+                      _verified_release_files(root, manifest), version)
+    findings = [finding for batch in batches for finding in batch["findings"]]
+    return {"ok": not findings, "strategy": "current-project-and-each-verified-release",
+            "batchCount": len(batches), "topLevelFiles": len(assigned),
+            "perBatchLimits": {"maxExpandedBytes": max_expanded_bytes, "maxFiles": MAX_FILES,
+                               "maxArchiveMembers": MAX_ARCHIVE_MEMBERS, "maxArchiveDepth": MAX_ARCHIVE_DEPTH},
+            **{key: sum(batch[key] for batch in batches) for key in ("files", "expandedBytes", "archives")},
+            "findings": findings, "reviewedSyntheticExceptionsUsed": len(used_exceptions),
+            "verifiedReleaseVersions": [manifest["version"] for manifest in manifests],
+            "batches": batches, "limit": LIMIT_NOTE}
 
 
 def main() -> int:
@@ -143,12 +246,6 @@ def main() -> int:
         import release
         files = release.collect_project(ROOT)
         policy = json.loads((ROOT / "tools/publication-policy.json").read_text(encoding="utf-8"))
-        if args.history:
-            for p in (ROOT / "releases").rglob("*"):
-                if p.is_symlink():
-                    raise ValueError("Linked release entry refused")
-                if p.is_file():
-                    files[p.relative_to(ROOT).as_posix()] = p.read_bytes()
         private = ()
         if args.private_policy:
             private_path = args.private_policy.resolve()
@@ -158,7 +255,8 @@ def main() -> int:
             if not isinstance(values, list) or any(not isinstance(v, str) or not v for v in values):
                 raise ValueError("Private policy must be a nonempty-string list")
             private = tuple(values)
-        result = scan_inventory(files, private_literals=private, exceptions=tuple(policy["reviewedSyntheticTests"]))
+        result = scan_project(ROOT, sources=files, include_history=args.history,
+                              private_literals=private, exceptions=tuple(policy["reviewedSyntheticTests"]))
         print(json.dumps(result, indent=2))
         return 0 if result["ok"] else 1
     except (OSError, ValueError) as exc:

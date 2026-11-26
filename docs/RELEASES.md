@@ -1,6 +1,6 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.5.1.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.5.2.md)
 
 ## Choose a package
 
@@ -32,7 +32,7 @@ These downloads are frozen as versioned repository files. A GitHub Release and i
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.5.1-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.5.2-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.
@@ -77,6 +77,8 @@ Any change to the published package contents receives a new version. Preserve ex
 5. Review the release inventory, download links, notes and checksums. Verify the publication identity and relevant Git history separately, following [SECURITY.md](../SECURITY.md#commit-identity-is-a-separate-publication-check). Use an authorized operation that preserves public no-reply author and committer identities; an authenticated Git transport is supported when the connector cannot do so. If no such authenticated route is available, retain the prepared change and report the access gap. Once those checks pass, publish source and release files together, preserving concurrent edits, then verify remote hashes. An authorized history repair must use the exact reviewed replacement history and an explicit expected-head lease.
 
 The release tool is local and uses Python's standard library. It does not contact GitHub, create tags, publish a GitHub Release or activate a host skill. Its checks include the current generated build, exact release bytes, older snapshot integrity and the release index. Changing a frozen input requires a new version; a successful earlier check does not excuse later changes.
+
+Publication inspection uses a separate bounded scan for the current project and each verified frozen release, retaining the same nested-archive and expansion protections for every batch. Reports include each batch and the combined counts. Every public file remains in scope, including release indexes and unexpected release-root files; growing history does not turn off historical checks.
 
 The offline gate also checks research IDs and exact supported uses, tool/workflow contracts, benchmark snapshots, API responses, tests and the public inventory including nested ZIP contents. It is suitable for an approved CI runner; no GitHub Actions workflow or server-enforced branch rule is claimed. Provider refresh and external source-update review are explicit separate commands, never side effects of the build or release gate. See [standards and scope](STANDARDS.md).
 

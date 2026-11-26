@@ -81,4 +81,4 @@ Example request: “Map these ledger lines to the reporting hierarchy using the 
 
 ## Edition record
 
-Finance skills 1.5.1; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.5.2; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

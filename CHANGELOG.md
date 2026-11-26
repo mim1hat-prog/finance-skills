@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.2 — 2026-11-26
+
+- Publish the complete grouped finance suites with all 29 workflows and nine companions per host, retaining the v1.5.1 portability correction.
+- Inspect current files and each verified frozen release in explicit bounded batches, preserving every archive/content check as history grows.
+- Use absolute guide links in the current release notes so embedded notes resolve from both GitHub Releases and versioned repository downloads.
+
 ## 1.5.1 — 2026-11-26
 
 - Correct suite portability by grouping all 29 complete procedures into nine Markdown companion files, below Cowork's documented 20-companion ceiling. Preserve one import per host.

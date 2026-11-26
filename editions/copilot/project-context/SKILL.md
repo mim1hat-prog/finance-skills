@@ -103,4 +103,4 @@ For a requested handoff or saved note, provide that deliverable directly with co
 
 ## Edition record
 
-Finance skills 1.5.1; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.5.2; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

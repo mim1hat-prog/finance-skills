@@ -78,4 +78,4 @@ Example request: “Model next quarter with volume −10%, price +2% and a one-m
 
 ## Edition record
 
-Finance skills 1.5.1; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.5.2; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

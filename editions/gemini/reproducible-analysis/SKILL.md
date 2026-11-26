@@ -105,4 +105,4 @@ Use traceable internal source references for data and identify the source of a s
 
 ## Edition record
 
-Finance skills 1.5.1; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.5.2; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

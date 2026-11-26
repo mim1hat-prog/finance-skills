@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "kind": "single-registration-suite-index",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "name": "finance-suite",
   "workflowCount": 29,
   "registrationCountPerPackage": 1,
@@ -12,7 +12,7 @@
       "name": "finance-suite",
       "edition": "copilot",
       "host": "Microsoft 365 Copilot",
-      "sourceVersion": "1.5.1",
+      "sourceVersion": "1.5.2",
       "reviewedOn": "2026-11-25",
       "registrationCount": 1,
       "workflowCount": 29,
@@ -21,7 +21,7 @@
       "expandedPath": "editions/copilot-suite/finance-suite",
       "fileCount": 10,
       "packageBytes": 82717,
-      "packageSha256": "7137c67b2abaf27b0f6f33ca663661935e521d0aab85f10f54bce6600de18b4d",
+      "packageSha256": "a05f39167b30c4157c80fa6c9031ccd2a2be8aba5ed42fc4cb679985bfe3fffe",
       "skillCharacters": 18846,
       "skillLines": 128,
       "sharedControlsSha256": "d28944d6f2dbc80ffb0b4ac8f9c0d547db653358451d4917376439a28d939dba",
@@ -30,7 +30,7 @@
         {
           "path": "SKILL.md",
           "bytes": 18846,
-          "sha256": "14070c1756c6615245c1b492446933f8506e61b38e2cd057e21669f7f334b690"
+          "sha256": "31c0cfaa25988b90e4ebda5b82b8e90609f79f75128a0327e78f6bec8fc4a8ab"
         },
         {
           "path": "references/agent-setup.md",
@@ -526,7 +526,7 @@
       "name": "finance-suite",
       "edition": "gemini",
       "host": "Gemini",
-      "sourceVersion": "1.5.1",
+      "sourceVersion": "1.5.2",
       "reviewedOn": "2026-11-25",
       "registrationCount": 1,
       "workflowCount": 29,
@@ -535,7 +535,7 @@
       "expandedPath": "editions/gemini-suite/finance-suite",
       "fileCount": 10,
       "packageBytes": 82746,
-      "packageSha256": "75991851feb8e0cfee58c2790d38616647cd1e7c6dcfcccdf065d9ad247ebd65",
+      "packageSha256": "c3c95dfee6885eb94b71f56b8eb40d8fdadab6fb601552e0f23f54f0be125f3c",
       "skillCharacters": 18876,
       "skillLines": 128,
       "sharedControlsSha256": "d28944d6f2dbc80ffb0b4ac8f9c0d547db653358451d4917376439a28d939dba",
@@ -544,7 +544,7 @@
         {
           "path": "SKILL.md",
           "bytes": 18876,
-          "sha256": "3dfb16143faa197e333c1b848905e8cc3f49c392d81703322bf0f8ff0838af08"
+          "sha256": "f0422e6595a273dd0d931d29da59a1a2867cecceae4332a6ed8c2f322e6b5873"
         },
         {
           "path": "references/agent-setup.md",

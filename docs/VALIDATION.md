@@ -2,6 +2,16 @@
 
 Checked **2026-11-26**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
 
+## v1.5.2 release and history validation
+
+The pre-freeze offline gate passed **179 Python tests with zero skips** and reproduced **189 generated artifacts**. Nine additional regressions exercise bounded history inspection: clean versions whose combined size exceeds one budget, private content inside a frozen archive, per-batch limits, exact version assignment, inventory changes, unsafe entries and forwarding the same policy through both gate entry points.
+
+The actual pre-freeze publication scan covered the current project and ten verified frozen versions in **11 explicit batches**, totaling 224,262,641 expanded bytes. The largest batch was 24,268,112 bytes. Every batch kept the unchanged ceilings of 200,000,000 expanded bytes, 25,000 entries, 5,000 members per archive and depth five. The scan found no publication issues. Aggregate counts describe repeated physical entries across packages; they are not unique-source or skill-quality scores. Freezing adds the current version as another separately bounded batch and requires the final release gate again.
+
+The Copilot suite is 82,717 bytes and Gemini is 82,746 bytes. Each has one root and nine companions with all 29 procedures. Direct comparison with the independently audited v1.5.1 archives confirmed that every reference is byte-identical and the only root change is its version record. YAML, archive integrity, expanded inventories and manifest hashes passed again. The earlier local grouped-workflow task therefore exercises the same reference content; no additional native model execution is claimed.
+
+Guide links in current release notes use absolute repository URLs so embedding them in a release page does not change their targets. All prior frozen files are retained. Canonical finance instructions, public benchmark observations and retrieval times remain unchanged. Native import, resource access and Microsoft platform Responsible AI validation are still separate unverified outcomes for the new package.
+
 ## v1.5.1 grouped-suite validation
 
 The supplied v1.5.0 Copilot ZIP matched the published archive exactly. Independent checks found valid YAML, UTF-8, root layout, safe paths, CRCs and references. Its 29 companion files nevertheless exceed the 20-companion per-skill limit documented for Cowork. The generic native rejection did not identify the exact Copilot surface or failed validation branch; no Responsible AI verdict is inferred.
