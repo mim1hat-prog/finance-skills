@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-11-25",
+  "reviewedOn": "2026-11-26",
   "policy": {
     "sourceDocumentsBundled": false,
     "automaticMethodChanges": false,
@@ -3663,6 +3663,232 @@
           "purpose": "Offer explicit Copilot, Gemini, Markdown and full-release download choices with separate setup routes and clear import limitations.",
           "limits": "This is a repository-design reference only. Ollama installation, models, privacy claims, usage statistics and compatibility are not inherited; no Ollama runtime is introduced.",
           "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-chat-skill-format",
+      "type": "provider-documentation",
+      "title": "Build skills for Microsoft 365 Copilot Chat",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-format review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "README.md",
+            "docs/COPILOT.md",
+            "scripts/build.py",
+            "docs/SINGLE-IMPORT.md",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Author a personal skill; Upload the skill",
+          "purpose": "Keep native packages headed by valid YAML and containing a root SKILL.md; distinguish native uploads from headerless copy-and-paste instructions.",
+          "limits": "This documents personal Microsoft 365 Copilot Chat; host availability and successful tenant import remain separate observations.",
+          "tests": [
+            "tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-agent-builder-import",
+      "type": "provider-documentation",
+      "title": "Add skills to your declarative agent in Agent Builder",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-format review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "README.md",
+            "docs/COPILOT.md",
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Create your skill package; Upload your skill package",
+          "purpose": "Direct Agent Builder users to an individual complete ZIP, with a required name/description header and instructions below the documented size limit.",
+          "limits": "Agent Builder requires a ZIP; this rule does not prohibit a standalone SKILL.md on the separately documented personal Chat route.",
+          "tests": [
+            "tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-upload-troubleshooting",
+      "type": "provider-documentation",
+      "title": "Add and manage an uploaded skill (Microsoft Copilot)",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-add-existing",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-format review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-add-existing",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md"
+          ],
+          "section": "Accepted formats; Troubleshoot skills that do not load",
+          "purpose": "Explain malformed or missing YAML, UTF-8 without BOM, duplicate names and structural package problems when diagnosing a rejected skill.",
+          "limits": "This page describes the Copilot Studio Microsoft Copilot harness. Its troubleshooting does not prove the cause of an unseen rejected file or establish identical parsers across all Copilot products.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "gemini-skill-package-resources",
+      "type": "provider-documentation",
+      "title": "Transfer skills from other platforms to Gemini Apps",
+      "publisher": "Google",
+      "authors": [
+        "Google"
+      ],
+      "year": null,
+      "url": "https://support.google.com/gemini/answer/18977944?hl=en",
+      "doi": null,
+      "edition": "Living Gemini Apps documentation; supporting-resource review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Directly reviewed official Google documentation for the stated package/resource use. No account import or native task execution was tested.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://support.google.com/gemini/answer/18977944?hl=en",
+        "attribution": "Google",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/SINGLE-IMPORT.md",
+            "docs/GEMINI.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Skill root, frontmatter, reference-file types, file and size limits",
+          "purpose": "Package one native finance suite with a root SKILL.md and Markdown workflow references, respecting the one-skill-per-import contract.",
+          "limits": "A compatible package shape does not establish account availability, a successful upload, resource access or correct module selection.",
+          "tests": [
+            "tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "gemini-skill-progressive-resources",
+      "type": "provider-documentation",
+      "title": "Write effective skills for Gemini Apps",
+      "publisher": "Google",
+      "authors": [
+        "Google"
+      ],
+      "year": null,
+      "url": "https://support.google.com/gemini/answer/17102773",
+      "doi": null,
+      "edition": "Living Gemini Apps documentation; supporting-resource review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Directly reviewed official Google documentation for the stated package/resource use. No account import or native task execution was tested.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://support.google.com/gemini/answer/17102773",
+        "attribution": "Google",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "How skills work; Optimize your instructions; Missing information",
+          "purpose": "Design a focused routing index that opens only the workflow references needed for the current task and reports missing resources.",
+          "limits": "Progressive resource access is documented; this particular routing instruction is a project design choice requiring evaluation in the intended host.",
+          "tests": [
+            "tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members"
+          ],
           "distribution": "metadata-only"
         }
       ],

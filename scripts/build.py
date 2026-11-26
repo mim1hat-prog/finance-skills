@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping
 from datetime import date
 import hashlib
 import io
@@ -15,7 +16,9 @@ import catalog_contracts
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+RESOURCE = re.compile(r"references/[a-z0-9]+(?:-[a-z0-9]+)*\.md\Z")
 EDITIONS = ("copilot", "gemini")
+SUITE_NAME = "finance-suite"
 EXCEL_PROFILE = Path("profiles/excel-agent-instructions.txt")
 MARKDOWN_BUNDLE = Path("packages/markdown/finance-skills-markdown.zip")
 BUNDLE_EDITIONS = {
@@ -29,7 +32,8 @@ def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def parse_skill(data: bytes, name: str) -> tuple[str, str, str]:
+def parse_skill(data: bytes, name: str, *,
+                allowed_resources: Mapping[str, bytes] | None = None) -> tuple[str, str, str]:
     text = data.decode("utf-8")
     if text.startswith("\ufeff") or "\r" in text:
         raise ValueError(f"{name}: use UTF-8 without BOM and LF line endings")
@@ -44,8 +48,16 @@ def parse_skill(data: bytes, name: str) -> tuple[str, str, str]:
         raise ValueError(f"{name}: body needs a heading and fewer than 500 lines")
     if len(text) >= 20000:
         raise ValueError(f"{name}: exceeds portable 20,000-character ceiling")
+    resources = {} if allowed_resources is None else allowed_resources
+    if not isinstance(resources, Mapping):
+        raise ValueError(f"{name}: resources must map exact relative paths to file bytes")
+    for path, content in resources.items():
+        if not isinstance(path, str) or not RESOURCE.fullmatch(path):
+            raise ValueError(f"{name}: unsafe resource path: {path!r}")
+        if not isinstance(content, bytes) or not content:
+            raise ValueError(f"{name}: missing resource bytes: {path}")
     for link in re.findall(r'\]\(([^)]+)\)', body):
-        if not link.startswith(("https://", "#")):
+        if not link.startswith(("https://", "#")) and link not in resources:
             raise ValueError(f"{name}: unresolved local resource: {link}")
     front = text[: text.index("\n---\n", 4) + 5]
     return front, description, body
@@ -73,6 +85,107 @@ def json_bytes(value: object) -> bytes:
     return (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode()
 
 
+def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
+                       sources: dict[str, bytes], host_notes: dict[str, str],
+                       shared: str) -> None:
+    """Package one router plus exact canonical references, leaving individual skills intact."""
+    names = [row["name"] for row in catalog["skills"]]
+    if len(names) != len(set(names)) or set(sources) != set(names):
+        raise ValueError("Suite sources must match the exact workflow catalogue")
+    if "excel-agent-core" not in sources:
+        raise ValueError("The finance suite requires canonical excel-agent-core defaults")
+    bodies = {name: parse_skill(data, name)[2] for name, data in sources.items()}
+    resources = {f"references/{name}.md": (bodies[name] + "\n").encode("utf-8")
+                 for name in names}
+    if len(resources) + 1 > 100:
+        raise ValueError("The finance suite exceeds the portable 100-file ceiling")
+    # Keep every default procedure paragraph; only replace its top-level title.
+    core_defaults = bodies["excel-agent-core"].partition("\n")[2].strip()
+    if not core_defaults:
+        raise ValueError("The finance suite requires nonempty canonical default instructions")
+    routes = []
+    for row in catalog["skills"]:
+        title, summary = row["title"], row["summary"]
+        if any(character in title + summary for character in "\r\n"):
+            raise ValueError("Suite routing titles and summaries must be single lines")
+        # Escape labels/text so catalogue punctuation cannot create another link.
+        escape = lambda value: re.sub(r'([\\`*_\[\]<>()])', r'\\\1', value)
+        routes.append(f"- [{escape(title)}](references/{row['name']}.md): {escape(summary)}")
+    index = "## Workflow index\n\n" + "\n".join(routes)
+    description = (
+        "Apply finance workflows for Excel, workforce planning, forecast variance, reconciliations, "
+        "Power Query, Power BI, reporting and source-backed research. Use for finance tasks that need "
+        "enterprise evidence, preserved business logic and independently checked results; select the "
+        "relevant bundled workflow references."
+    )
+    front = f"---\nname: {SUITE_NAME}\ndescription: {json.dumps(description)}\n---\n\n"
+    routing = (
+        "## Select and read the relevant workflow\n\n"
+        f"This is one registered skill with {len(names)} bundled finance workflows, not "
+        f"{len(names)} separately registered skills. It does not change host limits or grant tools, "
+        "permissions or data access.\n\n"
+        "Understand the requested objective, then use the index to select only the relevant workflow "
+        "or workflows. Read each selected reference completely before applying its procedure. "
+        "The index is navigation, not a substitute for those instructions. Apply the host guidance, "
+        "shared controls and default operating instructions below throughout the task.\n\n"
+        "If a required reference is unavailable or unreadable, identify the exact missing resource "
+        "and use an available supported route to retrieve it. Do not invent its procedure or claim "
+        "that it was read or executed. Continue only work supported by the instructions and evidence "
+        "actually available, and state any material remaining limitation.\n\n"
+        "Use approved internal figures for business results, internal evidence for workflow status "
+        "and public benchmarks only as separately cited context. Keep routine checks internal and "
+        "preserve existing business logic; do not add unsolicited audit tables, audit text or worksheets."
+    )
+    records = []
+    for edition in EDITIONS:
+        adapter = host_notes.get(edition)
+        if not isinstance(adapter, str) or not adapter.strip().startswith("## "):
+            raise ValueError(f"Missing valid {edition} host guidance for finance suite")
+        parts = ["# Finance suite", routing, index, adapter.strip()]
+        if shared:
+            parts.append(shared)
+        parts += ["## Default operating instructions\n\n" + core_defaults,
+                  "## Suite record\n\n"
+                  f"Finance skills {catalog['version']}; {edition} edition; source review "
+                  f"{catalog['reviewedOn']}. This is the package's source-review date, not the "
+                  "freshness of business data. Package validation does not establish successful "
+                  "native import, reference retrieval or task execution in the work account."]
+        rendered = (front + "\n\n".join(parts) + "\n").encode("utf-8")
+        parse_skill(rendered, SUITE_NAME, allowed_resources=resources)
+        members = {"SKILL.md": rendered, **resources}
+        folder = Path("editions") / f"{edition}-suite" / SUITE_NAME
+        for name, content in members.items():
+            outputs[folder / name] = content
+        path = Path("packages/suites") / f"finance-suite-{edition}.zip"
+        packed = archive_files(members)
+        outputs[path] = packed
+        records.append({
+            "kind": "single-registration-native-suite", "name": SUITE_NAME,
+            "edition": edition,
+            "host": "Microsoft 365 Copilot" if edition == "copilot" else "Gemini",
+            "sourceVersion": catalog["version"], "reviewedOn": catalog["reviewedOn"],
+            "registrationCount": 1, "workflowCount": len(names),
+            "nativeStatus": "not-validated", "path": path.as_posix(),
+            "expandedPath": folder.as_posix(), "fileCount": len(members),
+            "packageBytes": len(packed), "packageSha256": sha(packed),
+            "skillCharacters": len(rendered.decode("utf-8")),
+            "skillLines": len(rendered.decode("utf-8").splitlines()),
+            "sharedControlsSha256": sha(shared.encode("utf-8")),
+            "hostGuidanceSha256": sha(adapter.strip().encode("utf-8")),
+            "files": [{"path": name, "bytes": len(content), "sha256": sha(content)}
+                      for name, content in sorted(members.items())],
+            "sources": [{"name": name, "path": f"skills/{name}/SKILL.md",
+                         "sha256": sha(sources[name])} for name in names],
+        })
+    outputs[Path("packages/suites/manifest.json")] = json_bytes({
+        "schemaVersion": 1, "kind": "single-registration-suite-index",
+        "version": catalog["version"], "name": SUITE_NAME,
+        "workflowCount": len(names), "registrationCountPerPackage": 1,
+        "import": "Upload one complete edition ZIP with its root SKILL.md and references together.",
+        "packages": records,
+    })
+
+
 def bundle_start_here(catalog: dict, editions: tuple[str, ...]) -> bytes:
     if not isinstance(catalog.get("repoUrl"), str):
         raise ValueError("Catalogue repoUrl must be an HTTPS GitHub repository URL")
@@ -89,6 +202,9 @@ def bundle_start_here(catalog: dict, editions: tuple[str, ...]) -> bytes:
         "",
         f"This download contains {count} finance skills for {selected}, with "
         f"{count * len(editions)} individual native-import packages.",
+        "",
+        "This outer ZIP is a transport download, not one installable skill. Extract it first; "
+        "upload an individual package from packages/copilot/ or packages/gemini/.",
         "",
         "## Extract and choose",
         "",
@@ -206,6 +322,13 @@ def add_markdown_bundle(outputs: dict[Path, bytes], catalog: dict) -> None:
         f"Finance skills {catalog['version']} · Markdown-only edition", "",
         f"This ZIP contains {len(names)} Copilot skill files, {len(names)} Gemini skill files, "
         "Excel agent instructions and this guide. Every file is Markdown (.md).", "",
+        "## Copy and paste only", "",
+        "These files intentionally omit YAML name and description metadata. Do not upload this ZIP "
+        "or its individual Markdown files through Add/Upload skill. Renaming a file to SKILL.md "
+        "does not add the missing metadata.", "",
+        f"For native Copilot Skills, download an [individual Copilot ZIP]({catalog['repoUrl'].rstrip('/')}/tree/main/packages/copilot), "
+        "then upload that package. It contains the complete SKILL.md with its required header. "
+        f"[Copilot import troubleshooting]({catalog['repoUrl'].rstrip('/')}/blob/main/docs/COPILOT.md#troubleshoot-invalid-skill-information)", "",
         "## Use a skill", "",
         "1. In Windows File Explorer, choose Extract All for this ZIP.",
         "2. Choose the copilot or gemini folder, then open the skill you need in VS Code or Notepad.",
@@ -249,6 +372,12 @@ def generate(root: Path) -> dict[Path, bytes]:
     markdown_version = catalog.get("markdownBundleVersion")
     if markdown_version is not None and (type(markdown_version) is not int or markdown_version != 1):
         raise ValueError("Unsupported Markdown bundle version")
+    suite_version = catalog.get("suitePackageVersion")
+    if "suitePackageVersion" in catalog:
+        if type(suite_version) is not int or suite_version != 1:
+            raise ValueError("Unsupported suite package version")
+        if type(markdown_version) is not int or markdown_version != 1:
+            raise ValueError("Suite packages require Markdown bundle version 1")
     presentation_version = catalog.get("projectPresentationVersion")
     if presentation_version is not None and (type(presentation_version) is not int or presentation_version != 1):
         raise ValueError("Unsupported project presentation version")
@@ -299,6 +428,8 @@ def generate(root: Path) -> dict[Path, bytes]:
         ]
         outputs[Path("CITATION.cff")] = "\n".join(citation).encode("utf-8")
     entries = []
+    canonical_sources: dict[str, bytes] = {}
+    host_notes: dict[str, str] = {}
     for row in catalog["skills"]:
         name = row["name"]
         folder = root / "skills" / name
@@ -309,11 +440,13 @@ def generate(root: Path) -> dict[Path, bytes]:
             raise ValueError(f"{name}: source must be a regular file")
         source = source_path.read_bytes()
         front, _, body = parse_skill(source, name)
+        canonical_sources[name] = source
         if name == "excel-agent-core":
             outputs[EXCEL_PROFILE] = (body + "\n").encode("utf-8")
         title, rest = body.split("\n", 1)
         for edition in EDITIONS:
             adapter = (root / "adapters" / f"{edition}.md").read_text(encoding="utf-8").strip()
+            host_notes[edition] = adapter
             if shared:
                 adapter += "\n\n" + shared
             rendered_body = f"{title}\n\n{adapter}\n\n{rest.strip()}\n\n## Edition record\n\nFinance skills {catalog['version']}; {edition} edition; source review {catalog['reviewedOn']}. This date records the package review, not the freshness of a user's business data.\n"
@@ -337,6 +470,8 @@ def generate(root: Path) -> dict[Path, bytes]:
     add_transport_bundles(outputs, catalog)
     if markdown_version == 1:
         add_markdown_bundle(outputs, catalog)
+    if suite_version == 1:
+        add_suite_packages(outputs, catalog, canonical_sources, host_notes, shared)
     if presentation_version == 1:
         import project_discovery
         import project_metrics
@@ -344,8 +479,11 @@ def generate(root: Path) -> dict[Path, bytes]:
         outputs.update(project_metrics.generate(root, catalog))
     site_data = dict(catalog, counts={"skills": len(names)})
     outputs[Path("site/catalog-data.js")] = ("// Generated by scripts/build.py.\nwindow.FINANCE_SKILLS = " + json.dumps(site_data, ensure_ascii=False, indent=2).replace("<", "\\u003c") + ";\n").encode()
+    choice = ("Choose one edition. Import its finance suite once for bundled workflows, or import selected individual skills. "
+              if suite_version == 1 else "Choose one edition. Import each skill separately. ")
+    choice += "Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies."
     index = ["# Skills", "", f"{len(names)} skills · version {catalog['version']} · reviewed {catalog['reviewedOn']}", "",
-             "Choose one edition. Import each skill separately. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.", "",
+             choice, "",
              "## Download a complete edition", "",
              "[Copilot bundle](packages/bundles/finance-skills-copilot.zip?raw=1) · "
              "[Gemini bundle](packages/bundles/finance-skills-gemini.zip?raw=1) · "
@@ -355,6 +493,15 @@ def generate(root: Path) -> dict[Path, bytes]:
              "[Excel agent instructions](profiles/excel-agent-instructions.txt) · "
              "[Bundle checksums](packages/bundles/manifest.json)", "",
              "[Tool inventory](TOOLS.md) · [Workflow contracts](docs/SKILL-CONTRACTS.md) · [Research registry](research/README.md)", ""]
+    if suite_version == 1:
+        index += ["## One native import for the finance suite", "",
+                  "[Copilot suite ZIP](packages/suites/finance-suite-copilot.zip?raw=1) · "
+                  "[Gemini suite ZIP](packages/suites/finance-suite-gemini.zip?raw=1) · "
+                  "[Member hashes and provenance](packages/suites/manifest.json)", "",
+                  f"Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and {len(names)} "
+                  "complete workflow references. Upload the selected suite ZIP unchanged. The host must be able "
+                  "to read its bundled references; verify this in the target account. This registers one skill, "
+                  "not every workflow separately, and does not increase host limits. Individual packages remain available.", ""]
     if markdown_version == 1:
         index += ["## Copy and paste", "",
                   "[Download Markdown-only ZIP](packages/markdown/finance-skills-markdown.zip?raw=1) · "

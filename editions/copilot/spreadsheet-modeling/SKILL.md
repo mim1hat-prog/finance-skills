@@ -103,4 +103,4 @@ Keep company details inside the approved work environment. Do not include unrela
 
 ## Edition record
 
-Finance skills 1.4.3; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.5.0; copilot edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -168,29 +169,97 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(release.run(self.root)["status"], "unchanged")
         self.assertEqual(self.snapshot(), before)
 
-    def test_release_manifest_schema_and_inventory_are_strict_for_both_formats(self):
+    def test_suite_release_preserves_legacy_formats_and_has_exact_direct_imports(self):
         release.run(self.root)
         self.catalog["markdownBundleVersion"] = 1
         self.set_version("1.3.0")
         release.run(self.root)
-        for version, schema in (("1.1.0", 1), ("1.3.0", 2)):
+        old = {name: value for name, value in self.snapshot().items()
+               if name.startswith(("releases/v1.1.0/", "releases/v1.3.0/"))}
+
+        self.catalog["suitePackageVersion"] = 1
+        self.set_version("1.5.0")
+        self.assertEqual(release.run(self.root)["status"], "created")
+        folder = self.root / "releases/v1.5.0"
+        manifest = release.verify_frozen(folder)
+        variants = {"copilot-suite", "gemini-suite", "copilot", "gemini", "all", "markdown", "full"}
+        archives = {f"finance-skills-v1.5.0-{variant}.zip" for variant in variants}
+        self.assertEqual(manifest["schemaVersion"], 3)
+        self.assertEqual({p.name for p in folder.iterdir()}, archives | {"README.md", "manifest.json", "SHA256SUMS.txt"})
+        self.assertEqual({r["path"] for r in manifest["files"]}, archives | {"README.md"})
+        for edition in ("copilot", "gemini"):
+            payload = (folder / f"finance-skills-v1.5.0-{edition}-suite.zip").read_bytes()
+            self.assertEqual(payload, (self.root / f"packages/suites/finance-suite-{edition}.zip").read_bytes())
+            with zipfile.ZipFile(io.BytesIO(payload)) as suite:
+                self.assertEqual(set(suite.namelist()), {"SKILL.md", "references/excel-agent-core.md", "references/sample-task.md"})
+                self.assertTrue(suite.read("SKILL.md").startswith(b"---\nname: finance-suite\n"))
+        index = json.loads((self.root / "releases/latest.json").read_bytes())
+        self.assertEqual(index["version"], "1.5.0")
+        self.assertEqual({r["path"] for r in index["downloads"]}, {f"releases/v1.5.0/{name}" for name in archives})
+        readme = (folder / "README.md").read_text()
+        self.assertIn("upload unchanged: one skill, all workflows", readme)
+        self.assertIn("one finance-suite skill containing 2 workflow references", readme)
+        self.assertIn("Individual Copilot packages — extract first", readme)
+        self.assertIn("Every file in that ZIP is Markdown", readme)
+        after = self.snapshot()
+        self.assertEqual({name: after[name] for name in old}, old)
+        checked = subprocess.run(
+            [sys.executable, "-E", str(self.root / "scripts/release.py"), "--check"],
+            cwd=self.root, capture_output=True, text=True, timeout=15,
+        )
+        self.assertEqual(checked.returncode, 0, checked.stderr)
+        self.assertEqual(release.run(self.root)["status"], "unchanged")
+        self.assertEqual(self.snapshot(), after)
+
+    def test_suite_release_rejects_payload_differing_from_full_project(self):
+        self.catalog.update(markdownBundleVersion=1, suitePackageVersion=1)
+        self.set_version("1.5.0")
+        release.run(self.root)
+        folder = self.root / "releases/v1.5.0"
+        name = "finance-skills-v1.5.0-copilot-suite.zip"
+        with zipfile.ZipFile(folder / name) as original:
+            entries = {path: original.read(path) for path in original.namelist()}
+        entries["SKILL.md"] += b"\nUnreviewed replacement procedure.\n"
+        replacement = build.archive_files(entries)
+        (folder / name).write_bytes(replacement)
+        manifest = json.loads((folder / "manifest.json").read_bytes())
+        record = next(r for r in manifest["files"] if r["path"] == name)
+        record.update(release.file_record(name, replacement))
+        (folder / "manifest.json").write_bytes(build.json_bytes(manifest))
+        (folder / "SHA256SUMS.txt").write_bytes(release.sums({
+            p.name: p.read_bytes() for p in folder.iterdir() if p.name != "SHA256SUMS.txt"
+        }))
+        with self.assertRaisesRegex(release.ReleaseError, "Frozen suite package differs from full-project source"):
+            release.verify_frozen(folder)
+
+    def test_release_manifest_schema_and_inventory_are_strict_for_all_formats(self):
+        release.run(self.root)
+        self.catalog["markdownBundleVersion"] = 1
+        self.set_version("1.3.0")
+        release.run(self.root)
+        self.catalog["suitePackageVersion"] = 1
+        self.set_version("1.5.0")
+        release.run(self.root)
+        for version, schema in (("1.1.0", 1), ("1.3.0", 2), ("1.5.0", 3)):
             folder = self.root / f"releases/v{version}"
             manifest_path = folder / "manifest.json"
             original = manifest_path.read_bytes()
-            for invalid in (None, True, False, 1.0, 2.0, 0, 3, "1", [], {}):
+            for invalid in (None, True, False, 1.0, 2.0, 3.0, 0, 4, "1", [], {}):
                 with self.subTest(version=version, schema=invalid):
                     manifest = json.loads(original)
                     manifest["schemaVersion"] = invalid
                     manifest_path.write_bytes(build.json_bytes(manifest))
                     with self.assertRaisesRegex(release.ReleaseError, "Invalid release manifest"):
                         release.verify_frozen(folder)
-            manifest = json.loads(original)
-            manifest["schemaVersion"] = 2 if schema == 1 else 1
-            manifest_path.write_bytes(build.json_bytes(manifest))
-            with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
-                release.verify_frozen(folder)
+            for wrong_schema in {1, 2, 3} - {schema}:
+                manifest = json.loads(original)
+                manifest["schemaVersion"] = wrong_schema
+                manifest_path.write_bytes(build.json_bytes(manifest))
+                with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
+                    release.verify_frozen(folder)
             manifest_path.write_bytes(original)
-            archive = folder / f"finance-skills-v{version}-{'markdown' if schema == 2 else 'copilot'}.zip"
+            variant = {1: "copilot", 2: "markdown", 3: "copilot-suite"}[schema]
+            archive = folder / f"finance-skills-v{version}-{variant}.zip"
             archive_bytes = archive.read_bytes()
             archive.unlink()
             with self.assertRaisesRegex(release.ReleaseError, "Unexpected or missing files"):
@@ -226,6 +295,26 @@ class ReleaseTests(unittest.TestCase):
                     release.run(self.root)
                 self.assertEqual(self.snapshot(), before)
                 self.assertFalse((self.root / "releases").exists())
+
+    def test_unsupported_suite_version_or_missing_markdown_cannot_create_a_release(self):
+        self.catalog["markdownBundleVersion"] = 1
+        for invalid in (None, True, False, 0, 2, 1.0, "1", [], {}):
+            with self.subTest(version=invalid):
+                self.catalog["suitePackageVersion"] = invalid
+                self.write("catalog.json", build.json_bytes(self.catalog))
+                before = self.snapshot()
+                with self.assertRaisesRegex(release.ReleaseError, "Unsupported suite package version"):
+                    release.run(self.root)
+                self.assertEqual(self.snapshot(), before)
+                self.assertFalse((self.root / "releases").exists())
+        self.catalog["suitePackageVersion"] = 1
+        self.catalog.pop("markdownBundleVersion")
+        self.write("catalog.json", build.json_bytes(self.catalog))
+        before = self.snapshot()
+        with self.assertRaisesRegex(release.ReleaseError, "Suite packages require Markdown bundle version 1"):
+            release.run(self.root)
+        self.assertEqual(self.snapshot(), before)
+        self.assertFalse((self.root / "releases").exists())
 
     def test_determinism_ignores_mtime_and_source_file_permissions(self):
         first = release.prepare(self.root)[1]

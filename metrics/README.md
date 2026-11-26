@@ -1,6 +1,6 @@
 # Repository coverage and public-data inventory
 
-Version **1.4.3** · release date **2026-11-25** · generated offline from the committed sources.
+Version **1.5.0** · release date **2026-11-26** · generated offline from the committed sources.
 
 These descriptive counts make implemented scope and remaining gaps visible. They do not measure model accuracy, task success or effectiveness in a work account.
 
@@ -44,13 +44,13 @@ All host workflows still require a representative check in the actual approved C
 
 ## Research and tool inventory
 
-The registry has **78 records: 77 active and 1 candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.
+The registry has **83 records: 82 active and 1 candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.
 
 | Source review status | Records |
 | --- | ---: |
 | carried-forward | 16 |
 | needs-review | 1 |
-| reviewed | 30 |
+| reviewed | 35 |
 | reviewed-with-limitations | 31 |
 
 The tool catalogue contains **29 capabilities/products**. Availability labels remain separate from installation or integration evidence.

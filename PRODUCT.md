@@ -19,8 +19,8 @@ instructions and obtain the right assistant's package. Keep source review,
 package validation and installation in a workplace account distinct.
 
 ## Primary action
-Choose an assistant and download a versioned edition, the complete release or
-an individual skill. Make the Excel agent Instructions text easy to obtain.
+Choose an assistant and download its complete finance suite for one native import,
+or select an individual workflow, copy-only instructions or the full project. Make the Excel agent Instructions text easy to obtain.
 
 ## Content and publication
 Show general methods, public source references and synthetic examples. Keep

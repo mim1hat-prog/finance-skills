@@ -1,10 +1,13 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.4.3.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.5.0.md)
 
 ## Choose a package
 
-From v1.3.0, each published version has five ZIP downloads under `releases/v<version>/`. Earlier releases retain their original four:
+From v1.5.0, each published version has seven ZIP downloads under `releases/v<version>/`. Versions v1.3.0–v1.4.4 retain five, and earlier releases retain their original four:
+
+- **Copilot complete suite:** one native `finance-suite` skill containing all 29 workflow references. Upload the ZIP unchanged through a supported Skills screen.
+- **Gemini complete suite:** the equivalent single native skill with the Gemini host instructions and all 29 workflow references. Upload the complete ZIP.
 
 - **Markdown only:** complete Copilot and Gemini instruction bodies as `.md` files, the Excel agent profile and a start guide. Extract, open the relevant file and copy its full contents into an available Instructions field or approved conversation. YAML headers are removed. Every archive member is Markdown; checksums and the file inventory are kept outside this ZIP.
 - **Copilot:** every Copilot skill as an individual native-import ZIP and matching folder, plus the Excel agent Instructions text.
@@ -14,7 +17,9 @@ From v1.3.0, each published version has five ZIP downloads under `releases/v<ver
 
 The full project also includes generated coverage statistics, static discovery metadata and the explicit community contribution templates. The Markdown-only ZIP remains instructions only.
 
-Extract the outer ZIP in Windows File Explorer. For a native import, choose one of the individual ZIPs under `packages/copilot/` or `packages/gemini/`. For Excel's supported folder workflow, choose matching-name folders under `editions/copilot/` and follow the [Copilot guide](COPILOT.md). Full and transport ZIPs contain multiple skills and are not themselves native skill imports.
+Upload a **complete suite ZIP** unchanged; it is already one native package with one root `SKILL.md` and supporting Markdown files. It registers one suite, not 29 separate skills. For Excel's folder route, retain the complete `finance-suite` folder under `editions/copilot-suite/` in the full release. [Single-import setup](SINGLE-IMPORT.md)
+
+For an **individual-package transport bundle or full project**, extract the outer ZIP in Windows File Explorer first. Then choose a suite ZIP from `packages/suites/` in the full project, an individual ZIP under `packages/copilot/` or `packages/gemini/`, or its matching-name folder for Excel. Full and transport ZIPs are not themselves native skill imports.
 
 The full ZIP keeps the project at the archive root. Open its `README.md` or `site/index.html` after extraction. It excludes Git history, private work files, local environments, caches and previous release archives. It does not include third-party source archives or install optional packages, desktop tools, workers or APIs.
 
@@ -25,14 +30,14 @@ These downloads are hosted as versioned repository files. The available ChatGPT 
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.4.3-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.5.0-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.
 
-Versioned edition ZIPs are byte-for-byte copies of the validated transport bundles at the time of release. Each transport bundle contains its own manifest covering every other member. Every native skill ZIP still contains exactly one root `SKILL.md`.
+Versioned individual-package edition ZIPs are byte-for-byte copies of the validated transport bundles at the time of release. Each transport bundle contains its own manifest covering every other member. Individual native workflow ZIPs contain one root `SKILL.md` only. Complete native suites contain one root `SKILL.md` plus the workflow references; their external manifest covers every member and source mapping.
 
-The versioned Markdown ZIP is a byte-for-byte copy of `packages/markdown/finance-skills-markdown.zip`. Its external `packages/markdown/manifest.json` records every member's size and SHA-256; that inventory is included in the matching full release. The version's `SHA256SUMS.txt` verifies the Markdown ZIP directly. Release manifest schema 1 retains the original four-archive inventory; schema 2 requires the additional Markdown archive. Both formats remain verifiable.
+The versioned Markdown ZIP is a byte-for-byte copy of `packages/markdown/finance-skills-markdown.zip`. Its external `packages/markdown/manifest.json` records every member's size and SHA-256; that inventory is included in the matching full release. The version's `SHA256SUMS.txt` verifies the Markdown ZIP directly. Release manifest schema 1 retains four archives, schema 2 adds Markdown, and schema 3 adds both complete-suite ZIPs. All formats remain verifiable; older releases keep their original manifests and bytes.
 
 ## Version policy
 

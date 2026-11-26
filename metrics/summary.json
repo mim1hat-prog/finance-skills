@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "measurementType": "descriptive-repository-inventory",
-  "projectVersion": "1.4.3",
-  "releaseDate": "2026-11-25",
+  "projectVersion": "1.5.0",
+  "releaseDate": "2026-11-26",
   "sourceReviewDates": {
     "skills": "2026-11-25",
     "tools": "2026-11-25",
-    "research": "2026-11-25"
+    "research": "2026-11-26"
   },
   "skills": {
     "count": 29,
@@ -91,13 +91,13 @@
     ]
   },
   "research": {
-    "registered": 78,
-    "active": 77,
+    "registered": 83,
+    "active": 82,
     "candidates": 1,
     "reviewStatus": {
       "carried-forward": 16,
       "needs-review": 1,
-      "reviewed": 30,
+      "reviewed": 35,
       "reviewed-with-limitations": 31
     },
     "activeSourceTypes": {
@@ -107,7 +107,7 @@
       "method-guide": 2,
       "normative-standard": 9,
       "project-design": 2,
-      "provider-documentation": 30,
+      "provider-documentation": 35,
       "software-reference": 24
     },
     "candidateIds": [
@@ -484,11 +484,11 @@
     },
     {
       "path": "catalog.json",
-      "sha256": "6fa8dda624d6514abc5dc8cd59490e003024b6960cb79843cfc91ee58d0707f5"
+      "sha256": "e711df78a67f938b894e0352b5adfbc134aaa2451403d1acaac0144ead749909"
     },
     {
       "path": "research/sources.json",
-      "sha256": "07fd265104055e5d3e2ae80bdf5a61d768846fdcb394dd4bd35d996ff492e529"
+      "sha256": "090f070c2530ec77781714c5927fe24fb1d47b781fe627b0fbbfa1e10b11c3bb"
     },
     {
       "path": "tools/catalog.json",

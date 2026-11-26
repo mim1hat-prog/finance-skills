@@ -1,10 +1,12 @@
 # Use finance skills with Gemini
 
+[**Download the complete Gemini suite — one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-gemini.zip). Upload the complete ZIP to register one `finance-suite` skill containing all 29 workflow references. Keep its references attached. [Single-import setup](SINGLE-IMPORT.md)
+
 Verified against official documentation on **2026-11-25**. This guide targets **Gemini's web app on a Windows 11 work PC**, using the account your organization permits for the data. Repository packages are ready for import; account activation and a representative task still need to succeed in that account.
 
 [Browse the Gemini edition](../editions/gemini) · [Download individual Gemini packages](../packages/gemini) · [Copilot guide](COPILOT.md)
 
-**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-markdown.zip), extract it and open a file in `gemini/`. Copy the entire file into your available Gem Instructions field or an approved conversation. These files already omit YAML headers.
+**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/markdown/finance-skills-markdown.zip), extract it and open a file in `gemini/`. Copy the entire file into your available Gem Instructions field or an approved conversation. These files omit YAML headers and are for pasting, not native Skills upload. For native upload, use an individual ZIP from [packages/gemini](../packages/gemini).
 
 ## Check which interface your work account has
 
@@ -16,7 +18,7 @@ Gemini App, skills in Google Workspace apps, Gemini Enterprise and Gemini CLI ar
 
 ## 1. Download one skill
 
-For one download, choose the [Gemini release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-gemini.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-full.zip), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
+For one download, choose the [current Gemini bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/bundles/finance-skills-gemini.zip) or select the full package from [versioned releases](../releases/README.md), then extract it. The Gemini bundle contains all individual packages, skill folders, Gem-ready text and the shared Excel agent Instructions profile. Import only the selected individual skill ZIP from `packages/gemini/`; the outer download contains nested packages. [Versions and checksums](RELEASES.md)
 
 Open [packages/gemini](../packages/gemini), choose an individual ZIP and use GitHub's download control. Each ZIP contains `SKILL.md` at its root. Start with `excel-data-coverage`, `forecast-variance`, `account-mapping`, `evidence-research` and `business-document`, then add specialist workflows as needed.
 
@@ -26,7 +28,7 @@ If you download the full repository, extract it and locate a single folder under
 
 1. In the Gemini web app, select **Customize → Skills**.
 2. Select **Create → Upload**.
-3. Choose the individual ZIP, a single skill folder or its standalone `SKILL.md`, then select **Open**.
+3. Choose the complete suite ZIP for all workflows in one skill, then select **Open**. A focused individual workflow can instead use its own ZIP, folder or standalone `SKILL.md`. The suite needs all its references, so do not upload just its main file.
 4. Select **Upload**, review the instructions and choose **Create**.
 5. In a new chat, select the skill with `/name`, or the available `@` picker. Use explicit selection for the first verification task.
 
@@ -64,7 +66,7 @@ Example: “Use cash-working-capital with these synthetic opening and closing ba
 
 GitHub updates do not automatically replace an imported personal Gemini skill. To update:
 
-1. Download the current individual package from [packages/gemini](../packages/gemini).
+1. Download the current complete suite from [packages/suites](../packages/suites), or the individual workflow you installed from [packages/gemini](../packages/gemini).
 2. Open **Customize → Skills** and select the existing skill.
 3. Select **More → Replace skill** and upload the complete replacement, including any reference files.
 4. Review, **Save**, and repeat a representative test.
@@ -80,7 +82,7 @@ If Skills is unavailable but your approved work account offers Gems:
 1. Open **Settings → Gems → New Gem**; use the equivalent Gems entry if your account still shows the older navigation.
 2. Choose one workflow from the [Gem-ready text files](../editions/gemini-gems), which omit YAML frontmatter.
 3. Give the Gem the skill's readable name and paste the selected text into the Gem's **Instructions**. Alternatively, copy a native skill's Markdown body **after the closing YAML `---`**. Use the description in a corresponding field if your interface provides one.
-4. If a future version references supporting files, add those actual files to Knowledge as permitted. An absent resource must be identified; a link or filename alone does not upload it. The current standalone skills need no supporting files.
+4. If instructions reference supporting files, add those actual files to Knowledge as permitted. An absent resource must be identified; a link or filename alone does not upload it. Individual standalone workflows need no supporting files. The complete suite has bundled workflow references and is intended for native Skills; use a complete individual workflow for this Gem fallback.
 5. Preview with a sample task, review the output and select **Save**. Previewing alone does not save the Gem.
 
 This copies the workflow into a Gem; it is not native SKILL.md registration and will need manual updates. Uploading the Markdown only as a Knowledge file is not equivalent to placing its instructions in the Instructions field. Follow Google's [Gem creation guide](https://support.google.com/gemini/answer/15235603?hl=en).

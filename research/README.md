@@ -26,8 +26,11 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`boj-cgpi`](#boj-cgpi) | provider-documentation | reviewed-with-limitations | `benchmark-lookup` |
 | [`boj-terms`](#boj-terms) | data-license | reviewed-with-limitations | Implementation / registry |
 | [`citation-file-format-1.2`](#citation-file-format-12) | normative-standard | reviewed | Implementation / registry |
+| [`copilot-agent-builder-import`](#copilot-agent-builder-import) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-chat-skill-format`](#copilot-chat-skill-format) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-researcher`](#copilot-researcher) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
 | [`copilot-skills`](#copilot-skills) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-upload-troubleshooting`](#copilot-upload-troubleshooting) | provider-documentation | reviewed | Implementation / registry |
 | [`crossref-updates`](#crossref-updates) | metadata-guidance | reviewed | `evidence-research` |
 | [`datacite-metadata`](#datacite-metadata) | metadata-guidance | reviewed | Implementation / registry |
 | [`ecb-data-usage`](#ecb-data-usage) | data-license | reviewed | Implementation / registry |
@@ -38,6 +41,8 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`fastapi-readme-onboarding`](#fastapi-readme-onboarding) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`fpp-tscv`](#fpp-tscv) | method-guide | reviewed | `forecast-variance`, `reproducible-analysis`, `scenario-planning` |
 | [`gemini-deep-research`](#gemini-deep-research) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
+| [`gemini-skill-package-resources`](#gemini-skill-package-resources) | provider-documentation | reviewed | Implementation / registry |
+| [`gemini-skill-progressive-resources`](#gemini-skill-progressive-resources) | provider-documentation | reviewed | Implementation / registry |
 | [`gemini-skills`](#gemini-skills) | provider-documentation | reviewed | Implementation / registry |
 | [`git-offline-object-inspection`](#git-offline-object-inspection) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`github-commit-identity`](#github-commit-identity) | provider-documentation | reviewed-with-limitations | Implementation / registry |
@@ -273,6 +278,50 @@ Only source links, factual metadata and original implementation summaries are in
   **Limits:** A CITATION.cff file does not register a DOI, create academic affiliation, certify research quality or imply peer review. The official CFF schema uses JSON Schema draft-07, distinct from the dataset contracts.
   **Paths:** [`CITATION.cff`](../CITATION.cff), [`docs/STANDARDS.md`](../docs/STANDARDS.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md)
 
+## copilot-agent-builder-import
+
+**[Add skills to your declarative agent in Agent Builder](https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-format review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Direct Agent Builder users to an individual complete ZIP, with a required name/description header and instructions below the documented size limit.
+  **Supporting section:** Create your skill package; Upload your skill package
+  **Limits:** Agent Builder requires a ZIP; this rule does not prohibit a standalone SKILL.md on the separately documented personal Chat route.
+  **Paths:** [`README.md`](../README.md), [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members`
+
+## copilot-chat-skill-format
+
+**[Build skills for Microsoft 365 Copilot Chat](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-format review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Keep native packages headed by valid YAML and containing a root SKILL.md; distinguish native uploads from headerless copy-and-paste instructions.
+  **Supporting section:** Author a personal skill; Upload the skill
+  **Limits:** This documents personal Microsoft 365 Copilot Chat; host availability and successful tenant import remain separate observations.
+  **Paths:** [`README.md`](../README.md), [`docs/COPILOT.md`](../docs/COPILOT.md), [`scripts/build.py`](../scripts/build.py), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members`
+
 ## copilot-researcher
 
 **[Get started with Researcher in Microsoft Copilot](https://support.microsoft.com/en-us/microsoft-365-copilot/get-started-with-researcher-in-microsoft-365-copilot)**
@@ -316,6 +365,27 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Personal skill imports, invocation and Advanced Reasoning; separate declarative-agent support matrix
   **Limits:** Availability, licensing, preview runtime, network/package installation and admin controls are host-specific. A skill cannot override them or turn a personal skill package into a deployed agent.
   **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`scripts/build.py`](../scripts/build.py), [`docs/STANDARDS.md`](../docs/STANDARDS.md), [`docs/RESEARCH-POLICY.md`](../docs/RESEARCH-POLICY.md)
+
+## copilot-upload-troubleshooting
+
+**[Add and manage an uploaded skill (Microsoft Copilot)](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-add-existing)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-format review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-add-existing); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Explain malformed or missing YAML, UTF-8 without BOM, duplicate names and structural package problems when diagnosing a rejected skill.
+  **Supporting section:** Accepted formats; Troubleshoot skills that do not load
+  **Limits:** This page describes the Copilot Studio Microsoft Copilot harness. Its troubleshooting does not prove the cause of an unseen rejected file or establish identical parsers across all Copilot products.
+  **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md)
 
 ## crossref-updates
 
@@ -546,6 +616,50 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Source selection, research-plan editing, available models and daily/concurrent request limits
   **Limits:** Imported skills do not yet run inside Deep Research or Canvas. Google Search is included by default unless deselected; connected sources need enabled connections. Model choice, runtime and quotas remain host-controlled.
   **Paths:** [`skills/work-tool-routing/SKILL.md`](../skills/work-tool-routing/SKILL.md), [`skills/evidence-research/SKILL.md`](../skills/evidence-research/SKILL.md), [`docs/GEMINI.md`](../docs/GEMINI.md), [`docs/STANDARDS.md`](../docs/STANDARDS.md), [`adapters/workflow-controls.md`](../adapters/workflow-controls.md), [`docs/RESEARCH-POLICY.md`](../docs/RESEARCH-POLICY.md)
+
+## gemini-skill-package-resources
+
+**[Transfer skills from other platforms to Gemini Apps](https://support.google.com/gemini/answer/18977944?hl=en)**
+
+Google; Google. Year: living documentation. Edition: Living Gemini Apps documentation; supporting-resource review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Directly reviewed official Google documentation for the stated package/resource use. No account import or native task execution was tested.
+
+Rights: [Publisher document terms; links and summaries only](https://support.google.com/gemini/answer/18977944?hl=en); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Google
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Package one native finance suite with a root SKILL.md and Markdown workflow references, respecting the one-skill-per-import contract.
+  **Supporting section:** Skill root, frontmatter, reference-file types, file and size limits
+  **Limits:** A compatible package shape does not establish account availability, a successful upload, resource access or correct module selection.
+  **Paths:** [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`docs/GEMINI.md`](../docs/GEMINI.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members`
+
+## gemini-skill-progressive-resources
+
+**[Write effective skills for Gemini Apps](https://support.google.com/gemini/answer/17102773)**
+
+Google; Google. Year: living documentation. Edition: Living Gemini Apps documentation; supporting-resource review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Directly reviewed official Google documentation for the stated package/resource use. No account import or native task execution was tested.
+
+Rights: [Publisher document terms; links and summaries only](https://support.google.com/gemini/answer/17102773); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Google
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Design a focused routing index that opens only the workflow references needed for the current task and reports missing resources.
+  **Supporting section:** How skills work; Optimize your instructions; Missing information
+  **Limits:** Progressive resource access is documented; this particular routing instruction is a project design choice requiring evaluation in the intended host.
+  **Paths:** [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members`
 
 ## gemini-skills
 

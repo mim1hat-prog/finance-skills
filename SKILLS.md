@@ -1,8 +1,8 @@
 # Skills
 
-29 skills · version 1.4.3 · reviewed 2026-11-25
+29 skills · version 1.5.0 · reviewed 2026-11-25
 
-Choose one edition. Import each skill separately. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
+Choose one edition. Import its finance suite once for bundled workflows, or import selected individual skills. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 
 ## Download a complete edition
 
@@ -13,6 +13,12 @@ Extract a bundle first, then use its individual skill ZIPs or follow its folder-
 [Excel agent instructions](profiles/excel-agent-instructions.txt) · [Bundle checksums](packages/bundles/manifest.json)
 
 [Tool inventory](TOOLS.md) · [Workflow contracts](docs/SKILL-CONTRACTS.md) · [Research registry](research/README.md)
+
+## One native import for the finance suite
+
+[Copilot suite ZIP](packages/suites/finance-suite-copilot.zip?raw=1) · [Gemini suite ZIP](packages/suites/finance-suite-gemini.zip?raw=1) · [Member hashes and provenance](packages/suites/manifest.json)
+
+Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and 29 complete workflow references. Upload the selected suite ZIP unchanged. The host must be able to read its bundled references; verify this in the target account. This registers one skill, not every workflow separately, and does not increase host limits. Individual packages remain available.
 
 ## Copy and paste
 

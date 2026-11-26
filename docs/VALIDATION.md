@@ -1,6 +1,28 @@
 # Validation record
 
-Checked **2026-11-25**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
+Checked **2026-11-26**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
+
+## v1.5.0 complete-suite validation
+
+The offline gate passed **161 Python tests with zero skips** and reproduced **229 generated artifacts**. Seven suite tests cover exact canonical reference contents, deterministic archives, root metadata and size limits, missing/unsafe resource paths, explicit feature flags and compatibility with individual packages. Release tests cover the new seven-archive schema, preservation of older formats and a suite payload changed after recomputing its checksums.
+
+Both native suites contain exactly **30 files: one root `SKILL.md` and 29 Markdown workflow references**, with no nested archives. An independent PyYAML parse and direct comparison with the canonical bodies passed. The Copilot main file has 18,265 characters and its ZIP is 96,275 bytes; Gemini has 18,295 characters and a 96,302-byte ZIP. Both remain under the portable 20,000-character main-file limit. The external suite manifest records every member hash, canonical source hash, version and one registration per package.
+
+A separate local agent read the Copilot suite and its work-tool-routing, close-controls and reproducible-analysis references, then reconciled independently invented extracts from 585.00 to 615.00 with a 30.00 difference and zero arithmetic residual. It retained both unmatched keys without inventing a mapping and left the business reasons unconfirmed. Decimal arithmetic and integer-hundredths checks agreed. This is one local routing example, not a Copilot or Gemini execution result or a performance estimate.
+
+Catalogue DOM checks passed for both new suite links, existing downloads, 29 workflow rows, filters, edition switching, copy success/failure, themes and metadata. They do not establish browser layout. The previous layout limitation remains. The research registry contains 83 sources with the five pre-existing rights/correction warnings; public benchmark observations and acquisition timestamps are unchanged.
+
+Native account import, reference access, invocation and task quality remain unverified. The public graph continues to report zero accepted native execution records. The suite is one installed skill containing multiple procedures; package validation does not establish 29 separate registrations, new permissions or automatic installed-copy refresh.
+
+## v1.4.4 Copilot import-format validation
+
+All 29 Copilot native packages in the inspected v1.3.0 and v1.4.3 releases were independently parsed with PyYAML 6.0.3. Each contains one root `SKILL.md`, valid name/description strings, UTF-8 without BOM and content within the documented Chat metadata and portable instruction limits. The live GitHub `excel-agent-core.zip` was also retrieved and independently checked: its required metadata is present, and it contains 13,008 instruction-file characters with a 331-character description.
+
+The headerless Markdown bundle is a copy-and-paste format; outer transport ZIPs are not one native skill. Either could explain the reported validation error if uploaded through the wrong route. The rejected file and host were not supplied, so no specific cause or successful native import is claimed. Current Microsoft Chat, Agent Builder and Copilot Studio troubleshooting pages were directly reviewed for the new guide text and recorded as scoped references.
+
+The offline gate passed **151 Python tests with zero skips** and reproduced **166 generated artifacts**. The registry has 81 sources with the five previously documented warnings. All 29 canonical skill files are unchanged; all 58 generated native packages differ from v1.4.3 only in their edition version record. The benchmark files retain their original bytes. No new runtime behavior or financial method was introduced.
+
+The README, setup guides and generated bundle start guides now distinguish native upload from copy-only text and extraction of transport downloads. Current setup guides use maintained download destinations; earlier frozen packages remain unchanged. Publication is verified separately.
 
 ## v1.4.3 weekly-maintenance validation
 

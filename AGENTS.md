@@ -4,6 +4,8 @@ Publish and maintain this project in `mim1hat-prog/finance-skills` using the aut
 
 Maintain one company-neutral source library in `skills/`. Generate the Microsoft 365 Copilot and Gemini editions from that library and the host notes in `adapters/`. Read `PRODUCT.md`, `DESIGN.md`, `docs/UPDATES.md` and the applicable source notes before changes.
 
+Generate complete `finance-suite` packages from the same canonical workflows. Each suite is one native skill with one root SKILL.md and complete Markdown workflow references, not a batch registration of every individual skill. Preserve both individual and suite formats. Verify root limits, resource paths, exact source bodies and deterministic package inventories; never claim that a structurally valid package proves host import or workflow routing. Update suites and all their references together.
+
 Keep `catalog.json` authoritative for skill IDs, workflow contracts and research references; keep `tools/catalog.json` authoritative for tool routing and availability labels. Generate `TOOLS.md` and `docs/SKILL-CONTRACTS.md`; a listed product is not an installed or validated connector. Keep approved internal figures, internal workflow status and public benchmarks separate. Public data never fills a missing internal field.
 
 Use `research/sources.json` for method and provider evidence, including rights and correction/retraction status. An unresolved candidate is not active method support. Keep originals separate from transformations and preserve public observation vintages. Build/test/release checks are offline; refreshing a public feed is a separate explicit command. Keep credentials out of URLs, snapshots and logs. Do not use private cases as fixtures or publish opaque workbook caches.

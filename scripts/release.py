@@ -55,12 +55,15 @@ REQUIRED = {"README.md", "AGENTS.md", "LICENSE", "catalog.json", "docs/RELEASES.
 VARIANTS_BY_SCHEMA = {
     1: ("copilot", "gemini", "all", "full"),
     2: ("copilot", "gemini", "all", "markdown", "full"),
+    3: ("copilot-suite", "gemini-suite", "copilot", "gemini", "all", "markdown", "full"),
 }
 BUNDLE_PATHS = {
     "copilot": "packages/bundles/finance-skills-copilot.zip",
     "gemini": "packages/bundles/finance-skills-gemini.zip",
     "all": "packages/bundles/finance-skills-all.zip",
     "markdown": "packages/markdown/finance-skills-markdown.zip",
+    "copilot-suite": "packages/suites/finance-suite-copilot.zip",
+    "gemini-suite": "packages/suites/finance-suite-gemini.zip",
 }
 LOCK_NAME = ".release.lock"
 
@@ -207,7 +210,15 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
     markdown_version = catalog.get("markdownBundleVersion")
     if markdown_version is not None and (type(markdown_version) is not int or markdown_version != 1):
         raise ReleaseError("Unsupported Markdown bundle version")
+    suite_version = catalog.get("suitePackageVersion")
+    if "suitePackageVersion" in catalog:
+        if type(suite_version) is not int or suite_version != 1:
+            raise ReleaseError("Unsupported suite package version")
+        if type(markdown_version) is not int or markdown_version != 1:
+            raise ReleaseError("Suite packages require Markdown bundle version 1")
     schema_version = 2 if markdown_version == 1 else 1
+    if suite_version == 1:
+        schema_version = 3
     variants = VARIANTS_BY_SCHEMA[schema_version]
     version = catalog.get("version")
     version_key(version)
@@ -236,12 +247,23 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
     files[f"{prefix}-full.zip"] = build.archive_files(sources)
     labels = {"copilot": "Copilot skills", "gemini": "Gemini skills", "all": "Both editions",
               "markdown": "Copy-and-paste Markdown only",
+              "copilot-suite": "Copilot complete suite — upload unchanged: one skill, all workflows",
+              "gemini-suite": "Gemini complete suite — upload unchanged: one skill, all workflows",
               "full": "Full project, tools and documentation"}
+    if schema_version == 3:
+        labels.update(copilot="Individual Copilot packages — extract first",
+                      gemini="Individual Gemini packages — extract first",
+                      all="Both individual editions — extract first")
     lines = [f"# Finance skills v{version}", "", "## Downloads", "",
              "These are repository-hosted release files, not GitHub Release assets.", "",
              "| Download | File |", "| --- | --- |"]
     lines += [f"| {labels[v]} | [{prefix}-{v}.zip]({raw}/{prefix}-{v}.zip) |" for v in variants]
-    if schema_version == 2:
+    if schema_version == 3:
+        lines += ["", f"For one import, upload the complete Copilot or Gemini suite ZIP unchanged. "
+                  f"Each registers one finance-suite skill containing {len(catalog['skills'])} workflow references. "
+                  "It does not register the workflows as separate native skills. "
+                  "Keep the reference files with SKILL.md when replacing the suite."]
+    if schema_version >= 2:
         lines += ["", "For copy and paste, extract the Markdown-only ZIP, open START-HERE.md, "
                   "then copy the relevant Copilot or Gemini file. Every file in that ZIP is Markdown."]
     lines += ["", "Extract a transport bundle before importing individual native skill ZIPs. "
@@ -312,6 +334,12 @@ def verify_frozen(directory: Path) -> dict:
         for record in project:
             if type(record.get("bytes")) is not int or file_record(record["path"], archive.read(record["path"])) != record:
                 raise ReleaseError(f"Full-project content mismatch: {directory.name}/{record['path']}")
+        if schema_version == 3:
+            for variant in ("copilot-suite", "gemini-suite"):
+                source_path = BUNDLE_PATHS[variant]
+                if (source_path not in paths
+                        or archive.read(source_path) != files[f"finance-skills-v{version}-{variant}.zip"]):
+                    raise ReleaseError(f"Frozen suite package differs from full-project source: {directory.name}/{variant}")
     return manifest
 
 

@@ -6,6 +6,7 @@ Reviewed **2026-11-25**. A repository update and an installed Copilot/Gemini upd
 | --- | --- | --- | --- |
 | Financial workflow | `skills/<name>/SKILL.md` | Review and edit canonical instructions | Focused task checks and a documented change |
 | Host behavior | `adapters/` and platform guides | Compare current official Microsoft/Google docs | Dated sources, account caveats and actual restrictions |
+| Complete finance suites | Canonical workflows, host overlays and core defaults | Generate `packages/suites/` and expanded suite folders | One skill per host; replace the complete package with all references and verify resource access |
 | Upload packages | `editions/`, `packages/` | Deterministic `scripts/build.py` | Exact bytes and SHA-256 manifest |
 | Copy-and-paste Markdown | Generated edition bodies and Excel profile | Generate `packages/markdown/` with `scripts/build.py` | Markdown-only ZIP with external file inventory; replace pasted copies manually |
 | Coverage and discovery | Canonical catalogues, research, public snapshots, `tools/discovery-profile.json` | Generate metrics and static catalogue in the main build | Exact generated counts, denominators, source hashes and no implied adoption/performance score |
@@ -95,6 +96,8 @@ A publication identity hold leaves read-only review enabled. It blocks commit-cr
 ## Refresh your work account
 
 For the Markdown-only download, open the updated file and replace the relevant pasted Instructions text after preserving approved company additions. The Markdown ZIP is regenerated with every build; text already pasted into an agent or conversation does not synchronize automatically.
+
+For a complete finance suite, replace the installed `finance-suite` with its full ZIP and all references, or update the complete Excel folder and Refresh.
 
 The download-all bundles and versioned releases simplify acquisition; they do not synchronize installed copies. Extract the downloaded outer ZIP, choose individual native packages and perform the host steps below. If you use the plain-text Excel agent profile, update the saved Instructions field separately after comparing company-specific additions. Both the profile and native editions derive from the same canonical skill; do not edit generated copies in this repository.
 

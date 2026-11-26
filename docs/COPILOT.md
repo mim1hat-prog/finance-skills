@@ -2,9 +2,13 @@
 
 Verified against official documentation on **2026-11-25**. This guide targets **Microsoft 365 Copilot on a Windows 11 work PC**. The repository contains importable packages; native installation is complete only after your work account saves the skill and a representative task succeeds.
 
-[Browse the Copilot edition](../editions/copilot) · [Download individual Copilot packages](../packages/copilot) · [Gemini guide](GEMINI.md)
+[**Download the complete Copilot suite — one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-copilot.zip). Upload this ZIP unchanged through a supported **Upload skill / Add skill** screen. It contains one root `SKILL.md` with `name` and `description`, plus all 29 workflow references, and appears as one `finance-suite` skill. [Single-import instructions](SINGLE-IMPORT.md)
 
-**Prefer copy and paste?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-markdown.zip), extract it and open a file in `copilot/`. Copy the entire file into an available Instructions field or approved conversation. For your shared Excel defaults, use `EXCEL-AGENT-INSTRUCTIONS.md`. These files already omit YAML headers.
+For just the default operating rules, use [excel-agent-core.zip](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/copilot/excel-agent-core.zip). Individual workflows remain available below.
+
+[Browse the Copilot edition](../editions/copilot) · [Other individual Copilot packages](../packages/copilot) · [Gemini guide](GEMINI.md)
+
+**Pasting into an Instructions field?** Download the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/markdown/finance-skills-markdown.zip), extract it and open a file in `copilot/`. Copy the entire file into the Instructions field or an approved conversation. For shared Excel defaults, use `EXCEL-AGENT-INSTRUCTIONS.md` or the [Excel Instructions profile](../profiles/excel-agent-instructions.txt?raw=1). These files intentionally omit native metadata: **paste their text; do not upload them as native skills**.
 
 ## Choose the Copilot surface
 
@@ -20,7 +24,7 @@ Microsoft currently limits personal Copilot Chat skills to the experience labele
 
 ## 1. Get an individual skill
 
-For one download, choose the [Copilot release bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-copilot.zip) or the [full release](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.4.0/finance-skills-v1.4.0-full.zip), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. [Versions and checksums](RELEASES.md)
+For one download, choose the [current Copilot bundle](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/bundles/finance-skills-copilot.zip) or select the full package from [versioned releases](../releases/README.md), then extract it. The bundle contains every individual Copilot ZIP and skill folder; the full release also includes offline guides, the catalogue and local Python tools. These are outer transport downloads, not single skills: upload a selected ZIP from their `packages/copilot/` folder. [Versions and checksums](RELEASES.md)
 
 Open [packages/copilot](../packages/copilot), choose a skill ZIP and use GitHub's file download control. Each ZIP contains `SKILL.md` at its root. Download a few useful skills first; do not upload the entire repository ZIP as one skill.
 
@@ -28,11 +32,24 @@ Start with `excel-data-coverage`, `workforce-reconciliation`, `forecast-variance
 
 If you download the whole repository for convenience, extract it first and navigate to an individual skill under `editions/copilot`. The package and the corresponding generated skill directory represent the same workflow.
 
+### Troubleshoot invalid skill information
+
+> Skill information contains invalid data. Check that the SKILL.md file contains a name and description and try again.
+
+Import-format checks reviewed **2026-11-26** against the linked Microsoft documentation. The message alone does not establish the cause. Check the actual uploaded file:
+
+1. Use the **complete Copilot suite ZIP** or an **individual ZIP from `packages/copilot/`**, such as `excel-agent-core.zip`. These are native packages. A full/individual-package release bundle must be extracted first. A file from the Markdown-only download or the Excel Instructions profile is for pasting, even if renamed `SKILL.md`.
+2. Keep `SKILL.md` at the individual ZIP's root. Its first line must be `---`, followed by nonempty YAML `name` and `description` fields, then a closing `---` before the instructions. Preserve the complete header in `editions/copilot/<skill>/SKILL.md`.
+3. Keep the file as **UTF-8 without BOM**. If you edited it, select UTF-8 when saving in VS Code and confirm that Windows has not added a second extension such as `SKILL.md.txt`.
+4. Use GitHub's **Download raw file** or the direct download link. Saving the GitHub file-view webpage can produce HTML instead of the skill's Markdown.
+
+Microsoft documents the required YAML fields in its [Copilot Chat skill format](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills) and encoding/parser checks in its [Copilot Studio upload troubleshooting](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-add-existing). These package checks do not establish a successful import in your account. If the unchanged individual package still fails, provide the exact uploaded filename, the original company-neutral file and the surface used—Microsoft 365 Copilot Chat, Excel, PowerPoint or Agent Builder—so the failed input can be inspected. Do not include company additions or work data.
+
 ## 2. Microsoft 365 Copilot Chat
 
 1. Open Microsoft 365 Copilot with your work account.
 2. From Home, right-click **Agents**, choose **More agents**, then choose **Upload skill** from the **Add** menu. The interface may also expose the management area as **Agents & Skills**.
-3. Upload the individual ZIP or its standalone `SKILL.md`.
+3. Upload the complete suite ZIP, including its references. For an individual standalone workflow, upload its ZIP or `SKILL.md`.
 4. Review the name, description, instructions and included files, then save.
 5. Select the installed skill explicitly for the first task. Enable automatic invocation only for skills you want Copilot to choose on its own.
 
@@ -42,7 +59,7 @@ Attaching `SKILL.md` to an ordinary conversation supplies context for that conve
 
 1. Open Excel's Copilot pane and select **… → Manage plugins & skills → Custom skills**.
 2. Select **Create OneDrive folder**, then **Open skills folder**. Use the folder Excel opens, rather than guessing its location.
-3. Extract each selected ZIP into its own folder. The folder name must exactly match `name:` in the file; for example, `account-mapping/SKILL.md`.
+3. For the complete suite, copy `editions/copilot-suite/finance-suite/` from the full release, keeping its `references/` folder. For an individual workflow, extract its ZIP into a folder matching `name:`; for example, `account-mapping/SKILL.md`.
 4. Copy the complete skill folder into the location opened by Excel.
 5. Select **Refresh** in Custom skills.
 6. Choose it through **Add → Choose plugins and skills**, or use an explicit mention such as `@account-mapping`.
@@ -61,7 +78,7 @@ To reuse your Excel agent's operating rules, copy [the ready-to-paste Instructio
 
 The same content is available as the individual `excel-agent-core` skill. Importing it consumes one skill slot and does not guarantee that it is invoked on every request. Use saved agent Instructions for the default behavior and verify it on a representative task. A selected task skill still supplies the detailed finance method.
 
-Open or create the agent, go to **Configure → Skills → Add**, and upload the complete ZIP for each selected skill. Review the content, then try a representative request in **Try it**.
+Open or create the agent, go to **Configure → Skills → Add**, and upload the complete Copilot suite ZIP for all workflows in one skill entry, or individual ZIPs for a focused selection. Review the content and reference files, then try a representative request in **Try it**. The suite's workflows are not separate native skill registrations.
 
 Agent Builder permits **eight skills per agent**. Its current package limits are 50 MB per ZIP, 25 MB per file, 350 total files across skills and directory depth three; skill instructions must remain below 20,000 characters. These are Agent Builder limits, not personal Chat-upload limits. Builder access and optional agent capabilities have different licensing requirements. [Agent Builder guide](https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills) · [Support matrix](https://learn.microsoft.com/en-us/plugins/declarative-agent-skills)
 

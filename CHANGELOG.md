@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.5.0 — 2026-11-26
+
+- Add a complete `finance-suite` native package for Copilot and Gemini: one import per host with all 29 workflow references.
+- Generate the suite's shared defaults, routing index and complete references from the existing canonical library; retain individual packages and copy-only downloads.
+- Validate root metadata and size, bundled resource paths, exact workflow contents and deterministic inventories. Keep unreadable references explicit.
+- Add two direct suite ZIPs to versioned releases with backward-compatible validation of all earlier frozen formats.
+- Make single-import setup the primary download path while distinguishing one registered suite from separate workflow registrations and native execution evidence.
+
+## 1.4.4 — 2026-11-26
+
+- Put individual Copilot skill downloads beside the copy-and-paste option and explain which file belongs in Skills → Add.
+- Document the missing-name/description import error, intact YAML headers, UTF-8 encoding and host-specific upload routes.
+- Make copy-only and outer transport bundle instructions explicit, and replace stale guide download links with maintained destinations.
+- Record the directly reviewed Microsoft import-format references. Preserve native headers and finance procedures; regenerate edition version records while retaining benchmark observations and prior releases.
+
 ## 1.4.3 — 2026-11-25
 
 - Change the existing maintenance task to weekly on Wednesdays at 08:00 Asia/Tokyo; the next scheduled check is 2026-12-02.

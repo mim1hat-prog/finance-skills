@@ -1,0 +1,649 @@
+{
+  "schemaVersion": 1,
+  "kind": "single-registration-suite-index",
+  "version": "1.5.0",
+  "name": "finance-suite",
+  "workflowCount": 29,
+  "registrationCountPerPackage": 1,
+  "import": "Upload one complete edition ZIP with its root SKILL.md and references together.",
+  "packages": [
+    {
+      "kind": "single-registration-native-suite",
+      "name": "finance-suite",
+      "edition": "copilot",
+      "host": "Microsoft 365 Copilot",
+      "sourceVersion": "1.5.0",
+      "reviewedOn": "2026-11-25",
+      "registrationCount": 1,
+      "workflowCount": 29,
+      "nativeStatus": "not-validated",
+      "path": "packages/suites/finance-suite-copilot.zip",
+      "expandedPath": "editions/copilot-suite/finance-suite",
+      "fileCount": 30,
+      "packageBytes": 96275,
+      "packageSha256": "6932694bf905619a88fdbadffd7a5e61f5d115d342eeefe8ed2f7d827016682f",
+      "skillCharacters": 18265,
+      "skillLines": 126,
+      "sharedControlsSha256": "d28944d6f2dbc80ffb0b4ac8f9c0d547db653358451d4917376439a28d939dba",
+      "hostGuidanceSha256": "2dfdaba6ffcad49551a4e58b15432348f9ce55de598738aababf0333ebefa2b0",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 18265,
+          "sha256": "d5025a5f7b7dad69bef5688d51f09a0cb1fd2d8e2a04e1ccb63738a879fc43b2"
+        },
+        {
+          "path": "references/account-mapping.md",
+          "bytes": 6061,
+          "sha256": "b62bae76521124fe6884e4b4d354145f8e837f5915df3322477c06c2435991d9"
+        },
+        {
+          "path": "references/analytical-sql.md",
+          "bytes": 8769,
+          "sha256": "808045c34355d4189d0e5f6f95244c26fd7851e78659e76bc10f2c1ee5e0a110"
+        },
+        {
+          "path": "references/benchmark-lookup.md",
+          "bytes": 3617,
+          "sha256": "bed8f0a28d37bc358c457d07355dcf795f976125c605d3a7f429eb41b02e6d50"
+        },
+        {
+          "path": "references/business-document.md",
+          "bytes": 7360,
+          "sha256": "aa316a3865e41c03d7a86cd16fa41d34951f9e06557aa6269942cbeb461111fe"
+        },
+        {
+          "path": "references/cash-working-capital.md",
+          "bytes": 6055,
+          "sha256": "d42aa4472052aacf5da839561405dbbb4958e6821b73637c972b4cb26a74333d"
+        },
+        {
+          "path": "references/close-controls.md",
+          "bytes": 7820,
+          "sha256": "b75737bd71f25963cf89f8dae0d9573bceebc38d55f561f90d39019f06a6c849"
+        },
+        {
+          "path": "references/connected-reporting.md",
+          "bytes": 3967,
+          "sha256": "905658a29b4fe53424988a9c5ce9bb1bf1f7f15b1d3e1883eb44cab9ccc3ceca"
+        },
+        {
+          "path": "references/corporate-style.md",
+          "bytes": 8190,
+          "sha256": "01a212fb5fc92edebadbb0a7215bbd1b7a596278e6bcdcfb3de8a52daffcabef"
+        },
+        {
+          "path": "references/design-review.md",
+          "bytes": 7068,
+          "sha256": "90363a0cbab67e401d07a30328dccd0fb016334848595cfd99cf2129154ab31e"
+        },
+        {
+          "path": "references/document-extraction.md",
+          "bytes": 6445,
+          "sha256": "72e52b2a392f830c5fb7936c23a1b08021ec84b6b7d2ed8e269a46649dae57f7"
+        },
+        {
+          "path": "references/evidence-research.md",
+          "bytes": 9465,
+          "sha256": "b947dc9bd27995f66f626f39dc4841183538e750b62d7d8509c3a71abfbc8900"
+        },
+        {
+          "path": "references/excel-agent-core.md",
+          "bytes": 6817,
+          "sha256": "3fe8d28b7e898f7ddf791dca0efbbe3b38cab3a412fa55aacada5228e77a9b84"
+        },
+        {
+          "path": "references/excel-data-coverage.md",
+          "bytes": 6713,
+          "sha256": "59b6f9a22d023a62b153695a8a78363984534f5eeee5d15a12818ed94601dfff"
+        },
+        {
+          "path": "references/forecast-variance.md",
+          "bytes": 9223,
+          "sha256": "8cb4b5a9668d7cab6bf7ecd4f49c96a946817a753b0fffb1a0d8ae970f986040"
+        },
+        {
+          "path": "references/fx-allocation-preflight.md",
+          "bytes": 3135,
+          "sha256": "266b51bf3ee10f80b9f3ebf294c002111b9fc224eb4d530c0dd1a5289263685e"
+        },
+        {
+          "path": "references/interactive-visualization.md",
+          "bytes": 7709,
+          "sha256": "dc31a7419482151b57526ef0b0ee08d917779f9b2ff6d531ce33e0f783f63074"
+        },
+        {
+          "path": "references/management-presentation.md",
+          "bytes": 7048,
+          "sha256": "de2396388d58edcd47a42999d6a19fdfa0b5ed14d1778af1bba47a22c2e4d5fa"
+        },
+        {
+          "path": "references/power-bi-analysis.md",
+          "bytes": 6530,
+          "sha256": "45643f1a4455b66a3fabecc81024a93f3e0a7bc6798d538fb0f028a183bcf7c9"
+        },
+        {
+          "path": "references/power-query-etl.md",
+          "bytes": 8004,
+          "sha256": "e0e739f361428403d0c018e2b211a7c3d20a42e46c5c65b36a7c4e893a86b76b"
+        },
+        {
+          "path": "references/process-diagram.md",
+          "bytes": 6062,
+          "sha256": "76feadb6bdcdbb89127f67c830901dbfbcf12aa0a43dead44c862095ba1b4a47"
+        },
+        {
+          "path": "references/project-context.md",
+          "bytes": 7062,
+          "sha256": "9454b75ff4320e4e99b855c34e32ef8ae818e75e448d19884b14b5a69c5f419e"
+        },
+        {
+          "path": "references/provision-reconciliation.md",
+          "bytes": 3547,
+          "sha256": "1455e207c97730bfcb9b8f76202932ccd68c3bb3dc303d6b7aa6f77dcedd2b24"
+        },
+        {
+          "path": "references/reproducible-analysis.md",
+          "bytes": 9252,
+          "sha256": "3e350dfe204cc74eed2dbbbc9c47943f702efb4d9018b5cde6fa99eb37c35a44"
+        },
+        {
+          "path": "references/scenario-planning.md",
+          "bytes": 7091,
+          "sha256": "a15e23919dca35ce15fd81b4c4a47634cc8dad90c1862ed259c26ef39fbc1ddc"
+        },
+        {
+          "path": "references/sharepoint-evidence.md",
+          "bytes": 5768,
+          "sha256": "b748ab6a1b2f11b6937703b97ac5977e81dc5a2374e90df75c0cd4df4fc485ba"
+        },
+        {
+          "path": "references/spreadsheet-modeling.md",
+          "bytes": 8958,
+          "sha256": "168638124c15009958f7677a589b149a396f4a0ead8647de1a1729ab220e380e"
+        },
+        {
+          "path": "references/video-storyboard.md",
+          "bytes": 7029,
+          "sha256": "addf2c725139093e2e6d64af2a21998443eb758fc59edeaec17b672e1602b5aa"
+        },
+        {
+          "path": "references/work-tool-routing.md",
+          "bytes": 6663,
+          "sha256": "88037b15d558c61da0d6b2c44a323c555b42a933a82ff279a1e558508647ce76"
+        },
+        {
+          "path": "references/workforce-reconciliation.md",
+          "bytes": 8943,
+          "sha256": "296d33e9d7468216fd056e8c2e5ddf66287b05aaf58f8e937d5115f47e6a936d"
+        }
+      ],
+      "sources": [
+        {
+          "name": "excel-agent-core",
+          "path": "skills/excel-agent-core/SKILL.md",
+          "sha256": "95712cbe91001bd1ed0b67f196493d6db48a63cd7c776a88452789dfc6c1ecd9"
+        },
+        {
+          "name": "work-tool-routing",
+          "path": "skills/work-tool-routing/SKILL.md",
+          "sha256": "aff020dd393d9ccbb79ed5bb5fae5f9c9418bf26d46d2aebf75fc33aec110b5a"
+        },
+        {
+          "name": "excel-data-coverage",
+          "path": "skills/excel-data-coverage/SKILL.md",
+          "sha256": "210076cd6d9c0ef5aee716df2b0ce0826dc470886cb33c946422efc30f0c7cf9"
+        },
+        {
+          "name": "workforce-reconciliation",
+          "path": "skills/workforce-reconciliation/SKILL.md",
+          "sha256": "381cc6f1cf6d0b5c3ad0f39a1cccc42a3ee623dd844f1d86d017a80ad047caeb"
+        },
+        {
+          "name": "forecast-variance",
+          "path": "skills/forecast-variance/SKILL.md",
+          "sha256": "fe813549b219158c8e700c4b1f1d3043f283f6098707c9bf850997291ac16a62"
+        },
+        {
+          "name": "power-bi-analysis",
+          "path": "skills/power-bi-analysis/SKILL.md",
+          "sha256": "708f14d72002496637d3ce7c51b5fc5633cce7e930e0f5a1623a56360b25e3a9"
+        },
+        {
+          "name": "management-presentation",
+          "path": "skills/management-presentation/SKILL.md",
+          "sha256": "b2bdb12e477155064459071aeaee565a3f40e2f8e1bc674ac0950e801ffe5ae4"
+        },
+        {
+          "name": "business-document",
+          "path": "skills/business-document/SKILL.md",
+          "sha256": "5666ec815ea775cee06fea8b479002484c943b3aa495d028ed4208920962399b"
+        },
+        {
+          "name": "corporate-style",
+          "path": "skills/corporate-style/SKILL.md",
+          "sha256": "4db6549b44fdec9c87a9dafff4e82189c9600c367e24d4ffa2bfbdefdc43c948"
+        },
+        {
+          "name": "spreadsheet-modeling",
+          "path": "skills/spreadsheet-modeling/SKILL.md",
+          "sha256": "11e674d4c2c1992fa97ed487d15b91a3ede9ea5b3e7759e8d064541cc0c9b7c2"
+        },
+        {
+          "name": "analytical-sql",
+          "path": "skills/analytical-sql/SKILL.md",
+          "sha256": "66dc940b36a8190dafaf2528e12ce83ed0be6181aee68d37e1d49c6e25f701ad"
+        },
+        {
+          "name": "evidence-research",
+          "path": "skills/evidence-research/SKILL.md",
+          "sha256": "aef5132eac3e8f37044c9d0502d591da3ee7b48c0ec5e44154bb39062404c712"
+        },
+        {
+          "name": "reproducible-analysis",
+          "path": "skills/reproducible-analysis/SKILL.md",
+          "sha256": "d0d8435f15ea8171f433a45944ab81a504d4c6caf690022f45948537aaa5a7bf"
+        },
+        {
+          "name": "design-review",
+          "path": "skills/design-review/SKILL.md",
+          "sha256": "89377f114e611c5f6c21ccbfeb32aacad369956bd5cca2d1cbc81ddf1bfcba40"
+        },
+        {
+          "name": "project-context",
+          "path": "skills/project-context/SKILL.md",
+          "sha256": "b628a52d754413aea0585beba78b39f1223c4af86007b89a1cac1e9a922653c5"
+        },
+        {
+          "name": "video-storyboard",
+          "path": "skills/video-storyboard/SKILL.md",
+          "sha256": "0fc5386eb1ef9e5f288277c97c8ada2bdb0bb92d5ce47f72552ef9f95066f7cb"
+        },
+        {
+          "name": "interactive-visualization",
+          "path": "skills/interactive-visualization/SKILL.md",
+          "sha256": "daa8c6c22af3b1bcaa4ce0a1cd0e98be81d9896c80f9073ad1178a242ab31760"
+        },
+        {
+          "name": "power-query-etl",
+          "path": "skills/power-query-etl/SKILL.md",
+          "sha256": "fd8d7c3b2bc83a5aa5c4b3c6b9dbf3b4cd04f8e77d897bfd031d1c49b2de12e9"
+        },
+        {
+          "name": "sharepoint-evidence",
+          "path": "skills/sharepoint-evidence/SKILL.md",
+          "sha256": "2250905d4b0f37c348dc01af0b04e37fb7297620c86cd97fbca5c1cbaccb1869"
+        },
+        {
+          "name": "account-mapping",
+          "path": "skills/account-mapping/SKILL.md",
+          "sha256": "325f9dc1e487a2bcaa18b9ed5e645b38ca6c4deb12de2bf5882b079bc523a7a4"
+        },
+        {
+          "name": "close-controls",
+          "path": "skills/close-controls/SKILL.md",
+          "sha256": "943653fab44c9b6131939cf363d2636aff13b8c84600fdfcba23c1685005d253"
+        },
+        {
+          "name": "cash-working-capital",
+          "path": "skills/cash-working-capital/SKILL.md",
+          "sha256": "a0ed50fb59d1f64883675e64b0d9a4fe3bd9b8c25cbb58a4f58058f497688c72"
+        },
+        {
+          "name": "scenario-planning",
+          "path": "skills/scenario-planning/SKILL.md",
+          "sha256": "68f195b264bc23861df443a45eced11c825992ce824aadc70919ceca649418a3"
+        },
+        {
+          "name": "document-extraction",
+          "path": "skills/document-extraction/SKILL.md",
+          "sha256": "1c381270d667cf4a33c638912e46c3b92702ef14b1bf806c9add3a720c973246"
+        },
+        {
+          "name": "process-diagram",
+          "path": "skills/process-diagram/SKILL.md",
+          "sha256": "4573f5482bc87e31a03d4fe945908b1e923c603d8e83cfdc2b2ff9378af36a8d"
+        },
+        {
+          "name": "connected-reporting",
+          "path": "skills/connected-reporting/SKILL.md",
+          "sha256": "82f839363092a180d664ca1baa30e93e720014496da6d6d82a92efc9abe0b4c7"
+        },
+        {
+          "name": "provision-reconciliation",
+          "path": "skills/provision-reconciliation/SKILL.md",
+          "sha256": "359ba60526b74819089f80402d577d2314a0a27b98cbabe34695909728b1733b"
+        },
+        {
+          "name": "fx-allocation-preflight",
+          "path": "skills/fx-allocation-preflight/SKILL.md",
+          "sha256": "fd632d95e5a248e469db2ca8087fc9ebb16185b579e4c4fb1e9f1142c7073155"
+        },
+        {
+          "name": "benchmark-lookup",
+          "path": "skills/benchmark-lookup/SKILL.md",
+          "sha256": "fcfcfb48a4fac8ba6aa0ede6ab59123099bbba3b7397d037404ed47ba7d655da"
+        }
+      ]
+    },
+    {
+      "kind": "single-registration-native-suite",
+      "name": "finance-suite",
+      "edition": "gemini",
+      "host": "Gemini",
+      "sourceVersion": "1.5.0",
+      "reviewedOn": "2026-11-25",
+      "registrationCount": 1,
+      "workflowCount": 29,
+      "nativeStatus": "not-validated",
+      "path": "packages/suites/finance-suite-gemini.zip",
+      "expandedPath": "editions/gemini-suite/finance-suite",
+      "fileCount": 30,
+      "packageBytes": 96302,
+      "packageSha256": "c56587f62c49151835ab709b11477f0328d94d9666194f1e6cd995827d1933be",
+      "skillCharacters": 18295,
+      "skillLines": 126,
+      "sharedControlsSha256": "d28944d6f2dbc80ffb0b4ac8f9c0d547db653358451d4917376439a28d939dba",
+      "hostGuidanceSha256": "06e7828ddad878d63e95d73a9cc226e9fe850adc8931dc494bd924b69343adb3",
+      "files": [
+        {
+          "path": "SKILL.md",
+          "bytes": 18295,
+          "sha256": "d7ece1a9ce5b800ef060cac4df9ea36014dd659777fb750f3542c46fa46da5cd"
+        },
+        {
+          "path": "references/account-mapping.md",
+          "bytes": 6061,
+          "sha256": "b62bae76521124fe6884e4b4d354145f8e837f5915df3322477c06c2435991d9"
+        },
+        {
+          "path": "references/analytical-sql.md",
+          "bytes": 8769,
+          "sha256": "808045c34355d4189d0e5f6f95244c26fd7851e78659e76bc10f2c1ee5e0a110"
+        },
+        {
+          "path": "references/benchmark-lookup.md",
+          "bytes": 3617,
+          "sha256": "bed8f0a28d37bc358c457d07355dcf795f976125c605d3a7f429eb41b02e6d50"
+        },
+        {
+          "path": "references/business-document.md",
+          "bytes": 7360,
+          "sha256": "aa316a3865e41c03d7a86cd16fa41d34951f9e06557aa6269942cbeb461111fe"
+        },
+        {
+          "path": "references/cash-working-capital.md",
+          "bytes": 6055,
+          "sha256": "d42aa4472052aacf5da839561405dbbb4958e6821b73637c972b4cb26a74333d"
+        },
+        {
+          "path": "references/close-controls.md",
+          "bytes": 7820,
+          "sha256": "b75737bd71f25963cf89f8dae0d9573bceebc38d55f561f90d39019f06a6c849"
+        },
+        {
+          "path": "references/connected-reporting.md",
+          "bytes": 3967,
+          "sha256": "905658a29b4fe53424988a9c5ce9bb1bf1f7f15b1d3e1883eb44cab9ccc3ceca"
+        },
+        {
+          "path": "references/corporate-style.md",
+          "bytes": 8190,
+          "sha256": "01a212fb5fc92edebadbb0a7215bbd1b7a596278e6bcdcfb3de8a52daffcabef"
+        },
+        {
+          "path": "references/design-review.md",
+          "bytes": 7068,
+          "sha256": "90363a0cbab67e401d07a30328dccd0fb016334848595cfd99cf2129154ab31e"
+        },
+        {
+          "path": "references/document-extraction.md",
+          "bytes": 6445,
+          "sha256": "72e52b2a392f830c5fb7936c23a1b08021ec84b6b7d2ed8e269a46649dae57f7"
+        },
+        {
+          "path": "references/evidence-research.md",
+          "bytes": 9465,
+          "sha256": "b947dc9bd27995f66f626f39dc4841183538e750b62d7d8509c3a71abfbc8900"
+        },
+        {
+          "path": "references/excel-agent-core.md",
+          "bytes": 6817,
+          "sha256": "3fe8d28b7e898f7ddf791dca0efbbe3b38cab3a412fa55aacada5228e77a9b84"
+        },
+        {
+          "path": "references/excel-data-coverage.md",
+          "bytes": 6713,
+          "sha256": "59b6f9a22d023a62b153695a8a78363984534f5eeee5d15a12818ed94601dfff"
+        },
+        {
+          "path": "references/forecast-variance.md",
+          "bytes": 9223,
+          "sha256": "8cb4b5a9668d7cab6bf7ecd4f49c96a946817a753b0fffb1a0d8ae970f986040"
+        },
+        {
+          "path": "references/fx-allocation-preflight.md",
+          "bytes": 3135,
+          "sha256": "266b51bf3ee10f80b9f3ebf294c002111b9fc224eb4d530c0dd1a5289263685e"
+        },
+        {
+          "path": "references/interactive-visualization.md",
+          "bytes": 7709,
+          "sha256": "dc31a7419482151b57526ef0b0ee08d917779f9b2ff6d531ce33e0f783f63074"
+        },
+        {
+          "path": "references/management-presentation.md",
+          "bytes": 7048,
+          "sha256": "de2396388d58edcd47a42999d6a19fdfa0b5ed14d1778af1bba47a22c2e4d5fa"
+        },
+        {
+          "path": "references/power-bi-analysis.md",
+          "bytes": 6530,
+          "sha256": "45643f1a4455b66a3fabecc81024a93f3e0a7bc6798d538fb0f028a183bcf7c9"
+        },
+        {
+          "path": "references/power-query-etl.md",
+          "bytes": 8004,
+          "sha256": "e0e739f361428403d0c018e2b211a7c3d20a42e46c5c65b36a7c4e893a86b76b"
+        },
+        {
+          "path": "references/process-diagram.md",
+          "bytes": 6062,
+          "sha256": "76feadb6bdcdbb89127f67c830901dbfbcf12aa0a43dead44c862095ba1b4a47"
+        },
+        {
+          "path": "references/project-context.md",
+          "bytes": 7062,
+          "sha256": "9454b75ff4320e4e99b855c34e32ef8ae818e75e448d19884b14b5a69c5f419e"
+        },
+        {
+          "path": "references/provision-reconciliation.md",
+          "bytes": 3547,
+          "sha256": "1455e207c97730bfcb9b8f76202932ccd68c3bb3dc303d6b7aa6f77dcedd2b24"
+        },
+        {
+          "path": "references/reproducible-analysis.md",
+          "bytes": 9252,
+          "sha256": "3e350dfe204cc74eed2dbbbc9c47943f702efb4d9018b5cde6fa99eb37c35a44"
+        },
+        {
+          "path": "references/scenario-planning.md",
+          "bytes": 7091,
+          "sha256": "a15e23919dca35ce15fd81b4c4a47634cc8dad90c1862ed259c26ef39fbc1ddc"
+        },
+        {
+          "path": "references/sharepoint-evidence.md",
+          "bytes": 5768,
+          "sha256": "b748ab6a1b2f11b6937703b97ac5977e81dc5a2374e90df75c0cd4df4fc485ba"
+        },
+        {
+          "path": "references/spreadsheet-modeling.md",
+          "bytes": 8958,
+          "sha256": "168638124c15009958f7677a589b149a396f4a0ead8647de1a1729ab220e380e"
+        },
+        {
+          "path": "references/video-storyboard.md",
+          "bytes": 7029,
+          "sha256": "addf2c725139093e2e6d64af2a21998443eb758fc59edeaec17b672e1602b5aa"
+        },
+        {
+          "path": "references/work-tool-routing.md",
+          "bytes": 6663,
+          "sha256": "88037b15d558c61da0d6b2c44a323c555b42a933a82ff279a1e558508647ce76"
+        },
+        {
+          "path": "references/workforce-reconciliation.md",
+          "bytes": 8943,
+          "sha256": "296d33e9d7468216fd056e8c2e5ddf66287b05aaf58f8e937d5115f47e6a936d"
+        }
+      ],
+      "sources": [
+        {
+          "name": "excel-agent-core",
+          "path": "skills/excel-agent-core/SKILL.md",
+          "sha256": "95712cbe91001bd1ed0b67f196493d6db48a63cd7c776a88452789dfc6c1ecd9"
+        },
+        {
+          "name": "work-tool-routing",
+          "path": "skills/work-tool-routing/SKILL.md",
+          "sha256": "aff020dd393d9ccbb79ed5bb5fae5f9c9418bf26d46d2aebf75fc33aec110b5a"
+        },
+        {
+          "name": "excel-data-coverage",
+          "path": "skills/excel-data-coverage/SKILL.md",
+          "sha256": "210076cd6d9c0ef5aee716df2b0ce0826dc470886cb33c946422efc30f0c7cf9"
+        },
+        {
+          "name": "workforce-reconciliation",
+          "path": "skills/workforce-reconciliation/SKILL.md",
+          "sha256": "381cc6f1cf6d0b5c3ad0f39a1cccc42a3ee623dd844f1d86d017a80ad047caeb"
+        },
+        {
+          "name": "forecast-variance",
+          "path": "skills/forecast-variance/SKILL.md",
+          "sha256": "fe813549b219158c8e700c4b1f1d3043f283f6098707c9bf850997291ac16a62"
+        },
+        {
+          "name": "power-bi-analysis",
+          "path": "skills/power-bi-analysis/SKILL.md",
+          "sha256": "708f14d72002496637d3ce7c51b5fc5633cce7e930e0f5a1623a56360b25e3a9"
+        },
+        {
+          "name": "management-presentation",
+          "path": "skills/management-presentation/SKILL.md",
+          "sha256": "b2bdb12e477155064459071aeaee565a3f40e2f8e1bc674ac0950e801ffe5ae4"
+        },
+        {
+          "name": "business-document",
+          "path": "skills/business-document/SKILL.md",
+          "sha256": "5666ec815ea775cee06fea8b479002484c943b3aa495d028ed4208920962399b"
+        },
+        {
+          "name": "corporate-style",
+          "path": "skills/corporate-style/SKILL.md",
+          "sha256": "4db6549b44fdec9c87a9dafff4e82189c9600c367e24d4ffa2bfbdefdc43c948"
+        },
+        {
+          "name": "spreadsheet-modeling",
+          "path": "skills/spreadsheet-modeling/SKILL.md",
+          "sha256": "11e674d4c2c1992fa97ed487d15b91a3ede9ea5b3e7759e8d064541cc0c9b7c2"
+        },
+        {
+          "name": "analytical-sql",
+          "path": "skills/analytical-sql/SKILL.md",
+          "sha256": "66dc940b36a8190dafaf2528e12ce83ed0be6181aee68d37e1d49c6e25f701ad"
+        },
+        {
+          "name": "evidence-research",
+          "path": "skills/evidence-research/SKILL.md",
+          "sha256": "aef5132eac3e8f37044c9d0502d591da3ee7b48c0ec5e44154bb39062404c712"
+        },
+        {
+          "name": "reproducible-analysis",
+          "path": "skills/reproducible-analysis/SKILL.md",
+          "sha256": "d0d8435f15ea8171f433a45944ab81a504d4c6caf690022f45948537aaa5a7bf"
+        },
+        {
+          "name": "design-review",
+          "path": "skills/design-review/SKILL.md",
+          "sha256": "89377f114e611c5f6c21ccbfeb32aacad369956bd5cca2d1cbc81ddf1bfcba40"
+        },
+        {
+          "name": "project-context",
+          "path": "skills/project-context/SKILL.md",
+          "sha256": "b628a52d754413aea0585beba78b39f1223c4af86007b89a1cac1e9a922653c5"
+        },
+        {
+          "name": "video-storyboard",
+          "path": "skills/video-storyboard/SKILL.md",
+          "sha256": "0fc5386eb1ef9e5f288277c97c8ada2bdb0bb92d5ce47f72552ef9f95066f7cb"
+        },
+        {
+          "name": "interactive-visualization",
+          "path": "skills/interactive-visualization/SKILL.md",
+          "sha256": "daa8c6c22af3b1bcaa4ce0a1cd0e98be81d9896c80f9073ad1178a242ab31760"
+        },
+        {
+          "name": "power-query-etl",
+          "path": "skills/power-query-etl/SKILL.md",
+          "sha256": "fd8d7c3b2bc83a5aa5c4b3c6b9dbf3b4cd04f8e77d897bfd031d1c49b2de12e9"
+        },
+        {
+          "name": "sharepoint-evidence",
+          "path": "skills/sharepoint-evidence/SKILL.md",
+          "sha256": "2250905d4b0f37c348dc01af0b04e37fb7297620c86cd97fbca5c1cbaccb1869"
+        },
+        {
+          "name": "account-mapping",
+          "path": "skills/account-mapping/SKILL.md",
+          "sha256": "325f9dc1e487a2bcaa18b9ed5e645b38ca6c4deb12de2bf5882b079bc523a7a4"
+        },
+        {
+          "name": "close-controls",
+          "path": "skills/close-controls/SKILL.md",
+          "sha256": "943653fab44c9b6131939cf363d2636aff13b8c84600fdfcba23c1685005d253"
+        },
+        {
+          "name": "cash-working-capital",
+          "path": "skills/cash-working-capital/SKILL.md",
+          "sha256": "a0ed50fb59d1f64883675e64b0d9a4fe3bd9b8c25cbb58a4f58058f497688c72"
+        },
+        {
+          "name": "scenario-planning",
+          "path": "skills/scenario-planning/SKILL.md",
+          "sha256": "68f195b264bc23861df443a45eced11c825992ce824aadc70919ceca649418a3"
+        },
+        {
+          "name": "document-extraction",
+          "path": "skills/document-extraction/SKILL.md",
+          "sha256": "1c381270d667cf4a33c638912e46c3b92702ef14b1bf806c9add3a720c973246"
+        },
+        {
+          "name": "process-diagram",
+          "path": "skills/process-diagram/SKILL.md",
+          "sha256": "4573f5482bc87e31a03d4fe945908b1e923c603d8e83cfdc2b2ff9378af36a8d"
+        },
+        {
+          "name": "connected-reporting",
+          "path": "skills/connected-reporting/SKILL.md",
+          "sha256": "82f839363092a180d664ca1baa30e93e720014496da6d6d82a92efc9abe0b4c7"
+        },
+        {
+          "name": "provision-reconciliation",
+          "path": "skills/provision-reconciliation/SKILL.md",
+          "sha256": "359ba60526b74819089f80402d577d2314a0a27b98cbabe34695909728b1733b"
+        },
+        {
+          "name": "fx-allocation-preflight",
+          "path": "skills/fx-allocation-preflight/SKILL.md",
+          "sha256": "fd632d95e5a248e469db2ca8087fc9ebb16185b579e4c4fb1e9f1142c7073155"
+        },
+        {
+          "name": "benchmark-lookup",
+          "path": "skills/benchmark-lookup/SKILL.md",
+          "sha256": "fcfcfb48a4fac8ba6aa0ede6ab59123099bbba3b7397d037404ed47ba7d655da"
+        }
+      ]
+    }
+  ]
+}
