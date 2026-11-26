@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.1 — 2026-11-27
+
+- Require coverage of each deliverable, including permitted external research alongside enterprise work when the task needs both.
+- Finish interrupted work with verified results and a specific remaining check. Add an invented regression case for incomplete evidence, the wrong reporting period and stale workbook values.
+- Add a GitHub issue form for synthetic Copilot quality reproductions and a short test procedure for approved work accounts.
+
 ## 1.9.0 — 2026-11-27
 
 - Make material evidence retrieval, independent verification, action readback and decision-ready results the default in all supported hosts.

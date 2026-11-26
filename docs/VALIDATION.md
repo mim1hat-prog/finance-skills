@@ -1,6 +1,12 @@
 # Validation and remaining evidence gaps
 
-## Current release: v1.9.0
+## Current release: v1.9.1
+
+The shared instructions and Excel profile now require an observed result or an explicit open item for each requested deliverable. For tasks that need both company and external evidence, open both authorized source types or identify the specific missing evidence.
+
+The development kit includes an invented case with a benchmark from the wrong period, an unsupported PC total and a workbook formula whose recalculation was never observed. The grader rejects these mistakes. Follow the [native smoke procedure](QUALITY-FIRST.md#check-early-stopping-in-an-approved-work-account) to check Copilot behavior in an approved work account. The package and grader tests establish local behavior. Early stopping, hosted source coverage, and native task effects remain unverified.
+
+## Historical validation for v1.9.0
 
 The individual Copilot and Gemini editions, grouped suites and Excel profile carry the quality-first defaults. The Excel OneDrive download carries the complete Copilot suite folder. The suites contain 30 workflow sections in nine supporting files and their roots stay below the 20,000-character limit.
 

@@ -1,0 +1,49 @@
+name: Copilot answer stops early or misses evidence
+description: Report an independently invented reproduction from Excel, PowerPoint, Word, Power BI or Copilot Chat.
+title: "[Copilot quality] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Reproduce the problem with invented data or permitted public sources. Keep company data, internal links, screenshots, workbooks and account information inside your work environment.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Copilot surface
+      options:
+        - Excel
+        - PowerPoint
+        - Word
+        - Power BI
+        - Copilot Chat
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Skill release and setup route
+      placeholder: "v1.9.1, Excel OneDrive folder, finance-suite refreshed"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Invented prompt and available evidence
+      description: State the requested deliverables, exposed work and web sources, and any visible host mode. Use only public or invented examples.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected and observed result
+      description: Describe the final response or visible stop, what was skipped, which claims or edits were verified, and whether a follow-up resumed the task.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public_data
+    attributes:
+      label: Public-data check
+      options:
+        - label: This reproduction contains only independently invented inputs or appropriate public information.
+          required: true

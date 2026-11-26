@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "prepared-discovery-metadata",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "repository": "https://github.com/mim1hat-prog/finance-skills",
   "title": "Finance Agent Skills for Microsoft 365 Copilot and Gemini",
   "description": "Finance agent skills for Microsoft 365 Copilot and Gemini: one-import suites for Excel reconciliation, FP&A, forecasting, Power BI and public benchmarks.",
@@ -29,7 +29,7 @@
     "description": "Finance agent skills for Microsoft 365 Copilot and Gemini: one-import suites for Excel reconciliation, FP&A, forecasting, Power BI and public benchmarks.",
     "url": "https://github.com/mim1hat-prog/finance-skills",
     "codeRepository": "https://github.com/mim1hat-prog/finance-skills",
-    "version": "1.9.0",
+    "version": "1.9.1",
     "license": "https://github.com/mim1hat-prog/finance-skills/blob/main/LICENSE",
     "programmingLanguage": [
       "Markdown",

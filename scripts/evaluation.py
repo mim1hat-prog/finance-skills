@@ -74,7 +74,7 @@ def load_kit(root: Path = ROOT):
             "Unsupported evaluation scope")
     require(isinstance(manifest["caseSetVersion"], str) and VERSION.fullmatch(manifest["caseSetVersion"]),
             "Invalid case-set version")
-    require(isinstance(manifest["cases"], list) and len(manifest["cases"]) == 4, "Expected four cases")
+    require(isinstance(manifest["cases"], list) and manifest["cases"], "Expected at least one case")
     cases, allowed = {}, {"cases.json", "README.md"}
     for case in manifest["cases"]:
         shape(case, ("id", "title", "family", "prompt", "answer"), "case")

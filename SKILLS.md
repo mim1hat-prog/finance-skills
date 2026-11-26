@@ -1,6 +1,6 @@
 # Skills
 
-30 skills · version 1.9.0 · reviewed 2026-11-27
+30 skills · version 1.9.1 · reviewed 2026-11-27
 
 Choose one edition. Import its finance suite once for bundled workflows, or import selected individual skills. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 

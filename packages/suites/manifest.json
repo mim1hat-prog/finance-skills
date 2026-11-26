@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "kind": "single-registration-suite-index",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "name": "finance-suite",
   "workflowCount": 30,
   "registrationCountPerPackage": 1,
@@ -12,7 +12,7 @@
       "name": "finance-suite",
       "edition": "copilot",
       "host": "Microsoft 365 Copilot",
-      "sourceVersion": "1.9.0",
+      "sourceVersion": "1.9.1",
       "reviewedOn": "2026-11-27",
       "registrationCount": 1,
       "workflowCount": 30,
@@ -20,22 +20,22 @@
       "path": "packages/suites/finance-suite-copilot.zip",
       "expandedPath": "editions/copilot-suite/finance-suite",
       "fileCount": 10,
-      "packageBytes": 82734,
-      "packageSha256": "eb6ecd8ce17d487c5d5430ab16157cea1839fe47d587a410ab6709837700596b",
-      "skillCharacters": 17823,
-      "skillLines": 122,
-      "sharedControlsSha256": "b4a955baef5fafd227636d92bb33e4ea02ecdbc3634f77eb86a0cd9fdd291670",
+      "packageBytes": 83080,
+      "packageSha256": "9f97489c6f5f0b437cd8aac16b34614a75c16672286514e46f0d3356fdc8f715",
+      "skillCharacters": 18546,
+      "skillLines": 124,
+      "sharedControlsSha256": "043e281d2eccdc8c7818fdc789d079db208237560502dae7ad4d9d4fa68d3d33",
       "hostGuidanceSha256": "855bc7bb49de5a71b4dbaaa55cd2dfeb088a1a2ef56e3aca3fa43256efe99a18",
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 17823,
-          "sha256": "8214378e6de2c791f55d25d1e04f38941d657799c48d1aa8f6c4e5822eb75ed4"
+          "bytes": 18546,
+          "sha256": "4ba6f7197722ffac7e3bed3c3f1b4660cf909de68d9e9f3597d5da98aba51744"
         },
         {
           "path": "references/agent-setup.md",
-          "bytes": 3942,
-          "sha256": "52b2f7660e06ea47530049d305b5f4fd17bb9b143da6ff14277d123a51c4e0d2"
+          "bytes": 4192,
+          "sha256": "1532d7450f52f17f9e7a0c1a6332b76673e6d40d516a0c55efa6776be25b5639"
         },
         {
           "path": "references/analysis.md",
@@ -82,7 +82,7 @@
         {
           "name": "excel-agent-core",
           "path": "skills/excel-agent-core/SKILL.md",
-          "sha256": "da837a73309ab518a763a789df43c6b305b87e0388059552abb9b70564426643"
+          "sha256": "65674130fded715950a96a5f0ec8893e2bf2a8da17e116e147be57d01d20ec07"
         },
         {
           "name": "work-tool-routing",
@@ -237,12 +237,12 @@
         {
           "name": "excel-agent-core",
           "sourcePath": "skills/excel-agent-core/SKILL.md",
-          "sourceSha256": "da837a73309ab518a763a789df43c6b305b87e0388059552abb9b70564426643",
+          "sourceSha256": "65674130fded715950a96a5f0ec8893e2bf2a8da17e116e147be57d01d20ec07",
           "resource": "references/agent-setup.md",
           "sectionHeading": "Workflow: excel-agent-core",
           "bodyOffsetBytes": 220,
-          "bodyLengthBytes": 3721,
-          "bodySha256": "02d97564b3efdf258b9727aa2b08cdf99f99d893657c3a2807fa50ce40ca049a"
+          "bodyLengthBytes": 3971,
+          "bodySha256": "2fff062f888d5245242fa3a3cb2c4eb127f90ea7020fab4eec0e02902d2a5089"
         },
         {
           "name": "work-tool-routing",
@@ -541,7 +541,7 @@
       "name": "finance-suite",
       "edition": "gemini",
       "host": "Gemini",
-      "sourceVersion": "1.9.0",
+      "sourceVersion": "1.9.1",
       "reviewedOn": "2026-11-27",
       "registrationCount": 1,
       "workflowCount": 30,
@@ -549,22 +549,22 @@
       "path": "packages/suites/finance-suite-gemini.zip",
       "expandedPath": "editions/gemini-suite/finance-suite",
       "fileCount": 10,
-      "packageBytes": 82540,
-      "packageSha256": "24c82bb91c1f31bd71af14f3fe5d4ffcaf6214bdab9f868bcf69db0cd93784f7",
-      "skillCharacters": 17139,
-      "skillLines": 116,
-      "sharedControlsSha256": "b4a955baef5fafd227636d92bb33e4ea02ecdbc3634f77eb86a0cd9fdd291670",
+      "packageBytes": 82881,
+      "packageSha256": "b453e9fc543a5ae0adb1e57238bafbb38b3bb330df2706774cb9ee62b8f3edcf",
+      "skillCharacters": 17862,
+      "skillLines": 118,
+      "sharedControlsSha256": "043e281d2eccdc8c7818fdc789d079db208237560502dae7ad4d9d4fa68d3d33",
       "hostGuidanceSha256": "cfacedf05107aec371c7df4690076b2f305353cbc81aa18c3014cc954a315d63",
       "files": [
         {
           "path": "SKILL.md",
-          "bytes": 17139,
-          "sha256": "a257eea3305026b42b9611c71efeb6a4b55d8ee6657842d9109b82a720c2caf0"
+          "bytes": 17862,
+          "sha256": "223885be96acc3340b36181a8b7ea67fead116bca29b4595067acf4eedb877e0"
         },
         {
           "path": "references/agent-setup.md",
-          "bytes": 3942,
-          "sha256": "52b2f7660e06ea47530049d305b5f4fd17bb9b143da6ff14277d123a51c4e0d2"
+          "bytes": 4192,
+          "sha256": "1532d7450f52f17f9e7a0c1a6332b76673e6d40d516a0c55efa6776be25b5639"
         },
         {
           "path": "references/analysis.md",
@@ -611,7 +611,7 @@
         {
           "name": "excel-agent-core",
           "path": "skills/excel-agent-core/SKILL.md",
-          "sha256": "da837a73309ab518a763a789df43c6b305b87e0388059552abb9b70564426643"
+          "sha256": "65674130fded715950a96a5f0ec8893e2bf2a8da17e116e147be57d01d20ec07"
         },
         {
           "name": "work-tool-routing",
@@ -766,12 +766,12 @@
         {
           "name": "excel-agent-core",
           "sourcePath": "skills/excel-agent-core/SKILL.md",
-          "sourceSha256": "da837a73309ab518a763a789df43c6b305b87e0388059552abb9b70564426643",
+          "sourceSha256": "65674130fded715950a96a5f0ec8893e2bf2a8da17e116e147be57d01d20ec07",
           "resource": "references/agent-setup.md",
           "sectionHeading": "Workflow: excel-agent-core",
           "bodyOffsetBytes": 220,
-          "bodyLengthBytes": 3721,
-          "bodySha256": "02d97564b3efdf258b9727aa2b08cdf99f99d893657c3a2807fa50ce40ca049a"
+          "bodyLengthBytes": 3971,
+          "bodySha256": "2fff062f888d5245242fa3a3cb2c4eb127f90ea7020fab4eec0e02902d2a5089"
         },
         {
           "name": "work-tool-routing",

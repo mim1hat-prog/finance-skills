@@ -18,6 +18,15 @@ Use enterprise evidence for company figures and statuses. Open the underlying re
 
 Instructions can set evidence and completion criteria. Model selection, hidden reasoning tokens, timeout, context, tools, quota, connectors and permissions remain under host or administrator control. Repo validation cannot measure how long a managed model thinks or guarantee a complete answer. Use the actual artifact and observations to judge completion.
 
+## Check early stopping in an approved work account
+
+1. Open a fresh session for the affected host. Record the host, package version, enabled tools and visible mode privately. Confirm it can open the requested workflow reference. Use invented data and public material for any public report.
+2. Run the [mixed-evidence regression case](../evaluations/prompts/early-stop-and-source-coverage.md) with and without the updated skill in separate sessions with the same model and source access. Compare the actual final responses with the [expected values](../evaluations/answers/early-stop-and-source-coverage.json). Record an interruption or skipped deliverable as incomplete even if the response includes a plausible answer.
+3. For actual public source access, make a separate request to compare an invented internal onboarding note with Microsoft's current official web-search controls. Ask Copilot to open the provider page and explain what the administrator controls. If policy disables search, record the missing source and the verified internal portion. [Microsoft web-search controls](https://learn.microsoft.com/en-us/copilot/microsoft-365/manage-public-web-access)
+4. When testing a deliverable, inspect the edited Excel range, PowerPoint slide, Word passage or Power BI measure in the host. Record the state actually observed. For a visible interruption, give the assistant its last verified result and the exact remaining check in the same approved work context. Add any public report through the [Copilot quality issue form](https://github.com/mim1hat-prog/finance-skills/issues/new?template=copilot-quality.yml).
+
+Research on test-time compute concerns experiments that control how models search and verify answers. It supports choosing useful checks for difficult tasks. These instructions set task and verification criteria within the tools exposed by the host. [Snell et al., test-time compute](https://arxiv.org/abs/2408.03314)
+
 ## Review of the eight proposed repositories
 
 Only original workflow guidance is included. The review used upstream project descriptions, the linked issues or author paper where available. No upstream code, datasets, weights, attack examples or model runtime was imported or executed.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "measurementType": "descriptive-repository-inventory",
-  "projectVersion": "1.9.0",
+  "projectVersion": "1.9.1",
   "releaseDate": "2026-11-27",
   "sourceReviewDates": {
     "skills": "2026-11-27",
@@ -489,7 +489,7 @@
     },
     {
       "path": "catalog.json",
-      "sha256": "84434a975f7b90bdc0d58ac985860000ada23c2ec52851ca1add7d282f77f34b"
+      "sha256": "e808fea55c4fb46add7013d32dc563bf8e249b69ff218b075f9f305a781ad3a2"
     },
     {
       "path": "research/sources.json",

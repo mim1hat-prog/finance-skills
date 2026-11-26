@@ -26,7 +26,7 @@ class EvaluationKit(unittest.TestCase):
         self.kit_hash, self.case_version, self.cases = evaluation.load_kit(ROOT)
 
     def test_fixture_integrity_release_inclusion_and_independent_arithmetic(self):
-        self.assertEqual(evaluation.validate_kit(ROOT)["uniqueCases"], 4)
+        self.assertEqual(evaluation.validate_kit(ROOT)["uniqueCases"], 5)
         files = release.collect_project(ROOT)
         self.assertIn("evaluations/cases.json", files)
         self.assertTrue(all("evaluations/" + case[kind]["path"] in files
@@ -50,11 +50,11 @@ class EvaluationKit(unittest.TestCase):
         firsts = [r["condition"] for r in self.plan["runs"][::2]]
         self.assertEqual(firsts.count("baseline"), firsts.count("suite"))
         result = evaluation.summarize(ROOT, self.plan)
-        self.assertEqual(result["totals"]["scheduled"], 16)
+        self.assertEqual(result["totals"]["scheduled"], 20)
         self.assertEqual(result["totals"]["passed"], 0)
         self.assertEqual(result["totals"]["attempted"], 0)
-        self.assertEqual(result["uniqueCases"], 4)
-        self.assertEqual(result["pairedOutcomes"]["incomplete"], 8)
+        self.assertEqual(result["uniqueCases"], 5)
+        self.assertEqual(result["pairedOutcomes"]["incomplete"], 10)
 
     def test_wrong_values_signs_types_and_missing_answers_cannot_pass(self):
         for name, key, bad in (("reconciliation", "change", True),
@@ -63,7 +63,10 @@ class EvaluationKit(unittest.TestCase):
                                ("quantity-price-fx", "price_effect_jpy", "9798"),
                                ("ambiguous-mapping", "unresolved_total", 0),
                                ("cutoff-and-missing-input", "internal_forecast", 104),
-                               ("cutoff-and-missing-input", "public_backfill", 0)):
+                               ("cutoff-and-missing-input", "public_backfill", 0),
+                               ("early-stop-and-source-coverage", "september_benchmark", 81),
+                               ("early-stop-and-source-coverage", "total_pc", 35),
+                               ("early-stop-and-source-coverage", "recalculation_verified", True)):
             answer = copy.deepcopy(self.cases[name]["expected"])
             answer[key] = bad
             with self.subTest(name=name, key=key):
@@ -92,12 +95,12 @@ class EvaluationKit(unittest.TestCase):
         self.assertEqual(result["totals"]["completed"], 2)
         self.assertEqual(result["totals"]["passed"], 1)
         self.assertEqual(result["pairedOutcomes"]["suiteOnlyPassed"], 1)
-        self.assertEqual(result["pairedOutcomes"]["incomplete"], 7)
+        self.assertEqual(result["pairedOutcomes"]["incomplete"], 9)
         self.assertEqual(result["perCase"]["reconciliation"]["suite"]["passed"], 1)
 
     def test_case_and_package_versions_explicit_and_bound(self):
-        self.assertEqual(self.plan["caseSetVersion"], "1.0.0")
-        self.assertEqual(evaluation.summarize(ROOT, self.plan)["caseSetVersion"], "1.0.0")
+        self.assertEqual(self.plan["caseSetVersion"], "1.1.0")
+        self.assertEqual(evaluation.summarize(ROOT, self.plan)["caseSetVersion"], "1.1.0")
         environment = {**self.environment, "packageVersion": "1.5.0"}
         older = evaluation.init_plan(ROOT, environment, 2, 31)
         self.assertEqual(evaluation.summarize(ROOT, older)["environment"]["packageVersion"], "1.5.0")
@@ -179,7 +182,7 @@ class EvaluationKit(unittest.TestCase):
                                      "--output", str(target), "--host-surface", "invented-test-host",
                                      "--repetitions", "1", "--seed", "4"], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertEqual(json.loads(result.stdout)["scheduled"], 8)
+            self.assertEqual(json.loads(result.stdout)["scheduled"], 10)
             summary = subprocess.run([sys.executable, str(ROOT / "scripts/evaluation.py"), "summarize", str(target)],
                                      capture_output=True, text=True)
             self.assertEqual(summary.returncode, 0, summary.stderr)

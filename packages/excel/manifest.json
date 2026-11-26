@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "excel-onedrive-folder-package",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "edition": "copilot",
   "host": "Copilot in Excel",
   "skillName": "finance-suite",
@@ -12,24 +12,24 @@
   "installationMode": "extract-then-upload-folder",
   "instructions": "Extract the ZIP, then use Upload Folder to upload the inner finance-suite folder to the OneDrive skills location opened by Copilot in Excel. Keep SKILL.md and references together, select Refresh in Excel, then invoke @finance-suite. Do not upload this ZIP through a native skill ZIP-import screen.",
   "path": "packages/excel/finance-suite-onedrive.zip",
-  "bytes": 83014,
-  "sha256": "924ef428a64ee98707ea06a3462dcca219d807042f34005f71e2674eca43d3a0",
+  "bytes": 83360,
+  "sha256": "cb6003a571b3ac2b8a4cdb2ad99a79d64b8993d0561a6b80cb15f64706b25543",
   "sourceSuitePath": "packages/suites/finance-suite-copilot.zip",
-  "sourceSuiteSha256": "eb6ecd8ce17d487c5d5430ab16157cea1839fe47d587a410ab6709837700596b",
+  "sourceSuiteSha256": "9f97489c6f5f0b437cd8aac16b34614a75c16672286514e46f0d3356fdc8f715",
   "sourceExpandedPath": "editions/copilot-suite/finance-suite",
   "fileCount": 10,
   "files": [
     {
       "path": "finance-suite/SKILL.md",
       "sourcePath": "editions/copilot-suite/finance-suite/SKILL.md",
-      "bytes": 17823,
-      "sha256": "8214378e6de2c791f55d25d1e04f38941d657799c48d1aa8f6c4e5822eb75ed4"
+      "bytes": 18546,
+      "sha256": "4ba6f7197722ffac7e3bed3c3f1b4660cf909de68d9e9f3597d5da98aba51744"
     },
     {
       "path": "finance-suite/references/agent-setup.md",
       "sourcePath": "editions/copilot-suite/finance-suite/references/agent-setup.md",
-      "bytes": 3942,
-      "sha256": "52b2f7660e06ea47530049d305b5f4fd17bb9b143da6ff14277d123a51c4e0d2"
+      "bytes": 4192,
+      "sha256": "1532d7450f52f17f9e7a0c1a6332b76673e6d40d516a0c55efa6776be25b5639"
     },
     {
       "path": "finance-suite/references/analysis.md",

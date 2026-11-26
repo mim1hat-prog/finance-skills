@@ -1,0 +1,10 @@
+fc5afde8e4afc445e44158205b9cb353ad3e222316697beab8a93fa1e0999450  README.md
+9c8e6ec482910d36851ae1271c8e5dd1fbd90cb5c968eda4b8a98070beb2934d  finance-skills-v1.9.1-all.zip
+9f97489c6f5f0b437cd8aac16b34614a75c16672286514e46f0d3356fdc8f715  finance-skills-v1.9.1-copilot-suite.zip
+d24dc4838178b6d494715509cdfb175c57a5e5433239c8093ce7dba85f2e2c33  finance-skills-v1.9.1-copilot.zip
+cb6003a571b3ac2b8a4cdb2ad99a79d64b8993d0561a6b80cb15f64706b25543  finance-skills-v1.9.1-excel-onedrive.zip
+6069dc4ffde5a4947d2196ea63c46aceb3b82f127e2d99c07798067afaeb487d  finance-skills-v1.9.1-full.zip
+b453e9fc543a5ae0adb1e57238bafbb38b3bb330df2706774cb9ee62b8f3edcf  finance-skills-v1.9.1-gemini-suite.zip
+99c148482ae6ec5ea09d79eb285c9c8b569c36083c79f1472a811746851ab349  finance-skills-v1.9.1-gemini.zip
+5eb1ef270989961f8a18556d82c2db2631c31925c87809a1cc851cd78b76168b  finance-skills-v1.9.1-markdown.zip
+2828acaa4a71746c90d585cc3a24352f9080392ebde02a80c23eea8551a2a4b6  manifest.json

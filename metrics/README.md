@@ -1,6 +1,6 @@
 # Repository coverage and public-data inventory
 
-Version **1.9.0** · release date **2026-11-27** · generated offline from the committed sources.
+Version **1.9.1** · release date **2026-11-27** · generated offline from the committed sources.
 
 These descriptive counts make implemented scope and remaining gaps visible. They do not measure model accuracy, task success or effectiveness in a work account.
 

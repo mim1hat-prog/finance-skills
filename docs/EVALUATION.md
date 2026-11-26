@@ -6,11 +6,12 @@ This design adapts the matched skill/baseline approach in [Anthropic's skill-cre
 
 ## Runnable development kit
 
-The [public evaluation kit](../evaluations/README.md) supplies four independently
+The [public evaluation kit](../evaluations/README.md) supplies five independently
 invented cases: unmatched-key reconciliation, an ordered quantity/price/FX
-bridge, ambiguous and missing mappings, and a post-cutoff revision with a missing
-internal forecast. Prompts and exact answer keys are separate, hashed files in
-versioned case set 1.0.0; plans bind its version and manifest hash.
+bridge, ambiguous mappings, a post-cutoff revision with a missing internal
+forecast, and early completion with an unsupported benchmark and a stale workbook
+cache. Hashed prompts and answer keys are separate. Plans bind case set 1.1.0
+and its manifest hash.
 Because the answers are public, these cases support development and regressions;
 they are not a hidden holdout or proof of general finance-task effectiveness.
 

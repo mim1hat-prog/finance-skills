@@ -12,7 +12,7 @@ not model performance.
 | Ambiguous mapping | Duplicate and missing rules stay unresolved, including signs |
 | Cutoff and missing input | Retained historical vintage; no public substitution for an internal blank |
 
-`cases.json` identifies **case set 1.0.0** and binds each prompt and answer file
+`cases.json` identifies **case set 1.1.0** and binds each prompt and answer file
 to its SHA-256. Plans and summaries retain that version and manifest hash. The answer keys
 are deliberately public, so this is a **development set, not a holdout**.
 Do not give answer files to the assistant during a run or treat improvement on
@@ -35,12 +35,12 @@ a `v` prefix; the tool never infers a version from the current repository becaus
 the tested package may be older. Record unavailable settings explicitly as `unknown`. One plan
 describes one host/model/tool setup; use separate plans for different setups.
 
-The command creates 24 scheduled records: four unique cases, three repetitions,
+The command creates 30 scheduled records: five unique cases, three repetitions,
 two conditions. Every record starts `not-run`, with `executedAt` and response null. The
 seed reproducibly shuffles case/repetition blocks by SHA-256 ordering and
 counterbalances which condition goes first. Preserve the scheduled order and
 run count. Three repetitions are a practical starting point, not a statistical
-power calculation or 24 independent tasks.
+power calculation or 30 independent tasks.
 
 1. Start a fresh conversation for every scheduled run. In **baseline**, disable
    this suite and any saved equivalent instructions; in **suite**, enable the
@@ -77,7 +77,7 @@ records are included in this repository.
 ## Read the summary
 
 The summary retains the case-set/package versions, host description, attempt
-timestamps, four unique cases, repetitions,
+timestamps, five unique cases, repetitions,
 scheduled/attempted/completed/pass counts, all status counts, and per-case and
 per-condition results. “Attempted” means any declared status except `not-run`;
 it is an administrative count, not proof that a model executed. Paired outcomes

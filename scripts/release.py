@@ -27,7 +27,7 @@ ROOT_FILES = {
     "CITATION.cff", "CONTRIBUTING.md", "SECURITY.md",
     "SUPPORT.md", "CODE_OF_CONDUCT.md",
     ".github/ISSUE_TEMPLATE/bug_report.md", ".github/ISSUE_TEMPLATE/skill_request.md",
-    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/ISSUE_TEMPLATE/copilot-quality.yml", ".github/PULL_REQUEST_TEMPLATE.md",
     "upstream.lock.json", "requirements.txt", "requirements-duckdb.txt", "requirements-xlsx.txt",
 }
 DIRECTORIES = {
