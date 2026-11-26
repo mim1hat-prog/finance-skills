@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.0 — 2026-11-27
+
+- Make material evidence retrieval, independent verification, action readback and decision-ready results the default in all supported hosts.
+- Add spreadsheet design and standardize HC and PC reporting while preserving source fields and workbook calculations.
+- Record eight reasoning-project compatibility assessments and map primary research to specific workflow instructions.
+- Regenerate 30-workflow editions, suites, Excel OneDrive folder and versioned downloads. Preserve the previous frozen releases.
+
 ## 1.6.0 — 2026-11-26
 
 - Add a dedicated Excel / OneDrive download that extracts to the matching `finance-suite` folder with all 29 workflows and nine references. Preserve Chat/Gemini suite ZIPs and all prior release formats.

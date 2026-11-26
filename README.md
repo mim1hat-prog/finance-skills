@@ -4,11 +4,11 @@
 
 [![Copilot edition](https://img.shields.io/badge/Copilot-edition-31573F?style=flat)](docs/COPILOT.md) [![Gemini edition](https://img.shields.io/badge/Gemini-edition-31573F?style=flat)](docs/GEMINI.md) [![License MIT](https://img.shields.io/badge/license-MIT-4C5054?style=flat)](LICENSE)
 
-**29 repeatable workflows for Excel reconciliation, FP&A, forecasting, financial controlling and management reporting.** Import a complete suite or individual skills, with optional Python and Power BI tools for Windows.
+**30 repeatable workflows for Excel reconciliation, FP&A, forecasting, financial controlling and management reporting.** Import a complete suite or individual skills, with optional Python and Power BI tools for Windows.
 
-[**Excel / OneDrive — all workflows, one folder**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-excel-onedrive.zip) · [**Copilot Chat — suite ZIP**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot-suite.zip) · [**Gemini — suite ZIP**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini-suite.zip)
+[**Excel / OneDrive — all workflows, one folder**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-excel-onedrive.zip) · [**Copilot Chat — suite ZIP**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-copilot-suite.zip) · [**Gemini — suite ZIP**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-gemini-suite.zip)
 
-Each suite packages **one `finance-suite` skill with all 29 workflows in nine reference files**. For Excel, extract the download and add its inner `finance-suite` folder to the OneDrive skills folder opened by Excel. [Setup by host](docs/SINGLE-IMPORT.md) · [Markdown for pasting only](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-markdown.zip) · [Full project](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-full.zip)
+Each suite packages **one `finance-suite` skill with all 30 workflows in nine reference files**. For Excel, extract the download and add its inner `finance-suite` folder to the OneDrive skills folder opened by Excel. [Setup by host](docs/SINGLE-IMPORT.md) · [Markdown for pasting only](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-markdown.zip) · [Full project](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-full.zip)
 
 [Quick start](#quick-start) · [Coverage](#coverage-at-a-glance) · [All skills](SKILLS.md) · [Downloads](#downloads) · [Copilot setup](docs/COPILOT.md) · [Gemini setup](docs/GEMINI.md) · [Help](SUPPORT.md)
 
@@ -17,11 +17,11 @@ Each suite packages **one `finance-suite` skill with all 29 workflows in nine re
 <!-- project-coverage-summary:start -->
 [![Descriptive coverage of skill evidence and public benchmark data, showing numerators, denominators and retained observation dates](assets/coverage.svg)](metrics/README.md)
 
-**29 skills** · **12/29** with workflow-test links · **0/29** with native execution evidence · **11/17** configured benchmark series with observations.
+**30 skills** · **12/30** with workflow-test links · **0/30** with native execution evidence · **11/17** configured benchmark series with observations.
 
-Active empirical-research sources: 0; excluded empirical candidates: 1. Source mappings describe stated uses, not measured model efficacy.
+Active empirical-research sources: 6; excluded empirical candidates: 1. Source mappings describe stated uses, not measured model efficacy.
 
-Repository measurements: **v1.6.0**, release **2026-11-26**. The release date is not a provider retrieval date.
+Repository measurements: **v1.9.0**, release **2026-11-27**. The release date is not a provider retrieval date.
 
 - **`ecb-exr-api` (daily):** latest retained observation period per series **2026-11-24**; retrieval timestamp (UTC) **2026-11-25T03:07:56.456028Z**.
 - **`worldbank-pink-sheet` (monthly):** latest retained observation period per series **2026-10**; retrieval timestamp (UTC) **2026-11-25T03:07:50.858358Z**.
@@ -35,7 +35,7 @@ Generated from the canonical catalogue, research mappings, declared tests and re
 
 ## Quick start
 
-1. **Choose [Excel / OneDrive](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-excel-onedrive.zip), [Copilot Chat](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot-suite.zip) or [Gemini](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini-suite.zip).**
+1. **Choose [Excel / OneDrive](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-excel-onedrive.zip), [Copilot Chat](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-copilot-suite.zip) or [Gemini](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-gemini-suite.zip).**
 2. **Excel:** extract, upload the inner `finance-suite` folder into Excel's OneDrive skills location, then Refresh. **Chat/Gemini:** upload the complete suite ZIP through the supported Skills screen. Select or mention `finance-suite` for the first task. [Exact setup steps](docs/SINGLE-IMPORT.md)
 3. **Run the [invented reconciliation example](examples/QUICKSTART.md).** The CSVs reconcile from 350.30 to 365.35: a 15.05 difference with two unmatched records. Verify that the host reads the selected workflow reference and obtains the expected result.
 
@@ -43,26 +43,26 @@ Generated from the canonical catalogue, research mappings, declared tests and re
 
 For a focused installation, choose an [individual Copilot](packages/copilot) or [Gemini](packages/gemini) workflow. For an Instructions field, use the [Markdown download](#downloads) and paste the relevant file's full text.
 
-The instructions prioritize relevant internal evidence, preserve workbook logic and verify calculations. They request no unsolicited audit tables, extra worksheets or process commentary. The instruction workflow needs no local coding agent or API subscription.
+The quality-first defaults prioritize relevant enterprise evidence, independent checks, verified changes and enough detail for the decision. They preserve workbook logic and keep routine validation in working context. [Quality-first defaults and host boundaries](docs/QUALITY-FIRST.md)
 
 ## Downloads
 
-**Current package: v1.6.0.**
+**Current package: v1.9.0.**
 
 | Package | What you receive | Download |
 | --- | --- | --- |
-| **Excel / OneDrive** | A correctly named `finance-suite` folder with all 29 workflows; extract and upload the folder | [Excel folder ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-excel-onedrive.zip) |
-| **Copilot complete suite** | All 29 workflows in one native skill package | [Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot-suite.zip) |
-| **Gemini complete suite** | All 29 workflows with Gemini host instructions | [Gemini suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini-suite.zip) |
-| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-markdown.zip) |
-| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-copilot.zip) |
-| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-gemini.zip) |
-| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-all.zip) |
-| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.6.0/finance-skills-v1.6.0-full.zip) |
+| **Excel / OneDrive** | A correctly named `finance-suite` folder with all 30 workflows; extract and upload the folder | [Excel folder ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-excel-onedrive.zip) |
+| **Copilot complete suite** | All 30 workflows in one native skill package | [Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-copilot-suite.zip) |
+| **Gemini complete suite** | All 30 workflows with Gemini host instructions | [Gemini suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-gemini-suite.zip) |
+| **Markdown only** | 62 `.md` files: 30 Copilot skills, 30 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-markdown.zip) |
+| **Copilot** | 30 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-copilot.zip) |
+| **Gemini** | 30 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-gemini.zip) |
+| **All skills** | Both editions, 60 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-all.zip) |
+| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.9.0/finance-skills-v1.9.0-full.zip) |
 
 **Excel / OneDrive:** extract and upload the inner matching-name folder. **Chat/Gemini suite ZIPs:** upload unchanged through the supported Skills screen. **Other bundles:** extract first, then choose a native package or copy-only Markdown file. Markdown omits native metadata and is for pasting. [Package formats and replacement](docs/SINGLE-IMPORT.md)
 
-[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.6.0/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.9.0/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
 
 ## Find a workflow
 
@@ -75,7 +75,7 @@ The instructions prioritize relevant internal evidence, preserve workbook logic 
 | Management reporting | Power BI analysis, management presentation, corporate style | Measures and slides tied to source totals and the approved template |
 | Research and communication | Evidence research, document extraction, process diagram | Primary-source findings, checked extraction and readable process maps |
 
-[**Browse all 29 skills**](SKILLS.md) · [Exact inputs, outputs and acceptance criteria](docs/SKILL-CONTRACTS.md) · [Tool list and availability](TOOLS.md)
+[**Browse all 30 skills**](SKILLS.md) · [Exact inputs, outputs and acceptance criteria](docs/SKILL-CONTRACTS.md) · [Tool list and availability](TOOLS.md)
 
 > Use finance-suite's workforce-reconciliation workflow on the two attached monthly files. Reconcile headcount and FTE, separate hires and leavers from transfers, and identify unmapped cost centres and material unresolved differences.
 

@@ -1,10 +1,12 @@
 # Use finance skills with Copilot
 
+[Quality-first defaults and host boundaries](QUALITY-FIRST.md) apply to every import and copy-only workflow.
+
 Core setup reviewed against official documentation on **2026-11-25**; Excel's OneDrive folder setup, import limits and Cowork routing reviewed **2026-11-26**. This guide targets **Microsoft 365 Copilot on a Windows 11 work PC**. Installation is complete only after your work account recognizes the skill and a representative task succeeds.
 
 **Using Excel:** [download the Excel OneDrive folder package](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/excel/finance-suite-onedrive.zip), extract it, then add its inner **`finance-suite` folder** to the skills location Excel opens. [Exact Excel setup](#3-copilot-in-excel)
 
-**Using Copilot Chat, Agent Builder or Cowork:** [download the Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-copilot.zip) and upload it unchanged through that host's supported skill-upload screen. Both packages provide one `finance-suite` skill with all 29 complete workflows in nine supporting files. [Choose the installation route](SINGLE-IMPORT.md)
+**Using Copilot Chat, Agent Builder or Cowork:** [download the Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-copilot.zip) and upload it unchanged through that host's supported skill-upload screen. Both packages provide one `finance-suite` skill with all 30 complete workflows in nine supporting files. [Choose the installation route](SINGLE-IMPORT.md)
 
 For just the default operating rules, use [excel-agent-core.zip](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/copilot/excel-agent-core.zip); Excel needs its extracted contents inside a folder named `excel-agent-core`. Individual workflows remain available below.
 
@@ -52,7 +54,7 @@ Microsoft documents the required YAML fields in its [Copilot Chat skill format](
 
 The combined rejection message does not identify which check failed. A valid YAML header alone does not establish acceptance. Record the exact upload screen and any detailed validation report before assigning a cause.
 
-The inspected **v1.5.0 Copilot suite is intact and has valid metadata**, but includes 29 companion files. Microsoft documents a separate **20-companion limit per Cowork skill**. This is a confirmed Cowork portability defect; the reviewed Excel page does not specify that limit, so it does not establish the cause of an Excel failure. **Use v1.5.1 or later:** all 29 complete workflows are grouped into nine companion files.
+The inspected **v1.5.0 Copilot suite is intact and has valid metadata**, but includes 29 companion files. Microsoft documents a separate **20-companion limit per Cowork skill**. This is a confirmed Cowork portability defect; the reviewed Excel page does not specify that limit, so it does not establish the cause of an Excel failure. **Use a grouped suite from v1.5.1 or later.** The current suite contains 30 workflows in nine companion files.
 
 Cowork's [personal-skill guide](https://learn.microsoft.com/en-us/copilot/cowork/use-cowork) specifies 20 companions and 10 MB total. Its [upload guide](https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize) separately allows a 1 MB main file, a 10 MB compressed / 50 MB expanded archive and 100 archive files. The [plugin companion rules](https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development) additionally specify 5 MB per companion. The current suite conservatively checks all these size/file ceilings, using decimal MB, while retaining a main file under 20,000 characters. These project checks do not imply identical limits for personal Chat, Agent Builder or Excel.
 
@@ -85,7 +87,7 @@ Attaching `SKILL.md` to an ordinary conversation supplies context for that conve
 | Folder name matches `name:` | `finance-suite` and `name: finance-suite` |
 | Main file has metadata and task instructions | `finance-suite/SKILL.md`, with nonempty `name`, `description` and body |
 | Referenced procedures are available with the main file | `finance-suite/references/`, containing nine complete category files |
-| Complete suite is kept together | Ten Markdown files covering all 29 workflows |
+| Complete suite is kept together | Ten Markdown files covering all 30 workflows |
 
 The main `SKILL.md` contains shared instructions and navigation. **Copying only that file omits the full workflow procedures.** The ten-file layout is this project's package design; Cowork's 20-companion ceiling is not presented as a documented Excel limit.
 

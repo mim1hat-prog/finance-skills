@@ -17,7 +17,7 @@ Produce a useful document from the information actually available. Use the reque
 
 - Extract only the facts, definitions, decisions, and quotations needed for the document. Maintain a compact list of source locations and material gaps rather than reproducing whole files in the conversation.
 - Distinguish confirmed facts, estimates, assumptions, recommendations, and open questions. Preserve explicit qualifications and uncertainty. Never invent a policy, approval, source, quotation, meeting attendee, action owner, due date, or business justification.
-- Use available calculation tools for material totals. Verify currency, units, sign convention, period, denominator, and rounding against the source. Preserve distinctions such as headcount versus FTE, actual versus forecast, and monthly versus cumulative values.
+- Use available calculation tools for material totals. Verify currency, units, sign convention, period, denominator, and rounding against the source. Preserve distinctions such as HC (people) versus PC (approved full-time-equivalent capacity), actual versus forecast, and monthly versus cumulative values.
 - If sources disagree, compare their dates, scope, definitions, and authority. Explain the conflict in the working notes or document where it changes the conclusion. Do not silently choose the more convenient number.
 - Cite factual claims with useful internal source locations: document section/page, workbook sheet/table/range, meeting date and agenda item, or accessible source link. Do not fabricate citations or claim to have read an inaccessible file. Keep sensitive references within the intended work audience.
 

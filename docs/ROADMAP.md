@@ -1,6 +1,6 @@
 # Further implementation priorities
 
-The library contains 29 skills, shared workflow contracts, a public benchmark dataset and a research registry. The next useful work is to validate those methods in the actual approved work environment, with company-only details kept private. Local checks and generic instructions are already implemented; live connections and enterprise acceptance are separate work.
+The library contains 30 skills, shared workflow contracts, a public benchmark dataset and a research registry. The next useful work is to validate those methods in the actual approved work environment, with company-only details kept private. Local checks and generic instructions are already implemented; live connections and enterprise acceptance are separate work.
 
 ## Next acceptance work
 

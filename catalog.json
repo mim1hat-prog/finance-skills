@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "version": "1.6.0",
+  "version": "1.9.0",
   "projectPresentationVersion": 1,
   "markdownBundleVersion": 1,
-  "reviewedOn": "2026-11-25",
+  "reviewedOn": "2026-11-27",
   "repoUrl": "https://github.com/mim1hat-prog/finance-skills",
   "sourcePack": {
     "repository": "Somamill/dot-agent-toolsuite",
@@ -14,10 +14,10 @@
     {
       "name": "excel-agent-core",
       "title": "Excel agent instructions",
-      "summary": "Search internal evidence first, preserve workbook logic and return concise results without unsolicited audit tables or new sheets.",
+      "summary": "Complete the finance task with enterprise evidence, independent verification, preserved workbook logic and decision-ready detail.",
       "category": "Agent setup",
       "group": "agent defaults",
-      "prompt": "Use excel-agent-core to resolve the discrepancy in the current workbook. Review the relevant available internal sources, preserve existing business logic and make only the necessary corrections. Return the result and any material unresolved issue concisely.",
+      "prompt": "Use excel-agent-core to resolve the discrepancy in the current workbook. Recompute the material difference from approved sources, preserve business logic and read back any edit. Explain the result and remaining gaps.",
       "contract": {
         "triggers": [
           "Excel work objective",
@@ -28,7 +28,7 @@
           "existing workbook or relevant approved sources"
         ],
         "outputs": [
-          "concise completed result",
+          "verified result with decision-relevant detail",
           "material unresolved gap"
         ],
         "modes": [
@@ -57,7 +57,10 @@
         }
       },
       "researchIds": [
-        "project-finance-design"
+        "project-finance-design",
+        "pal",
+        "chain-of-verification",
+        "reasoning-self-correction-limits"
       ]
     },
     {
@@ -164,13 +167,13 @@
     {
       "name": "workforce-reconciliation",
       "title": "Workforce reconciliation",
-      "summary": "Reconcile headcount, FTE, transfers and personnel costs.",
+      "summary": "Reconcile HC, PC, transfers and personnel costs.",
       "category": "Planning",
       "group": "core",
-      "prompt": "Use workforce-reconciliation to reconcile opening and closing headcount and FTE for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources.",
+      "prompt": "Use workforce-reconciliation to reconcile opening and closing HC and PC for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources.",
       "contract": {
         "triggers": [
-          "reconcile headcount, capacity or personnel cost"
+          "reconcile HC, PC or personnel cost"
         ],
         "requiredInputs": [
           "approved populations and dates",
@@ -178,7 +181,7 @@
           "effective mappings and measure definitions"
         ],
         "outputs": [
-          "separate headcount/FTE/cost bridges",
+          "separate HC/PC/cost bridges",
           "unresolved mapping or granularity gap"
         ],
         "modes": [
@@ -263,7 +266,8 @@
         "alfred-realtime",
         "fpp-tscv",
         "meti-iip",
-        "upstream-scientific-skills"
+        "upstream-scientific-skills",
+        "tashman-rolling-origins"
       ]
     },
     {
@@ -358,7 +362,8 @@
         }
       },
       "researchIds": [
-        "upstream-anthropic-skills"
+        "upstream-anthropic-skills",
+        "graphical-perception"
       ]
     },
     {
@@ -500,7 +505,52 @@
         }
       },
       "researchIds": [
-        "upstream-anthropic-skills"
+        "upstream-anthropic-skills",
+        "spreadsheetbench"
+      ]
+    },
+    {
+      "name": "spreadsheet-design",
+      "title": "Spreadsheet design",
+      "summary": "Improve finance workbook hierarchy, number formats and chart legibility while preserving workbook logic.",
+      "category": "Design",
+      "group": "workflow pilots",
+      "prompt": "Use spreadsheet-design to improve the existing workforce report using its approved template. Preserve formulas and source headers, keep HC and PC distinct, and inspect the changed ranges for clipping and number formats.",
+      "contract": {
+        "triggers": [
+          "design or review finance workbook presentation"
+        ],
+        "requiredInputs": [
+          "workbook or relevant ranges",
+          "audience and approved style when available"
+        ],
+        "outputs": [
+          "requested scoped workbook formatting or located design findings"
+        ],
+        "modes": [
+          "inspect",
+          "prepare",
+          "validate"
+        ],
+        "conditionalModes": [
+          "execute",
+          "verify"
+        ],
+        "sharedProcedure": "workflow-controls-v1",
+        "optionalCapabilities": [
+          "native-artifact-edit"
+        ],
+        "validation": {
+          "packageTests": [
+            "tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact"
+          ],
+          "workflowTests": [],
+          "nativeStatus": "not-validated"
+        }
+      },
+      "researchIds": [
+        "graphical-perception",
+        "finance-workbook-design"
       ]
     },
     {
@@ -603,7 +653,8 @@
         "gemini-deep-research",
         "project-finance-design",
         "upstream-ecc",
-        "upstream-valyu"
+        "upstream-valyu",
+        "alce"
       ]
     },
     {
@@ -841,7 +892,8 @@
         }
       },
       "researchIds": [
-        "upstream-d3-viz"
+        "upstream-d3-viz",
+        "graphical-perception"
       ]
     },
     {
@@ -1449,7 +1501,7 @@
     }
   ],
   "workflowContractsVersion": 1,
-  "releasedOn": "2026-11-26",
+  "releasedOn": "2026-11-27",
   "suitePackageVersion": 2,
   "excelFolderBundleVersion": 1
 }

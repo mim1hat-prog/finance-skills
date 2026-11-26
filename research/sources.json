@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-11-26",
+  "reviewedOn": "2026-11-27",
   "policy": {
     "sourceDocumentsBundled": false,
     "automaticMethodChanges": false,
@@ -3933,8 +3933,8 @@
           "purpose": "Distinguish the personal-skill import route and archive limits from per-skill companion limits; retain a root SKILL.md and shallow Markdown resources.",
           "limits": "Cowork container limits do not establish Agent Builder or Excel limits, content acceptance or tenant availability.",
           "tests": [
-            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions",
-            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_workflows_in_nine_companions",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_ungrouped_current_workflows",
             "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries",
             "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies"
           ],
@@ -3982,8 +3982,8 @@
           "purpose": "Apply the 20-companion per-skill ceiling when packaging the complete suite; group complete canonical workflow sections into category files.",
           "limits": "The generic reported import error does not identify its validation branch or the exact Copilot surface. A compliant local package is not evidence of native acceptance.",
           "tests": [
-            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions",
-            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_workflows_in_nine_companions",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_ungrouped_current_workflows",
             "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries",
             "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies"
           ],
@@ -4031,8 +4031,8 @@
           "purpose": "Use conservative companion byte limits and safe file paths, separately from the total archive-file count.",
           "limits": "The source describes plugin packaging. This project adopts its stricter companion constraints as a portability policy for standalone suites; it does not turn the suite into a Microsoft 365 app package.",
           "tests": [
-            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions",
-            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_workflows_in_nine_companions",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_ungrouped_current_workflows",
             "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries",
             "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies"
           ],
@@ -4167,6 +4167,438 @@
           "section": "Create custom skills; Custom skills format requirements; Advanced custom skills; Edit or remove custom skills; Manage skills",
           "purpose": "Keep the Excel download as an extractable matching-name finance-suite folder with its instructions and references, and document the OneDrive setup, Refresh and invocation steps separately from Chat ZIP imports.",
           "limits": "The reviewed Excel page does not document Cowork's 20-companion limit. This source supports the folder format and setup route, not a diagnosis of the previous generic error, tenant availability, file synchronization or successful reference retrieval.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "pal",
+      "type": "empirical-research",
+      "title": "PAL: Program-aided Language Models",
+      "publisher": "PMLR",
+      "authors": [
+        "Luyu Gao et al."
+      ],
+      "year": 2023,
+      "url": "https://proceedings.mlr.press/v202/gao23f.html",
+      "doi": null,
+      "edition": "ICML 2023",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://proceedings.mlr.press/v202/gao23f.html",
+        "attribution": "Luyu Gao et al.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "excel-agent-core"
+          ],
+          "paths": [
+            "skills/excel-agent-core/SKILL.md"
+          ],
+          "section": "Program-aided execution",
+          "purpose": "Use an available calculator or spreadsheet engine and inspect the actual result.",
+          "limits": "The paper tests benchmark problems. It does not establish Excel recalculation or current model performance.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "alce",
+      "type": "empirical-research",
+      "title": "Enabling Large Language Models to Generate Text with Citations",
+      "publisher": "ACL",
+      "authors": [
+        "Tianyu Gao et al."
+      ],
+      "year": 2023,
+      "url": "https://aclanthology.org/2023.emnlp-main.398/",
+      "doi": "10.18653/v1/2023.emnlp-main.398",
+      "edition": "EMNLP 2023",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://aclanthology.org/2023.emnlp-main.398/",
+        "attribution": "Tianyu Gao et al.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "evidence-research"
+          ],
+          "paths": [
+            "skills/evidence-research/SKILL.md"
+          ],
+          "section": "Citation correctness and completeness",
+          "purpose": "Check that sources support all material parts of a claim and omit irrelevant citations.",
+          "limits": "Public question-answering results do not measure enterprise search or tenant coverage.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "chain-of-verification",
+      "type": "empirical-research",
+      "title": "Chain-of-Verification Reduces Hallucination in Large Language Models",
+      "publisher": "ACL",
+      "authors": [
+        "Shehzaad Dhuliawala et al."
+      ],
+      "year": 2024,
+      "url": "https://aclanthology.org/2024.findings-acl.212/",
+      "doi": "10.18653/v1/2024.findings-acl.212",
+      "edition": "Findings of ACL 2024",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://aclanthology.org/2024.findings-acl.212/",
+        "attribution": "Shehzaad Dhuliawala et al.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "excel-agent-core"
+          ],
+          "paths": [
+            "skills/excel-agent-core/SKILL.md"
+          ],
+          "section": "Factored verification questions",
+          "purpose": "Turn tentative conclusions into separately checked factual and calculation questions.",
+          "limits": "Use independent records or computations where available. The paper does not validate this pack or production finance tasks.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "reasoning-self-correction-limits",
+      "type": "empirical-research",
+      "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+      "publisher": "ICLR",
+      "authors": [
+        "Jie Huang et al."
+      ],
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2310.01798",
+      "doi": null,
+      "edition": "ICLR 2024 author version",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://arxiv.org/abs/2310.01798",
+        "attribution": "Jie Huang et al.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "excel-agent-core"
+          ],
+          "paths": [
+            "skills/excel-agent-core/SKILL.md"
+          ],
+          "section": "Intrinsic self-correction experiments",
+          "purpose": "Require new evidence or an independent method for consequential checks.",
+          "limits": "Findings concern the tested models and tasks and do not establish a universal limitation.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "spreadsheetbench",
+      "type": "empirical-research",
+      "title": "SpreadsheetBench: Towards Challenging Real World Spreadsheet Manipulation",
+      "publisher": "NeurIPS",
+      "authors": [
+        "Pingchuan Ma et al."
+      ],
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2406.14991",
+      "doi": null,
+      "edition": "NeurIPS 2024 author version",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://arxiv.org/abs/2406.14991",
+        "attribution": "Pingchuan Ma et al.",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "spreadsheet-modeling"
+          ],
+          "paths": [
+            "skills/spreadsheet-modeling/SKILL.md"
+          ],
+          "section": "Evaluation with multiple workbook variants",
+          "purpose": "Check representative workbook variations and inspect target and dependent cells.",
+          "limits": "No upstream benchmark files are copied. Stored formulas and cached values do not establish native recalculation.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "tashman-rolling-origins",
+      "type": "method-guide",
+      "title": "Out-of-sample tests of forecasting accuracy: an analysis and review",
+      "publisher": "International Journal of Forecasting",
+      "authors": [
+        "Leonard J. Tashman"
+      ],
+      "year": 2000,
+      "url": "https://doi.org/10.1016/S0169-2070(00)00065-0",
+      "doi": "10.1016/S0169-2070(00)00065-0",
+      "edition": "Volume 16, issue 4",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://doi.org/10.1016/S0169-2070(00)00065-0",
+        "attribution": "Leonard J. Tashman",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "forecast-variance"
+          ],
+          "paths": [
+            "skills/forecast-variance/SKILL.md"
+          ],
+          "section": "Out-of-sample forecast origins and horizons",
+          "purpose": "Evaluate each required horizon from valid historical origins on aligned forecast and baseline cases.",
+          "limits": "Historical results depend on vintage coverage, chosen origins, measures and baseline.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "graphical-perception",
+      "type": "empirical-research",
+      "title": "Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design",
+      "publisher": "ACM",
+      "authors": [
+        "Jeffrey Heer and Michael Bostock"
+      ],
+      "year": 2010,
+      "url": "https://idl.uw.edu/papers/crowdsourcing-graphical-perception",
+      "doi": "10.1145/1753326.1753357",
+      "edition": "CHI 2010 author version",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://idl.uw.edu/papers/crowdsourcing-graphical-perception",
+        "attribution": "Jeffrey Heer and Michael Bostock",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "spreadsheet-design",
+            "interactive-visualization",
+            "management-presentation"
+          ],
+          "paths": [
+            "skills/spreadsheet-design/SKILL.md",
+            "skills/interactive-visualization/SKILL.md",
+            "skills/management-presentation/SKILL.md"
+          ],
+          "section": "Magnitude judgments with position and other visual encodings",
+          "purpose": "Use aligned position and common scales for appropriate comparison tasks.",
+          "limits": "Visual encoding results do not validate workbook functionality, styling or every chart task.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "finance-workbook-design",
+      "type": "project-design",
+      "title": "Finance workbook presentation and preservation",
+      "publisher": "Finance skills",
+      "authors": [
+        "Finance skills"
+      ],
+      "year": 2026,
+      "url": "https://github.com/mim1hat-prog/finance-skills",
+      "doi": null,
+      "edition": "Local design standard",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://github.com/mim1hat-prog/finance-skills",
+        "attribution": "Finance skills",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [
+            "spreadsheet-design"
+          ],
+          "paths": [
+            "skills/spreadsheet-design/SKILL.md"
+          ],
+          "section": "Spreadsheet design and verification",
+          "purpose": "Apply approved templates, restrained hierarchy and numeric presentation within scoped ranges.",
+          "limits": "Local workflow guidance without an empirical effect claim.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-web-search-policy",
+      "type": "provider-documentation",
+      "title": "Data, privacy, and security for web search in Microsoft Copilot and Microsoft Copilot Chat",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/copilot/microsoft-365/manage-public-web-access",
+      "doi": null,
+      "edition": "Online provider documentation",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/copilot/microsoft-365/manage-public-web-access",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "adapters/copilot.md",
+            "docs/QUALITY-FIRST.md"
+          ],
+          "section": "Availability and source controls",
+          "purpose": "Treat Copilot web grounding as tenant- and session-dependent.",
+          "limits": "Provider documentation does not establish feature availability in the current work account.",
+          "tests": [],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "power-bi-copilot-overview",
+      "type": "provider-documentation",
+      "title": "Copilot in Power BI overview",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction",
+      "doi": null,
+      "edition": "Online provider documentation",
+      "accessedOn": "2026-11-27",
+      "lastReviewedOn": "2026-11-27",
+      "maintainerRole": "Research and data maintainer",
+      "reviewStatus": "reviewed-with-limitations",
+      "reviewNotes": "Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.",
+      "license": {
+        "name": "Publisher terms; bibliographic metadata and original summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-27",
+        "notes": "No source text, code, weights, workbook or data is bundled."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "adapters/copilot.md",
+            "docs/QUALITY-FIRST.md"
+          ],
+          "section": "Availability and source controls",
+          "purpose": "Scope Power BI work to the semantic model, capacity, permissions and host capabilities available.",
+          "limits": "Provider documentation does not establish feature availability in the current work account.",
           "tests": [],
           "distribution": "metadata-only"
         }

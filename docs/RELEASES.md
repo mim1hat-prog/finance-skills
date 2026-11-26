@@ -1,6 +1,6 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.6.0.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.9.0.md)
 
 ## Choose a package
 
@@ -8,8 +8,8 @@ From v1.6.0, each published version has eight ZIP downloads under `releases/v<ve
 
 - **Excel / OneDrive:** the complete Copilot suite wrapped in the matching `finance-suite` folder. Extract it, upload that inner folder into the skills location opened by Excel, and select Refresh. Uploading the ZIP to OneDrive does not register a skill.
 
-- **Copilot complete suite:** one native `finance-suite` skill containing all 29 complete workflows in nine reference files. Upload the ZIP unchanged through a supported Skills screen.
-- **Gemini complete suite:** the equivalent single native skill with the Gemini host instructions and all 29 complete workflows in nine reference files. Upload the complete ZIP.
+- **Copilot complete suite:** one native `finance-suite` skill containing all 30 complete workflows in nine reference files. Upload the ZIP unchanged through a supported Skills screen.
+- **Gemini complete suite:** the equivalent single native skill with the Gemini host instructions and all 30 complete workflows in nine reference files. Upload the complete ZIP.
 
 - **Markdown only:** complete Copilot and Gemini instruction bodies as `.md` files, the Excel agent profile and a start guide. Extract, open the relevant file and copy its full contents into an available Instructions field or approved conversation. YAML headers are removed. Every archive member is Markdown; checksums and the file inventory are kept outside this ZIP.
 - **Copilot:** every Copilot skill as an individual native-import ZIP and matching folder, plus the Excel agent Instructions text.
@@ -17,11 +17,11 @@ From v1.6.0, each published version has eight ZIP downloads under `releases/v<ve
 - **All skills:** both editions in one transport download.
 - **Full:** the complete useful project, including both editions, individual packages, transport bundles, the profile, canonical source, offline guides, catalogue, local Python helpers, workflow schemas, benchmark dataset/API contract, research registry, citation metadata, examples and tests.
 
-From v1.5.1, complete suites group the canonical procedures by category into nine companion files, keeping the same finance-suite registration. The earlier v1.5.0 suites retain their historical 29-companion layout and are unsuitable for Cowork's documented 20-companion ceiling. Replace the full installed folder when upgrading, so obsolete reference files do not accumulate. The external suite index uses schema 2 for grouped workflow source/body hashes and byte ranges; v1.5.1–v1.5.2 use release manifest schema 3, and v1.6.0 uses schema 4 for the additional Excel download.
+From v1.5.1, complete suites group the canonical procedures by category into nine companion files, keeping the same finance-suite registration. The earlier v1.5.0 suites retain their historical 29-companion layout and are unsuitable for Cowork's documented 20-companion ceiling. Replace the full installed folder when upgrading, so obsolete reference files do not accumulate. The external suite index uses schema 2 for grouped workflow source/body hashes and byte ranges; v1.5.1–v1.5.2 use release manifest schema 3, and v1.6.0 and later use schema 4, which adds the Excel download.
 
 The full project also includes generated coverage statistics, static discovery metadata, public synthetic evaluation cases and their local grader, and the community contribution templates. The Markdown-only ZIP remains instructions only.
 
-Upload a **complete suite ZIP** unchanged; it is already one native package with one root `SKILL.md` and supporting Markdown files. It registers one suite, not 29 separate skills. For Excel's folder route, retain the complete `finance-suite` folder under `editions/copilot-suite/` in the full release. [Single-import setup](SINGLE-IMPORT.md)
+Upload a **complete suite ZIP** unchanged; it is already one native package with one root `SKILL.md` and supporting Markdown files. It registers one suite, with no separate workflow registration. For Excel's folder route, retain the complete `finance-suite` folder under `editions/copilot-suite/` in the full release. [Single-import setup](SINGLE-IMPORT.md)
 
 For an **individual-package transport bundle or full project**, extract the outer ZIP in Windows File Explorer first. Then choose a suite ZIP from `packages/suites/` in the full project, an individual ZIP under `packages/copilot/` or `packages/gemini/`, or its matching-name folder for Excel. Full and transport ZIPs are not themselves native skill imports.
 
@@ -34,7 +34,7 @@ These downloads are frozen as versioned repository files. A GitHub Release and i
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.6.0-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.9.0-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.

@@ -1,6 +1,8 @@
 # Use finance skills with Gemini
 
-[**Download the complete Gemini suite — one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-gemini.zip). Upload the complete ZIP to register one `finance-suite` skill containing all 29 complete workflows grouped into nine reference files. Keep its references attached. [Single-import setup](SINGLE-IMPORT.md)
+[Quality-first defaults and host boundaries](QUALITY-FIRST.md) apply to every import and copy-only workflow.
+
+[**Download the complete Gemini suite — one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-gemini.zip). Upload the complete ZIP to register one `finance-suite` skill containing all 30 complete workflows grouped into nine reference files. Keep its references attached. [Single-import setup](SINGLE-IMPORT.md)
 
 Verified against official documentation on **2026-11-25**. This guide targets **Gemini's web app on a Windows 11 work PC**, using the account your organization permits for the data. Repository packages are ready for import; account activation and a representative task still need to succeed in that account.
 

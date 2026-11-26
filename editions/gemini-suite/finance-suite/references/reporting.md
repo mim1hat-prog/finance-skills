@@ -25,7 +25,7 @@ Turn the available evidence into a concise presentation for a defined management
 ## Build the evidence and message
 
 1. Reuse verified totals, definitions, and exceptions from the supplied analysis. Let Excel or another available calculation capability compute new totals; do not estimate material figures from a chart or silently calculate over an unknown subset of rows. Record any computation's inputs and method.
-2. Keep actuals, budgets, forecasts, estimates, targets, and scenarios distinct. State dates, comparison baseline, currency, scale, and units. Distinguish headcount from FTE and monthly measures from year-to-date or full-year measures. Preserve the source's fiscal calendar and variance sign convention.
+2. Keep actuals, budgets, forecasts, estimates, targets, and scenarios distinct. State dates, comparison baseline, currency, scale, and units. Distinguish HC from PC and monthly measures from year-to-date or full-year measures. Preserve the source's fiscal calendar and variance sign convention.
 3. Track material claims, values, source locations, periods and qualifications in working context to verify the deck. Do not create an evidence ledger or audit artifact unless requested. Cite an accessible workbook sheet/table/range, report section/page, or slide number; do not invent references.
 4. Separate observed changes from proposed explanations. A variance is not proof of its cause. Present unsupported explanations as hypotheses with the evidence needed to confirm them. Reconcile the headline figures with supporting tables before building a chart.
 5. Organize the deck around the decision. A useful default is: executive takeaway and requested decision; performance versus baseline; material drivers and exceptions; outlook with assumptions and risks; actions and owners. Include only sections supported by the task. Keep routine reconciliation checks internal; add an audit/reconciliation appendix only when requested. Include definitions needed to interpret the business result in the relevant slide or notes.
@@ -39,6 +39,8 @@ Turn the available evidence into a concise presentation for a defined management
 - Keep text concise enough for the selected layout. Move context, caveats, definitions, and source detail into speaker notes or an appendix without concealing a caveat that changes the slide's meaning.
 - Prefer editable text, tables, and charts when the available tools support them. Keep data and labels readable, use adequate contrast, and avoid relying on color alone. Use language-appropriate fonts from the approved template or the available Office environment.
 - For review-only requests, report findings without changing the deck. For edit requests, preserve unrelated content, data, slide order, and the author's intended argument unless changing them is part of the request.
+
+For magnitude comparisons, prefer aligned positions on a common scale when appropriate. Use a consistent scale for comparable panels and show negative values and relevant uncertainty. Choose the encoding that matches the question.
 
 ## Verify the result
 
@@ -75,7 +77,7 @@ Produce a useful document from the information actually available. Use the reque
 
 - Extract only the facts, definitions, decisions, and quotations needed for the document. Maintain a compact list of source locations and material gaps rather than reproducing whole files in the conversation.
 - Distinguish confirmed facts, estimates, assumptions, recommendations, and open questions. Preserve explicit qualifications and uncertainty. Never invent a policy, approval, source, quotation, meeting attendee, action owner, due date, or business justification.
-- Use available calculation tools for material totals. Verify currency, units, sign convention, period, denominator, and rounding against the source. Preserve distinctions such as headcount versus FTE, actual versus forecast, and monthly versus cumulative values.
+- Use available calculation tools for material totals. Verify currency, units, sign convention, period, denominator, and rounding against the source. Preserve distinctions such as HC (people) versus PC (approved full-time-equivalent capacity), actual versus forecast, and monthly versus cumulative values.
 - If sources disagree, compare their dates, scope, definitions, and authority. Explain the conflict in the working notes or document where it changes the conclusion. Do not silently choose the more convenient number.
 - Cite factual claims with useful internal source locations: document section/page, workbook sheet/table/range, meeting date and agenda item, or accessible source link. Do not fabricate citations or claim to have read an inaccessible file. Keep sensitive references within the intended work audience.
 
@@ -195,7 +197,7 @@ Choose the visual and interaction that answer the user's question. Use current w
 
 1. Identify the audience, question, decision, intended viewing context, output language, and requested format. Ask for a missing fact only when it changes the analysis or the meaning of the result.
 2. Inspect the supplied data or accessible source. Identify columns, types, units, grain, dates, categories, and scope. Preserve identifiers and leading zeros. Check missing values, duplicates, invalid dates, and outliers without silently dropping them.
-3. Define the measure and comparison: counts, distinct counts, sums, weighted averages, rates, stocks, flows, or changes over time. Do not sum snapshots such as monthly headcount into a misleading annual total. Keep headcount and FTE, actual and forecast, and currencies distinct.
+3. Define the measure and comparison: counts, distinct counts, sums, weighted averages, rates, stocks, flows, or changes over time. Do not sum snapshots such as monthly headcount into a misleading annual total. Keep HC and PC, actual and forecast, and currencies distinct.
 4. State source coverage, filters, and transformations. A sample supports a sample view; do not imply it represents an unseen full population. Do not fabricate data or fill missing values with zero to make the visual complete. Use synthetic examples only when the user requests them and label them clearly.
 5. Use an available calculation capability to compute aggregates and derived measures. Keep definitions and calculation steps inspectable. State assumptions for scenario models and distinguish model output from an observed forecast.
 
@@ -211,6 +213,8 @@ Choose the visual and interaction that answer the user's question. Use current w
 | Examine an exact reconciliation | Table with totals and exceptions | Reconciled values and visible unexplained residuals |
 
 Use a table or static chart when it fully answers the question. Add interaction only for a concrete exploration task: filter a region or period, compare scenarios, inspect a point, or show a relevant detail. Avoid adding controls simply to make the result look interactive.
+
+For magnitude comparisons, prefer aligned positions on a common scale when appropriate. Use a consistent scale for comparable panels and show negative values and relevant uncertainty. Choose the encoding that matches the question.
 
 ## Select an available delivery surface
 
@@ -245,7 +249,7 @@ Keep private data, generated artifacts, and source links in approved work locati
 
 ## Example request
 
-"Use interactive-visualization to explore the supplied monthly headcount and FTE table by department and month. Keep the two measures separate, show the active filters and exact values, include an accessible table, and create an interactive artifact only if this work session supports it. Explain the checks you actually performed."
+"Use interactive-visualization to explore the supplied monthly HC and PC table by department and month. Keep the two measures separate, show the active filters and exact values, include an accessible table, and create an interactive artifact only if this work session supports it. Explain the checks you actually performed."
 
 ## Workflow: process-diagram
 

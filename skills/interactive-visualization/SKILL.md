@@ -11,7 +11,7 @@ Choose the visual and interaction that answer the user's question. Use current w
 
 1. Identify the audience, question, decision, intended viewing context, output language, and requested format. Ask for a missing fact only when it changes the analysis or the meaning of the result.
 2. Inspect the supplied data or accessible source. Identify columns, types, units, grain, dates, categories, and scope. Preserve identifiers and leading zeros. Check missing values, duplicates, invalid dates, and outliers without silently dropping them.
-3. Define the measure and comparison: counts, distinct counts, sums, weighted averages, rates, stocks, flows, or changes over time. Do not sum snapshots such as monthly headcount into a misleading annual total. Keep headcount and FTE, actual and forecast, and currencies distinct.
+3. Define the measure and comparison: counts, distinct counts, sums, weighted averages, rates, stocks, flows, or changes over time. Do not sum snapshots such as monthly headcount into a misleading annual total. Keep HC and PC, actual and forecast, and currencies distinct.
 4. State source coverage, filters, and transformations. A sample supports a sample view; do not imply it represents an unseen full population. Do not fabricate data or fill missing values with zero to make the visual complete. Use synthetic examples only when the user requests them and label them clearly.
 5. Use an available calculation capability to compute aggregates and derived measures. Keep definitions and calculation steps inspectable. State assumptions for scenario models and distinguish model output from an observed forecast.
 
@@ -27,6 +27,8 @@ Choose the visual and interaction that answer the user's question. Use current w
 | Examine an exact reconciliation | Table with totals and exceptions | Reconciled values and visible unexplained residuals |
 
 Use a table or static chart when it fully answers the question. Add interaction only for a concrete exploration task: filter a region or period, compare scenarios, inspect a point, or show a relevant detail. Avoid adding controls simply to make the result look interactive.
+
+For magnitude comparisons, prefer aligned positions on a common scale when appropriate. Use a consistent scale for comparable panels and show negative values and relevant uncertainty. Choose the encoding that matches the question.
 
 ## Select an available delivery surface
 
@@ -61,4 +63,4 @@ Keep private data, generated artifacts, and source links in approved work locati
 
 ## Example request
 
-"Use interactive-visualization to explore the supplied monthly headcount and FTE table by department and month. Keep the two measures separate, show the active filters and exact values, include an accessible table, and create an interactive artifact only if this work session supports it. Explain the checks you actually performed."
+"Use interactive-visualization to explore the supplied monthly HC and PC table by department and month. Keep the two measures separate, show the active filters and exact values, include an accessible table, and create an interactive artifact only if this work session supports it. Explain the checks you actually performed."

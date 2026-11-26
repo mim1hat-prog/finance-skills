@@ -1,6 +1,6 @@
 # Skills
 
-29 skills · version 1.6.0 · reviewed 2026-11-25
+30 skills · version 1.9.0 · reviewed 2026-11-27
 
 Choose one edition. Import its finance suite once for bundled workflows, or import selected individual skills. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 
@@ -18,7 +18,7 @@ Extract a bundle first, then use its individual skill ZIPs or follow its folder-
 
 [Copilot suite ZIP](packages/suites/finance-suite-copilot.zip?raw=1) · [Gemini suite ZIP](packages/suites/finance-suite-gemini.zip?raw=1) · [Member hashes and provenance](packages/suites/manifest.json)
 
-Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and 9 category reference files containing all 29 complete workflows. Upload the selected suite ZIP unchanged. The host must be able to read its bundled references; verify this in the target account. This registers one skill, not every workflow separately, and does not increase host limits. Individual packages remain available.
+Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and 9 category reference files containing all 30 complete workflows. Upload the selected suite ZIP unchanged. The host must be able to read its bundled references; verify this in the target account. This registers one skill, not every workflow separately, and does not increase host limits. Individual packages remain available.
 
 ## Copilot in Excel: upload one OneDrive folder
 
@@ -30,7 +30,7 @@ Extract this download first. Use Upload Folder to upload the inner `finance-suit
 
 [Download Markdown-only ZIP](packages/markdown/finance-skills-markdown.zip?raw=1) · [File inventory and checksum](packages/markdown/manifest.json)
 
-60 Markdown files: both editions, Excel agent instructions and a start guide. Extract, open the relevant file, copy its complete contents and paste into an available Instructions field or approved conversation. YAML headers are removed; the full host instructions and shared controls are retained.
+62 Markdown files: both editions, Excel agent instructions and a start guide. Extract, open the relevant file, copy its complete contents and paste into an available Instructions field or approved conversation. YAML headers are removed; the full host instructions and shared controls are retained.
 
 [Worked example](examples/QUICKSTART.md) · [Coverage and limitations](metrics/README.md) · [Help](SUPPORT.md) · [Contribute](CONTRIBUTING.md)
 
@@ -38,16 +38,17 @@ Extract this download first. Use Upload Folder to upload the inner `finance-suit
 
 | Skill | Purpose | Copilot | Gemini |
 | --- | --- | --- | --- |
-| [Excel agent instructions](skills/excel-agent-core/SKILL.md) | Search internal evidence first, preserve workbook logic and return concise results without unsolicited audit tables or new sheets. | [ZIP](packages/copilot/excel-agent-core.zip) | [ZIP](packages/gemini/excel-agent-core.zip) |
+| [Excel agent instructions](skills/excel-agent-core/SKILL.md) | Complete the finance task with enterprise evidence, independent verification, preserved workbook logic and decision-ready detail. | [ZIP](packages/copilot/excel-agent-core.zip) | [ZIP](packages/gemini/excel-agent-core.zip) |
 | [Work tool routing](skills/work-tool-routing/SKILL.md) | Choose the available tool and finish with evidence. | [ZIP](packages/copilot/work-tool-routing.zip) | [ZIP](packages/gemini/work-tool-routing.zip) |
 | [Excel data coverage](skills/excel-data-coverage/SKILL.md) | Check the complete workbook population before drawing conclusions. | [ZIP](packages/copilot/excel-data-coverage.zip) | [ZIP](packages/gemini/excel-data-coverage.zip) |
-| [Workforce reconciliation](skills/workforce-reconciliation/SKILL.md) | Reconcile headcount, FTE, transfers and personnel costs. | [ZIP](packages/copilot/workforce-reconciliation.zip) | [ZIP](packages/gemini/workforce-reconciliation.zip) |
+| [Workforce reconciliation](skills/workforce-reconciliation/SKILL.md) | Reconcile HC, PC, transfers and personnel costs. | [ZIP](packages/copilot/workforce-reconciliation.zip) | [ZIP](packages/gemini/workforce-reconciliation.zip) |
 | [Forecast variance](skills/forecast-variance/SKILL.md) | Explain budget and forecast differences with reconciled drivers. | [ZIP](packages/copilot/forecast-variance.zip) | [ZIP](packages/gemini/forecast-variance.zip) |
 | [Power BI analysis](skills/power-bi-analysis/SKILL.md) | Review model grain, DAX, filter context and control totals. | [ZIP](packages/copilot/power-bi-analysis.zip) | [ZIP](packages/gemini/power-bi-analysis.zip) |
 | [Management presentation](skills/management-presentation/SKILL.md) | Build source-backed management slides with a clear decision. | [ZIP](packages/copilot/management-presentation.zip) | [ZIP](packages/gemini/management-presentation.zip) |
 | [Business document](skills/business-document/SKILL.md) | Prepare a concise memo, procedure or decision record. | [ZIP](packages/copilot/business-document.zip) | [ZIP](packages/gemini/business-document.zip) |
 | [Corporate style](skills/corporate-style/SKILL.md) | Apply the approved company template and visual standards. | [ZIP](packages/copilot/corporate-style.zip) | [ZIP](packages/gemini/corporate-style.zip) |
 | [Spreadsheet modeling](skills/spreadsheet-modeling/SKILL.md) | Create auditable models, formulas, pivots and sensitivity views. | [ZIP](packages/copilot/spreadsheet-modeling.zip) | [ZIP](packages/gemini/spreadsheet-modeling.zip) |
+| [Spreadsheet design](skills/spreadsheet-design/SKILL.md) | Improve finance workbook hierarchy, number formats and chart legibility while preserving workbook logic. | [ZIP](packages/copilot/spreadsheet-design.zip) | [ZIP](packages/gemini/spreadsheet-design.zip) |
 | [Analytical SQL](skills/analytical-sql/SKILL.md) | Query local data with explicit grain, joins and null handling. | [ZIP](packages/copilot/analytical-sql.zip) | [ZIP](packages/gemini/analytical-sql.zip) |
 | [Evidence research](skills/evidence-research/SKILL.md) | Trace consequential claims to dated primary sources. | [ZIP](packages/copilot/evidence-research.zip) | [ZIP](packages/gemini/evidence-research.zip) |
 | [Reproducible analysis](skills/reproducible-analysis/SKILL.md) | Keep transformations, assumptions and checks reproducible. | [ZIP](packages/copilot/reproducible-analysis.zip) | [ZIP](packages/gemini/reproducible-analysis.zip) |
@@ -82,11 +83,11 @@ Extract this download first. Use Upload Folder to upload the inner `finance-suit
 
 `spreadsheet-modeling`, `analytical-sql`, `evidence-research`, `reproducible-analysis`, `design-review`, `project-context`, `video-storyboard`, `interactive-visualization`.
 
+### Workflow Pilots
+
+`spreadsheet-design`, `connected-reporting`, `provision-reconciliation`, `fx-allocation-preflight`, `benchmark-lookup`.
+
 ### Specialist
 
 `power-query-etl`, `sharepoint-evidence`, `account-mapping`, `close-controls`, `cash-working-capital`, `scenario-planning`, `document-extraction`, `process-diagram`.
-
-### Workflow Pilots
-
-`connected-reporting`, `provision-reconciliation`, `fx-allocation-preflight`, `benchmark-lookup`.
 

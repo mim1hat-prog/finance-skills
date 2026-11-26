@@ -1,6 +1,6 @@
 # Install all finance workflows as one skill
 
-Each complete suite contains one skill named `finance-suite`, with all 29 finance workflows in nine reference files. Choose the package for the actual host. **Excel uses an extracted folder in its app-created OneDrive location; Chat/Builder and Gemini use their supported ZIP-upload screens.**
+Each complete suite contains one skill named `finance-suite`, with all 30 finance workflows in nine reference files. Choose the package for the actual host. **Excel uses an extracted folder in its app-created OneDrive location; Chat/Builder and Gemini use their supported ZIP-upload screens.**
 
 | Host | Current download | What to add |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ The suite contains one root `SKILL.md` with valid `name` and `description` metad
 
 **Packaging correction in v1.5.1:** the earlier v1.5.0 suite has 29 companions, exceeding Cowork's documented 20-companion limit. The grouped layout retains every complete workflow while reducing the suite to ten files overall. The reviewed Excel page does not specify that ceiling; it cannot diagnose an Excel rejection. [Host-specific limits and troubleshooting](COPILOT.md#troubleshoot-unsupported-invalid-import-limit-or-responsible-ai-errors)
 
-This is one installed skill with multiple workflows. It does not register 29 separate skills, install Python or Power BI, enable a connector, or expand a host's permissions or limits. The individual packages remain available for more narrowly scoped installations. No native import or model-routing success is inferred from a valid ZIP.
+This is one installed skill with multiple workflows. It does not register each workflow separately, install Python or Power BI, enable a connector, or expand a host's permissions or limits. The individual packages remain available for more narrowly scoped installations. No native import or model-routing success is inferred from a valid ZIP.
 
 Microsoft documents a matching-name skill folder for [Excel](https://support.microsoft.com/en-gb/excel/copilot/copilot-in-excel-skills), a root `SKILL.md` with supporting files for [Copilot Chat](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills), and a complete ZIP for [Agent Builder](https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills). Google documents [one skill with reference files per import](https://support.google.com/gemini/answer/18977944?hl=en) and [reading supporting files as needed](https://support.google.com/gemini/answer/17102773). These package-format sources were reviewed on **2026-11-26**; routing behavior remains subject to a representative check in the actual host.
 
@@ -36,7 +36,7 @@ Example: “Use finance-suite to validate this dated account mapping, retain unm
 3. Add the inner `finance-suite` folder there, with its `SKILL.md` and nine files under `references/`. Keep `finance-suite` identical to the name in the metadata. Uploading the archive or its version-named outer folder will not provide that required structure.
 4. Wait for upload or sync, select **Refresh**, and invoke **`@finance-suite`**. Enable automatic use if desired.
 
-This is one folder addition containing all 29 workflows. The main `SKILL.md` alone lacks their complete procedures. Preserve approved private additions before replacing an old folder; replace the previous reference set as a whole. Confirm recognition and supporting-file access in the actual account. [Requirements and exact Excel setup](COPILOT.md#3-copilot-in-excel)
+This is one folder addition containing all 30 workflows. The main `SKILL.md` alone lacks their complete procedures. Preserve approved private additions before replacing an old folder; replace the previous reference set as a whole. Confirm recognition and supporting-file access in the actual account. [Requirements and exact Excel setup](COPILOT.md#3-copilot-in-excel)
 
 ## Copilot Cowork
 

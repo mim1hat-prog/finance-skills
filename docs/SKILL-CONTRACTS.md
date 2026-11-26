@@ -1,6 +1,6 @@
 # Workflow contracts and validation coverage
 
-Generated from catalog.json for version 1.6.0.
+Generated from catalog.json for version 1.9.0.
 
 These contracts describe triggers, inputs, outputs, modes and source support. Shared controls are included in every generated host skill. Package tests do not prove that a live finance workflow is production-ready. Conditional execution requires the actual host, authorization, exact target and payload, preconditions and independent verification. Native work-account validation remains outstanding.
 
@@ -12,7 +12,7 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Inputs:** requested objective; existing workbook or relevant approved sources.
 
-**Outputs:** concise completed result; material unresolved gap.
+**Outputs:** verified result with decision-relevant detail; material unresolved gap.
 
 **Modes:** inspect, prepare, validate. **Conditional:** execute, verify.
 
@@ -22,7 +22,7 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Workflow tests:** `tests/test_workflow_controls.py::WorkflowControlsTests.test_granularity_and_three_streams_do_not_backfill_internal_inputs`.
 
-**Native status:** not validated in the approved work account. **Research IDs:** `project-finance-design`.
+**Native status:** not validated in the approved work account. **Research IDs:** `project-finance-design`, `pal`, `chain-of-verification`, `reasoning-self-correction-limits`.
 
 ## Work tool routing (`work-tool-routing`)
 
@@ -62,11 +62,11 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 ## Workforce reconciliation (`workforce-reconciliation`)
 
-**Triggers:** reconcile headcount, capacity or personnel cost.
+**Triggers:** reconcile HC, PC or personnel cost.
 
 **Inputs:** approved populations and dates; workforce/cost snapshots; effective mappings and measure definitions.
 
-**Outputs:** separate headcount/FTE/cost bridges; unresolved mapping or granularity gap.
+**Outputs:** separate HC/PC/cost bridges; unresolved mapping or granularity gap.
 
 **Modes:** inspect, prepare, validate. **Conditional:** execute, verify.
 
@@ -94,7 +94,7 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Workflow tests:** `tests/test_finance_tools.py::FinanceControls.test_quantity_rate_fx_bridge_closes_and_handles_zero_quantity`, `tests/test_finance_tools.py::FinanceControls.test_bridge_exact_at_supported_numeric_extremes`.
 
-**Native status:** not validated in the approved work account. **Research IDs:** `alfred-realtime`, `fpp-tscv`, `meti-iip`, `upstream-scientific-skills`.
+**Native status:** not validated in the approved work account. **Research IDs:** `alfred-realtime`, `fpp-tscv`, `meti-iip`, `upstream-scientific-skills`, `tashman-rolling-origins`.
 
 ## Power BI analysis (`power-bi-analysis`)
 
@@ -130,7 +130,7 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Workflow tests:** No automated end-to-end workflow coverage claimed.
 
-**Native status:** not validated in the approved work account. **Research IDs:** `upstream-anthropic-skills`.
+**Native status:** not validated in the approved work account. **Research IDs:** `upstream-anthropic-skills`, `graphical-perception`.
 
 ## Business document (`business-document`)
 
@@ -184,7 +184,25 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Workflow tests:** No automated end-to-end workflow coverage claimed.
 
-**Native status:** not validated in the approved work account. **Research IDs:** `upstream-anthropic-skills`.
+**Native status:** not validated in the approved work account. **Research IDs:** `upstream-anthropic-skills`, `spreadsheetbench`.
+
+## Spreadsheet design (`spreadsheet-design`)
+
+**Triggers:** design or review finance workbook presentation.
+
+**Inputs:** workbook or relevant ranges; audience and approved style when available.
+
+**Outputs:** requested scoped workbook formatting or located design findings.
+
+**Modes:** inspect, prepare, validate. **Conditional:** execute, verify.
+
+**Dependencies:** shared `workflow-controls-v1`; optional native-artifact-edit.
+
+**Package tests:** `tests/test_build_install.py::PackagingTests.test_all_packages_are_deterministic_standalone_and_exact`.
+
+**Workflow tests:** No automated end-to-end workflow coverage claimed.
+
+**Native status:** not validated in the approved work account. **Research IDs:** `graphical-perception`, `finance-workbook-design`.
 
 ## Analytical SQL (`analytical-sql`)
 
@@ -220,7 +238,7 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Workflow tests:** No automated end-to-end workflow coverage claimed.
 
-**Native status:** not validated in the approved work account. **Research IDs:** `copilot-researcher`, `crossref-updates`, `gemini-deep-research`, `project-finance-design`, `upstream-ecc`, `upstream-valyu`.
+**Native status:** not validated in the approved work account. **Research IDs:** `copilot-researcher`, `crossref-updates`, `gemini-deep-research`, `project-finance-design`, `upstream-ecc`, `upstream-valyu`, `alce`.
 
 ## Reproducible analysis (`reproducible-analysis`)
 
@@ -310,7 +328,7 @@ Workflow-test links identify partial deterministic helper checks. Their presence
 
 **Workflow tests:** No automated end-to-end workflow coverage claimed.
 
-**Native status:** not validated in the approved work account. **Research IDs:** `upstream-d3-viz`.
+**Native status:** not validated in the approved work account. **Research IDs:** `upstream-d3-viz`, `graphical-perception`.
 
 ## Power Query pipeline (`power-query-etl`)
 

@@ -1,6 +1,6 @@
 # Repository coverage and public-data inventory
 
-Version **1.6.0** · release date **2026-11-26** · generated offline from the committed sources.
+Version **1.9.0** · release date **2026-11-27** · generated offline from the committed sources.
 
 These descriptive counts make implemented scope and remaining gaps visible. They do not measure model accuracy, task success or effectiveness in a work account.
 
@@ -14,11 +14,11 @@ The denominator is the complete canonical skill catalogue, including the Excel a
 
 | Measurement | Numerator / denominator | Definition |
 | --- | --- | --- |
-| Declared workflow contracts | 29 / 29 (100%) | Skills with structured inputs, outputs and execution conditions |
-| Active source mappings | 29 / 29 (100%) | Skills linked to an active registry source with a matching stated use |
-| Declared package-test links | 29 / 29 (100%) | Skills naming at least one resolvable local package test |
-| Declared workflow-test links | 12 / 29 (41.4%) | Skills naming at least one resolvable local workflow test; full task coverage is not implied |
-| Native execution evidence | 0 / 29 (0%) | Skills with an accepted native-account validation record; currently none is supported by the public contract |
+| Declared workflow contracts | 30 / 30 (100%) | Skills with structured inputs, outputs and execution conditions |
+| Active source mappings | 30 / 30 (100%) | Skills linked to an active registry source with a matching stated use |
+| Declared package-test links | 30 / 30 (100%) | Skills naming at least one resolvable local package test |
+| Declared workflow-test links | 12 / 30 (40%) | Skills naming at least one resolvable local workflow test; full task coverage is not implied |
+| Native execution evidence | 0 / 30 (0%) | Skills with an accepted native-account validation record; currently none is supported by the public contract |
 
 ### Scope by task category
 
@@ -30,7 +30,7 @@ Categories are the project's editorial grouping, not an external financial taxon
 | Analysis | 4 |
 | Controls | 5 |
 | Core | 2 |
-| Design | 2 |
+| Design | 3 |
 | Pipeline | 2 |
 | Planning | 5 |
 | Reporting | 5 |
@@ -38,15 +38,15 @@ Categories are the project's editorial grouping, not an external financial taxon
 
 ### Explicit gaps
 
-Skills without a declared workflow-test link: `business-document`, `cash-working-capital`, `corporate-style`, `design-review`, `document-extraction`, `evidence-research`, `interactive-visualization`, `management-presentation`, `power-bi-analysis`, `process-diagram`, `project-context`, `reproducible-analysis`, `scenario-planning`, `sharepoint-evidence`, `spreadsheet-modeling`, `video-storyboard`, `work-tool-routing`.
+Skills without a declared workflow-test link: `business-document`, `cash-working-capital`, `corporate-style`, `design-review`, `document-extraction`, `evidence-research`, `interactive-visualization`, `management-presentation`, `power-bi-analysis`, `process-diagram`, `project-context`, `reproducible-analysis`, `scenario-planning`, `sharepoint-evidence`, `spreadsheet-design`, `spreadsheet-modeling`, `video-storyboard`, `work-tool-routing`.
 
 All host workflows still require a representative check in the actual approved Copilot/Gemini account. Local package and helper checks cannot establish host activation, tool access or answer quality.
 
 ## Research and tool inventory
 
-The registry has **89 records: 88 active and 1 candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.
+The registry has **99 records: 98 active and 1 candidate**. Candidates are excluded from active skill support. Active records can be standards, provider documentation, software references or project design decisions; this total is not a count of peer-reviewed experiments.
 
-Active empirical-research sources: 0; excluded empirical candidates: 1. Source mappings describe stated uses, not measured model efficacy.
+Active empirical-research sources: 6; excluded empirical candidates: 1. Source mappings describe stated uses, not measured model efficacy.
 
 ### Active source composition
 
@@ -54,14 +54,14 @@ Each registry record has one declared source type. Counts cover active records o
 
 | Source type | Active records |
 | --- | ---: |
-| Provider documentation | 40 |
+| Provider documentation | 42 |
 | Software references | 24 |
 | Standards | 9 |
+| Empirical research | 6 |
 | Data licences | 5 |
 | Metadata guidance | 5 |
-| Method guides | 3 |
-| Project design | 2 |
-| Empirical research | 0 |
+| Method guides | 4 |
+| Project design | 3 |
 
 ### Review status
 
@@ -72,7 +72,7 @@ These status counts include both active records and candidates.
 | carried-forward | 16 |
 | needs-review | 1 |
 | reviewed | 40 |
-| reviewed-with-limitations | 32 |
+| reviewed-with-limitations | 42 |
 
 The tool catalogue contains **30 capabilities/products**. Availability labels remain separate from installation or integration evidence.
 

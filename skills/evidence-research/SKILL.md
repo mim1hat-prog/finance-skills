@@ -20,7 +20,7 @@ Answer the question with evidence that the user can inspect. Keep claim-to-sourc
 ### 1. Define the evidence needed
 
 1. Break the question into a few answerable claims. Identify the exact fact, comparison, mechanism, or uncertainty each source needs to resolve.
-2. Establish definitions before comparing sources. Examples include a product's current availability versus announcement, planned investment versus committed spending, headcount versus FTE, and a calendar-year total versus a fiscal-year total.
+2. Establish definitions before comparing sources. Examples include a product's current availability versus announcement, planned investment versus committed spending, HC versus PC, and a calendar-year total versus a fiscal-year total.
 3. Note the user's timeframe and the actual current date when the host supplies it. If current time is unknown, do not invent an as-of date or claim a search is current.
 4. Choose a stopping condition: enough evidence for the decision, a defined research scope completed, or a material source/access gap that cannot be resolved with available tools. Avoid endless repeated searches that add no new evidence.
 
@@ -44,7 +44,7 @@ Answer the question with evidence that the user can inspect. Keep claim-to-sourc
 5. Make causal claims only when the evidence supports them. An association, company explanation, or sequence of events is not automatically a demonstrated causal effect.
 6. Treat absence of a result cautiously. Say "not found in the sources checked" when that is what happened; do not claim that a feature, event, study, or rule does not exist merely because search missed it.
 
-7. Independently recheck consequential claims against a separate authoritative record or calculation, including a plausible contradictory explanation. For research-based methods, check the publisher's edition, corrections, updates and retraction status when available; a paper's existence does not validate its use on this dataset. After resolving an error, repeat the affected checks, not every unrelated search.
+7. Match citations to the complete claim, including entity, measure, time period, units and caveats. Split or qualify claims when evidence supports only part. Open cited evidence and distinguish conflicting results or superseded material. Independently recheck consequential claims against a separate authoritative record or calculation, including a plausible contradictory explanation. For research-based methods, check the publisher's edition, corrections, updates and retraction status when available; a paper's existence does not validate its use on this dataset. After resolving an error, repeat the affected checks, not every unrelated search.
 
 ### 4. Keep claims traceable
 

@@ -1,6 +1,6 @@
 ---
 name: power-bi-analysis
-description: "Analyze or draft Power BI measures, DAX, Power Query transformations, and semantic-model checks for headcount, FTE, workforce cost, actual-versus-plan, and management reporting. Use when a measure has wrong totals, duplicate counts, filter-context issues, or a reporting definition needs implementation."
+description: "Analyze or draft Power BI measures, DAX, Power Query transformations, and semantic-model checks for HC, PC, workforce cost, actual-versus-plan, and management reporting. Use when a measure has wrong totals, duplicate counts, filter-context issues, or a reporting definition needs implementation."
 ---
 
 # Power BI analysis
@@ -16,7 +16,7 @@ Read the relevant tables, columns, data types, keys, relationships, existing mea
 Establish these definitions before calculating:
 
 - Population and grain: person, assignment, contract, position, transaction, or person-period snapshot.
-- Metric: distinct headcount, contractual FTE, paid hours, average FTE, or monetary cost.
+- Metric: distinct HC, contractual PC, paid hours, average PC, or monetary cost.
 - Time basis: closing snapshot, average during a period, or sum of flows; fiscal calendar and effective-date boundaries.
 - Currency, conversion basis, unit scale, actual/plan scenario, and favorable/unfavorable convention.
 - Handling of blanks, unmapped keys, zero denominators, starters/leavers, transfers, and concurrent assignments.
@@ -48,7 +48,7 @@ Keep the deliverable in the approved work environment. Use aggregated or synthet
 ## Quality checks
 
 - Confirm all identifiers and data types against the available schema.
-- Check headcount versus FTE and stock versus flow before checking arithmetic.
+- Check HC versus PC and stock versus flow before checking arithmetic.
 - Reconcile at the same filters, currency, reporting date, and source revision.
 - Distinguish a formula review, an executed query, an independently reconciled result, and a published model. Report only the achieved level.
 - Preserve row-level-security assumptions; test access roles only through an available authorized testing capability.

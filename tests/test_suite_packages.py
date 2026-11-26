@@ -236,16 +236,16 @@ class GroupedSuitePackagingTests(unittest.TestCase):
                 **{f"references/group-{number}.md": b"# Reference\n\nKeep approved inputs.\n"
                    for number in range(count)}}
 
-    def test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions(self):
+    def test_grouped_packages_keep_all_workflows_in_nine_companions(self):
         expected_resources = {f"references/{category}.md" for category in (
             "agent-setup", "core", "controls", "planning", "analysis", "reporting",
             "design", "research", "pipeline")}
         names = {row["name"] for row in self.catalog["skills"]}
-        self.assertEqual(len(names), 29)
+        self.assertEqual(len(names), 30)
         self.assertEqual(self.manifest["schemaVersion"], 2)
         self.assertEqual(self.manifest["layoutVersion"], 2)
         self.assertEqual(self.manifest["companionFileCountPerPackage"], 9)
-        self.assertEqual(self.manifest["workflowCount"], 29)
+        self.assertEqual(self.manifest["workflowCount"], 30)
         self.assertEqual(self.manifest["registrationCountPerPackage"], 1)
         repeated = SuitePackagingTests.generate_catalog(self.catalog)
         self.assertEqual(self.outputs[Path("packages/suites/manifest.json")],
@@ -259,7 +259,7 @@ class GroupedSuitePackagingTests(unittest.TestCase):
                 self.assertEqual(record["layoutVersion"], 2)
                 self.assertEqual(record["companionFileCount"], 9)
                 self.assertEqual(record["fileCount"], 10)
-                self.assertEqual(record["workflowCount"], 29)
+                self.assertEqual(record["workflowCount"], 30)
                 self.assertEqual(record["nativeStatus"], "not-validated")
                 self.assertEqual(record["packageSha256"], hashlib.sha256(payload).hexdigest())
                 self.assertEqual(record["packageBytes"], len(payload))
@@ -280,11 +280,11 @@ class GroupedSuitePackagingTests(unittest.TestCase):
                     self.assertIn("Invoke `finance-suite` and select that section", text)
                     self.assertIn("Copying this root alone does not include the referenced procedures", text)
                     routes = re.findall(r"^- \[[^\n]+\]\((references/[^)]+)\), `([^`]+)`:", text, re.M)
-                    self.assertEqual(len(routes), 29)
+                    self.assertEqual(len(routes), 30)
                     self.assertEqual({name for _, name in routes}, names)
                     route_by_name = {name: path for path, name in routes}
                     self.assertEqual(set(route_by_name.values()), expected_resources)
-                    self.assertEqual(len(record["workflows"]), 29)
+                    self.assertEqual(len(record["workflows"]), 30)
                     self.assertEqual({row["name"] for row in record["workflows"]}, names)
                     all_section_names = []
                     for content in resources.values():
@@ -336,13 +336,13 @@ class GroupedSuitePackagingTests(unittest.TestCase):
                 self.assertEqual(set(packed.namelist()), {"SKILL.md"} | {
                     f"references/{name}.md" for name in self.sources})
 
-    def test_portability_guard_rejects_legacy_thirty_file_shape(self):
+    def test_portability_guard_rejects_ungrouped_current_workflows(self):
         legacy_catalog = deepcopy(self.catalog)
         legacy_catalog["suitePackageVersion"] = 1
         legacy = SuitePackagingTests.generate_catalog(legacy_catalog)
         with zipfile.ZipFile(io.BytesIO(legacy[Path("packages/suites/finance-suite-copilot.zip")])) as packed:
             members = {name: packed.read(name) for name in packed.namelist()}
-        self.assertEqual(len(members), 30)
+        self.assertEqual(len(members), 1 + len(legacy_catalog["skills"]))
         with self.assertRaisesRegex(ValueError, "20-companion"):
             build.validate_portable_suite_members(members)
 

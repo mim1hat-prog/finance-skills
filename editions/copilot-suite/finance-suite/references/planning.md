@@ -14,7 +14,7 @@ Read the complete section for the selected workflow. Each section retains its ca
 
 # Workforce reconciliation
 
-Reconcile a defined workforce population and explain evidenced differences. Use workbook calculations for the complete accessible population, then inspect totals and material exceptions. Keep counts, FTE, positions, movements, and costs distinct.
+Reconcile a defined workforce population and explain evidenced differences. Use workbook calculations for the complete accessible population, then inspect totals and material exceptions. Keep HC, PC, positions, movements, and costs distinct.
 
 ## Inputs and operating boundary
 
@@ -31,7 +31,7 @@ Reconcile a defined workforce population and explain evidenced differences. Use 
 Keep closing headcount, average capacity, direct/indirect personnel cost, contingent labor, overtime and productivity distinct. Each needs its own population, period basis and unit. A productivity numerator and denominator must cover the same work and time; duplicate or transferred employee records are data-quality questions, not performance findings.
 
 1. Define **headcount** using the approved eligibility rule and unique person key at a specific cutoff. Define how multiple contracts or concurrent assignments count at each reporting level.
-2. Define **FTE** using the approved working-time basis. Do not equate it with headcount, paid hours, or budgeted positions. Sum validated assignment FTE only when the reporting rule makes assignments additive; flag overlapping assignments or unexpected totals for review.
+2. Define **HC (Headcount)** as the count of eligible people and **PC (Personnel Capacity)** as capacity expressed in full-time equivalents using the approved working-time basis. Keep paid hours and budgeted positions distinct. Preserve the source field names and workbook formulas. Sum validated assignment PC only when the reporting rule makes assignments additive; flag overlapping assignments or unexpected totals for review.
 3. Keep occupied positions, open positions, permanent/temporary employees, and external workers separate unless the approved reporting definition combines them.
 4. Record the effective-date convention, including whether an end date is the last active day or the first inactive day. For example, `start <= cutoff AND (end is blank OR end > cutoff)` is valid only when the source defines the end date as exclusive. Do not silently choose a convention.
 5. Preserve fiscal calendars, local time/cutoff conventions, and currency display units from the source. Do not assume a Japan-related report uses a particular fiscal year or JPY scale.
@@ -40,12 +40,12 @@ Keep closing headcount, average capacity, direct/indirect personnel cost, contin
 
 1. Inspect only relevant columns, row counts, date ranges, keys, filters, and refresh status. An accessible snapshot does not prove the upstream HR extract is complete.
 2. Check missing person/assignment keys, duplicate records at the intended grain, conflicting active records, and inconsistent employment status. Do not delete duplicates until their cause and intended grain are understood.
-3. Apply organizational and cost-center mappings for the applicable effective date. Count unmatched records and overlapping mapping intervals. Ensure a join does not multiply employees, FTE, or cost.
+3. Apply organizational and cost-center mappings for the applicable effective date. Count unmatched records and overlapping mapping intervals. Ensure a join does not multiply employees, PC, or cost.
 4. Align both comparison sources to the same population, cutoff, and definition before declaring a discrepancy. Separate definition, timing, mapping, and coverage differences from actual staffing changes.
 
-### 3. Reconcile headcount and FTE
+### 3. Reconcile HC and PC
 
-1. Calculate distinct eligible people and approved FTE across all available in-scope records. Let Excel or another available deterministic calculation do the row-level work; review summaries and exception counts first.
+1. Calculate distinct eligible people and approved PC across all available in-scope records. Let Excel or another available deterministic calculation do the row-level work; review summaries and exception counts first.
 2. Build the bridge using mutually exclusive, consistently signed movements:
 
    ```text
@@ -57,7 +57,7 @@ Keep closing headcount, average capacity, direct/indirect personnel cost, contin
 
    Use positive counts for hires, exits, and transfer magnitudes in this expression; record scope changes and adjustments with explicit signs. Classify each event once. Do not count a transfer as both a hire/exit and a transfer at the same reporting level.
 3. At a company-wide perimeter, internal transfers should cancel if the underlying population and dates align. At a site/cost-center perimeter, show incoming and outgoing transfers separately. Explain changes in perimeter explicitly.
-4. Reconcile FTE with its own bridge. Contractual-hours changes, assignment splits, leave treatment, and proration can change FTE without changing headcount. Do not reuse the headcount bridge as an FTE calculation.
+4. Reconcile PC with its own bridge. Contractual-hours changes, assignment splits, leave treatment, and proration can change PC without changing HC. Do not reuse the HC bridge to calculate PC.
 5. If splitting data, partition without overlap and deduplicate person keys across partitions before combining distinct counts. A person assigned to multiple cost centers may make subgroup headcounts nonadditive; show the total as a separately calculated distinct count.
 
 ### 4. Reconcile cost when requested
@@ -68,7 +68,7 @@ Before projecting, reconcile actuals, the approved capacity target and confirmed
 
 1. Separate recurring pay, employer contributions, overtime/premiums, bonuses, severance, accruals, external labor, and other components according to the approved account mapping.
 2. Align transaction dates, service periods, accrual treatment, FX basis, allocation rules, and proration. Check that allocated costs tie to the source total and that allocations do not duplicate source transactions.
-3. Distinguish headcount, FTE, paid hours, and average-cost denominators. Do not divide a full-period cost by a closing snapshot and label it average employee cost without explaining the basis.
+3. Distinguish HC, PC, paid hours, and average-cost denominators. Do not divide a full-period cost by a closing snapshot and label it average employee cost without explaining the basis.
 4. Reconcile to an approved payroll/ledger/report control when available. If no independent control is accessible, report internal reconciliation only.
 
 ## Return
@@ -76,7 +76,7 @@ Before projecting, reconcile actuals, the approved capacity target and confirmed
 Lead with the reconciled measure and remaining difference. Provide:
 
 1. **Scope:** period/cutoff, population, version, unit, and approved measure definitions.
-2. **Bridge:** opening, each supported movement category, expected closing, observed closing, and unexplained difference. Include a separate FTE/cost bridge only when requested and supported.
+2. **Bridge:** opening, each supported movement category, expected closing, observed closing, and unexplained difference. Include a separate PC/cost bridge only when requested and supported.
 3. **Exceptions:** counts and quantified impact where possible, grouped by duplicate, missing mapping, timing, definition, or source-coverage issue. Keep employee-level detail in the approved workbook when necessary.
 4. **Evidence:** traceable source file/table/range/report references available inside the work environment. Distinguish observed facts, proposed explanations, and missing evidence.
 5. **Next action:** identify the specific missing source or definition needed to clear a material difference. Do not invent an owner, approval, or missing actual.
@@ -84,14 +84,14 @@ Lead with the reconciled measure and remaining difference. Provide:
 ## Completion criteria
 
 - Reconcile the same population and cutoff across sources.
-- Keep headcount, FTE, positions, contracts, and cost distinct.
+- Keep HC, PC, positions, contracts, and cost distinct.
 - Explain transfer treatment at the chosen perimeter and prevent join/event double counting.
 - Show every unexplained difference, including zero only when actually calculated.
 - Never convert an arithmetic tie into a claim that source records or business rules are fully correct.
 
 ## Example prompt
 
-"Use workforce-reconciliation to reconcile opening and closing headcount and FTE for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources."
+"Use workforce-reconciliation to reconcile opening and closing HC and PC for the selected month. Separate hires, exits, internal transfers, and working-time changes; show the unexplained difference and trace it to the available Excel sources."
 
 ## Workflow: forecast-variance
 
@@ -165,6 +165,8 @@ Carry forward only approved assumptions. Keep the base forecast separate from in
 1. Rank material drivers by absolute impact while preserving their signs. Separate observed arithmetic, supported business explanations, and hypotheses requiring confirmation.
 2. Cite available work source references for each material conclusion. A bridge establishes an allocation of difference; it does not independently prove a causal business story.
 3. If the data supports the total but not a detailed decomposition, return the verified total and the specific inputs needed for the bridge. Do not fabricate a complete explanation.
+
+When the user asks to evaluate forecast accuracy, use several historical forecast origins and score each decision-relevant horizon separately. At each origin use only information actually available at that cutoff. Compare the supplied forecast and a transparent baseline, such as last known value, on the same complete cases. Report coverage, mean absolute error and signed bias by horizon, including the sign convention. Flag missing forecasts or actuals and keep revised vintages separate. An in-sample fit cannot verify historical forecast accuracy.
 
 ## Return
 

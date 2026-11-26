@@ -1,6 +1,12 @@
 # Validation and remaining evidence gaps
 
-## Current release: v1.6.0
+## Current release: v1.9.0
+
+The individual Copilot and Gemini editions, grouped suites and Excel profile carry the quality-first defaults. The Excel OneDrive download carries the complete Copilot suite folder. The suites contain 30 workflow sections in nine supporting files and their roots stay below the 20,000-character limit.
+
+Offline verification covers deterministic generation, exact packaged workflows, source mappings, evaluation fixture integrity and historical releases. The [quality-first guide](QUALITY-FIRST.md) records the reasoning-project review and what managed hosts expose. The release gate ran 200 tests with both pinned optional libraries present under Python 3.12 using a case-sensitive temporary volume. The generated catalogue loaded 30 workflows in a headless browser, exposed the new workflow through search and loaded the coverage image at desktop and phone widths. Local tests cover repository and helper behavior. Native import, tool availability, editing, recalculation and model outcomes in the intended accounts remain unverified.
+
+## Historical validation for v1.6.0
 
 This page separates software and package checks from actual assistant behavior. **Native Copilot/Gemini import, supporting-file access and task execution remain unverified.** The owner identified Copilot in Excel with its OneDrive folder route; a documentation match is not an installation receipt.
 

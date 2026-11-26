@@ -16,7 +16,7 @@ Turn the available evidence into a concise presentation for a defined management
 ## Build the evidence and message
 
 1. Reuse verified totals, definitions, and exceptions from the supplied analysis. Let Excel or another available calculation capability compute new totals; do not estimate material figures from a chart or silently calculate over an unknown subset of rows. Record any computation's inputs and method.
-2. Keep actuals, budgets, forecasts, estimates, targets, and scenarios distinct. State dates, comparison baseline, currency, scale, and units. Distinguish headcount from FTE and monthly measures from year-to-date or full-year measures. Preserve the source's fiscal calendar and variance sign convention.
+2. Keep actuals, budgets, forecasts, estimates, targets, and scenarios distinct. State dates, comparison baseline, currency, scale, and units. Distinguish HC from PC and monthly measures from year-to-date or full-year measures. Preserve the source's fiscal calendar and variance sign convention.
 3. Track material claims, values, source locations, periods and qualifications in working context to verify the deck. Do not create an evidence ledger or audit artifact unless requested. Cite an accessible workbook sheet/table/range, report section/page, or slide number; do not invent references.
 4. Separate observed changes from proposed explanations. A variance is not proof of its cause. Present unsupported explanations as hypotheses with the evidence needed to confirm them. Reconcile the headline figures with supporting tables before building a chart.
 5. Organize the deck around the decision. A useful default is: executive takeaway and requested decision; performance versus baseline; material drivers and exceptions; outlook with assumptions and risks; actions and owners. Include only sections supported by the task. Keep routine reconciliation checks internal; add an audit/reconciliation appendix only when requested. Include definitions needed to interpret the business result in the relevant slide or notes.
@@ -30,6 +30,8 @@ Turn the available evidence into a concise presentation for a defined management
 - Keep text concise enough for the selected layout. Move context, caveats, definitions, and source detail into speaker notes or an appendix without concealing a caveat that changes the slide's meaning.
 - Prefer editable text, tables, and charts when the available tools support them. Keep data and labels readable, use adequate contrast, and avoid relying on color alone. Use language-appropriate fonts from the approved template or the available Office environment.
 - For review-only requests, report findings without changing the deck. For edit requests, preserve unrelated content, data, slide order, and the author's intended argument unless changing them is part of the request.
+
+For magnitude comparisons, prefer aligned positions on a common scale when appropriate. Use a consistent scale for comparable panels and show negative values and relevant uncertainty. Choose the encoding that matches the question.
 
 ## Verify the result
 

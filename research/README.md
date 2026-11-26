@@ -19,12 +19,14 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | ID | Evidence type | Review | Exact skills |
 | --- | --- | --- | --- |
 | [`agent-skills-spec`](#agent-skills-spec) | normative-standard | reviewed | Implementation / registry |
+| [`alce`](#alce) | empirical-research | reviewed-with-limitations | `evidence-research` |
 | [`alfred-realtime`](#alfred-realtime) | provider-documentation | reviewed | `benchmark-lookup`, `forecast-variance` |
 | [`alfred-vintages`](#alfred-vintages) | provider-documentation | reviewed | `benchmark-lookup` |
 | [`anthropic-finance-repository-design`](#anthropic-finance-repository-design) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`anthropic-skill-evaluation-protocol`](#anthropic-skill-evaluation-protocol) | method-guide | reviewed-with-limitations | Implementation / registry |
 | [`boj-cgpi`](#boj-cgpi) | provider-documentation | reviewed-with-limitations | `benchmark-lookup` |
 | [`boj-terms`](#boj-terms) | data-license | reviewed-with-limitations | Implementation / registry |
+| [`chain-of-verification`](#chain-of-verification) | empirical-research | reviewed-with-limitations | `excel-agent-core` |
 | [`citation-file-format-1.2`](#citation-file-format-12) | normative-standard | reviewed | Implementation / registry |
 | [`copilot-agent-builder-import`](#copilot-agent-builder-import) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-chat-skill-format`](#copilot-chat-skill-format) | provider-documentation | reviewed | Implementation / registry |
@@ -36,6 +38,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`copilot-responsible-ai-validation`](#copilot-responsible-ai-validation) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-skills`](#copilot-skills) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-upload-troubleshooting`](#copilot-upload-troubleshooting) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-web-search-policy`](#copilot-web-search-policy) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`crossref-updates`](#crossref-updates) | metadata-guidance | reviewed | `evidence-research` |
 | [`datacite-metadata`](#datacite-metadata) | metadata-guidance | reviewed | Implementation / registry |
 | [`ecb-data-usage`](#ecb-data-usage) | data-license | reviewed | Implementation / registry |
@@ -44,6 +47,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`estat-terms`](#estat-terms) | data-license | reviewed | Implementation / registry |
 | [`fair-principles`](#fair-principles) | metadata-guidance | reviewed | `benchmark-lookup`, `reproducible-analysis` |
 | [`fastapi-readme-onboarding`](#fastapi-readme-onboarding) | software-reference | reviewed-with-limitations | Implementation / registry |
+| [`finance-workbook-design`](#finance-workbook-design) | project-design | reviewed-with-limitations | `spreadsheet-design` |
 | [`fpp-tscv`](#fpp-tscv) | method-guide | reviewed | `forecast-variance`, `reproducible-analysis`, `scenario-planning` |
 | [`gemini-deep-research`](#gemini-deep-research) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
 | [`gemini-skill-package-resources`](#gemini-skill-package-resources) | provider-documentation | reviewed | Implementation / registry |
@@ -61,6 +65,7 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`github-social-preview`](#github-social-preview) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`google-search-starter`](#google-search-starter) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`google-structured-data-policy`](#google-structured-data-policy) | metadata-guidance | reviewed-with-limitations | Implementation / registry |
+| [`graphical-perception`](#graphical-perception) | empirical-research | reviewed-with-limitations | `interactive-visualization`, `management-presentation`, `spreadsheet-design` |
 | [`joss-review-criteria`](#joss-review-criteria) | method-guide | reviewed-with-limitations | Implementation / registry |
 | [`json-schema-2020-12`](#json-schema-2020-12) | normative-standard | reviewed | Implementation / registry |
 | [`m4-competition`](#m4-competition) | empirical-research | needs-review | Candidate; no active use |
@@ -71,13 +76,18 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`ollama-readme-downloads`](#ollama-readme-downloads) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`openapi-3.1`](#openapi-31) | normative-standard | reviewed | Implementation / registry |
 | [`openbb-community-entrypoints`](#openbb-community-entrypoints) | software-reference | reviewed-with-limitations | Implementation / registry |
+| [`pal`](#pal) | empirical-research | reviewed-with-limitations | `excel-agent-core` |
+| [`power-bi-copilot-overview`](#power-bi-copilot-overview) | provider-documentation | reviewed-with-limitations | Implementation / registry |
 | [`project-finance-design`](#project-finance-design) | project-design | reviewed | `close-controls`, `connected-reporting`, `evidence-research`, `excel-agent-core`, `fx-allocation-preflight`, `provision-reconciliation`, `workforce-reconciliation` |
+| [`reasoning-self-correction-limits`](#reasoning-self-correction-limits) | empirical-research | reviewed-with-limitations | `excel-agent-core` |
 | [`rfc9457`](#rfc9457) | normative-standard | reviewed | Implementation / registry |
 | [`schema-software-source-code`](#schema-software-source-code) | metadata-guidance | reviewed-with-limitations | Implementation / registry |
 | [`scientific-skills-repository-practice`](#scientific-skills-repository-practice) | software-reference | reviewed-with-limitations | Implementation / registry |
 | [`semantic-versioning-2.0.0`](#semantic-versioning-200) | normative-standard | reviewed | Implementation / registry |
 | [`spdx-license-identifiers`](#spdx-license-identifiers) | normative-standard | reviewed | Implementation / registry |
+| [`spreadsheetbench`](#spreadsheetbench) | empirical-research | reviewed-with-limitations | `spreadsheet-modeling` |
 | [`synthetic-fixtures`](#synthetic-fixtures) | project-design | reviewed | Implementation / registry |
+| [`tashman-rolling-origins`](#tashman-rolling-origins) | method-guide | reviewed-with-limitations | `forecast-variance` |
 | [`tool-fabric`](#tool-fabric) | provider-documentation | reviewed | `connected-reporting`, `power-bi-analysis` |
 | [`tool-m365`](#tool-m365) | provider-documentation | reviewed | `sharepoint-evidence`, `work-tool-routing` |
 | [`tool-planning-analytics`](#tool-planning-analytics) | provider-documentation | reviewed-with-limitations | `connected-reporting` |
@@ -129,6 +139,29 @@ Only source links, factual metadata and original implementation summaries are in
   **Limits:** Format portability does not establish host availability, script execution permissions or unlimited context. This repository uses a deliberately narrow metadata profile.
   **Paths:** [`scripts/build.py`](../scripts/build.py), [`docs/STANDARDS.md`](../docs/STANDARDS.md), [`CONTRIBUTING.md`](../CONTRIBUTING.md)
   **Tests:** `tests/test_build_install.py::PackagingTests.test_invalid_names_unbundled_resources_and_bom_fail`
+
+## alce
+
+**[Enabling Large Language Models to Generate Text with Citations](https://aclanthology.org/2023.emnlp-main.398/)**
+
+ACL; Tianyu Gao et al.. Year: 2023. Edition: EMNLP 2023.
+
+Type: `empirical-research`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+DOI: [10.18653/v1/2023.emnlp-main.398](https://doi.org/10.18653/v1/2023.emnlp-main.398).
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://aclanthology.org/2023.emnlp-main.398/); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Tianyu Gao et al.
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Check that sources support all material parts of a claim and omit irrelevant citations.
+  **Supporting section:** Citation correctness and completeness
+  **Limits:** Public question-answering results do not measure enterprise search or tenant coverage.
+  **Paths:** [`skills/evidence-research/SKILL.md`](../skills/evidence-research/SKILL.md)
 
 ## alfred-realtime
 
@@ -261,6 +294,29 @@ The official notice requires advance permission for commercial copying/reproduct
   **Paths:** [`scripts/benchmark_data.py`](../scripts/benchmark_data.py), [`benchmarks/catalog.json`](../benchmarks/catalog.json), [`scripts/benchmark_collect.py`](../scripts/benchmark_collect.py)
   **Tests:** `tests/test_benchmarks.py::BenchmarkDatasetTests.test_rights_gate_blocks_before_fetch`
 
+## chain-of-verification
+
+**[Chain-of-Verification Reduces Hallucination in Large Language Models](https://aclanthology.org/2024.findings-acl.212/)**
+
+ACL; Shehzaad Dhuliawala et al.. Year: 2024. Edition: Findings of ACL 2024.
+
+Type: `empirical-research`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+DOI: [10.18653/v1/2024.findings-acl.212](https://doi.org/10.18653/v1/2024.findings-acl.212).
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://aclanthology.org/2024.findings-acl.212/); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Shehzaad Dhuliawala et al.
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Turn tentative conclusions into separately checked factual and calculation questions.
+  **Supporting section:** Factored verification questions
+  **Limits:** Use independent records or computations where available. The paper does not validate this pack or production finance tasks.
+  **Paths:** [`skills/excel-agent-core/SKILL.md`](../skills/excel-agent-core/SKILL.md)
+
 ## citation-file-format-1.2
 
 **[Citation File Format: schema and guide](https://citation-file-format.github.io/)**
@@ -348,7 +404,7 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Create custom skills; Build a skill manually in OneDrive
   **Limits:** The generic reported import error does not identify its validation branch or the exact Copilot surface. A compliant local package is not evidence of native acceptance.
   **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
-  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
+  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_ungrouped_current_workflows`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
 
 ## copilot-cowork-package-validation
 
@@ -370,7 +426,7 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Companion file limits; Companion file validation
   **Limits:** The source describes plugin packaging. This project adopts its stricter companion constraints as a portability policy for standalone suites; it does not turn the suite into a Microsoft 365 app package.
   **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
-  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
+  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_ungrouped_current_workflows`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
 
 ## copilot-cowork-upload
 
@@ -392,7 +448,7 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Upload a skill or plugin
   **Limits:** Cowork container limits do not establish Agent Builder or Excel limits, content acceptance or tenant availability.
   **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
-  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
+  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_ungrouped_current_workflows`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
 
 ## copilot-excel-skills
 
@@ -500,6 +556,27 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Accepted formats; Troubleshoot skills that do not load
   **Limits:** This page describes the Copilot Studio Microsoft Copilot harness. Its troubleshooting does not prove the cause of an unseen rejected file or establish identical parsers across all Copilot products.
   **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md)
+
+## copilot-web-search-policy
+
+**[Data, privacy, and security for web search in Microsoft Copilot and Microsoft Copilot Chat](https://learn.microsoft.com/en-us/copilot/microsoft-365/manage-public-web-access)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Online provider documentation.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://learn.microsoft.com/en-us/copilot/microsoft-365/manage-public-web-access); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Treat Copilot web grounding as tenant- and session-dependent.
+  **Supporting section:** Availability and source controls
+  **Limits:** Provider documentation does not establish feature availability in the current work account.
+  **Paths:** [`adapters/copilot.md`](../adapters/copilot.md), [`docs/QUALITY-FIRST.md`](../docs/QUALITY-FIRST.md)
 
 ## crossref-updates
 
@@ -686,6 +763,27 @@ Only bibliographic metadata, a public link and an original limited summary are i
   **Supporting section:** README opening; Installation; Example
   **Limits:** The source supports an onboarding design choice only. No FastAPI code, branding, testimonials, sponsorship content or performance claims are copied, and no finance or native-agent efficacy is established.
   **Paths:** [`README.md`](../README.md), [`assets/readme-hero.svg`](../assets/readme-hero.svg), [`docs/DISCOVERY.md`](../docs/DISCOVERY.md)
+
+## finance-workbook-design
+
+**[Finance workbook presentation and preservation](https://github.com/mim1hat-prog/finance-skills)**
+
+Finance skills; Finance skills. Year: 2026. Edition: Local design standard.
+
+Type: `project-design`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://github.com/mim1hat-prog/finance-skills); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Finance skills
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Apply approved templates, restrained hierarchy and numeric presentation within scoped ranges.
+  **Supporting section:** Spreadsheet design and verification
+  **Limits:** Local workflow guidance without an empirical effect claim.
+  **Paths:** [`skills/spreadsheet-design/SKILL.md`](../skills/spreadsheet-design/SKILL.md)
 
 ## fpp-tscv
 
@@ -1053,6 +1151,29 @@ Only bibliographic metadata, a public link and an original limited summary are i
   **Limits:** Correct structured data does not guarantee a rich result or ranking. SoftwareSourceCode metadata does not itself establish eligibility for a supported Google search feature.
   **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`scripts/project_discovery.py`](../scripts/project_discovery.py), [`site/index.html`](../site/index.html)
 
+## graphical-perception
+
+**[Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design](https://idl.uw.edu/papers/crowdsourcing-graphical-perception)**
+
+ACM; Jeffrey Heer and Michael Bostock. Year: 2010. Edition: CHI 2010 author version.
+
+Type: `empirical-research`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+DOI: [10.1145/1753326.1753357](https://doi.org/10.1145/1753326.1753357).
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://idl.uw.edu/papers/crowdsourcing-graphical-perception); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Jeffrey Heer and Michael Bostock
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Use aligned position and common scales for appropriate comparison tasks.
+  **Supporting section:** Magnitude judgments with position and other visual encodings
+  **Limits:** Visual encoding results do not validate workbook functionality, styling or every chart task.
+  **Paths:** [`skills/spreadsheet-design/SKILL.md`](../skills/spreadsheet-design/SKILL.md), [`skills/interactive-visualization/SKILL.md`](../skills/interactive-visualization/SKILL.md), [`skills/management-presentation/SKILL.md`](../skills/management-presentation/SKILL.md)
+
 ## joss-review-criteria
 
 **[JOSS review criteria](https://joss.readthedocs.io/en/latest/review_criteria.html)**
@@ -1271,6 +1392,48 @@ Only bibliographic metadata, a public link and an original limited summary are i
   **Limits:** Only onboarding and community routes are compared. No OpenBB runtime, service availability or financial-data accuracy is asserted.
   **Paths:** [`docs/DISCOVERY.md`](../docs/DISCOVERY.md), [`SUPPORT.md`](../SUPPORT.md)
 
+## pal
+
+**[PAL: Program-aided Language Models](https://proceedings.mlr.press/v202/gao23f.html)**
+
+PMLR; Luyu Gao et al.. Year: 2023. Edition: ICML 2023.
+
+Type: `empirical-research`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://proceedings.mlr.press/v202/gao23f.html); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Luyu Gao et al.
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Use an available calculator or spreadsheet engine and inspect the actual result.
+  **Supporting section:** Program-aided execution
+  **Limits:** The paper tests benchmark problems. It does not establish Excel recalculation or current model performance.
+  **Paths:** [`skills/excel-agent-core/SKILL.md`](../skills/excel-agent-core/SKILL.md)
+
+## power-bi-copilot-overview
+
+**[Copilot in Power BI overview](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Online provider documentation.
+
+Type: `provider-documentation`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-introduction); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Scope Power BI work to the semantic model, capacity, permissions and host capabilities available.
+  **Supporting section:** Availability and source controls
+  **Limits:** Provider documentation does not establish feature availability in the current work account.
+  **Paths:** [`adapters/copilot.md`](../adapters/copilot.md), [`docs/QUALITY-FIRST.md`](../docs/QUALITY-FIRST.md)
+
 ## project-finance-design
 
 **[Finance Skills product and operating design](https://github.com/mim1hat-prog/finance-skills)**
@@ -1304,6 +1467,27 @@ Original project decisions are distinguished from external evidence; this softwa
   **Supporting section:** Bounded diligence, evidence sufficiency and independent verification
   **Limits:** These are original operating instructions. They cannot guarantee exhaustive retrieval, increase host context or runtime limits, override permissions, or justify repeated identical failed requests.
   **Paths:** [`skills/excel-agent-core/SKILL.md`](../skills/excel-agent-core/SKILL.md), [`skills/evidence-research/SKILL.md`](../skills/evidence-research/SKILL.md), [`adapters/workflow-controls.md`](../adapters/workflow-controls.md), [`docs/RESEARCH-POLICY.md`](../docs/RESEARCH-POLICY.md)
+
+## reasoning-self-correction-limits
+
+**[Large Language Models Cannot Self-Correct Reasoning Yet](https://arxiv.org/abs/2310.01798)**
+
+ICLR; Jie Huang et al.. Year: 2024. Edition: ICLR 2024 author version.
+
+Type: `empirical-research`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://arxiv.org/abs/2310.01798); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Jie Huang et al.
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Require new evidence or an independent method for consequential checks.
+  **Supporting section:** Intrinsic self-correction experiments
+  **Limits:** Findings concern the tested models and tasks and do not establish a universal limitation.
+  **Paths:** [`skills/excel-agent-core/SKILL.md`](../skills/excel-agent-core/SKILL.md)
 
 ## rfc9457
 
@@ -1414,6 +1598,27 @@ Only source links, factual metadata and original implementation summaries are in
   **Limits:** An SPDX identifier describes a licence; it does not grant new rights, establish compatibility or relicense upstream data and documents.
   **Paths:** [`LICENSE`](../LICENSE), [`CITATION.cff`](../CITATION.cff), [`upstream.lock.json`](../upstream.lock.json), [`docs/STANDARDS.md`](../docs/STANDARDS.md)
 
+## spreadsheetbench
+
+**[SpreadsheetBench: Towards Challenging Real World Spreadsheet Manipulation](https://arxiv.org/abs/2406.14991)**
+
+NeurIPS; Pingchuan Ma et al.. Year: 2024. Edition: NeurIPS 2024 author version.
+
+Type: `empirical-research`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://arxiv.org/abs/2406.14991); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Pingchuan Ma et al.
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Check representative workbook variations and inspect target and dependent cells.
+  **Supporting section:** Evaluation with multiple workbook variants
+  **Limits:** No upstream benchmark files are copied. Stored formulas and cached values do not establish native recalculation.
+  **Paths:** [`skills/spreadsheet-modeling/SKILL.md`](../skills/spreadsheet-modeling/SKILL.md)
+
 ## synthetic-fixtures
 
 **[Independently invented public-benchmark test fixtures](https://github.com/mim1hat-prog/finance-skills)**
@@ -1435,6 +1640,29 @@ Applies to the original test fixtures only; this repository licence does not rel
   **Limits:** Synthetic observations are explicitly separate from the actual public dataset and never used as an unannounced fallback.
   **Paths:** [`tests/test_benchmarks.py`](../tests/test_benchmarks.py), [`benchmarks/README.md`](../benchmarks/README.md)
   **Tests:** `tests/test_benchmarks.py::BenchmarkDatasetTests.test_after_cutoff_revision_never_uses_latest`, `tests/test_benchmarks.py::BenchmarkDatasetTests.test_partial_month_and_rebase_reject_changes`
+
+## tashman-rolling-origins
+
+**[Out-of-sample tests of forecasting accuracy: an analysis and review](https://doi.org/10.1016/S0169-2070(00)00065-0)**
+
+International Journal of Forecasting; Leonard J. Tashman. Year: 2000. Edition: Volume 16, issue 4.
+
+Type: `method-guide`. Review: `reviewed-with-limitations`. Accessed: 2026-11-27; last reviewed: 2026-11-27. Maintainer: Research and data maintainer.
+
+Primary material or author version reviewed for the stated use. No correction or retraction notice was visible in the reviewed record.
+
+DOI: [10.1016/S0169-2070(00)00065-0](https://doi.org/10.1016/S0169-2070(00)00065-0).
+
+Rights: [Publisher terms; bibliographic metadata and original summaries only](https://doi.org/10.1016/S0169-2070(00)00065-0); checked 2026-11-27. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Leonard J. Tashman
+
+No source text, code, weights, workbook or data is bundled.
+
+- **Use:** Evaluate each required horizon from valid historical origins on aligned forecast and baseline cases.
+  **Supporting section:** Out-of-sample forecast origins and horizons
+  **Limits:** Historical results depend on vintage coverage, chosen origins, measures and baseline.
+  **Paths:** [`skills/forecast-variance/SKILL.md`](../skills/forecast-variance/SKILL.md)
 
 ## tool-fabric
 

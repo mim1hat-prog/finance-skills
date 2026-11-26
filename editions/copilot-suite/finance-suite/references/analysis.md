@@ -24,7 +24,7 @@ Read the relevant tables, columns, data types, keys, relationships, existing mea
 Establish these definitions before calculating:
 
 - Population and grain: person, assignment, contract, position, transaction, or person-period snapshot.
-- Metric: distinct headcount, contractual FTE, paid hours, average FTE, or monetary cost.
+- Metric: distinct HC, contractual PC, paid hours, average PC, or monetary cost.
 - Time basis: closing snapshot, average during a period, or sum of flows; fiscal calendar and effective-date boundaries.
 - Currency, conversion basis, unit scale, actual/plan scenario, and favorable/unfavorable convention.
 - Handling of blanks, unmapped keys, zero denominators, starters/leavers, transfers, and concurrent assignments.
@@ -56,7 +56,7 @@ Keep the deliverable in the approved work environment. Use aggregated or synthet
 ## Quality checks
 
 - Confirm all identifiers and data types against the available schema.
-- Check headcount versus FTE and stock versus flow before checking arithmetic.
+- Check HC versus PC and stock versus flow before checking arithmetic.
 - Reconcile at the same filters, currency, reporting date, and source revision.
 - Distinguish a formula review, an executed query, an independently reconciled result, and a published model. Report only the achieved level.
 - Preserve row-level-security assumptions; test access roles only through an available authorized testing capability.
@@ -93,7 +93,7 @@ Create a model that another person can understand, update, and check. Preserve f
 1. Inspect an existing workbook's relevant sheets, tables, named ranges, formulas, formatting, and required macros or external links before modifying it. Preserve its working structure where possible. Do not create extra worksheets simply to follow a preferred layout.
 2. Separate source inputs, adjustable assumptions, calculations, and user-facing results logically. Use distinct ranges in existing sheets. Create a new worksheet only when the user specifically requests one or requests a new workbook; do not add a worksheet merely to impose a preferred model or audit layout.
 3. State the grain of every input and output table, such as one row per product and month. Define keys and join relationships before linking tables. Preserve text identifiers and leading zeros.
-4. Record units alongside labels: currency, thousands/millions, hours, people, FTE, percentages, and period basis. Do not mix monthly flows with closing balances or combine currencies without a stated conversion rule.
+4. Record units alongside labels: currency, thousands/millions, hours, HC (people), PC (approved full-time-equivalent capacity), percentages, and period basis. Do not mix monthly flows with closing balances or combine currencies without a stated conversion rule.
 5. Identify editable assumptions and their source, effective date, and reasonable domain. Distinguish a user-provided assumption from an observed value and a proposed default. Use a clearly labeled assumption when the task permits one; do not fabricate a missing actual.
 
 ### 2. Implement transparent calculations
@@ -123,6 +123,8 @@ Create a model that another person can understand, update, and check. Preserve f
 4. Recalculate using an available spreadsheet engine when the task requires evaluated results. A file-writing library can write a formula without evaluating it. Reading a cached value does not prove the formula was recalculated after the latest change.
 5. Distinguish **formula inspected**, **formula evaluated**, and **cached value observed**. If no calculation engine is available, state that the formulas were prepared but recalculation remains unverified, and provide the precise open/recalculate/check steps for the target spreadsheet application.
 6. Inspect the saved output when the host permits it: formulas remain formulas, expected sheets/ranges exist, required formatting is readable, and the file opens. Do not claim macros, external connections, charts, or an entire workbook were preserved unless checked. Avoid round-tripping a feature-rich workbook through a tool that cannot preserve its required features.
+
+Read back edited cells and representative unchanged formulas, identifiers and dependencies. If the same rule applies across layouts, test representative variations such as reordered columns, text identifiers, zero PC and missing PC. Distinguish stored formulas and cached values from recalculation observed in the host.
 
 ## Output
 

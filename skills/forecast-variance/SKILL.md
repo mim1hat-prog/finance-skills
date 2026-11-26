@@ -74,6 +74,8 @@ Carry forward only approved assumptions. Keep the base forecast separate from in
 2. Cite available work source references for each material conclusion. A bridge establishes an allocation of difference; it does not independently prove a causal business story.
 3. If the data supports the total but not a detailed decomposition, return the verified total and the specific inputs needed for the bridge. Do not fabricate a complete explanation.
 
+When the user asks to evaluate forecast accuracy, use several historical forecast origins and score each decision-relevant horizon separately. At each origin use only information actually available at that cutoff. Compare the supplied forecast and a transparent baseline, such as last known value, on the same complete cases. Report coverage, mean absolute error and signed bias by horizon, including the sign convention. Flag missing forecasts or actuals and keep revised vintages separate. An in-sample fit cannot verify historical forecast accuracy.
+
 ## Return
 
 Lead with the net variance, unit, period, scenarios, and sign convention. Give a compact bridge with columns for **driver**, **signed impact**, **calculation/basis**, and **evidence**. Show baseline, actual, residual, and whether the bridge reconciles. Finish with the most consequential supported explanation, an explicit material gap if present, and the decision or follow-up the available evidence can support.

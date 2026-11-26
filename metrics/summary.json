@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
   "measurementType": "descriptive-repository-inventory",
-  "projectVersion": "1.6.0",
-  "releaseDate": "2026-11-26",
+  "projectVersion": "1.9.0",
+  "releaseDate": "2026-11-27",
   "sourceReviewDates": {
-    "skills": "2026-11-25",
+    "skills": "2026-11-27",
     "tools": "2026-11-25",
-    "research": "2026-11-26"
+    "research": "2026-11-27"
   },
   "skills": {
-    "count": 29,
+    "count": 30,
     "categories": {
       "Agent setup": 1,
       "Analysis": 4,
       "Controls": 5,
       "Core": 2,
-      "Design": 2,
+      "Design": 3,
       "Pipeline": 2,
       "Planning": 5,
       "Reporting": 5,
@@ -26,35 +26,35 @@
       "core": 8,
       "extended": 8,
       "specialist": 8,
-      "workflow pilots": 4
+      "workflow pilots": 5
     },
     "declaredContracts": {
-      "numerator": 29,
-      "denominator": 29,
+      "numerator": 30,
+      "denominator": 30,
       "percent": 100.0
     },
     "activeSourceMappings": {
-      "numerator": 29,
-      "denominator": 29,
+      "numerator": 30,
+      "denominator": 30,
       "percent": 100.0
     },
     "declaredPackageTestLinks": {
-      "numerator": 29,
-      "denominator": 29,
+      "numerator": 30,
+      "denominator": 30,
       "percent": 100.0
     },
     "declaredWorkflowTestLinks": {
       "numerator": 12,
-      "denominator": 29,
-      "percent": 41.4
+      "denominator": 30,
+      "percent": 40.0
     },
     "nativeExecutionEvidence": {
       "numerator": 0,
-      "denominator": 29,
+      "denominator": 30,
       "percent": 0.0
     },
     "nativeStatus": {
-      "not-validated": 29
+      "not-validated": 30
     },
     "withDeclaredWorkflowTests": [
       "account-mapping",
@@ -85,29 +85,30 @@
       "reproducible-analysis",
       "scenario-planning",
       "sharepoint-evidence",
+      "spreadsheet-design",
       "spreadsheet-modeling",
       "video-storyboard",
       "work-tool-routing"
     ]
   },
   "research": {
-    "registered": 89,
-    "active": 88,
+    "registered": 99,
+    "active": 98,
     "candidates": 1,
     "reviewStatus": {
       "carried-forward": 16,
       "needs-review": 1,
       "reviewed": 40,
-      "reviewed-with-limitations": 32
+      "reviewed-with-limitations": 42
     },
     "activeSourceTypes": {
       "data-license": 5,
-      "empirical-research": 0,
+      "empirical-research": 6,
       "metadata-guidance": 5,
-      "method-guide": 3,
+      "method-guide": 4,
       "normative-standard": 9,
-      "project-design": 2,
-      "provider-documentation": 40,
+      "project-design": 3,
+      "provider-documentation": 42,
       "software-reference": 24
     },
     "candidateSourceTypes": {
@@ -488,11 +489,11 @@
     },
     {
       "path": "catalog.json",
-      "sha256": "b2254e9bf8ab0a0c44e93e6c0b0a1a0126b5650970a2053df715220a293d06fa"
+      "sha256": "84434a975f7b90bdc0d58ac985860000ada23c2ec52851ca1add7d282f77f34b"
     },
     {
       "path": "research/sources.json",
-      "sha256": "ebf2506aa11cc72623be6eebecfe74e6672da1a99c79911bc23265ccd6efdbe7"
+      "sha256": "6cddb31da4ad356b2381ef74c7f356f3060655243fc12eed83f8bb5e84477ae3"
     },
     {
       "path": "tools/catalog.json",

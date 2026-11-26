@@ -4,8 +4,8 @@ type: software
 title: "Finance skills"
 authors:
   - name: "Finance Skills contributors"
-version: "1.6.0"
-date-released: "2026-11-26"
+version: "1.9.0"
+date-released: "2026-11-27"
 repository-code: "https://github.com/mim1hat-prog/finance-skills"
 license: MIT
 abstract: "Portable finance workflows for Microsoft 365 Copilot and Gemini, with local validation tools and a public benchmark dataset."

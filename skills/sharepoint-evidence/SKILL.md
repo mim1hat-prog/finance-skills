@@ -40,4 +40,4 @@ Lead with the supported conclusion and concise source locations. Separate facts,
 
 If a public template is requested, replace internal names and links with placeholders. Keep work evidence and any requested register in the approved tenant, separate from the public skill repository.
 
-Example request: “Find the approved November forecast and the latest headcount policy in this SharePoint site. Explain whether the forecast uses the policy's HC and FTE definitions, cite the exact locations, and list any inaccessible or conflicting evidence.”
+Example request: “Find the approved November forecast and the latest headcount policy in this SharePoint site. Explain whether the forecast uses the policy's HC and PC definitions, cite the exact locations, and list any inaccessible or conflicting evidence.”
