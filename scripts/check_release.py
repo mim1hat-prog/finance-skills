@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import redirect_stdout
 import json
 from pathlib import Path
 import sys
@@ -40,7 +41,9 @@ def main() -> int:
         else:
             result["commitIdentity"] = {"status": "not-checked", "scope": "Artifact validation only; supply --commit-export before publication and verify history completeness separately"}
         suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"))
-        tested = unittest.TextTestRunner(verbosity=1).run(suite)
+        # Helper tests may print progress; keep stdout as one machine-readable report.
+        with redirect_stdout(sys.stderr):
+            tested = unittest.TextTestRunner(verbosity=1).run(suite)
         if not tested.wasSuccessful():
             raise ValueError("Unit tests failed; no release was created or published")
         result["tests"] = {"run": tested.testsRun, "skipped": len(tested.skipped),

@@ -3684,7 +3684,7 @@
       "lastReviewedOn": "2026-11-26",
       "maintainerRole": "Research and release maintainer",
       "reviewStatus": "reviewed",
-      "reviewNotes": "Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.",
+      "reviewNotes": "Reviewed official import-format documentation. The supplied v1.5.0 suite was independently checked and has valid metadata; its generic native rejection does not identify the exact host or validation branch. The grouped suite preserves one registration and complete supporting procedures. Successful tenant import remains unverified.",
       "license": {
         "name": "Publisher document terms; links and summaries only",
         "termsUrl": "https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills",
@@ -3731,7 +3731,7 @@
       "lastReviewedOn": "2026-11-26",
       "maintainerRole": "Research and release maintainer",
       "reviewStatus": "reviewed",
-      "reviewNotes": "Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.",
+      "reviewNotes": "Reviewed official import-format documentation. The supplied v1.5.0 suite was independently checked and has valid metadata; its generic native rejection does not identify the exact host or validation branch. The grouped suite preserves one registration and complete supporting procedures. Successful tenant import remains unverified.",
       "license": {
         "name": "Publisher document terms; links and summaries only",
         "termsUrl": "https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills",
@@ -3889,6 +3889,197 @@
           "tests": [
             "tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members"
           ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-cowork-upload",
+      "type": "provider-documentation",
+      "title": "Customize Copilot Cowork",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-limit review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md",
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Upload a skill or plugin",
+          "purpose": "Distinguish the personal-skill import route and archive limits from per-skill companion limits; retain a root SKILL.md and shallow Markdown resources.",
+          "limits": "Cowork container limits do not establish Agent Builder or Excel limits, content acceptance or tenant availability.",
+          "tests": [
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-cowork-companions",
+      "type": "provider-documentation",
+      "title": "Use Copilot Cowork",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/copilot/cowork/use-cowork",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-limit review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/copilot/cowork/use-cowork",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md",
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Create custom skills; Build a skill manually in OneDrive",
+          "purpose": "Apply the 20-companion per-skill ceiling when packaging the complete suite; group complete canonical workflow sections into category files.",
+          "limits": "The generic reported import error does not identify its validation branch or the exact Copilot surface. A compliant local package is not evidence of native acceptance.",
+          "tests": [
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-cowork-package-validation",
+      "type": "provider-documentation",
+      "title": "Build plugins for Copilot Cowork",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-limit review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md",
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "Companion file limits; Companion file validation",
+          "purpose": "Use conservative companion byte limits and safe file paths, separately from the total archive-file count.",
+          "limits": "The source describes plugin packaging. This project adopts its stricter companion constraints as a portability policy for standalone suites; it does not turn the suite into a Microsoft 365 app package.",
+          "tests": [
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries",
+            "tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies"
+          ],
+          "distribution": "metadata-only"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "copilot-responsible-ai-validation",
+      "type": "provider-documentation",
+      "title": "Responsible AI validation",
+      "publisher": "Microsoft",
+      "authors": [
+        "Microsoft"
+      ],
+      "year": null,
+      "url": "https://learn.microsoft.com/en-us/plugins/responsible-ai-validation",
+      "doi": null,
+      "edition": "Living Microsoft documentation; import-limit review 26 November 2026",
+      "accessedOn": "2026-11-26",
+      "lastReviewedOn": "2026-11-26",
+      "maintainerRole": "Research and release maintainer",
+      "reviewStatus": "reviewed",
+      "reviewNotes": "Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.",
+      "license": {
+        "name": "Publisher document terms; links and summaries only",
+        "termsUrl": "https://learn.microsoft.com/en-us/plugins/responsible-ai-validation",
+        "attribution": "Microsoft",
+        "rawRedistribution": "not-applicable",
+        "derivedRedistribution": "not-applicable",
+        "checkedOn": "2026-11-26",
+        "notes": "Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry."
+      },
+      "uses": [
+        {
+          "skills": [],
+          "paths": [
+            "docs/COPILOT.md",
+            "docs/SINGLE-IMPORT.md",
+            "scripts/build.py",
+            "tests/test_suite_packages.py"
+          ],
+          "section": "RAI validation failures",
+          "purpose": "Keep import diagnostics distinct from platform content validation; do not infer a content-screening verdict from a combined generic error or claim that local tests reproduce it.",
+          "limits": "This source documents declarative-agent validation; it does not publish a deterministic local test for every personal-skill import surface.",
+          "tests": [],
           "distribution": "metadata-only"
         }
       ],

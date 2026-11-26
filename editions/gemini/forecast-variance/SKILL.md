@@ -124,4 +124,4 @@ For a forecast recommendation, state assumptions and scenarios separately from a
 
 ## Edition record
 
-Finance skills 1.5.0; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.
+Finance skills 1.5.1; gemini edition; source review 2026-11-25. This date records the package review, not the freshness of a user's business data.

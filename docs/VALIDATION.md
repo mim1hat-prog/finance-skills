@@ -2,6 +2,18 @@
 
 Checked **2026-11-26**. This record describes the evidence obtained in the build environment. It does not claim installation in a company account or execution on the Windows work PC.
 
+## v1.5.1 grouped-suite validation
+
+The supplied v1.5.0 Copilot ZIP matched the published archive exactly. Independent checks found valid YAML, UTF-8, root layout, safe paths, CRCs and references. Its 29 companion files nevertheless exceed the 20-companion per-skill limit documented for Cowork. The generic native rejection did not identify the exact Copilot surface or failed validation branch; no Responsible AI verdict is inferred.
+
+The updated offline gate passed **170 Python tests with zero skips** and reproduced **189 deterministic generated artifacts**. Fifteen suite tests include legacy compatibility, lossless category grouping, source/body byte ranges and hashes, routing completeness, malformed mappings and the separate companion/archive bounds. The old 29-companion package shape fails the new portability guard. Seventeen release tests cover the grouped-layout transition, exact full-project inclusion and preservation of prior snapshots.
+
+Each v1.5.1 suite contains **ten Markdown files: one root SKILL.md and nine category companions**, retaining all 29 canonical workflows. The Copilot root is 18,846 characters and the ZIP is 82,717 bytes; Gemini is 18,876 characters and 82,746 bytes. Both use the conservative decimal-byte limits recorded in the build. A separate archive audit with strict PyYAML parsing, direct section extraction and manifest byte-range checks independently confirmed all 29 complete bodies, routes, hashes and exact expanded inventories. The external suite manifest uses schema/layout version 2 and records a unique source-to-section mapping for every workflow. Canonical skill files and benchmark observations are unchanged. All 63 legacy-layout suite outputs reproduced their pre-edit hashes.
+
+A separate local task read the `close-controls` and `account-mapping` sections from the grouped controls reference. It reconciled independently invented extracts from 160.00 to 173.20, with a 13.20 change and zero arithmetic residual; the earlier-only and later-only IDs remained separately unmatched without an invented mapping. This checks local section routing on one synthetic case, not native Copilot/Gemini execution or general model accuracy.
+
+The registry now has 87 scoped sources with the five pre-existing rights/correction warnings. The public graph retains zero accepted native execution records and unchanged public observation/retrieval dates. The nested publication scan passed. The release gate routes helper-test progress to stderr so stdout remains a JSON report. Native import, supporting-file access and Microsoft platform content validation remain unverified for v1.5.1.
+
 ## v1.5.0 complete-suite validation
 
 The offline gate passed **161 Python tests with zero skips** and reproduced **229 generated artifacts**. Seven suite tests cover exact canonical reference contents, deterministic archives, root metadata and size limits, missing/unsafe resource paths, explicit feature flags and compatibility with individual packages. Release tests cover the new seven-archive schema, preservation of older formats and a suite payload changed after recomputing its checksums.

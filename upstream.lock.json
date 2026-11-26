@@ -607,7 +607,7 @@
     {
       "id": "m365-chat-authoring",
       "url": "https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills",
-      "reviewedOn": "2026-11-25",
+      "reviewedOn": "2026-11-26",
       "contentSha256": null
     },
     {
@@ -631,7 +631,7 @@
     {
       "id": "copilot-agent-builder",
       "url": "https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills",
-      "reviewedOn": "2026-11-25",
+      "reviewedOn": "2026-11-26",
       "contentSha256": null
     },
     {
@@ -685,6 +685,30 @@
         "power-bi-analysis",
         "power-query-etl"
       ]
+    },
+    {
+      "id": "copilot-cowork-upload",
+      "url": "https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize",
+      "reviewedOn": "2026-11-26",
+      "contentSha256": null
+    },
+    {
+      "id": "copilot-cowork-companions",
+      "url": "https://learn.microsoft.com/en-us/copilot/cowork/use-cowork",
+      "reviewedOn": "2026-11-26",
+      "contentSha256": null
+    },
+    {
+      "id": "copilot-cowork-package-validation",
+      "url": "https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development",
+      "reviewedOn": "2026-11-26",
+      "contentSha256": null
+    },
+    {
+      "id": "copilot-responsible-ai-validation",
+      "url": "https://learn.microsoft.com/en-us/plugins/responsible-ai-validation",
+      "reviewedOn": "2026-11-26",
+      "contentSha256": null
     }
   ]
 }

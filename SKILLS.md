@@ -1,6 +1,6 @@
 # Skills
 
-29 skills · version 1.5.0 · reviewed 2026-11-25
+29 skills · version 1.5.1 · reviewed 2026-11-25
 
 Choose one edition. Import its finance suite once for bundled workflows, or import selected individual skills. Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies.
 
@@ -18,7 +18,7 @@ Extract a bundle first, then use its individual skill ZIPs or follow its folder-
 
 [Copilot suite ZIP](packages/suites/finance-suite-copilot.zip?raw=1) · [Gemini suite ZIP](packages/suites/finance-suite-gemini.zip?raw=1) · [Member hashes and provenance](packages/suites/manifest.json)
 
-Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and 29 complete workflow references. Upload the selected suite ZIP unchanged. The host must be able to read its bundled references; verify this in the target account. This registers one skill, not every workflow separately, and does not increase host limits. Individual packages remain available.
+Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and 9 category reference files containing all 29 complete workflows. Upload the selected suite ZIP unchanged. The host must be able to read its bundled references; verify this in the target account. This registers one skill, not every workflow separately, and does not increase host limits. Individual packages remain available.
 
 ## Copy and paste
 

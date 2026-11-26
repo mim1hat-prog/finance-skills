@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.1 — 2026-11-26
+
+- Correct suite portability by grouping all 29 complete procedures into nine Markdown companion files, below Cowork's documented 20-companion ceiling. Preserve one import per host.
+- Add scoped companion/archive size gates, complete workflow section routing and byte-range/source-hash provenance. Preserve legacy suite generation and frozen releases.
+- Document the inspected v1.5.0 rejection without claiming its generic message identifies the failing check or a Responsible AI verdict. Distinguish Cowork, Chat, Agent Builder and Excel import routes.
+- Keep canonical finance instructions and public benchmark observations unchanged; require a separate native-account import and resource-access check.
+- Keep the release-gate JSON report on stdout while sending helper-test progress to stderr.
+
 ## 1.5.0 — 2026-11-26
 
 - Add a complete `finance-suite` native package for Copilot and Gemini: one import per host with all 29 workflow references.

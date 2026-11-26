@@ -6,9 +6,9 @@
 
 **Repeatable finance workflows for Excel reconciliation, FP&A, forecasting, financial controlling and management reporting.** One maintained library packages 29 workflows as a complete suite or individual skills for each assistant, with optional Python and Power BI tools for Windows.
 
-[**Copilot — all workflows, one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-copilot-suite.zip) · [**Gemini — all workflows, one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-gemini-suite.zip)
+[**Copilot — all workflows, one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-copilot-suite.zip) · [**Gemini — all workflows, one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-gemini-suite.zip)
 
-Upload the complete suite ZIP unchanged. It registers **one `finance-suite` skill containing all 29 workflow references**. [Single-import setup](docs/SINGLE-IMPORT.md) · [Markdown for pasting only](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-markdown.zip) · [Full project](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-full.zip)
+Upload the complete suite ZIP unchanged. It registers **one `finance-suite` skill containing all 29 complete workflows in nine reference files**. [Single-import setup](docs/SINGLE-IMPORT.md) · [Markdown for pasting only](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-markdown.zip) · [Full project](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-full.zip)
 
 [Quick start](#quick-start) · [Coverage](#coverage-at-a-glance) · [All skills](SKILLS.md) · [Downloads](#downloads) · [Copilot setup](docs/COPILOT.md) · [Gemini setup](docs/GEMINI.md) · [Help](SUPPORT.md)
 
@@ -19,7 +19,7 @@ Upload the complete suite ZIP unchanged. It registers **one `finance-suite` skil
 
 **29 skills** · **8/29** with workflow-test links · **0/29** with native execution evidence · **11/17** configured benchmark series with observations.
 
-Repository measurements: **v1.5.0**, release **2026-11-26**. The release date is not a provider retrieval date.
+Repository measurements: **v1.5.1**, release **2026-11-26**. The release date is not a provider retrieval date.
 
 - **`ecb-exr-api` (daily):** latest retained observation period per series **2026-11-24**; retrieval timestamp (UTC) **2026-11-25T03:07:56.456028Z**.
 - **`worldbank-pink-sheet` (monthly):** latest retained observation period per series **2026-10**; retrieval timestamp (UTC) **2026-11-25T03:07:50.858358Z**.
@@ -33,11 +33,13 @@ Generated from this branch’s canonical catalogue, research mappings, declared 
 
 ## Quick start
 
-1. **Download the complete suite for [Copilot](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-copilot-suite.zip) or [Gemini](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-gemini-suite.zip).** Each ZIP is one native skill with all 29 workflows.
+**Upgrading after an import rejection?** v1.5.1 groups the complete procedures into nine companion files. v1.5.0 had 29, exceeding Cowork's documented 20-companion limit. [What changed and which limits apply](docs/COPILOT.md#troubleshoot-unsupported-invalid-import-limit-or-responsible-ai-errors). Native acceptance in the target account remains a separate check.
+
+1. **Download the complete suite for [Copilot](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-copilot-suite.zip) or [Gemini](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-gemini-suite.zip).** Each ZIP is one native skill with all 29 workflows.
 2. **Upload the complete ZIP through your host's Skills screen**, then save and explicitly select `finance-suite`. For Excel's OneDrive route, follow the [single-import folder instructions](docs/SINGLE-IMPORT.md#copilot-in-excel).
 3. **Try the [invented reconciliation example](examples/QUICKSTART.md).** The two small CSVs reconcile from 350.30 to 365.35: a 15.05 difference with two unmatched records. Check that the host can read the selected workflow reference and compare the result before using a work task.
 
-For a smaller installation, choose an [individual Copilot](packages/copilot) or [Gemini](packages/gemini) workflow. For an Instructions field, extract the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-markdown.zip) and copy one relevant file's full text. Copy-only files have no native metadata and must not be uploaded through Skills → Add. [Import troubleshooting](docs/COPILOT.md#troubleshoot-invalid-skill-information)
+For a smaller installation, choose an [individual Copilot](packages/copilot) or [Gemini](packages/gemini) workflow. For an Instructions field, extract the [Markdown-only ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-markdown.zip) and copy one relevant file's full text. Copy-only files have no native metadata and must not be uploaded through Skills → Add. [Import troubleshooting](docs/COPILOT.md#troubleshoot-invalid-skill-information)
 
 The instructions use relevant internal evidence first, preserve existing workbook logic and verify calculations. They request no audit tables, extra worksheets or process commentary unless you ask for them. A local coding agent or API subscription is not required for the instruction workflow.
 
@@ -45,23 +47,23 @@ The instructions use relevant internal evidence first, preserve existing workboo
 
 ## Downloads
 
-**Current package: v1.5.0.** Choose a complete suite for one native import, Markdown for pasting instructions, or the full project for local tools and documentation.
+**Current package: v1.5.1.** Choose a complete suite for one native import, Markdown for pasting instructions, or the full project for local tools and documentation.
 
 | Package | What you receive | Download |
 | --- | --- | --- |
-| **Copilot complete suite** | One `finance-suite` skill with all 29 workflow references; upload this ZIP unchanged | [Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-copilot-suite.zip) |
-| **Gemini complete suite** | One `finance-suite` skill with all 29 workflow references; upload this ZIP unchanged | [Gemini suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-gemini-suite.zip) |
-| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-markdown.zip) |
-| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-copilot.zip) |
-| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-gemini.zip) |
-| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-all.zip) |
-| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.0/finance-skills-v1.5.0-full.zip) |
+| **Copilot complete suite** | One `finance-suite` skill with 29 complete workflows in nine reference files; upload this ZIP unchanged | [Copilot suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-copilot-suite.zip) |
+| **Gemini complete suite** | One `finance-suite` skill with 29 complete workflows in nine reference files; upload this ZIP unchanged | [Gemini suite ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-gemini-suite.zip) |
+| **Markdown only** | 60 `.md` files: 29 Copilot skills, 29 Gemini skills, Excel agent instructions and a start guide | [Markdown ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-markdown.zip) |
+| **Copilot** | 29 individual skill ZIPs, matching folders and Excel agent instructions | [Copilot ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-copilot.zip) |
+| **Gemini** | 29 individual skill ZIPs, matching folders, Gem-ready text and Excel agent instructions | [Gemini ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-gemini.zip) |
+| **All skills** | Both editions, 58 individual ZIPs, folders, Gem-ready text and Excel agent instructions | [All-skills ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-all.zip) |
+| **Full release** | All skills plus project sources, guides, public benchmark components, Python tools, tests and the visual catalogue | [Full ZIP](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/releases/v1.5.1/finance-skills-v1.5.1-full.zip) |
 
 For Markdown, open the relevant file in VS Code or Notepad and copy all its contents. Each file contains its complete edition-specific instructions without YAML headers; the archive contains no scripts, datasets or nested ZIPs. **Do not upload these files through Skills → Add.** Renaming a copy-only file to `SKILL.md` does not restore its required metadata.
 
 For the **complete suite ZIPs**, upload the file itself: one root `SKILL.md` routes to bundled workflow references. For the **Copilot/Gemini individual-package bundles, all-skills bundle and full project**, extract the outer ZIP first and select a native package. The suite appears as one installed skill; it does not create 29 separate entries or enable unavailable tools. [Package formats and replacement](docs/SINGLE-IMPORT.md)
 
-[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.5.0/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
+[Release notes and SHA-256 checksums](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/v1.5.1/README.md) · [All releases](releases/README.md) · [Versioning and verification](docs/RELEASES.md)
 
 ## Find a workflow
 

@@ -28,7 +28,11 @@ The research maintainer reviews publisher notices, editions and licence terms. R
 | [`citation-file-format-1.2`](#citation-file-format-12) | normative-standard | reviewed | Implementation / registry |
 | [`copilot-agent-builder-import`](#copilot-agent-builder-import) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-chat-skill-format`](#copilot-chat-skill-format) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-cowork-companions`](#copilot-cowork-companions) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-cowork-package-validation`](#copilot-cowork-package-validation) | provider-documentation | reviewed | Implementation / registry |
+| [`copilot-cowork-upload`](#copilot-cowork-upload) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-researcher`](#copilot-researcher) | provider-documentation | reviewed | `evidence-research`, `work-tool-routing` |
+| [`copilot-responsible-ai-validation`](#copilot-responsible-ai-validation) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-skills`](#copilot-skills) | provider-documentation | reviewed | Implementation / registry |
 | [`copilot-upload-troubleshooting`](#copilot-upload-troubleshooting) | provider-documentation | reviewed | Implementation / registry |
 | [`crossref-updates`](#crossref-updates) | metadata-guidance | reviewed | `evidence-research` |
@@ -286,7 +290,7 @@ Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft docu
 
 Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
 
-Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.
+Reviewed official import-format documentation. The supplied v1.5.0 suite was independently checked and has valid metadata; its generic native rejection does not identify the exact host or validation branch. The grouped suite preserves one registration and complete supporting procedures. Successful tenant import remains unverified.
 
 Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/plugins/agent-builder-add-skills); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
 
@@ -308,7 +312,7 @@ Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft docu
 
 Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
 
-Directly reviewed official documentation for the stated packaging and troubleshooting use. The reported rejected file was not supplied; no tenant import test or universal parser behavior is claimed. The one-import suite uses the documented supporting-file package structure; it remains one native registration, with host execution unverified.
+Reviewed official import-format documentation. The supplied v1.5.0 suite was independently checked and has valid metadata; its generic native rejection does not identify the exact host or validation branch. The grouped suite preserves one registration and complete supporting procedures. Successful tenant import remains unverified.
 
 Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
 
@@ -321,6 +325,72 @@ Only source links, factual metadata and original implementation summaries are in
   **Limits:** This documents personal Microsoft 365 Copilot Chat; host availability and successful tenant import remain separate observations.
   **Paths:** [`README.md`](../README.md), [`docs/COPILOT.md`](../docs/COPILOT.md), [`scripts/build.py`](../scripts/build.py), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
   **Tests:** `tests/test_suite_packages.py::SuitePackagingTests.test_suites_preserve_all_procedures_and_have_exact_stable_members`
+
+## copilot-cowork-companions
+
+**[Use Copilot Cowork](https://learn.microsoft.com/en-us/copilot/cowork/use-cowork)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-limit review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/copilot/cowork/use-cowork); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Apply the 20-companion per-skill ceiling when packaging the complete suite; group complete canonical workflow sections into category files.
+  **Supporting section:** Create custom skills; Build a skill manually in OneDrive
+  **Limits:** The generic reported import error does not identify its validation branch or the exact Copilot surface. A compliant local package is not evidence of native acceptance.
+  **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
+
+## copilot-cowork-package-validation
+
+**[Build plugins for Copilot Cowork](https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-limit review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Use conservative companion byte limits and safe file paths, separately from the total archive-file count.
+  **Supporting section:** Companion file limits; Companion file validation
+  **Limits:** The source describes plugin packaging. This project adopts its stricter companion constraints as a portability policy for standalone suites; it does not turn the suite into a Microsoft 365 app package.
+  **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
+
+## copilot-cowork-upload
+
+**[Customize Copilot Cowork](https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-limit review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Distinguish the personal-skill import route and archive limits from per-skill companion limits; retain a root SKILL.md and shallow Markdown resources.
+  **Supporting section:** Upload a skill or plugin
+  **Limits:** Cowork container limits do not establish Agent Builder or Excel limits, content acceptance or tenant availability.
+  **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
+  **Tests:** `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_portability_guard_rejects_legacy_thirty_file_shape`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_companion_count_and_byte_boundaries`, `tests/test_suite_packages.py::GroupedSuitePackagingTests.test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies`
 
 ## copilot-researcher
 
@@ -342,6 +412,27 @@ Only source links, factual metadata and original implementation summaries are in
   **Supporting section:** Researcher versus standard chat, source scope, eligible subscriptions and administrator enablement
   **Limits:** Researcher availability and source access must be observed in the account. Instructions cannot force a reasoning mode, grant work-source permissions, remove quotas or ensure that every relevant record was retrieved.
   **Paths:** [`skills/work-tool-routing/SKILL.md`](../skills/work-tool-routing/SKILL.md), [`skills/evidence-research/SKILL.md`](../skills/evidence-research/SKILL.md), [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/STANDARDS.md`](../docs/STANDARDS.md), [`adapters/workflow-controls.md`](../adapters/workflow-controls.md), [`docs/RESEARCH-POLICY.md`](../docs/RESEARCH-POLICY.md)
+
+## copilot-responsible-ai-validation
+
+**[Responsible AI validation](https://learn.microsoft.com/en-us/plugins/responsible-ai-validation)**
+
+Microsoft; Microsoft. Year: living documentation. Edition: Living Microsoft documentation; import-limit review 26 November 2026.
+
+Type: `provider-documentation`. Review: `reviewed`. Accessed: 2026-11-26; last reviewed: 2026-11-26. Maintainer: Research and release maintainer.
+
+Reviewed the official page for the scoped packaging or diagnostic decision below. No tenant import, platform safety verdict or native execution is asserted.
+
+Rights: [Publisher document terms; links and summaries only](https://learn.microsoft.com/en-us/plugins/responsible-ai-validation); checked 2026-11-26. Raw redistribution: `not-applicable`; derived redistribution: `not-applicable`.
+
+Attribution: Microsoft
+
+Only source links, factual metadata and original implementation summaries are included. No full specification or documentation is copied into this registry.
+
+- **Use:** Keep import diagnostics distinct from platform content validation; do not infer a content-screening verdict from a combined generic error or claim that local tests reproduce it.
+  **Supporting section:** RAI validation failures
+  **Limits:** This source documents declarative-agent validation; it does not publish a deterministic local test for every personal-skill import surface.
+  **Paths:** [`docs/COPILOT.md`](../docs/COPILOT.md), [`docs/SINGLE-IMPORT.md`](../docs/SINGLE-IMPORT.md), [`scripts/build.py`](../scripts/build.py), [`tests/test_suite_packages.py`](../tests/test_suite_packages.py)
 
 ## copilot-skills
 

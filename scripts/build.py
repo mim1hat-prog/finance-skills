@@ -19,6 +19,16 @@ NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 RESOURCE = re.compile(r"references/[a-z0-9]+(?:-[a-z0-9]+)*\.md\Z")
 EDITIONS = ("copilot", "gemini")
 SUITE_NAME = "finance-suite"
+# Decimal-byte ceilings are deliberately conservative where host docs say MB.
+# These are packaging gates, not a claim that every Copilot host has the same limits.
+SUITE_COMPANION_LIMIT = 20
+SUITE_COMPANION_BYTES = 5_000_000
+SUITE_TOTAL_COMPANION_BYTES = 10_000_000
+SUITE_ARCHIVE_BYTES = 10_000_000
+SUITE_EXPANDED_BYTES = 50_000_000
+WINDOWS_RESERVED = {"con", "prn", "aux", "nul"} | {
+    f"{prefix}{number}" for prefix in ("com", "lpt") for number in range(1, 10)
+}
 EXCEL_PROFILE = Path("profiles/excel-agent-instructions.txt")
 MARKDOWN_BUNDLE = Path("packages/markdown/finance-skills-markdown.zip")
 BUNDLE_EDITIONS = {
@@ -85,6 +95,112 @@ def json_bytes(value: object) -> bytes:
     return (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode()
 
 
+def suite_category_path(category: str) -> str:
+    """Map a declared ASCII catalogue category to a safe companion file."""
+    if not isinstance(category, str) or not re.fullmatch(r"[A-Za-z0-9]+(?:[ -][A-Za-z0-9]+)*", category):
+        raise ValueError("Suite grouping requires a nonempty, unambiguous catalogue category")
+    slug = category.lower().replace(" ", "-")
+    if slug in WINDOWS_RESERVED:
+        raise ValueError("Suite grouping uses a Windows reserved filename")
+    return f"references/{slug}.md"
+
+
+def validate_portable_suite_members(members: Mapping[str, bytes], packed: bytes | None = None) -> None:
+    """Apply the stricter documented companion limits to the grouped layout."""
+    if not isinstance(members, Mapping) or "SKILL.md" not in members:
+        raise ValueError("Portable suite needs one root SKILL.md")
+    resources = {path: content for path, content in members.items() if path != "SKILL.md"}
+    if len(resources) > SUITE_COMPANION_LIMIT:
+        raise ValueError("Portable suite exceeds the 20-companion-file ceiling")
+    parse_skill(members["SKILL.md"], SUITE_NAME, allowed_resources=resources)
+    for path, content in resources.items():
+        if Path(path).stem in WINDOWS_RESERVED:
+            raise ValueError("Portable suite uses a Windows reserved filename")
+        if len(content) > SUITE_COMPANION_BYTES:
+            raise ValueError("Portable suite companion exceeds the 5 MB ceiling")
+    if sum(map(len, resources.values())) > SUITE_TOTAL_COMPANION_BYTES:
+        raise ValueError("Portable suite companions exceed the 10 MB total ceiling")
+    if sum(map(len, members.values())) > SUITE_EXPANDED_BYTES:
+        raise ValueError("Portable suite exceeds the 50 MB expanded ceiling")
+    if packed is not None and len(packed) > SUITE_ARCHIVE_BYTES:
+        raise ValueError("Portable suite exceeds the 10 MB compressed ceiling")
+
+
+def validate_grouped_workflows(rows: list[dict], sources: Mapping[str, bytes],
+                               bodies: Mapping[str, str], resources: Mapping[str, bytes],
+                               workflows: list[dict]) -> None:
+    """Verify lossless source-to-section provenance, not merely the ZIP inventory."""
+    names = [row["name"] for row in rows]
+    records = {record["name"]: record for record in workflows}
+    if len(records) != len(workflows) or set(records) != set(names):
+        raise ValueError("Grouped suite needs each canonical workflow exactly once")
+    if {record["resource"] for record in workflows} != set(resources):
+        raise ValueError("Grouped suite has missing or unmapped resources")
+    for row in rows:
+        name = row["name"]
+        record = records[name]
+        path = suite_category_path(row["category"])
+        expected = (bodies[name] + "\n").encode("utf-8")
+        offset, length = record["bodyOffsetBytes"], record["bodyLengthBytes"]
+        if (record["resource"] != path or record["sectionHeading"] != f"Workflow: {name}"
+                or record["sourcePath"] != f"skills/{name}/SKILL.md"
+                or record["sourceSha256"] != sha(sources[name])
+                or record["bodySha256"] != sha(expected)
+                or type(offset) is not int or offset < 0
+                or type(length) is not int or length != len(expected)
+                or resources[path][offset:offset + length] != expected):
+            raise ValueError(f"Grouped suite source mapping differs for {name}")
+        header = f"## Workflow: {name}\n\n".encode("utf-8")
+        if resources[path][offset - len(header):offset] != header:
+            raise ValueError(f"Grouped suite section heading differs for {name}")
+        if sum(content.count(expected) for content in resources.values()) != 1:
+            raise ValueError(f"Grouped suite duplicates or omits canonical body {name}")
+    for path, content in resources.items():
+        found = re.findall(rb"^## Workflow: ([a-z0-9]+(?:-[a-z0-9]+)*)$", content, re.M)
+        expected_names = [record["name"] for record in workflows if record["resource"] == path]
+        if [name.decode("ascii") for name in found] != expected_names:
+            raise ValueError(f"Grouped suite section inventory differs for {path}")
+
+
+def grouped_suite_resources(rows: list[dict], sources: Mapping[str, bytes],
+                            bodies: Mapping[str, str]) -> tuple[dict[str, bytes], list[dict]]:
+    """Group whole canonical procedures by category without rewriting their bodies."""
+    groups: dict[str, list[dict]] = {}
+    categories: dict[str, str] = {}
+    for row in rows:
+        category = row.get("category")
+        path = suite_category_path(category)
+        if path in categories and categories[path] != category:
+            raise ValueError("Suite grouping categories collide after filename normalization")
+        categories[path] = category
+        groups.setdefault(path, []).append(row)
+    if len(groups) > SUITE_COMPANION_LIMIT:
+        raise ValueError("Portable suite exceeds the 20-companion-file ceiling")
+    resources = {}
+    records_by_name = {}
+    for path, selected in groups.items():
+        parts = [f"# {categories[path]} workflows", "",
+                 "Read the complete section for the selected workflow. Each section retains its canonical procedure.",
+                 "", "## Contents", ""]
+        for row in selected:
+            parts.append(f"- `{row['name']}` — {row['title']}")
+        content = ("\n".join(parts) + "\n\n").encode("utf-8")
+        for row in selected:
+            name = row["name"]
+            content += f"## Workflow: {name}\n\n".encode("utf-8")
+            body = (bodies[name] + "\n").encode("utf-8")
+            records_by_name[name] = {
+                "name": name, "sourcePath": f"skills/{name}/SKILL.md", "sourceSha256": sha(sources[name]),
+                "resource": path, "sectionHeading": f"Workflow: {name}",
+                "bodyOffsetBytes": len(content), "bodyLengthBytes": len(body), "bodySha256": sha(body),
+            }
+            content += body + b"\n"
+        resources[path] = content
+    workflows = [records_by_name[row["name"]] for row in rows]
+    validate_grouped_workflows(rows, sources, bodies, resources, workflows)
+    return resources, workflows
+
+
 def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
                        sources: dict[str, bytes], host_notes: dict[str, str],
                        shared: str) -> None:
@@ -94,11 +210,19 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
         raise ValueError("Suite sources must match the exact workflow catalogue")
     if "excel-agent-core" not in sources:
         raise ValueError("The finance suite requires canonical excel-agent-core defaults")
+    layout_version = catalog.get("suitePackageVersion", 1)
+    if type(layout_version) is not int or layout_version not in (1, 2):
+        raise ValueError("Unsupported suite package version")
     bodies = {name: parse_skill(data, name)[2] for name, data in sources.items()}
-    resources = {f"references/{name}.md": (bodies[name] + "\n").encode("utf-8")
-                 for name in names}
-    if len(resources) + 1 > 100:
-        raise ValueError("The finance suite exceeds the portable 100-file ceiling")
+    workflows = []
+    if layout_version == 2:
+        resources, workflows = grouped_suite_resources(catalog["skills"], sources, bodies)
+        workflow_routes = {record["name"]: record["resource"] for record in workflows}
+    else:
+        resources = {f"references/{name}.md": (bodies[name] + "\n").encode("utf-8")
+                     for name in names}
+        if len(resources) + 1 > 100:
+            raise ValueError("The finance suite exceeds the portable 100-file ceiling")
     # Keep every default procedure paragraph; only replace its top-level title.
     core_defaults = bodies["excel-agent-core"].partition("\n")[2].strip()
     if not core_defaults:
@@ -110,7 +234,10 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
             raise ValueError("Suite routing titles and summaries must be single lines")
         # Escape labels/text so catalogue punctuation cannot create another link.
         escape = lambda value: re.sub(r'([\\`*_\[\]<>()])', r'\\\1', value)
-        routes.append(f"- [{escape(title)}](references/{row['name']}.md): {escape(summary)}")
+        if layout_version == 2:
+            routes.append(f"- [{escape(title)}]({workflow_routes[row['name']]}), `{row['name']}`: {escape(summary)}")
+        else:
+            routes.append(f"- [{escape(title)}](references/{row['name']}.md): {escape(summary)}")
     index = "## Workflow index\n\n" + "\n".join(routes)
     description = (
         "Apply finance workflows for Excel, workforce planning, forecast variance, reconciliations, "
@@ -136,6 +263,13 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
         "and public benchmarks only as separately cited context. Keep routine checks internal and "
         "preserve existing business logic; do not add unsolicited audit tables, audit text or worksheets."
     )
+    if layout_version == 2:
+        routing = routing.replace(
+            "Read each selected reference completely before applying its procedure.",
+            "In its linked category file, find `## Workflow: <workflow-id>` and read that entire "
+            "workflow section before applying its procedure.")
+        routing += ("\n\nWorkflow IDs and examples that name an individual workflow refer to sections "
+                    "inside this suite. Invoke `finance-suite` and select that section; no separate skill is required.")
     records = []
     for edition in EDITIONS:
         adapter = host_notes.get(edition)
@@ -153,11 +287,15 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
         rendered = (front + "\n\n".join(parts) + "\n").encode("utf-8")
         parse_skill(rendered, SUITE_NAME, allowed_resources=resources)
         members = {"SKILL.md": rendered, **resources}
+        if layout_version == 2:
+            validate_portable_suite_members(members)
         folder = Path("editions") / f"{edition}-suite" / SUITE_NAME
         for name, content in members.items():
             outputs[folder / name] = content
         path = Path("packages/suites") / f"finance-suite-{edition}.zip"
         packed = archive_files(members)
+        if layout_version == 2:
+            validate_portable_suite_members(members, packed)
         outputs[path] = packed
         records.append({
             "kind": "single-registration-native-suite", "name": SUITE_NAME,
@@ -177,12 +315,16 @@ def add_suite_packages(outputs: dict[Path, bytes], catalog: dict,
             "sources": [{"name": name, "path": f"skills/{name}/SKILL.md",
                          "sha256": sha(sources[name])} for name in names],
         })
+        if layout_version == 2:
+            records[-1].update(layoutVersion=2, companionFileCount=len(resources),
+                               grouping="catalogue-category", workflows=workflows)
     outputs[Path("packages/suites/manifest.json")] = json_bytes({
-        "schemaVersion": 1, "kind": "single-registration-suite-index",
+        "schemaVersion": layout_version, "kind": "single-registration-suite-index",
         "version": catalog["version"], "name": SUITE_NAME,
         "workflowCount": len(names), "registrationCountPerPackage": 1,
         "import": "Upload one complete edition ZIP with its root SKILL.md and references together.",
         "packages": records,
+        **({"layoutVersion": 2, "companionFileCountPerPackage": len(resources)} if layout_version == 2 else {}),
     })
 
 
@@ -374,7 +516,7 @@ def generate(root: Path) -> dict[Path, bytes]:
         raise ValueError("Unsupported Markdown bundle version")
     suite_version = catalog.get("suitePackageVersion")
     if "suitePackageVersion" in catalog:
-        if type(suite_version) is not int or suite_version != 1:
+        if type(suite_version) is not int or suite_version not in (1, 2):
             raise ValueError("Unsupported suite package version")
         if type(markdown_version) is not int or markdown_version != 1:
             raise ValueError("Suite packages require Markdown bundle version 1")
@@ -470,7 +612,7 @@ def generate(root: Path) -> dict[Path, bytes]:
     add_transport_bundles(outputs, catalog)
     if markdown_version == 1:
         add_markdown_bundle(outputs, catalog)
-    if suite_version == 1:
+    if suite_version in (1, 2):
         add_suite_packages(outputs, catalog, canonical_sources, host_notes, shared)
     if presentation_version == 1:
         import project_discovery
@@ -480,7 +622,7 @@ def generate(root: Path) -> dict[Path, bytes]:
     site_data = dict(catalog, counts={"skills": len(names)})
     outputs[Path("site/catalog-data.js")] = ("// Generated by scripts/build.py.\nwindow.FINANCE_SKILLS = " + json.dumps(site_data, ensure_ascii=False, indent=2).replace("<", "\\u003c") + ";\n").encode()
     choice = ("Choose one edition. Import its finance suite once for bundled workflows, or import selected individual skills. "
-              if suite_version == 1 else "Choose one edition. Import each skill separately. ")
+              if suite_version in (1, 2) else "Choose one edition. Import each skill separately. ")
     choice += "Suggested Agent Builder groups each contain at most eight skills; they are optional selections, not dependencies."
     index = ["# Skills", "", f"{len(names)} skills · version {catalog['version']} · reviewed {catalog['reviewedOn']}", "",
              choice, "",
@@ -493,13 +635,16 @@ def generate(root: Path) -> dict[Path, bytes]:
              "[Excel agent instructions](profiles/excel-agent-instructions.txt) · "
              "[Bundle checksums](packages/bundles/manifest.json)", "",
              "[Tool inventory](TOOLS.md) · [Workflow contracts](docs/SKILL-CONTRACTS.md) · [Research registry](research/README.md)", ""]
-    if suite_version == 1:
+    if suite_version in (1, 2):
+        reference_summary = (f"{len({row['category'] for row in catalog['skills']})} category reference files "
+                             f"containing all {len(names)} complete workflows. " if suite_version == 2
+                             else f"{len(names)} complete workflow references. ")
         index += ["## One native import for the finance suite", "",
                   "[Copilot suite ZIP](packages/suites/finance-suite-copilot.zip?raw=1) · "
                   "[Gemini suite ZIP](packages/suites/finance-suite-gemini.zip?raw=1) · "
                   "[Member hashes and provenance](packages/suites/manifest.json)", "",
-                  f"Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and {len(names)} "
-                  "complete workflow references. Upload the selected suite ZIP unchanged. The host must be able "
+                  "Each suite is one native skill named `finance-suite`, with a root `SKILL.md` and "
+                  + reference_summary + "Upload the selected suite ZIP unchanged. The host must be able "
                   "to read its bundled references; verify this in the target account. This registers one skill, "
                   "not every workflow separately, and does not increase host limits. Individual packages remain available.", ""]
     if markdown_version == 1:

@@ -211,6 +211,40 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(release.run(self.root)["status"], "unchanged")
         self.assertEqual(self.snapshot(), after)
 
+    def test_grouped_suite_release_preserves_frozen_v1_suite_and_complete_workflows(self):
+        self.catalog.update(markdownBundleVersion=1, suitePackageVersion=1)
+        self.set_version("1.5.0")
+        release.run(self.root)
+        old = {name: value for name, value in self.snapshot().items()
+               if name.startswith("releases/v1.5.0/")}
+        old_reference_paths = [path for path in build.generate(self.root)
+                               if len(path.parts) == 5 and path.parts[0] == "editions"
+                               and path.parts[1].endswith("-suite")
+                               and path.parts[3] == "references"]
+        # Remove only the generated current-layout files; the frozen release stays intact.
+        for path in old_reference_paths:
+            (self.root / path).unlink()
+        self.catalog["suitePackageVersion"] = 2
+        self.set_version("1.5.1")
+        self.assertEqual(release.run(self.root)["status"], "created")
+        folder = self.root / "releases/v1.5.1"
+        self.assertEqual(release.verify_frozen(folder)["schemaVersion"], 3)
+        for edition in ("copilot", "gemini"):
+            payload = (folder / f"finance-skills-v1.5.1-{edition}-suite.zip").read_bytes()
+            self.assertEqual(payload, (self.root / f"packages/suites/finance-suite-{edition}.zip").read_bytes())
+            with zipfile.ZipFile(io.BytesIO(payload)) as suite:
+                self.assertEqual(set(suite.namelist()), {"SKILL.md", "references/core.md"})
+                companion = suite.read("references/core.md")
+                for name in ("excel-agent-core", "sample-task"):
+                    canonical = build.parse_skill((self.root / f"skills/{name}/SKILL.md").read_bytes(), name)[2]
+                    self.assertEqual(companion.count((canonical + "\n").encode()), 1)
+        with zipfile.ZipFile(folder / "finance-skills-v1.5.1-full.zip") as full:
+            self.assertIn("editions/copilot-suite/finance-suite/references/core.md", full.namelist())
+            self.assertNotIn("editions/copilot-suite/finance-suite/references/sample-task.md", full.namelist())
+        self.assertIn("grouped into 1 Markdown companion files", (folder / "README.md").read_text())
+        self.assertEqual({name: self.snapshot()[name] for name in old}, old)
+        self.assertEqual(release.run(self.root, check=True)["status"], "verified")
+
     def test_suite_release_rejects_payload_differing_from_full_project(self):
         self.catalog.update(markdownBundleVersion=1, suitePackageVersion=1)
         self.set_version("1.5.0")
@@ -298,7 +332,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_unsupported_suite_version_or_missing_markdown_cannot_create_a_release(self):
         self.catalog["markdownBundleVersion"] = 1
-        for invalid in (None, True, False, 0, 2, 1.0, "1", [], {}):
+        for invalid in (None, True, False, 0, 3, 1.0, 2.0, "1", [], {}):
             with self.subTest(version=invalid):
                 self.catalog["suitePackageVersion"] = invalid
                 self.write("catalog.json", build.json_bytes(self.catalog))

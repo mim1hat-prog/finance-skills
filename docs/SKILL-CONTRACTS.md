@@ -1,6 +1,6 @@
 # Workflow contracts and validation coverage
 
-Generated from catalog.json for version 1.5.0.
+Generated from catalog.json for version 1.5.1.
 
 These contracts describe triggers, inputs, outputs, modes and source support. Shared controls are included in every generated host skill. Package tests do not prove that a live finance workflow is production-ready. Conditional execution requires the actual host, authorization, exact target and payload, preconditions and independent verification. Native work-account validation remains outstanding.
 

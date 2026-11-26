@@ -124,7 +124,7 @@ class SuitePackagingTests(unittest.TestCase):
         self.assertNotIn("finance-suite", {row["name"] for row in individual["skills"]})
 
     def test_suite_flag_is_explicit_and_requires_markdown_bundle_version_one(self):
-        for flag in (None, True, False, 0, 2, 1.0, "1", {}):
+        for flag in (None, True, False, 0, 3, 1.0, 2.0, "1", {}):
             catalog = deepcopy(self.catalog)
             catalog["suitePackageVersion"] = flag
             with self.subTest(flag=flag), self.assertRaisesRegex(ValueError, "suite package version"):
@@ -211,6 +211,222 @@ class SuitePackagingTests(unittest.TestCase):
         catalog["skills"] = [{"name": name, "title": "Task", "summary": "Check."} for name in names]
         with self.assertRaisesRegex(ValueError, "100-file ceiling"):
             build.add_suite_packages({}, catalog, {name: source(name) for name in names}, notes, "")
+
+
+class GroupedSuitePackagingTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.catalog = json.loads((ROOT / "catalog.json").read_text())
+        cls.catalog.update(suitePackageVersion=2, markdownBundleVersion=1)
+        cls.outputs = SuitePackagingTests.generate_catalog(cls.catalog)
+        cls.manifest = json.loads(cls.outputs[Path("packages/suites/manifest.json")])
+        cls.sources = {row["name"]: (ROOT / "skills" / row["name"] / "SKILL.md").read_bytes()
+                       for row in cls.catalog["skills"]}
+        # Split independently of the production parser, preserving its declared body contract.
+        cls.bodies = {name: source.decode("utf-8").split("\n---\n", 1)[1].strip()
+                      for name, source in cls.sources.items()}
+
+    @staticmethod
+    def minimum_members(count=1):
+        root = (b'---\nname: finance-suite\ndescription: "Use for finance tasks"\n---\n\n'
+                b'# Finance suite\n\nUse approved inputs.\n')
+        return {"SKILL.md": root,
+                **{f"references/group-{number}.md": b"# Reference\n\nKeep approved inputs.\n"
+                   for number in range(count)}}
+
+    def test_grouped_packages_keep_all_twenty_nine_workflows_in_nine_companions(self):
+        expected_resources = {f"references/{category}.md" for category in (
+            "agent-setup", "core", "controls", "planning", "analysis", "reporting",
+            "design", "research", "pipeline")}
+        names = {row["name"] for row in self.catalog["skills"]}
+        self.assertEqual(len(names), 29)
+        self.assertEqual(self.manifest["schemaVersion"], 2)
+        self.assertEqual(self.manifest["layoutVersion"], 2)
+        self.assertEqual(self.manifest["companionFileCountPerPackage"], 9)
+        self.assertEqual(self.manifest["workflowCount"], 29)
+        self.assertEqual(self.manifest["registrationCountPerPackage"], 1)
+        repeated = SuitePackagingTests.generate_catalog(self.catalog)
+        self.assertEqual(self.outputs[Path("packages/suites/manifest.json")],
+                         repeated[Path("packages/suites/manifest.json")])
+        core_defaults = self.bodies["excel-agent-core"].split("\n", 1)[1].strip()
+        for record in self.manifest["packages"]:
+            with self.subTest(edition=record["edition"]):
+                path = Path(record["path"])
+                payload = self.outputs[path]
+                self.assertEqual(payload, repeated[path])
+                self.assertEqual(record["layoutVersion"], 2)
+                self.assertEqual(record["companionFileCount"], 9)
+                self.assertEqual(record["fileCount"], 10)
+                self.assertEqual(record["workflowCount"], 29)
+                self.assertEqual(record["nativeStatus"], "not-validated")
+                self.assertEqual(record["packageSha256"], hashlib.sha256(payload).hexdigest())
+                self.assertEqual(record["packageBytes"], len(payload))
+                with zipfile.ZipFile(io.BytesIO(payload)) as packed:
+                    self.assertEqual(packed.namelist(), sorted(expected_resources | {"SKILL.md"}))
+                    self.assertIsNone(packed.testzip())
+                    resources = {name: packed.read(name) for name in expected_resources}
+                    root = packed.read("SKILL.md")
+                    text = root.decode("utf-8")
+                    self.assertTrue(text.startswith('---\nname: finance-suite\ndescription: "'))
+                    self.assertLess(len(text), 20000)
+                    self.assertFalse(root.startswith(b"\xef\xbb\xbf"))
+                    self.assertNotIn(b"\r", root)
+                    self.assertIn(core_defaults, text)
+                    self.assertIn((ROOT / "adapters/workflow-controls.md").read_text().strip(), text)
+                    self.assertIn((ROOT / "adapters" / f"{record['edition']}.md").read_text().strip(), text)
+                    self.assertIn("read that entire workflow section", text)
+                    self.assertIn("Invoke `finance-suite` and select that section", text)
+                    routes = re.findall(r"^- \[[^\n]+\]\((references/[^)]+)\), `([^`]+)`:", text, re.M)
+                    self.assertEqual(len(routes), 29)
+                    self.assertEqual({name for _, name in routes}, names)
+                    route_by_name = {name: path for path, name in routes}
+                    self.assertEqual(set(route_by_name.values()), expected_resources)
+                    self.assertEqual(len(record["workflows"]), 29)
+                    self.assertEqual({row["name"] for row in record["workflows"]}, names)
+                    all_section_names = []
+                    for content in resources.values():
+                        all_section_names += re.findall(rb"^## Workflow: ([a-z0-9-]+)$", content, re.M)
+                    self.assertEqual(sorted(name.decode() for name in all_section_names), sorted(names))
+                    for workflow in record["workflows"]:
+                        name = workflow["name"]
+                        body = (self.bodies[name] + "\n").encode("utf-8")
+                        resource = workflow["resource"]
+                        self.assertEqual(route_by_name[name], resource)
+                        self.assertEqual(workflow["sectionHeading"], f"Workflow: {name}")
+                        offset, length = workflow["bodyOffsetBytes"], workflow["bodyLengthBytes"]
+                        self.assertEqual(resources[resource][offset:offset + length], body)
+                        self.assertEqual(sum(content.count(body) for content in resources.values()), 1)
+                        self.assertEqual(workflow["bodySha256"], hashlib.sha256(body).hexdigest())
+                        self.assertEqual(workflow["sourceSha256"], hashlib.sha256(self.sources[name]).hexdigest())
+                        self.assertEqual(workflow["sourcePath"], f"skills/{name}/SKILL.md")
+                    for row in record["files"]:
+                        content = packed.read(row["path"])
+                        self.assertEqual(row["bytes"], len(content))
+                        self.assertEqual(row["sha256"], hashlib.sha256(content).hexdigest())
+                        self.assertEqual(self.outputs[Path(record["expandedPath"]) / row["path"]], content)
+                    self.assertEqual(sum(entry.file_size for entry in packed.infolist()),
+                                     sum(len(packed.read(name)) for name in packed.namelist()))
+                    for entry in packed.infolist():
+                        self.assertFalse(entry.flag_bits & 1)
+                        self.assertEqual(entry.date_time, (1980, 1, 1, 0, 0, 0))
+                        self.assertEqual(entry.external_attr >> 16, 0o100644)
+                    build.validate_portable_suite_members({"SKILL.md": root, **resources}, payload)
+
+    def test_grouped_layout_keeps_individual_and_legacy_suite_contracts(self):
+        legacy_catalog = deepcopy(self.catalog)
+        legacy_catalog["suitePackageVersion"] = 1
+        legacy = SuitePackagingTests.generate_catalog(legacy_catalog)
+        for path, content in legacy.items():
+            if (path.parts[:2] in (("packages", "copilot"), ("packages", "gemini"),
+                                  ("packages", "bundles"), ("packages", "markdown"),
+                                  ("editions", "copilot"), ("editions", "gemini"),
+                                  ("editions", "gemini-gems"))
+                    or path.as_posix() in ("packages/manifest.json", "profiles/excel-agent-instructions.txt")):
+                self.assertEqual(content, self.outputs[path], path.as_posix())
+        manifest = json.loads(legacy[Path("packages/suites/manifest.json")])
+        self.assertEqual(manifest["schemaVersion"], 1)
+        self.assertNotIn("layoutVersion", manifest)
+        for record in manifest["packages"]:
+            self.assertNotIn("workflows", record)
+            self.assertNotIn("companionFileCount", record)
+            with zipfile.ZipFile(io.BytesIO(legacy[Path(record["path"])])) as packed:
+                self.assertEqual(set(packed.namelist()), {"SKILL.md"} | {
+                    f"references/{name}.md" for name in self.sources})
+
+    def test_portability_guard_rejects_legacy_thirty_file_shape(self):
+        legacy_catalog = deepcopy(self.catalog)
+        legacy_catalog["suitePackageVersion"] = 1
+        legacy = SuitePackagingTests.generate_catalog(legacy_catalog)
+        with zipfile.ZipFile(io.BytesIO(legacy[Path("packages/suites/finance-suite-copilot.zip")])) as packed:
+            members = {name: packed.read(name) for name in packed.namelist()}
+        self.assertEqual(len(members), 30)
+        with self.assertRaisesRegex(ValueError, "20-companion"):
+            build.validate_portable_suite_members(members)
+
+    def test_companion_count_and_byte_boundaries(self):
+        build.validate_portable_suite_members(self.minimum_members(20))
+        with self.assertRaisesRegex(ValueError, "20-companion"):
+            build.validate_portable_suite_members(self.minimum_members(21))
+        members = self.minimum_members(2)
+        members["references/group-0.md"] = b"x" * 5_000_000
+        members["references/group-1.md"] = b"y" * 5_000_000
+        build.validate_portable_suite_members(members)
+        too_large = dict(members)
+        too_large["references/group-0.md"] += b"x"
+        with self.assertRaisesRegex(ValueError, "5 MB"):
+            build.validate_portable_suite_members(too_large)
+        too_many_bytes = dict(members, **{"references/extra.md": b"z"})
+        with self.assertRaisesRegex(ValueError, "10 MB total"):
+            build.validate_portable_suite_members(too_many_bytes)
+
+    def test_compressed_and_root_instruction_boundaries(self):
+        members = self.minimum_members()
+        build.validate_portable_suite_members(members, b"x" * 10_000_000)
+        with self.assertRaisesRegex(ValueError, "10 MB compressed"):
+            build.validate_portable_suite_members(members, b"x" * 10_000_001)
+        root = members["SKILL.md"]
+        members["SKILL.md"] = root + b"x" * (19999 - len(root))
+        build.validate_portable_suite_members(members)
+        members["SKILL.md"] += b"x"
+        with self.assertRaisesRegex(ValueError, "20,000-character"):
+            build.validate_portable_suite_members(members)
+
+    def test_unsafe_and_reserved_companion_paths_are_rejected(self):
+        root = self.minimum_members(0)["SKILL.md"]
+        for path in ("references/../escape.md", "references/CON.md", "references/.hidden.md",
+                     "/references/file.md", "references\\file.md", "references/con.md",
+                     "references/lpt1.md"):
+            with self.subTest(path=path), self.assertRaisesRegex(ValueError, "unsafe resource|reserved filename"):
+                build.validate_portable_suite_members({"SKILL.md": root, path: b"# Safe content\n"})
+
+    def test_grouping_rejects_ambiguous_missing_or_excessive_categories(self):
+        rows = deepcopy(self.catalog["skills"])
+        for invalid in (None, "", " Core", "Core ", "Core/Tasks", "Core\nTasks", "日本", "CON"):
+            rows[0]["category"] = invalid
+            with self.subTest(category=invalid), self.assertRaisesRegex(ValueError, "category|reserved filename"):
+                build.grouped_suite_resources(rows, self.sources, self.bodies)
+        rows = deepcopy(self.catalog["skills"])
+        rows[0]["category"], rows[1]["category"] = "Core Tasks", "Core-Tasks"
+        with self.assertRaisesRegex(ValueError, "categories collide"):
+            build.grouped_suite_resources(rows, self.sources, self.bodies)
+        for number, row in enumerate(rows):
+            row["category"] = f"Category {number}"
+        with self.assertRaisesRegex(ValueError, "20-companion"):
+            build.grouped_suite_resources(rows, self.sources, self.bodies)
+
+    def test_workflow_mapping_rejects_missing_duplicate_changed_or_mislocated_bodies(self):
+        record = self.manifest["packages"][0]
+        with zipfile.ZipFile(io.BytesIO(self.outputs[Path(record["path"])])) as packed:
+            resources = {name: packed.read(name) for name in packed.namelist() if name != "SKILL.md"}
+        original = record["workflows"]
+        validate = lambda refs, mappings: build.validate_grouped_workflows(
+            self.catalog["skills"], self.sources, self.bodies, refs, mappings)
+        for mappings in (original[:-1], original + [original[0]]):
+            with self.assertRaisesRegex(ValueError, "exactly once"):
+                validate(resources, mappings)
+        for key, value in (("bodyOffsetBytes", True), ("bodyOffsetBytes", 0),
+                           ("bodySha256", "0" * 64), ("sourceSha256", "0" * 64),
+                           ("sectionHeading", "Workflow: wrong")):
+            mappings = deepcopy(original)
+            mappings[0][key] = value
+            with self.subTest(key=key, value=value), self.assertRaisesRegex(ValueError, "mapping differs"):
+                validate(resources, mappings)
+        first = original[0]
+        path, offset = first["resource"], first["bodyOffsetBytes"]
+        changed = dict(resources)
+        changed[path] = changed[path][:offset] + b"!" + changed[path][offset + 1:]
+        with self.assertRaisesRegex(ValueError, "mapping differs"):
+            validate(changed, original)
+        duplicate = dict(resources)
+        duplicate[path] += (self.bodies[first["name"]] + "\n").encode()
+        with self.assertRaisesRegex(ValueError, "duplicates or omits"):
+            validate(duplicate, original)
+        unknown = dict(resources)
+        unknown[path] += b"\n## Workflow: unknown\n\nUnexpected procedure.\n"
+        with self.assertRaisesRegex(ValueError, "section inventory differs"):
+            validate(unknown, original)
+        with self.assertRaisesRegex(ValueError, "unmapped resources"):
+            validate({**resources, "references/extra.md": b"# Unmapped\n"}, original)
 
 
 if __name__ == "__main__":

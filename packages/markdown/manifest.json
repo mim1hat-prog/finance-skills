@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "markdown-copy-paste-bundle",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "editions": [
     "copilot",
     "gemini"
@@ -9,8 +9,8 @@
   "skillCount": 29,
   "fileCount": 60,
   "path": "packages/markdown/finance-skills-markdown.zip",
-  "sha256": "1308d5322d07d7f71f8c0d9e9b28bb5b62139471d5ff83d677580c569b87ee7b",
-  "bytes": 310651,
+  "sha256": "1c9f5b807662fc0bd0b382c32448db6b5fc7671d7ff6e48ef806002e4ef35404",
+  "bytes": 310645,
   "files": [
     {
       "path": "EXCEL-AGENT-INSTRUCTIONS.md",
@@ -19,297 +19,297 @@
     },
     {
       "path": "START-HERE.md",
-      "sha256": "29a8d4b44f417e0ead11fad72f32e576db8846f129e2f4a1a23b4c8bf497b803",
+      "sha256": "76cbcac2ef3741c8a789c694812c956bc8d98a7a798f429325d65d89fa8d701b",
       "bytes": 1988
     },
     {
       "path": "copilot/account-mapping.md",
-      "sha256": "56a22a1138ac7bcc51dc77e063bb5f5e69a6e857ff01a17055b4f0573cddff7f",
+      "sha256": "852273ac61733ede09174844b2c66af2fbed6445340c29ddd0139705603e397c",
       "bytes": 11873
     },
     {
       "path": "copilot/analytical-sql.md",
-      "sha256": "532a8a0a68923c152f34c4bb3f4e7540c8c44ce649bcabc0c1670f07d21d8e88",
+      "sha256": "cdbfd15dbd8cecfda5b95043cb774bdaaaf1161c7c0f3a04ba73b9543396d3e2",
       "bytes": 14581
     },
     {
       "path": "copilot/benchmark-lookup.md",
-      "sha256": "1939da7cd12b11922275e926e1411ab4588403cf3df45b8199c47281f870cc2e",
+      "sha256": "77f9d21565156806f9178cf13e0772f1ef457efea1579bd9d970ff88fa719735",
       "bytes": 9429
     },
     {
       "path": "copilot/business-document.md",
-      "sha256": "f71daa037fc876acf1ed9203c9d2884e1aa68dd0bb1b70fecca7b0bfd62e1295",
+      "sha256": "5f65845611ab242426d8b7dbbf6474008aeb59f94635a89348e2d8d95c841d95",
       "bytes": 13172
     },
     {
       "path": "copilot/cash-working-capital.md",
-      "sha256": "c46d9167bdbb29a66287f7d21f9b16660183d5f5a022b3f3e8ccd4558fe2e1cc",
+      "sha256": "b6942400a808e99f6d21222666bf7a5b4631e3cff03c115b96eb3c2983431904",
       "bytes": 11867
     },
     {
       "path": "copilot/close-controls.md",
-      "sha256": "095b888cb0604a301c21393131c94ad293cde0d028accb92f19e0633f428e0b5",
+      "sha256": "9ec437d2ef13ec16634db6dbcf5e951c7d379197b16b80c6648ad070212aed90",
       "bytes": 13632
     },
     {
       "path": "copilot/connected-reporting.md",
-      "sha256": "858b30db4861e219fdbef0cd99cd23fc76b90389a2b0c6218018019ddae58552",
+      "sha256": "853b21f80c64388917854dd916689423a2db3d8082f1c15b3026f24504ac8fe0",
       "bytes": 9779
     },
     {
       "path": "copilot/corporate-style.md",
-      "sha256": "8b74b9ef346eed3f54e6a6183592874a5a15fcedc0f24f745bc2193b24e0887a",
+      "sha256": "ccaa95a1ee1cc8f8d8efd6ee740c76ec75df89bdfe191b2152c11890883befd7",
       "bytes": 14002
     },
     {
       "path": "copilot/design-review.md",
-      "sha256": "4fa72c9ae0515106eb3b07b5ea54f552011107399d72ec8fa70d59620edcc1ea",
+      "sha256": "0284785fd2b4e08159ff59297d7c933f3375aaeadcbd76d3017388919b5a82c2",
       "bytes": 12880
     },
     {
       "path": "copilot/document-extraction.md",
-      "sha256": "c46aa06dc8ac52321d50a4118fe71389520c425894200dc0b6255403a1e30fb8",
+      "sha256": "6dccf64c44a2d95ca872a4bec0cb59752c7d9e00c5c7d8aebcf581905b52e9e3",
       "bytes": 12257
     },
     {
       "path": "copilot/evidence-research.md",
-      "sha256": "9c116bfbbd2712794f2e94743cc546853edae23b89e133dc25fb859040b52211",
+      "sha256": "8a1d705431790e9bbffd7c0dd98ecbb4e99060d13d9cd31c95cfbc6f8607a34c",
       "bytes": 15277
     },
     {
       "path": "copilot/excel-agent-core.md",
-      "sha256": "8c7b8892665c737897421f30854671053450800bc0ad75f7d8b2dfec0a371ce2",
+      "sha256": "5e7c465f023543fccfc4911257a5e0fb3618bbc8e097b10488d8b0e5ecde6566",
       "bytes": 12629
     },
     {
       "path": "copilot/excel-data-coverage.md",
-      "sha256": "c854281d43f241979c6010ed9095ea05a7650b4bf15700b3192ab9ac8c8ef341",
+      "sha256": "119380d297c17bddd05598d727c9ef947acfd0175d83ece5da175f1894214f85",
       "bytes": 12525
     },
     {
       "path": "copilot/forecast-variance.md",
-      "sha256": "cfe9835fc7f68ad4ae1cd133ddddee7b218af3cb85e9006afaaca48946ed6b77",
+      "sha256": "3bccd14e70c0f7a2fcd75a158a955efc30315f7615297bebc10806caaa4432bd",
       "bytes": 15035
     },
     {
       "path": "copilot/fx-allocation-preflight.md",
-      "sha256": "704cb9775bfd9739b2a9f51aa04fcb0001f7721e18aefe033893e42c1ae5b347",
+      "sha256": "426827da81713ee0c53dc47acf463a5b3cdb3d10780c452c605fed5b54e670e0",
       "bytes": 8947
     },
     {
       "path": "copilot/interactive-visualization.md",
-      "sha256": "1a27c1b80b5bc54954fd1ced7f3c94ad46419b39e54337f9a95bc98a433e47ca",
+      "sha256": "36dd7e929b59ecbf84f5ae1785cd870561a2825b3122e57cad3457156a5b73ba",
       "bytes": 13521
     },
     {
       "path": "copilot/management-presentation.md",
-      "sha256": "6a9088e012477a9518ad47d867772ef89c2af7a104a6d889a1805d2925830b90",
+      "sha256": "dac4533b23e05321aaeaf0ba3832566e7e711214119fc9599616273642dc4d7b",
       "bytes": 12860
     },
     {
       "path": "copilot/power-bi-analysis.md",
-      "sha256": "8d6ecdbc02f9be34e2975f8e1c12823b077132b5142847d6ba429a6946135907",
+      "sha256": "4fd8e469cbd52684cffb27a52924426d1bd3b95c855fc508c982e4592baa0c98",
       "bytes": 12342
     },
     {
       "path": "copilot/power-query-etl.md",
-      "sha256": "93864f146bf9bc05bc43522b64ed85757e200a5d609e52d9d0773e3ab123f943",
+      "sha256": "137fc9989702e254b7c0d4895bb06a08f4caa36c21002c832e2c3e88c5fac769",
       "bytes": 13816
     },
     {
       "path": "copilot/process-diagram.md",
-      "sha256": "acba125f7c58015f4ffc36ac908eff05fe9f760c88d20883382a63cfdcc7cb7f",
+      "sha256": "95648fd65d066dd1cf018d94cc5d80bb409357d03c9df6fbcad205f2a9821775",
       "bytes": 11874
     },
     {
       "path": "copilot/project-context.md",
-      "sha256": "5d4dd6faa797710feb5420fb4892bd7e2a8fe2404b5f37a0fe835ba32aad110c",
+      "sha256": "11c2232966f869cbf3c6b51d19436a53c57272a3e1d81d7bc11b00a0531f2603",
       "bytes": 12874
     },
     {
       "path": "copilot/provision-reconciliation.md",
-      "sha256": "dd53894c14399c2eba3e27b53203060d396e88f8820ab0d76ad9fa429d7593e5",
+      "sha256": "c2a79d38e35958680a12ffc075d9185bce14e339023667c26314d45c1eb9fac0",
       "bytes": 9359
     },
     {
       "path": "copilot/reproducible-analysis.md",
-      "sha256": "c896072c297a67d237a0abf2138f1f7a60e484dfc3df637ac187a08252e9e9ab",
+      "sha256": "9fb594db57f0156da77ed207057bebeefd7e6e981b0a565f6fcc9256269835b2",
       "bytes": 15064
     },
     {
       "path": "copilot/scenario-planning.md",
-      "sha256": "503c66ed71623831e404474bc6526683c0868ac011b78b0e019661100b2a391c",
+      "sha256": "f63191f3b846f604eae8de5e41eeb26d7b6342df4a2b889dd0713d62793f12c1",
       "bytes": 12903
     },
     {
       "path": "copilot/sharepoint-evidence.md",
-      "sha256": "0be6355c4dd775dc6d4dd95ddcbb19b0e8d82fa3243297539fb80b27e64b022a",
+      "sha256": "5b57a19346494414d11745003a54ffc712e2a36204db8a78b7e126834c1a603a",
       "bytes": 11580
     },
     {
       "path": "copilot/spreadsheet-modeling.md",
-      "sha256": "4fc89aa3062368da97c48c71e64564a26d8730300e57684508a80ce53a0e1a49",
+      "sha256": "d7dd44da4e840060fb384f5b7417d623ccf069310d6f4e1e3df17a875f160fba",
       "bytes": 14770
     },
     {
       "path": "copilot/video-storyboard.md",
-      "sha256": "a29de78021ac3f4345146bc6e2372a6dc2d6dcc00bc4c8a269a9e3eee322abd4",
+      "sha256": "39bf38c34ca37b5b54ae4157c6322d30d8a0cb7ba032bf950d72ef30e97c8843",
       "bytes": 12841
     },
     {
       "path": "copilot/work-tool-routing.md",
-      "sha256": "c682e07e126700aa467799be1e2553235db05ff3b935313a91fb96fef7a8598f",
+      "sha256": "c9ce3c5afc630f303ff8708cbc918ec8ba9caec0862776b6ea9be99070cb32c3",
       "bytes": 12475
     },
     {
       "path": "copilot/workforce-reconciliation.md",
-      "sha256": "1a8e3f3fa9e8e1f468ed0cf06cb819795e9655ef7adfb73c0e84ba4976201e3e",
+      "sha256": "1db8e434071595e1404f3b851fceb68b186cd73ddcbd238a3d7d49924f3be961",
       "bytes": 14755
     },
     {
       "path": "gemini/account-mapping.md",
-      "sha256": "bd06b60e08c9784c84e9d384b96284c127b5b62e0a767f7ed44bfeb3cedc866d",
+      "sha256": "9605aa1f99575a36b9aaf60d3599fd7ea16f277a0003852570b47b44cc3eeeb6",
       "bytes": 11903
     },
     {
       "path": "gemini/analytical-sql.md",
-      "sha256": "def7bb37a08a697b1ca5ba7cd569f503c66943bf1a27bbf11e6ced81b7c231cd",
+      "sha256": "216b042ec5fa3fbd0a61c4b09d99d6d70d517de09c1160731d3c25ce42104ea9",
       "bytes": 14611
     },
     {
       "path": "gemini/benchmark-lookup.md",
-      "sha256": "56c811da1f556ed806b3ebfd4b666c6a4a1d1e3365eec608f4482932108e8d99",
+      "sha256": "f83a0e4f333f0203eb5c24ee0b5d2e7508513156d1f9489c1ff8f9c8d6bf7409",
       "bytes": 9459
     },
     {
       "path": "gemini/business-document.md",
-      "sha256": "f9e799472fd6da3db2466241f212948ed2076e7361191863d595f52a5508d374",
+      "sha256": "d7e17148196741b1c08ac32a2f4039b9f6428b07eead954ba344341f798519d0",
       "bytes": 13202
     },
     {
       "path": "gemini/cash-working-capital.md",
-      "sha256": "a2c44b4414a64a5db36dafd7cfe7b9da1fc1fad989498cab7a8eaae7920e0e2f",
+      "sha256": "f95de2085df928b152b93e1859128437c941db410e2310224bba4ec115981977",
       "bytes": 11897
     },
     {
       "path": "gemini/close-controls.md",
-      "sha256": "54b4236a1e1bc3a72df82a79362c585b5f6db443f6f61457105ebc5b918ad20b",
+      "sha256": "5d796ec5db0f6655af3dc7d926de3b6879cab919ff4c1094d3238c4899091a67",
       "bytes": 13662
     },
     {
       "path": "gemini/connected-reporting.md",
-      "sha256": "8e5305ca1ae7554aa688a678b3d0413b25bd5b7e97b2be8064c68b8334599acd",
+      "sha256": "581bd218274422506bddf5ff16efe5fc3b00cf97df75a71e15c3c8982ea5ced4",
       "bytes": 9809
     },
     {
       "path": "gemini/corporate-style.md",
-      "sha256": "859bd42d1e2f6ea357a637835c586a1526ac8d9ec9c482adb0b86bad654e3a19",
+      "sha256": "58e6dd673fa2ec7516af650c5b9a9d0a1169d79493164423f9c1a85f39b0c2c9",
       "bytes": 14032
     },
     {
       "path": "gemini/design-review.md",
-      "sha256": "367d55aafd8fb3789fcf5ce42f47f2561b3c1ad896725fab3d0538ce56d94171",
+      "sha256": "1096e42e3df8eaaae96682611455693b5dc432c535b218fbbdc8c24d205df311",
       "bytes": 12910
     },
     {
       "path": "gemini/document-extraction.md",
-      "sha256": "fead83e66ab0fdb51dda74e6672af45352073922f15a0e034aa46177f85b9d08",
+      "sha256": "c68391b60209eb72d75edd377209a4652a402b12c3f6ec7ac520fb392d298eb8",
       "bytes": 12287
     },
     {
       "path": "gemini/evidence-research.md",
-      "sha256": "944192c8b94e1ae827f9c7cdbf30cf2cfee416c9daa3788345882745028f99f7",
+      "sha256": "1bd2f51db1580d36544cb55e7b43821bc03e1bffca070094167319bf06701960",
       "bytes": 15307
     },
     {
       "path": "gemini/excel-agent-core.md",
-      "sha256": "921dc86efa34e4b8fedc90e24d0489b062002087f33395511146d7d01cf70c85",
+      "sha256": "424fed50da8be4f184989780a512d93846f3abf5cc850db1f1cfc374a6cf1b79",
       "bytes": 12659
     },
     {
       "path": "gemini/excel-data-coverage.md",
-      "sha256": "8ac70dba8689670d2225a632a044dfa1da382261c79078e26948453f8e3de80c",
+      "sha256": "ae3fb7a2024646bb8b81d2e7cb3b7e47746aec73744e210a82908578b7bf3284",
       "bytes": 12555
     },
     {
       "path": "gemini/forecast-variance.md",
-      "sha256": "6310a538aa8d486c7e779b5576c866b2869f55f5e1027c48b68c0403300089d9",
+      "sha256": "15ebd9084a6c47c5f4dc7d669d89230de1dfc5ffdd5f1de20eb403692af76fbe",
       "bytes": 15065
     },
     {
       "path": "gemini/fx-allocation-preflight.md",
-      "sha256": "7a3eddcad18f4fc9843ce91d0b32b516227d80bbd471c9d164c737b653199fb7",
+      "sha256": "52264a330df73aaef72a6d3b79f4c45d457482569a6c129331d7d8b1291d925f",
       "bytes": 8977
     },
     {
       "path": "gemini/interactive-visualization.md",
-      "sha256": "f26a3c8761762759fd7e6078bd8a21814400f3c5925e9c6ce080c374c9e7ebfa",
+      "sha256": "def7e5e049c9308fe9f1c9e60aab51ecd0e665fb2d80102b1e83dcc6bf17def6",
       "bytes": 13551
     },
     {
       "path": "gemini/management-presentation.md",
-      "sha256": "c2ba4b9d622f4366734e9e989470c761f1837dacb72b9dcb9ef24955414d66af",
+      "sha256": "98e53a1f85edf8c1af60ca59cd1c77a3d51ff4be56c223871f39fcde2b89421e",
       "bytes": 12890
     },
     {
       "path": "gemini/power-bi-analysis.md",
-      "sha256": "1b6503341dbfc885238cba768ca00fb881636c8d55c048d6f0902fdc12b41a1b",
+      "sha256": "0aa288ed1e01f9a2c0992e446264a6c0bea0791b29ff972dcc81ce951b55aab8",
       "bytes": 12372
     },
     {
       "path": "gemini/power-query-etl.md",
-      "sha256": "782144e505e41cba0f102d09a36e6092962ca2903b853e8d638d8f608ae0b54f",
+      "sha256": "89d0645b9fe5bdac377f106d86f8774563a53030dc8260a4060eccb56e020f0e",
       "bytes": 13846
     },
     {
       "path": "gemini/process-diagram.md",
-      "sha256": "33306402a7a42a8af333b97ce99050a6f9f0b26109393a4b61bb2e642b65aa24",
+      "sha256": "853815482e8eed4472efc066d3533daaa7a7331e6ce9f2e25a9eed0194777c95",
       "bytes": 11904
     },
     {
       "path": "gemini/project-context.md",
-      "sha256": "a1679e4900c382cb81e803e36b3387b266d781772ab8941b9f06d0caf489286e",
+      "sha256": "db579618d40ff4e62e9a0d450fec84e029f9528e782b5c5e59caef44f4d16d65",
       "bytes": 12904
     },
     {
       "path": "gemini/provision-reconciliation.md",
-      "sha256": "717649442aecc7f922b7b2c6afa99005ab68d84b2b551a48450d2e0eb2086e49",
+      "sha256": "be9a76f426360ea4f3bb93847881cdd9601a862b7b4365fea41ed278e5106b10",
       "bytes": 9389
     },
     {
       "path": "gemini/reproducible-analysis.md",
-      "sha256": "c857dc7b985ca14fe883dc92e03a20bd79cf3bf3e2a09f2eb1425832c2b43005",
+      "sha256": "5a874c84d6191d55ffbf3a77d3e93d78318f48fed91fa086f47c4e968d495dba",
       "bytes": 15094
     },
     {
       "path": "gemini/scenario-planning.md",
-      "sha256": "6d097992272e2b95c784f7c432a1431144ebb1f8881b4f911666b220bb954451",
+      "sha256": "8ec0549c77c1807866f35400b54e8684a040356a07b40767b2fac155dee2d90f",
       "bytes": 12933
     },
     {
       "path": "gemini/sharepoint-evidence.md",
-      "sha256": "cceab3b9cc712482ed78a1589d8f5d8c588643e77507c4eb559cc7b3cbb36b8c",
+      "sha256": "5eb59ebd593350d3a32d956ba92c8b496d639f9e53671ef2337397874977a49a",
       "bytes": 11610
     },
     {
       "path": "gemini/spreadsheet-modeling.md",
-      "sha256": "ce22b8cf9db90238aa6999a825d15374b8f9eab276cb396b401aa55801952306",
+      "sha256": "ae3ef7f6b87944f7532b1646ba55ffabf98271c4ce765aecfc825804a2b26e5d",
       "bytes": 14800
     },
     {
       "path": "gemini/video-storyboard.md",
-      "sha256": "553cd9c6addc615c0e706f949320e94610a92d156d153619341e8b41d12fd12c",
+      "sha256": "7c7e65aa129a58d68eab212f130be08eaab405d6652e34b4c0ff8919789b5f21",
       "bytes": 12871
     },
     {
       "path": "gemini/work-tool-routing.md",
-      "sha256": "e63fe77bba7d5c977cc97c4c925e15fa05500502edf6ddc71fc369954a7ae122",
+      "sha256": "8090724bf0f13d315251bd365a26199588458d44188ea30719bf4d85b3b068b4",
       "bytes": 12505
     },
     {
       "path": "gemini/workforce-reconciliation.md",
-      "sha256": "34c5fd9797ef089ab29e27855251d31c77556b7ddcc230146525530a419851e1",
+      "sha256": "140ef3c725651045eb8eb74590118a5d8a56c5d1bb2f1b8c740326daf494bc0f",
       "bytes": 14785
     }
   ]

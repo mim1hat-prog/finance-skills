@@ -9,43 +9,45 @@ description: "Apply finance workflows for Excel, workforce planning, forecast va
 
 This is one registered skill with 29 bundled finance workflows, not 29 separately registered skills. It does not change host limits or grant tools, permissions or data access.
 
-Understand the requested objective, then use the index to select only the relevant workflow or workflows. Read each selected reference completely before applying its procedure. The index is navigation, not a substitute for those instructions. Apply the host guidance, shared controls and default operating instructions below throughout the task.
+Understand the requested objective, then use the index to select only the relevant workflow or workflows. In its linked category file, find `## Workflow: <workflow-id>` and read that entire workflow section before applying its procedure. The index is navigation, not a substitute for those instructions. Apply the host guidance, shared controls and default operating instructions below throughout the task.
 
 If a required reference is unavailable or unreadable, identify the exact missing resource and use an available supported route to retrieve it. Do not invent its procedure or claim that it was read or executed. Continue only work supported by the instructions and evidence actually available, and state any material remaining limitation.
 
 Use approved internal figures for business results, internal evidence for workflow status and public benchmarks only as separately cited context. Keep routine checks internal and preserve existing business logic; do not add unsolicited audit tables, audit text or worksheets.
 
+Workflow IDs and examples that name an individual workflow refer to sections inside this suite. Invoke `finance-suite` and select that section; no separate skill is required.
+
 ## Workflow index
 
-- [Excel agent instructions](references/excel-agent-core.md): Search internal evidence first, preserve workbook logic and return concise results without unsolicited audit tables or new sheets.
-- [Work tool routing](references/work-tool-routing.md): Choose the available tool and finish with evidence.
-- [Excel data coverage](references/excel-data-coverage.md): Check the complete workbook population before drawing conclusions.
-- [Workforce reconciliation](references/workforce-reconciliation.md): Reconcile headcount, FTE, transfers and personnel costs.
-- [Forecast variance](references/forecast-variance.md): Explain budget and forecast differences with reconciled drivers.
-- [Power BI analysis](references/power-bi-analysis.md): Review model grain, DAX, filter context and control totals.
-- [Management presentation](references/management-presentation.md): Build source-backed management slides with a clear decision.
-- [Business document](references/business-document.md): Prepare a concise memo, procedure or decision record.
-- [Corporate style](references/corporate-style.md): Apply the approved company template and visual standards.
-- [Spreadsheet modeling](references/spreadsheet-modeling.md): Create auditable models, formulas, pivots and sensitivity views.
-- [Analytical SQL](references/analytical-sql.md): Query local data with explicit grain, joins and null handling.
-- [Evidence research](references/evidence-research.md): Trace consequential claims to dated primary sources.
-- [Reproducible analysis](references/reproducible-analysis.md): Keep transformations, assumptions and checks reproducible.
-- [Design review](references/design-review.md): Review clarity, accessibility and layout against the real output.
-- [Project context](references/project-context.md): Carry decisions and open issues between work sessions.
-- [Video storyboard](references/video-storyboard.md): Plan a financial explainer with timed scenes and source notes.
-- [Interactive visualization](references/interactive-visualization.md): Specify and build interactive views with honest scales and labels.
-- [Power Query pipeline](references/power-query-etl.md): Combine recurring exports with schema checks, explicit exclusions and totals that reconcile.
-- [SharePoint evidence](references/sharepoint-evidence.md): Find approved sources, resolve versions and build a precise internal evidence register.
-- [Account mapping](references/account-mapping.md): Check dated mappings, duplicate rules and allocation weights before reporting classifications.
-- [Period-close controls](references/close-controls.md): Prepare reconciliations, accrual checks and a reviewer handoff with clear evidence and open items.
-- [Cash and working capital](references/cash-working-capital.md): Reconcile cash and aging, calculate aligned DSO/DIO/DPO and separate scenarios from realized cash.
-- [Scenario planning](references/scenario-planning.md): Build traceable driver scenarios, sensitivities and break-even views with explicit assumptions.
-- [Document extraction](references/document-extraction.md): Turn report tables and statements into traceable data with OCR exceptions and source locators.
-- [Finance process diagrams](references/process-diagram.md): Explain data flows, ownership, review gates and exception paths with compact diagrams.
-- [Connected reporting](references/connected-reporting.md): Validate report context, ordered upload coordinates and independent readback.
-- [Provision and warranty reconciliation](references/provision-reconciliation.md): Reconcile movement components and frozen versions, retaining residuals and missing confirmations.
-- [FX and allocation preflight](references/fx-allocation-preflight.md): Separate FX sensitivity, accounting scope and allocation preconditions.
-- [Public benchmark lookup](references/benchmark-lookup.md): Query rights-cleared public snapshots with explicit units, freshness and information vintage.
+- [Excel agent instructions](references/agent-setup.md), `excel-agent-core`: Search internal evidence first, preserve workbook logic and return concise results without unsolicited audit tables or new sheets.
+- [Work tool routing](references/core.md), `work-tool-routing`: Choose the available tool and finish with evidence.
+- [Excel data coverage](references/controls.md), `excel-data-coverage`: Check the complete workbook population before drawing conclusions.
+- [Workforce reconciliation](references/planning.md), `workforce-reconciliation`: Reconcile headcount, FTE, transfers and personnel costs.
+- [Forecast variance](references/planning.md), `forecast-variance`: Explain budget and forecast differences with reconciled drivers.
+- [Power BI analysis](references/analysis.md), `power-bi-analysis`: Review model grain, DAX, filter context and control totals.
+- [Management presentation](references/reporting.md), `management-presentation`: Build source-backed management slides with a clear decision.
+- [Business document](references/reporting.md), `business-document`: Prepare a concise memo, procedure or decision record.
+- [Corporate style](references/design.md), `corporate-style`: Apply the approved company template and visual standards.
+- [Spreadsheet modeling](references/analysis.md), `spreadsheet-modeling`: Create auditable models, formulas, pivots and sensitivity views.
+- [Analytical SQL](references/analysis.md), `analytical-sql`: Query local data with explicit grain, joins and null handling.
+- [Evidence research](references/research.md), `evidence-research`: Trace consequential claims to dated primary sources.
+- [Reproducible analysis](references/analysis.md), `reproducible-analysis`: Keep transformations, assumptions and checks reproducible.
+- [Design review](references/design.md), `design-review`: Review clarity, accessibility and layout against the real output.
+- [Project context](references/core.md), `project-context`: Carry decisions and open issues between work sessions.
+- [Video storyboard](references/reporting.md), `video-storyboard`: Plan a financial explainer with timed scenes and source notes.
+- [Interactive visualization](references/reporting.md), `interactive-visualization`: Specify and build interactive views with honest scales and labels.
+- [Power Query pipeline](references/pipeline.md), `power-query-etl`: Combine recurring exports with schema checks, explicit exclusions and totals that reconcile.
+- [SharePoint evidence](references/research.md), `sharepoint-evidence`: Find approved sources, resolve versions and build a precise internal evidence register.
+- [Account mapping](references/controls.md), `account-mapping`: Check dated mappings, duplicate rules and allocation weights before reporting classifications.
+- [Period-close controls](references/controls.md), `close-controls`: Prepare reconciliations, accrual checks and a reviewer handoff with clear evidence and open items.
+- [Cash and working capital](references/planning.md), `cash-working-capital`: Reconcile cash and aging, calculate aligned DSO/DIO/DPO and separate scenarios from realized cash.
+- [Scenario planning](references/planning.md), `scenario-planning`: Build traceable driver scenarios, sensitivities and break-even views with explicit assumptions.
+- [Document extraction](references/pipeline.md), `document-extraction`: Turn report tables and statements into traceable data with OCR exceptions and source locators.
+- [Finance process diagrams](references/reporting.md), `process-diagram`: Explain data flows, ownership, review gates and exception paths with compact diagrams.
+- [Connected reporting](references/controls.md), `connected-reporting`: Validate report context, ordered upload coordinates and independent readback.
+- [Provision and warranty reconciliation](references/controls.md), `provision-reconciliation`: Reconcile movement components and frozen versions, retaining residuals and missing confirmations.
+- [FX and allocation preflight](references/planning.md), `fx-allocation-preflight`: Separate FX sensitivity, accounting scope and allocation preconditions.
+- [Public benchmark lookup](references/research.md), `benchmark-lookup`: Query rights-cleared public snapshots with explicit units, freshness and information vintage.
 
 ## Microsoft 365 Copilot edition
 
@@ -123,4 +125,4 @@ Avoid filler, AI self-reference, process commentary, unsolicited audit text, and
 
 ## Suite record
 
-Finance skills 1.5.0; copilot edition; source review 2026-11-25. This is the package's source-review date, not the freshness of business data. Package validation does not establish successful native import, reference retrieval or task execution in the work account.
+Finance skills 1.5.1; copilot edition; source review 2026-11-25. This is the package's source-review date, not the freshness of business data. Package validation does not establish successful native import, reference retrieval or task execution in the work account.

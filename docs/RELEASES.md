@@ -1,19 +1,21 @@
 # Download and verify a release
 
-[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.5.0.md)
+[Ready-to-download releases](https://github.com/mim1hat-prog/finance-skills/blob/main/releases/README.md) · [Current release notes](../release-notes/v1.5.1.md)
 
 ## Choose a package
 
 From v1.5.0, each published version has seven ZIP downloads under `releases/v<version>/`. Versions v1.3.0–v1.4.4 retain five, and earlier releases retain their original four:
 
-- **Copilot complete suite:** one native `finance-suite` skill containing all 29 workflow references. Upload the ZIP unchanged through a supported Skills screen.
-- **Gemini complete suite:** the equivalent single native skill with the Gemini host instructions and all 29 workflow references. Upload the complete ZIP.
+- **Copilot complete suite:** one native `finance-suite` skill containing all 29 complete workflows in nine reference files. Upload the ZIP unchanged through a supported Skills screen.
+- **Gemini complete suite:** the equivalent single native skill with the Gemini host instructions and all 29 complete workflows in nine reference files. Upload the complete ZIP.
 
 - **Markdown only:** complete Copilot and Gemini instruction bodies as `.md` files, the Excel agent profile and a start guide. Extract, open the relevant file and copy its full contents into an available Instructions field or approved conversation. YAML headers are removed. Every archive member is Markdown; checksums and the file inventory are kept outside this ZIP.
 - **Copilot:** every Copilot skill as an individual native-import ZIP and matching folder, plus the Excel agent Instructions text.
 - **Gemini:** every Gemini skill as an individual native-import ZIP and matching folder, Gem-ready text and the Excel agent Instructions text.
 - **All skills:** both editions in one transport download.
 - **Full:** the complete useful project, including both editions, individual packages, transport bundles, the profile, canonical source, offline guides, catalogue, local Python helpers, workflow schemas, benchmark dataset/API contract, research registry, citation metadata, examples and tests.
+
+From v1.5.1, complete suites group the canonical procedures by category into nine companion files, keeping the same finance-suite registration. The earlier v1.5.0 suites retain their historical 29-companion layout and are unsuitable for Cowork's documented 20-companion ceiling. Replace the full installed folder when upgrading, so obsolete reference files do not accumulate. The external suite index uses schema 2 for grouped workflow source/body hashes and byte ranges; the versioned release manifest remains schema 3.
 
 The full project also includes generated coverage statistics, static discovery metadata and the explicit community contribution templates. The Markdown-only ZIP remains instructions only.
 
@@ -23,14 +25,14 @@ For an **individual-package transport bundle or full project**, extract the oute
 
 The full ZIP keeps the project at the archive root. Open its `README.md` or `site/index.html` after extraction. It excludes Git history, private work files, local environments, caches and previous release archives. It does not include third-party source archives or install optional packages, desktop tools, workers or APIs.
 
-These downloads are hosted as versioned repository files. The available ChatGPT GitHub plugin supports repository publication but does not expose Git tag creation, GitHub Release creation or release-asset upload. No GitHub Release object or tag is implied by the download directory. All links work through the repository files; GitHub Actions is not required.
+These downloads are frozen as versioned repository files. A GitHub Release and its uploaded assets are separate publication steps through an available authorized tool; verify their tag target and downloaded hashes. The [GitHub Releases page](https://github.com/mim1hat-prog/finance-skills/releases) contains separately published releases. A local release directory alone does not prove that external publication succeeded. GitHub Actions is not required.
 
 ## Verify a download on Windows
 
 Download `SHA256SUMS.txt` from the same version directory. In PowerShell:
 
 ```powershell
-Get-FileHash .\finance-skills-v1.5.0-full.zip -Algorithm SHA256
+Get-FileHash .\finance-skills-v1.5.1-full.zip -Algorithm SHA256
 ```
 
 Compare the resulting hash with the line for that exact filename. The release manifest also records file sizes and hashes. A checksum confirms that the downloaded bytes match the published manifest; it is not a digital signature or a guarantee of model behavior.

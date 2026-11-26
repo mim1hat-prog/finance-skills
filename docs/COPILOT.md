@@ -1,8 +1,8 @@
 # Use finance skills with Copilot
 
-Verified against official documentation on **2026-11-25**. This guide targets **Microsoft 365 Copilot on a Windows 11 work PC**. The repository contains importable packages; native installation is complete only after your work account saves the skill and a representative task succeeds.
+Core setup reviewed against official documentation on **2026-11-25**; import limits and Cowork routing reviewed **2026-11-26**. This guide targets **Microsoft 365 Copilot on a Windows 11 work PC**. The repository contains packages for supported native import routes; installation is complete only after your work account saves the skill and a representative task succeeds.
 
-[**Download the complete Copilot suite — one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-copilot.zip). Upload this ZIP unchanged through a supported **Upload skill / Add skill** screen. It contains one root `SKILL.md` with `name` and `description`, plus all 29 workflow references, and appears as one `finance-suite` skill. [Single-import instructions](SINGLE-IMPORT.md)
+[**Download the complete Copilot suite — one import**](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/suites/finance-suite-copilot.zip). Upload this ZIP unchanged through a supported **Upload skill / Add skill** screen. It contains one root `SKILL.md` with `name` and `description`, plus all 29 complete workflows grouped into nine Markdown companion files, and appears as one `finance-suite` skill. [Single-import instructions](SINGLE-IMPORT.md)
 
 For just the default operating rules, use [excel-agent-core.zip](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/copilot/excel-agent-core.zip). Individual workflows remain available below.
 
@@ -17,7 +17,8 @@ For just the default operating rules, use [excel-agent-core.zip](https://github.
 | Microsoft 365 Copilot Chat | Agents & Skills, using a standalone SKILL.md or individual ZIP | Research, evidence, analysis and general finance workflows |
 | Excel's Copilot pane | The OneDrive skills folder opened by Excel | Workbook calculations, reconciliation, mappings and models |
 | PowerPoint's Copilot pane | Add skill, or the OneDrive skills folder opened by PowerPoint | Management presentations, document structure and corporate style |
-| A custom Agent Builder agent | Configure → Skills → Add, using individual ZIPs | A focused assistant with up to eight selected skills |
+| A custom Agent Builder agent | Configure → Skills → Add, using the suite or individual ZIPs | One complete suite or a focused assistant with up to eight selected skills |
+| Copilot Cowork | Plugins → Add → Upload, using a complete skill ZIP | One suite with supporting reference files; check Cowork-specific limits below |
 | GitHub Copilot in VS Code, if separately available | Its supported project/user skill location | Local coding and Python work; this is a separate Copilot product |
 
 Microsoft currently limits personal Copilot Chat skills to the experience labeled **Premium**, excludes Basic, and does not support them in Information Barriers tenants. Excel/PowerPoint availability depends on the app, subscription and organization settings; the Chat restriction should not be applied indiscriminately to every Office surface. Check the menu in the work account you intend to use. [Chat requirements](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills) · [Excel requirements](https://support.microsoft.com/en-gb/excel/copilot/frequently-asked-questions-about-copilot-in-excel)
@@ -44,6 +45,18 @@ Import-format checks reviewed **2026-11-26** against the linked Microsoft docume
 4. Use GitHub's **Download raw file** or the direct download link. Saving the GitHub file-view webpage can produce HTML instead of the skill's Markdown.
 
 Microsoft documents the required YAML fields in its [Copilot Chat skill format](https://learn.microsoft.com/en-us/plugins/build-copilot-chat-skills) and encoding/parser checks in its [Copilot Studio upload troubleshooting](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/skills-add-existing). These package checks do not establish a successful import in your account. If the unchanged individual package still fails, provide the exact uploaded filename, the original company-neutral file and the surface used—Microsoft 365 Copilot Chat, Excel, PowerPoint or Agent Builder—so the failed input can be inspected. Do not include company additions or work data.
+
+### Troubleshoot unsupported, invalid, import-limit or Responsible AI errors
+
+The combined rejection message does not identify which check failed. A valid YAML header alone does not establish acceptance. Record the exact upload screen and any detailed validation report before assigning a cause.
+
+The inspected **v1.5.0 Copilot suite is intact and has valid metadata**, but includes 29 companion files. Microsoft documents a separate **20-companion limit per Cowork skill**. This is a confirmed portability defect in that package; it is not proof that every Copilot surface rejects it for the same reason. **Use v1.5.1 or later:** all 29 complete workflows are grouped into nine companion files.
+
+Cowork's [personal-skill guide](https://learn.microsoft.com/en-us/copilot/cowork/use-cowork) specifies 20 companions and 10 MB total. Its [upload guide](https://learn.microsoft.com/en-us/copilot/cowork/cowork-customize) separately allows a 1 MB main file, a 10 MB compressed / 50 MB expanded archive and 100 archive files. The [plugin companion rules](https://learn.microsoft.com/en-us/copilot/cowork/cowork-plugin-development) additionally specify 5 MB per companion. The current suite conservatively checks all these size/file ceilings, using decimal MB, while retaining a main file under 20,000 characters. These project checks do not imply identical limits for personal Chat, Agent Builder or Excel.
+
+Keep the complete ZIP intact for a supported ZIP import. In Cowork, use **Plugins → Add → Upload**. For an Excel OneDrive installation, replace the complete suite folder, including old reference files, then Refresh; do not merge the new nine files with the previous 29. Preserve private customizations separately before replacing a folder.
+
+If the current suite still fails, identify whether the screen is **Copilot Chat, Agent Builder, Excel, PowerPoint or Cowork** and retain the detailed error. The existing single-file [Excel defaults package](https://github.com/mim1hat-prog/finance-skills/raw/refs/heads/main/packages/copilot/excel-agent-core.zip) can help distinguish supporting-file handling from a more general account or content issue, but a smaller package is not guaranteed to pass. Respect tenant controls and approved support routes. Microsoft's [Responsible AI validation documentation](https://learn.microsoft.com/en-us/plugins/responsible-ai-validation) describes a separate platform check; local ZIP tests cannot reproduce that service or establish its verdict.
 
 ## 2. Microsoft 365 Copilot Chat
 

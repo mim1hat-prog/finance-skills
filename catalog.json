@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "1.5.0",
+  "version": "1.5.1",
   "projectPresentationVersion": 1,
   "markdownBundleVersion": 1,
   "reviewedOn": "2026-11-25",
@@ -1436,5 +1436,5 @@
   ],
   "workflowContractsVersion": 1,
   "releasedOn": "2026-11-26",
-  "suitePackageVersion": 1
+  "suitePackageVersion": 2
 }

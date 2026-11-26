@@ -212,12 +212,12 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
         raise ReleaseError("Unsupported Markdown bundle version")
     suite_version = catalog.get("suitePackageVersion")
     if "suitePackageVersion" in catalog:
-        if type(suite_version) is not int or suite_version != 1:
+        if type(suite_version) is not int or suite_version not in (1, 2):
             raise ReleaseError("Unsupported suite package version")
         if type(markdown_version) is not int or markdown_version != 1:
             raise ReleaseError("Suite packages require Markdown bundle version 1")
     schema_version = 2 if markdown_version == 1 else 1
-    if suite_version == 1:
+    if suite_version in (1, 2):
         schema_version = 3
     variants = VARIANTS_BY_SCHEMA[schema_version]
     version = catalog.get("version")
@@ -255,7 +255,7 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
                       gemini="Individual Gemini packages — extract first",
                       all="Both individual editions — extract first")
     lines = [f"# Finance skills v{version}", "", "## Downloads", "",
-             "These are repository-hosted release files, not GitHub Release assets.", "",
+             "These are the frozen repository-hosted files. GitHub Release assets are published and verified separately.", "",
              "| Download | File |", "| --- | --- |"]
     lines += [f"| {labels[v]} | [{prefix}-{v}.zip]({raw}/{prefix}-{v}.zip) |" for v in variants]
     if schema_version == 3:
@@ -263,6 +263,15 @@ def prepare(root: Path, download_ref: str = "main") -> tuple[dict, dict[str, byt
                   f"Each registers one finance-suite skill containing {len(catalog['skills'])} workflow references. "
                   "It does not register the workflows as separate native skills. "
                   "Keep the reference files with SKILL.md when replacing the suite."]
+        if suite_version == 2:
+            suite_manifest = json.loads(sources["packages/suites/manifest.json"])
+            companion_counts = {p["companionFileCount"] for p in suite_manifest["packages"]}
+            if len(companion_counts) != 1:
+                raise ReleaseError("Grouped suite companion counts differ between editions")
+            lines += ["", f"The complete workflows are grouped into {companion_counts.pop()} Markdown companion files, "
+                      "within the project's 20-companion portability ceiling. All workflow procedures remain complete. "
+                      "The earlier v1.5.0 suite has 29 companion files and exceeds Cowork's documented 20-companion limit. "
+                      "Use the current package; host acceptance and tenant permissions remain separate checks."]
     if schema_version >= 2:
         lines += ["", "For copy and paste, extract the Markdown-only ZIP, open START-HERE.md, "
                   "then copy the relevant Copilot or Gemini file. Every file in that ZIP is Markdown."]

@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="841" viewBox="0 0 1200 841" role="img" aria-labelledby="title desc">
 <title id="title">Finance skills: repository coverage and retained public data</title>
-<desc id="desc">Descriptive inventory for version 1.5.0. Workflow test links 8 / 29 (27.6%); native execution evidence 0 / 29 (0%). Observed benchmark series 11 / 17 (64.7%); 116 original and 51 derived rows. Counts describe repository evidence, not model accuracy or production readiness.</desc>
+<desc id="desc">Descriptive inventory for version 1.5.1. Workflow test links 8 / 29 (27.6%); native execution evidence 0 / 29 (0%). Observed benchmark series 11 / 17 (64.7%); 116 original and 51 derived rows. Counts describe repository evidence, not model accuracy or production readiness.</desc>
 <rect width="1200" height="841" fill="#FAF8F4"/>
 <g font-family="system-ui, -apple-system, Segoe UI, sans-serif" fill="#242622">
 <text x="48" y="55" font-size="30" font-weight="650">Repository coverage</text>
 <circle cx="1140" cy="45" r="12" fill="#31573f"/>
-<text x="48" y="88" font-size="16" fill="#60645C">Descriptive inventory · v1.5.0 · release 2026-11-26</text>
+<text x="48" y="88" font-size="16" fill="#60645C">Descriptive inventory · v1.5.1 · release 2026-11-26</text>
 <path d="M48 113H1152 M624 146V550 M48 582H1152" stroke="#DADDD5" fill="none"/>
 <text x="48" y="154" font-size="19" font-weight="650">A. Skill evidence links (n = 29)</text>
 <text x="660" y="154" font-size="19" font-weight="650">B. Retained public benchmark data</text>
